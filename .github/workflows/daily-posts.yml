@@ -69,3 +69,12 @@ jobs:
           POST_TYPE: ${{ inputs.type }}
           DRY_RUN: ${{ inputs.dry_run }}
         run: python -m src.post
+
+      # Em modo dry_run é gerado um preview.png; deixamos disponível para download.
+      - name: Salvar prévia do card (dry_run)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: previa-do-card
+          path: preview.png
+          if-no-files-found: ignore
