@@ -3,10 +3,15 @@ from __future__ import annotations
 
 import os
 
-ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-5")
-POST_LANGUAGE = os.getenv("POST_LANGUAGE", "português do Brasil")
+# Usa `or default` para que uma variável definida como string vazia
+# (comum no GitHub Actions quando a variable não existe) caia no padrão.
+ANTHROPIC_MODEL = (os.getenv("ANTHROPIC_MODEL") or "claude-sonnet-5").strip()
+POST_LANGUAGE = (os.getenv("POST_LANGUAGE") or "português do Brasil").strip()
 
-PLATFORMS = [p.strip().lower() for p in os.getenv("PLATFORMS", "threads").split(",") if p.strip()]
+# @ (handle) acrescentado ao final de cada post como assinatura.
+POST_HANDLE = (os.getenv("POST_HANDLE") or "@thiago.cunhaff").strip()
+
+PLATFORMS = [p.strip().lower() for p in (os.getenv("PLATFORMS") or "threads").split(",") if p.strip()]
 
 THREADS_USER_ID = os.getenv("THREADS_USER_ID", "")
 THREADS_ACCESS_TOKEN = os.getenv("THREADS_ACCESS_TOKEN", "")

@@ -40,7 +40,12 @@ do GitHub Actions.
 ### Variables do GitHub (mesma tela → Variables)
 - `PLATFORMS` — ex.: `threads` ou `threads,instagram`
 - `ANTHROPIC_MODEL` — padrão `claude-sonnet-5` (use `claude-haiku-4-5` para custo mínimo)
-- `POST_LANGUAGE` — ex.: `português do Brasil`
+- `POST_LANGUAGE` — ex.: `português do Brasil` (padrão)
+- `POST_HANDLE` — @ acrescentado ao final de cada post (padrão `@thiago.cunhaff`)
+
+> O conteúdo é sempre gerado em português por padrão, e cada post termina com o @
+> configurado como assinatura. Ambos têm valores-padrão embutidos, então funcionam
+> mesmo sem definir as variables no GitHub.
 
 ### Como obter as credenciais Meta
 - **Threads**: crie um app no [Meta for Developers](https://developers.facebook.com/),

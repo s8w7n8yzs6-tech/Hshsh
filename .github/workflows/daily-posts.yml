@@ -40,6 +40,7 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ANTHROPIC_MODEL: ${{ vars.ANTHROPIC_MODEL }}
           POST_LANGUAGE: ${{ vars.POST_LANGUAGE }}
+          POST_HANDLE: ${{ vars.POST_HANDLE }}
           PLATFORMS: ${{ vars.PLATFORMS }}
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
