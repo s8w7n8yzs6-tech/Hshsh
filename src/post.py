@@ -13,30 +13,49 @@ import os
 import random
 import sys
 import tempfile
+from datetime import datetime, timedelta, timezone
 
 from . import config, generate, market
 from .publishers import instagram, threads
 
 
-def choose_type() -> str:
-    if config.POST_TYPE:
-        return config.POST_TYPE
-    return random.choices(config.CONTENT_TYPES, weights=config.CONTENT_WEIGHTS, k=1)[0]
+def _current_slot() -> int:
+    """Índice do horário agendado (SCHEDULE_BRT) mais próximo de agora (Brasília)."""
+    brt = timezone(timedelta(hours=config.BRT_OFFSET_HOURS))
+    now = datetime.now(brt)
+    minutes = now.hour * 60 + now.minute
+    diffs = [abs(minutes - (h * 60 + m)) for h, m in config.SCHEDULE_BRT]
+    return diffs.index(min(diffs))
+
+
+def plan_post(content_type: str | None) -> tuple[str, str | None]:
+    """Decide (tipo, ativo). 2 slots/dia são de mercado (ouro/Nasdaq); o resto, trader."""
+    ct = content_type or config.POST_TYPE
+    if ct == "mercado":
+        return "mercado", random.choice(list(market.MARKET_ASSETS))
+    if ct:  # tipo fixo (ex.: "trader")
+        return ct, None
+
+    slot = _current_slot()
+    if slot == config.GOLD_SLOT_INDEX:
+        return "mercado", "ouro"
+    if slot == config.NASDAQ_SLOT_INDEX:
+        return "mercado", "nasdaq"
+    return "trader", None
 
 
 def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
-    content_type = content_type or choose_type()
+    content_type, asset_key = plan_post(content_type)
     dry_run = config.DRY_RUN if dry_run is None else dry_run
 
-    # Posts de mercado: foca em UM ativo (ouro ou Nasdaq), alternado, com candles 30min.
     asset = None
     snapshot = None
     if content_type == "mercado":
-        for key in random.sample(list(market.MARKET_ASSETS), k=len(market.MARKET_ASSETS)):
-            asset = market.fetch_asset(key)  # tenta o primeiro; se falhar, o outro
-            if asset:
-                break
-        snapshot = market.asset_snapshot(asset) if asset else None
+        asset = market.fetch_asset(asset_key)
+        if not asset:  # se falhar o ativo, cai para conteúdo de trader
+            content_type = "trader"
+        else:
+            snapshot = market.asset_snapshot(asset)
 
     result = generate.generate_post(content_type, snapshot)
     used_type = result["type"]

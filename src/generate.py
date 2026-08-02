@@ -21,14 +21,15 @@ _BASE_RULES = (
 )
 
 _PROMPTS = {
-    "motivacional": (
-        "Tema: post motivacional/de engajamento sobre a mentalidade de quem opera "
-        "no mercado (disciplina, paciência, gestão de risco, aprender com erros)."
-    ),
-    "educacional": (
-        "Tema: post educacional que explique de forma simples um conceito de trade "
-        "ou análise (ex.: suporte/resistência, stop-loss, diversificação, "
-        "volatilidade, risco x retorno). Escolha um e explique brevemente."
+    "trader": (
+        "Tema: um post que fale DIRETAMENTE com o trader para ele se IDENTIFICAR — "
+        "a rotina, as emoções e a realidade de quem opera (ex.: ansiedade antes de "
+        "entrar, disciplina, medo e ganância, o alívio de respeitar o stop, "
+        "acordar cedo pra operar, a montanha-russa emocional, pequenas vitórias, "
+        "erros comuns, paciência, solidão do day trade, evoluir aos poucos). "
+        "Escolha UM ângulo diferente e específico a cada vez, com tom humano e "
+        "próximo (fale 'você' ou compartilhe uma situação com a qual ele se "
+        "reconheça). Não é aula técnica nem comentário de preço."
     ),
     "mercado": (
         "Tema: comentário de mercado sobre O ATIVO abaixo (o post traz um gráfico "
@@ -56,7 +57,7 @@ def generate_post(content_type: str, market_snapshot: str | None = None) -> dict
         raise ValueError(f"Tipo de conteúdo desconhecido: {content_type}")
 
     if content_type == "mercado" and not market_snapshot:
-        content_type = "educacional"
+        content_type = "trader"
 
     if content_type == "mercado":
         prompt = _PROMPTS["mercado"].format(market=market_snapshot)

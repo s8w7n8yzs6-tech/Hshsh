@@ -22,10 +22,22 @@ IMGBB_API_KEY = os.getenv("IMGBB_API_KEY", "")
 
 DRY_RUN = os.getenv("DRY_RUN", "false").lower() in ("1", "true", "yes")
 
-# Tipos de conteúdo e seus pesos na escolha aleatória.
-# Mercado (ouro/Nasdaq, com candlestick) tem o maior peso — é o foco.
-CONTENT_TYPES = ("motivacional", "mercado", "educacional")
-CONTENT_WEIGHTS = (0.25, 0.50, 0.25)
+# Tipos de conteúdo. "mercado" = card com candlestick (só 2/dia: ouro e Nasdaq).
+# "trader" = conteúdo focado no trader (identificação) — os demais posts do dia.
+CONTENT_TYPES = ("trader", "mercado")
 
-# Tipo fixo, se definido no ambiente (senão, sorteio ponderado).
+# Horários dos 20 posts, em horário de Brasília (UTC-3), das 07:00 às 20:30.
+# O tipo de cada post é decidido pelo slot mais próximo do horário atual.
+SCHEDULE_BRT = [
+    (7, 0), (7, 43), (8, 25), (9, 8), (9, 51),
+    (10, 33), (11, 16), (11, 58), (12, 41), (13, 24),
+    (14, 6), (14, 49), (15, 32), (16, 14), (16, 57),
+    (17, 39), (18, 22), (19, 5), (19, 47), (20, 30),
+]
+# Índices (na lista acima) dos 2 posts de mercado do dia:
+GOLD_SLOT_INDEX = 2      # 08:25 — Ouro
+NASDAQ_SLOT_INDEX = 13   # 16:14 — Nasdaq (pregão dos EUA aberto)
+BRT_OFFSET_HOURS = -3
+
+# Tipo fixo, se definido no ambiente (senão, decidido pelo horário do slot).
 POST_TYPE = os.getenv("POST_TYPE", "").strip().lower() or None

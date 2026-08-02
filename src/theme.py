@@ -2,11 +2,11 @@
 from __future__ import annotations
 
 THEMES = {
-    "motivacional": {
-        "badge": "MINDSET",
-        "bg_top": (43, 22, 15),
-        "bg_bottom": (17, 9, 7),
-        "accent": (251, 146, 60),   # laranja
+    "trader": {
+        "badge": "TRADER",
+        "bg_top": (18, 28, 40),
+        "bg_bottom": (8, 13, 20),
+        "accent": (45, 212, 191),   # teal
     },
     "mercado": {
         "badge": "MERCADO",
@@ -14,17 +14,11 @@ THEMES = {
         "bg_bottom": (6, 14, 26),
         "accent": (56, 189, 248),   # ciano
     },
-    "educacional": {
-        "badge": "EDUCATIVO",
-        "bg_top": (30, 20, 55),
-        "bg_bottom": (13, 9, 26),
-        "accent": (167, 139, 250),  # roxo
-    },
 }
 
 
 def theme_for(content_type: str) -> dict:
-    return THEMES.get(content_type, THEMES["educacional"])
+    return THEMES.get(content_type, THEMES["trader"])
 
 
 def accent_hex(content_type: str) -> str:

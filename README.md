@@ -1,12 +1,12 @@
 # Hshsh — 20 posts diários sobre trade
 
-Gera e publica automaticamente posts sobre trade em **Threads** e **Instagram**,
-com três tipos de conteúdo:
+Gera e publica automaticamente posts sobre trade em **Threads** e **Instagram**.
+São **20 posts por dia**, distribuídos das **07:00 às 20:30 (horário de Brasília)**:
 
-- **Motivacional / engajamento** — mentalidade, disciplina, gestão de risco.
-- **Comentário de mercado** — baseado em **dados reais** de **Ouro (XAU/USD)** e
-  **Nasdaq 100**, via Yahoo Finance (sem chave).
-- **Educacional** — conceitos de trade explicados de forma simples.
+- **2 posts de mercado/dia** — 1 de **Ouro (XAU/USD)** e 1 de **Nasdaq**, cada um
+  com **gráfico de candlestick de 30 min** e **dados reais** (Yahoo Finance).
+- **18 posts focados no trader** — a rotina, as emoções e a realidade de quem
+  opera, para o seguidor **se identificar**.
 
 > ⚠️ O conteúdo é **informativo/educacional**. O sistema é instruído a **nunca**
 > dar recomendação de compra/venda, alvo de preço ou promessa de lucro — evitando
@@ -18,17 +18,16 @@ O texto de cada post é escrito pela API da Anthropic (Claude). Para o comentár
 de mercado, dados reais de **Ouro (XAU/USD)** e **Nasdaq 100** (Yahoo Finance) são
 passados ao modelo como contexto factual.
 
-O agendamento roda via **GitHub Actions**: o workflow dispara **20 vezes por dia**
-(uma por hora, ver `.github/workflows/daily-posts.yml`), e **cada execução gera e
-publica 1 post** — resultando em **20 posts/dia**, espaçados ao longo do dia. Sem
-estado entre execuções.
+O agendamento roda via **GitHub Actions** (`.github/workflows/daily-posts.yml`):
+há **20 horários por dia** (07:00–20:30 BRT) e **cada execução gera e publica 1
+post**. O tipo é decidido pelo horário: os slots das **08:25** (Ouro) e **16:14**
+(Nasdaq) são de mercado; todos os outros são de trader. Sem estado entre execuções.
 
-Cada post agora sai como um **card visual chamativo** (1080x1080), com:
+Cada post sai como um **card visual chamativo** em **retrato (1080x1350)**, com:
 
-- **Tema por tipo de conteúdo** (cores + badge: `MINDSET`, `MERCADO`, `EDUCATIVO`)
+- **Tema + badge por tipo** (`TRADER` teal, `MERCADO` ciano)
 - **Chamada curta e impactante** na imagem + legenda completa no texto do post
-- **Gráfico de candlestick (30 min)** nos posts de mercado: cada post foca em
-  **um** ativo (Ouro **ou** Nasdaq, alternando), com candles reais do Yahoo Finance
+- **Gráfico de candlestick (30 min)** só nos 2 posts de mercado (Ouro/Nasdaq)
 - **Sua assinatura** (`@thiago.cunhaff`) no rodapé
 
 | Plataforma | Requisito de mídia | Observação |
@@ -99,7 +98,7 @@ src/
   chart.py             # gráfico de candlestick 30min (matplotlib) para posts de mercado
   theme.py             # cores/badges por tipo de conteúdo
   generate.py          # escreve a chamada + a legenda via Claude
-  image.py             # monta o card visual 1080x1080
+  image.py             # monta o card visual 1080x1350 (retrato)
   image_host.py        # hospeda a imagem no imgbb (URL pública)
   post.py              # orquestra: gera 1 post e publica
   check.py             # valida credenciais (Instagram/Threads/imgbb)
@@ -111,9 +110,11 @@ src/
 
 ## Ajustes comuns
 
-- **Quantidade/horário**: edite o `cron` em `daily-posts.yml`. A linha atual
-  (`0 9-23,0-4 * * *`) dá exatamente 20 execuções/dia.
-- **Proporção dos tipos**: `CONTENT_WEIGHTS` em `src/config.py`.
+- **Horários dos posts**: as 20 linhas `cron` em `daily-posts.yml` (em UTC) e a
+  lista `SCHEDULE_BRT` em `src/config.py` (em horário de Brasília). Mantenha as
+  duas em sincronia se mudar os horários.
+- **Quais slots são de mercado**: `GOLD_SLOT_INDEX` / `NASDAQ_SLOT_INDEX` em
+  `src/config.py`.
 - **Custo**: 20 posts/dia são chamadas curtas; `claude-haiku-4-5` é a opção mais
   barata. O raciocínio estendido já vem desativado em `generate.py`.
 
