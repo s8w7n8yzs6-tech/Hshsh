@@ -31,9 +31,10 @@ _PROMPTS = {
         "volatilidade, risco x retorno). Escolha um e explique brevemente."
     ),
     "mercado": (
-        "Tema: comentário de mercado baseado NOS DADOS reais abaixo. Descreva o "
-        "movimento de forma neutra e informativa, sem prever direção nem recomendar "
-        "operações. A headline pode citar o destaque das últimas 24h.\n\n{market}"
+        "Tema: comentário de mercado sobre Ouro (XAU/USD) e Nasdaq, baseado NOS "
+        "DADOS reais abaixo. Descreva o movimento do dia de forma neutra e "
+        "informativa, sem prever direção nem recomendar operações. A headline pode "
+        "citar o destaque do dia.\n\n{market}"
     ),
 }
 

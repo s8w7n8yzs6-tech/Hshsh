@@ -1,56 +1,63 @@
-"""Dados de mercado reais (cripto) via API pública do CoinGecko — sem chave."""
+"""Dados de mercado reais para Ouro (XAU/USD) e Nasdaq 100, via Yahoo Finance.
+
+Endpoint público, sem chave. A variação é "no dia" (preço atual vs. fechamento
+anterior). Os números vêm de dados reais, não são inventados.
+"""
 from __future__ import annotations
 
 import requests
 
-# id do CoinGecko -> (rótulo completo, sigla)
-_COINS = {
-    "bitcoin": ("Bitcoin (BTC)", "BTC"),
-    "ethereum": ("Ethereum (ETH)", "ETH"),
-    "solana": ("Solana (SOL)", "SOL"),
-}
-_URL = "https://api.coingecko.com/api/v3/simple/price"
+# Ativos acompanhados. GC=F (ouro futuro) é usado como proxy do XAU/USD spot.
+_ASSETS = [
+    {"symbol": "GC=F", "label": "Ouro (XAU/USD)", "short": "XAU/USD"},
+    {"symbol": "^NDX", "label": "Nasdaq 100", "short": "NASDAQ"},
+]
+_URL = "https://query1.finance.yahoo.com/v8/finance/chart/{symbol}"
+_HEADERS = {"User-Agent": "Mozilla/5.0"}
+
+
+def _fetch_one(symbol: str, timeout: int):
+    resp = requests.get(
+        _URL.format(symbol=symbol),
+        params={"range": "5d", "interval": "1d"},
+        headers=_HEADERS,
+        timeout=timeout,
+    )
+    resp.raise_for_status()
+    meta = resp.json()["chart"]["result"][0]["meta"]
+    price = meta.get("regularMarketPrice")
+    prev = meta.get("chartPreviousClose") or meta.get("previousClose")
+    if price is None or not prev:
+        return None
+    change = (price - prev) / prev * 100
+    return float(price), float(change)
 
 
 def get_market_data(timeout: int = 15) -> list[dict] | None:
-    """Retorna dados estruturados de preço/variação 24h, ou None em falha.
-
-    Cada item: {"label", "short", "price", "change"}. Serve tanto para o texto
-    quanto para o gráfico — os números vêm de dados reais, não são inventados.
-    """
-    params = {
-        "ids": ",".join(_COINS),
-        "vs_currencies": "usd",
-        "include_24hr_change": "true",
-    }
-    try:
-        resp = requests.get(_URL, params=params, timeout=timeout)
-        resp.raise_for_status()
-        data = resp.json()
-    except (requests.RequestException, ValueError):
-        return None
-
+    """Retorna [{"label","short","price","change"}] ou None se nada for obtido."""
     out = []
-    for coin_id, (label, short) in _COINS.items():
-        info = data.get(coin_id)
-        if not info:
+    for asset in _ASSETS:
+        try:
+            result = _fetch_one(asset["symbol"], timeout)
+        except (requests.RequestException, ValueError, KeyError, IndexError, TypeError):
+            result = None
+        if not result:
             continue
-        price = info.get("usd")
-        change = info.get("usd_24h_change")
-        if price is None or change is None:
-            continue
-        out.append({"label": label, "short": short, "price": float(price), "change": float(change)})
+        price, change = result
+        out.append(
+            {"label": asset["label"], "short": asset["short"], "price": price, "change": change}
+        )
     return out or None
 
 
 def get_market_snapshot(data: list[dict] | None = None) -> str | None:
-    """Resumo textual dos preços e variação 24h (contexto factual para o modelo)."""
+    """Resumo textual (contexto factual para o modelo)."""
     if data is None:
         data = get_market_data()
     if not data:
         return None
     lines = [
-        f"- {d['label']}: US$ {d['price']:,.2f} ({d['change']:+.2f}% em 24h)"
+        f"- {d['label']}: {d['price']:,.2f} ({d['change']:+.2f}% no dia)"
         for d in data
     ]
-    return "Dados de mercado (últimas 24h):\n" + "\n".join(lines)
+    return "Dados de mercado (variação no dia):\n" + "\n".join(lines)

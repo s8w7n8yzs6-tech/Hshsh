@@ -34,7 +34,7 @@ def render_change_chart(data: list[dict]) -> Image.Image:
     for spine in ax.spines.values():
         spine.set_visible(False)
     ax.tick_params(length=0)
-    ax.set_title("Variação 24h (%)", color="white", fontsize=14, pad=10, loc="left")
+    ax.set_title("Variação no dia (%)", color="white", fontsize=14, pad=10, loc="left")
 
     span = max((abs(c) for c in changes), default=1) or 1
     ax.set_xlim(-span * 1.35, span * 1.35)

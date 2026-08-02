@@ -4,7 +4,8 @@ Gera e publica automaticamente posts sobre trade em **Threads** e **Instagram**,
 com três tipos de conteúdo:
 
 - **Motivacional / engajamento** — mentalidade, disciplina, gestão de risco.
-- **Comentário de mercado** — baseado em **dados reais** (preços de cripto via CoinGecko).
+- **Comentário de mercado** — baseado em **dados reais** de **Ouro (XAU/USD)** e
+  **Nasdaq 100**, via Yahoo Finance (sem chave).
 - **Educacional** — conceitos de trade explicados de forma simples.
 
 > ⚠️ O conteúdo é **informativo/educacional**. O sistema é instruído a **nunca**
@@ -14,7 +15,8 @@ com três tipos de conteúdo:
 ## Como funciona
 
 O texto de cada post é escrito pela API da Anthropic (Claude). Para o comentário
-de mercado, dados reais do CoinGecko são passados ao modelo como contexto factual.
+de mercado, dados reais de **Ouro (XAU/USD)** e **Nasdaq 100** (Yahoo Finance) são
+passados ao modelo como contexto factual.
 
 O agendamento roda via **GitHub Actions**: o workflow dispara **20 vezes por dia**
 (uma por hora, ver `.github/workflows/daily-posts.yml`), e **cada execução gera e
@@ -25,8 +27,8 @@ Cada post agora sai como um **card visual chamativo** (1080x1080), com:
 
 - **Tema por tipo de conteúdo** (cores + badge: `MINDSET`, `MERCADO`, `EDUCATIVO`)
 - **Chamada curta e impactante** na imagem + legenda completa no texto do post
-- **Gráfico automático** nos posts de mercado (variação 24h de BTC/ETH/SOL, com
-  dados reais do CoinGecko)
+- **Gráfico automático** nos posts de mercado (variação no dia de XAU/USD e
+  Nasdaq 100, com dados reais do Yahoo Finance)
 - **Sua assinatura** (`@thiago.cunhaff`) no rodapé
 
 | Plataforma | Requisito de mídia | Observação |
@@ -73,11 +75,14 @@ do GitHub Actions.
 pip install -r requirements.txt
 export ANTHROPIC_API_KEY=sk-ant-...
 
-# Só gerar, sem publicar:
+# Só gerar, sem publicar (salva um preview.png):
 python -m src.post --dry-run
 
 # Forçar um tipo específico:
 python -m src.post --type mercado --dry-run
+
+# Verificar credenciais (Instagram/Threads/imgbb) sem publicar nada:
+python -m src.check
 ```
 
 ## Estrutura
@@ -85,11 +90,14 @@ python -m src.post --type mercado --dry-run
 ```
 src/
   config.py            # lê variáveis de ambiente
-  market.py            # dados reais de cripto (CoinGecko)
-  generate.py          # escreve o post via Claude
-  image.py             # renderiza o texto em imagem 1080x1080 (Instagram)
+  market.py            # dados reais de Ouro (XAU/USD) e Nasdaq 100 (Yahoo Finance)
+  chart.py             # gráfico de variação (matplotlib) para posts de mercado
+  theme.py             # cores/badges por tipo de conteúdo
+  generate.py          # escreve a chamada + a legenda via Claude
+  image.py             # monta o card visual 1080x1080
   image_host.py        # hospeda a imagem no imgbb (URL pública)
   post.py              # orquestra: gera 1 post e publica
+  check.py             # valida credenciais (Instagram/Threads/imgbb)
   publishers/
     threads.py         # publica no Threads
     instagram.py       # publica no Instagram
