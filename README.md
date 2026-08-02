@@ -21,10 +21,21 @@ O agendamento roda via **GitHub Actions**: o workflow dispara **20 vezes por dia
 publica 1 post** — resultando em **20 posts/dia**, espaçados ao longo do dia. Sem
 estado entre execuções.
 
+Cada post agora sai como um **card visual chamativo** (1080x1080), com:
+
+- **Tema por tipo de conteúdo** (cores + badge: `MINDSET`, `MERCADO`, `EDUCATIVO`)
+- **Chamada curta e impactante** na imagem + legenda completa no texto do post
+- **Gráfico automático** nos posts de mercado (variação 24h de BTC/ETH/SOL, com
+  dados reais do CoinGecko)
+- **Sua assinatura** (`@thiago.cunhaff`) no rodapé
+
 | Plataforma | Requisito de mídia | Observação |
 |-----------|--------------------|------------|
-| **Threads** | Texto puro OK | Funciona só com token de acesso |
-| **Instagram** | Exige imagem com URL pública | Geramos a imagem (Pillow) e hospedamos no imgbb |
+| **Threads** | Aceita imagem via URL pública | Com `IMGBB_API_KEY` publica o card; sem ela, cai para texto |
+| **Instagram** | Exige imagem com URL pública | Precisa de `IMGBB_API_KEY` para hospedar o card |
+
+> As imagens são geradas com **Pillow** (card) + **matplotlib** (gráfico) e
+> hospedadas no **imgbb** (URL pública exigida pelas APIs da Meta).
 
 ## Configuração
 

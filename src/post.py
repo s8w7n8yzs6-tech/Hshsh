@@ -1,4 +1,4 @@
-"""Orquestrador: gera 1 post e publica nas plataformas configuradas.
+"""Orquestrador: gera 1 post (card visual + legenda) e publica nas plataformas.
 
 Executado uma vez por disparo do agendador (GitHub Actions). Rodando 20 vezes ao
 dia, produz 20 posts/dia — sem manter estado entre execuções.
@@ -28,23 +28,32 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
     content_type = content_type or choose_type()
     dry_run = config.DRY_RUN if dry_run is None else dry_run
 
-    snapshot = market.get_market_snapshot() if content_type == "mercado" else None
-    caption = generate.generate_post(content_type, snapshot)
+    market_data = market.get_market_data() if content_type == "mercado" else None
+    snapshot = market.get_market_snapshot(market_data) if content_type == "mercado" else None
 
-    print(f"[{content_type}] Post gerado:\n{caption}\n")
+    result = generate.generate_post(content_type, snapshot)
+    used_type = result["type"]
+    caption = result["caption"]
+    headline = result["headline"]
+
+    print(f"[{used_type}] headline: {headline}")
+    print(f"legenda:\n{caption}\n")
+
+    # Sempre gera o card visual.
+    out_path = "preview.png" if dry_run else os.path.join(tempfile.gettempdir(), "post_card.png")
+    image_path = _build_card(headline, used_type, market_data, out_path)
 
     if dry_run:
-        print("DRY_RUN ativo — nada foi publicado.")
+        print(f"DRY_RUN ativo — card salvo em {image_path}; nada publicado.")
         return
 
     if not config.PLATFORMS:
         print("Nenhuma plataforma configurada (PLATFORMS). Nada publicado.")
         return
 
-    # Gera a imagem só se o Instagram estiver entre os destinos.
-    image_url = None
-    if "instagram" in config.PLATFORMS or "threads" in config.PLATFORMS:
-        image_url = _maybe_upload_image(caption)
+    image_url = _host_image(image_path)
+    if image_url is None:
+        print("Aviso: sem IMGBB_API_KEY — publicando sem imagem onde possível.", file=sys.stderr)
 
     errors = []
     for platform in config.PLATFORMS:
@@ -56,7 +65,7 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
                     post_id = threads.publish_text(caption)
             elif platform == "instagram":
                 if not image_url:
-                    raise RuntimeError("Instagram requer imagem, mas o upload falhou.")
+                    raise RuntimeError("Instagram requer imagem (configure IMGBB_API_KEY).")
                 post_id = instagram.publish_image(image_url, caption)
             else:
                 print(f"Plataforma desconhecida ignorada: {platform}")
@@ -70,24 +79,29 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
         raise SystemExit("Falhas de publicação:\n" + "\n".join(errors))
 
 
-def _maybe_upload_image(caption: str) -> str | None:
-    """Gera e hospeda a imagem; retorna a URL ou None se não for possível."""
-    from . import image, image_host
+def _build_card(headline: str, content_type: str, market_data, out_path: str) -> str:
+    from . import image
 
-    if "instagram" in config.PLATFORMS and not config.IMGBB_API_KEY:
-        # Instagram precisa de imagem; sem host não dá para prosseguir com ela.
-        print("Aviso: IMGBB_API_KEY ausente — Instagram não poderá publicar imagem.")
+    chart_img = None
+    if content_type == "mercado" and market_data:
+        try:
+            from . import chart
+
+            chart_img = chart.render_change_chart(market_data)
+        except Exception as exc:  # noqa: BLE001
+            print(f"Aviso: não foi possível gerar o gráfico: {exc}", file=sys.stderr)
+    return image.build_card(headline, content_type, config.POST_HANDLE, out_path, chart_img)
+
+
+def _host_image(path: str) -> str | None:
     if not config.IMGBB_API_KEY:
         return None
     try:
-        with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tmp:
-            path = tmp.name
-        image.render_caption_image(caption, path)
-        url = image_host.upload_image(path)
-        os.unlink(path)
-        return url
+        from . import image_host
+
+        return image_host.upload_image(path)
     except Exception as exc:  # noqa: BLE001
-        print(f"Aviso: não foi possível gerar/hospedar imagem: {exc}", file=sys.stderr)
+        print(f"Aviso: não foi possível hospedar a imagem: {exc}", file=sys.stderr)
         return None
 
 
