@@ -13,12 +13,14 @@ POST_HANDLE = (os.getenv("POST_HANDLE") or "@thiago.cunhaff").strip()
 
 PLATFORMS = [p.strip().lower() for p in (os.getenv("PLATFORMS") or "threads").split(",") if p.strip()]
 
-THREADS_USER_ID = os.getenv("THREADS_USER_ID", "")
-THREADS_ACCESS_TOKEN = os.getenv("THREADS_ACCESS_TOKEN", "")
+# .strip() protege contra espaços/tabs/quebras acidentais coladas no Secret
+# (um TAB no INSTAGRAM_USER_ID, por ex., quebrava a URL da API com %09).
+THREADS_USER_ID = os.getenv("THREADS_USER_ID", "").strip()
+THREADS_ACCESS_TOKEN = os.getenv("THREADS_ACCESS_TOKEN", "").strip()
 
-INSTAGRAM_USER_ID = os.getenv("INSTAGRAM_USER_ID", "")
-INSTAGRAM_ACCESS_TOKEN = os.getenv("INSTAGRAM_ACCESS_TOKEN", "")
-IMGBB_API_KEY = os.getenv("IMGBB_API_KEY", "")
+INSTAGRAM_USER_ID = os.getenv("INSTAGRAM_USER_ID", "").strip()
+INSTAGRAM_ACCESS_TOKEN = os.getenv("INSTAGRAM_ACCESS_TOKEN", "").strip()
+IMGBB_API_KEY = os.getenv("IMGBB_API_KEY", "").strip()
 
 DRY_RUN = os.getenv("DRY_RUN", "false").lower() in ("1", "true", "yes")
 
