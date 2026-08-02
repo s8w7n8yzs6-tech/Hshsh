@@ -68,8 +68,9 @@ do GitHub Actions.
 - **Threads**: crie um app no [Meta for Developers](https://developers.facebook.com/),
   adicione a Threads API, conecte a conta Threads e gere um token de longa duração.
   `THREADS_USER_ID` é o ID da sua conta Threads.
-- **Instagram**: conta **Business/Creator** conectada a uma Página do Facebook; use
-  a Instagram Graph API para obter `INSTAGRAM_USER_ID` e o token de acesso.
+- **Instagram**: conta **Business/Creator**; use a **Instagram API com login do
+  Instagram** (`graph.instagram.com`) para gerar o token e o `INSTAGRAM_USER_ID`.
+  Passo a passo completo em [`SETUP_INSTAGRAM.md`](SETUP_INSTAGRAM.md).
 
 > Tokens da Meta expiram — troque por tokens de longa duração e renove periodicamente.
 

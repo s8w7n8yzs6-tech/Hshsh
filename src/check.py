@@ -34,13 +34,13 @@ def _check_instagram() -> None:
         return
     try:
         r = requests.get(
-            f"https://graph.facebook.com/v21.0/{config.INSTAGRAM_USER_ID}",
-            params={"fields": "username,name", "access_token": config.INSTAGRAM_ACCESS_TOKEN},
+            "https://graph.instagram.com/v21.0/me",
+            params={"fields": "user_id,username", "access_token": config.INSTAGRAM_ACCESS_TOKEN},
             timeout=20,
         )
         data = r.json()
         if r.status_code == 200 and "username" in data:
-            _ok(f"Instagram conectado como @{data['username']}")
+            _ok(f"Instagram conectado como @{data['username']} (user_id {data.get('user_id')})")
         else:
             _fail(f"Instagram: {data.get('error', {}).get('message', data)}")
     except requests.RequestException as exc:

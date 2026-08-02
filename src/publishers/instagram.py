@@ -1,6 +1,7 @@
-"""Publicação no Instagram via Graph API (fluxo em 2 passos: criar + publicar).
+"""Publicação no Instagram via Instagram API (login do Instagram, graph.instagram.com).
 
-O Instagram exige mídia (imagem/vídeo) com URL pública — não há post só de texto.
+Fluxo em 2 passos: cria o contêiner de mídia e depois publica.
+O Instagram exige mídia (imagem) com URL pública — não há post só de texto.
 """
 from __future__ import annotations
 
@@ -8,7 +9,7 @@ import requests
 
 from .. import config
 
-_BASE = "https://graph.facebook.com/v21.0"
+_BASE = "https://graph.instagram.com/v21.0"
 
 
 def publish_image(image_url: str, caption: str, timeout: int = 30) -> str:

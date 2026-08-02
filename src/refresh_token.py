@@ -1,14 +1,13 @@
-"""Renova o token de longa duração da Meta e grava de volta no Secret do GitHub.
+"""Renova o token de longa duração do Instagram e grava no Secret do GitHub.
 
-Rodado por um workflow agendado. Tokens de longa duração da Meta expiram em ~60
-dias; re-trocá-los periodicamente mantém a publicação funcionando sem intervenção.
+Fluxo "login do Instagram" (graph.instagram.com): o token de longa duração (60
+dias) é renovado com `ig_refresh_token` — não precisa de app id/secret. Rodado
+por um workflow agendado semanalmente, mantém a publicação sem intervenção.
 
-Variáveis de ambiente necessárias (todas como Secrets do GitHub):
-- FB_APP_ID, FB_APP_SECRET       -> app do Meta for Developers
-- INSTAGRAM_ACCESS_TOKEN         -> token atual (será renovado)
-- GH_PAT                         -> Personal Access Token com permissão de escrita
-                                    em "Secrets" do repositório
-- GITHUB_REPOSITORY              -> "owner/repo" (o GitHub Actions define sozinho)
+Variáveis de ambiente necessárias (Secrets do GitHub):
+- INSTAGRAM_ACCESS_TOKEN  -> token atual (será renovado)
+- GH_PAT                  -> Personal Access Token com escrita em "Secrets" do repo
+- GITHUB_REPOSITORY       -> "owner/repo" (o GitHub Actions define sozinho)
 """
 from __future__ import annotations
 
@@ -19,7 +18,7 @@ import sys
 import requests
 from nacl import encoding, public
 
-_GRAPH = "https://graph.facebook.com/v21.0/oauth/access_token"
+_REFRESH = "https://graph.instagram.com/refresh_access_token"
 _SECRET_NAME = "INSTAGRAM_ACCESS_TOKEN"
 
 
@@ -31,8 +30,6 @@ def _encrypt(public_key_b64: str, value: str) -> str:
 
 def main() -> None:
     try:
-        app_id = os.environ["FB_APP_ID"]
-        app_secret = os.environ["FB_APP_SECRET"]
         token = os.environ["INSTAGRAM_ACCESS_TOKEN"]
         gh_pat = os.environ["GH_PAT"]
         repo = os.environ["GITHUB_REPOSITORY"]
@@ -40,15 +37,10 @@ def main() -> None:
         print(f"Variável ausente: {exc}. Renovação ignorada.", file=sys.stderr)
         raise SystemExit(1)
 
-    # 1) Re-troca o token por um novo de longa duração (renova ~60 dias).
+    # 1) Renova o token de longa duração (ig_refresh_token — sem app secret).
     r = requests.get(
-        _GRAPH,
-        params={
-            "grant_type": "fb_exchange_token",
-            "client_id": app_id,
-            "client_secret": app_secret,
-            "fb_exchange_token": token,
-        },
+        _REFRESH,
+        params={"grant_type": "ig_refresh_token", "access_token": token},
         timeout=30,
     )
     if r.status_code != 200 or "access_token" not in r.json():
@@ -56,7 +48,7 @@ def main() -> None:
         raise SystemExit(1)
     new_token = r.json()["access_token"]
 
-    # 2) Grava o novo token no Secret do repositório (criptografado com a chave pública).
+    # 2) Grava o novo token no Secret do repositório (criptografado).
     headers = {"Authorization": f"Bearer {gh_pat}", "Accept": "application/vnd.github+json"}
     pk = requests.get(
         f"https://api.github.com/repos/{repo}/actions/secrets/public-key",
