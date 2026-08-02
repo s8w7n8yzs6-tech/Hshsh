@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrossel — 5 passos antes de viver de trading</title>
+<style>
+  :root{
+    --bg:#0c0e11;
+    --panel:#101318;
+    --ink:#f3f4f6;
+    --muted:#8a919c;
+    --line:#20242c;
+    --accent:#e4a94f;
+    --w:1080px;
+    --h:1350px;
+    --pad:96px;
+    --s:1; /* preview scale, set by JS */
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  html,body{
+    background:#050608;
+    color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- toolbar ---------- */
+  .bar{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:16px 22px;
+    background:rgba(8,9,11,.86);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .bar h1{font-size:15px;font-weight:600;letter-spacing:.02em;color:var(--ink)}
+  .bar span{color:var(--muted);font-weight:400}
+  .btn{
+    appearance:none;border:1px solid var(--accent);
+    background:var(--accent);color:#141414;
+    font:600 14px/1 system-ui,sans-serif;letter-spacing:.02em;
+    padding:12px 20px;border-radius:10px;cursor:pointer;
+    transition:opacity .15s ease;
+  }
+  .btn:hover{opacity:.88}
+  .btn:disabled{opacity:.5;cursor:progress}
+
+  /* ---------- deck / preview scaling ---------- */
+  .deck{padding:34px 0 80px;display:flex;flex-direction:column;align-items:center;gap:30px}
+  .frame{
+    width:calc(var(--w) * var(--s));
+    height:calc(var(--h) * var(--s));
+    box-shadow:0 24px 60px rgba(0,0,0,.55);
+    border-radius:6px;overflow:hidden;
+  }
+
+  /* ---------- the exported unit ---------- */
+  .slide{
+    width:var(--w);height:var(--h);
+    transform:scale(var(--s));transform-origin:top left;
+    background:var(--bg);color:var(--ink);
+    padding:var(--pad);
+    display:flex;flex-direction:column;
+    position:relative;overflow:hidden;
+  }
+  .slide::after{ /* hairline inner border for polish */
+    content:"";position:absolute;inset:28px;
+    border:1px solid rgba(255,255,255,.04);border-radius:4px;pointer-events:none;
+  }
+
+  .top{display:flex;align-items:center;justify-content:space-between}
+  .brand{font-size:22px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--muted)}
+  .brand b{color:var(--accent);font-weight:600}
+  .grow{flex:1}
+
+  /* index badge on content slides */
+  .idx{display:flex;align-items:baseline;gap:18px}
+  .idx .num{font-size:84px;font-weight:800;line-height:.9;color:var(--accent);letter-spacing:-.02em}
+  .idx .of{font-size:24px;font-weight:500;color:var(--muted);letter-spacing:.06em}
+
+  .kicker{font-size:22px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)}
+
+  h2.title{font-size:64px;font-weight:800;line-height:1.04;letter-spacing:-.02em;max-width:16ch}
+  p.body{font-size:35px;font-weight:400;line-height:1.5;color:#c3c8d0;max-width:22ch}
+
+  /* cover */
+  .cover h2.title{font-size:88px;line-height:1.02;max-width:14ch}
+  .cover .sub{font-size:36px;font-weight:400;line-height:1.45;color:var(--muted);max-width:22ch;margin-top:30px}
+  .cover .sub b{color:var(--ink);font-weight:600}
+
+  /* footer progress */
+  .foot{display:flex;align-items:center;gap:14px}
+  .dots{display:flex;gap:12px}
+  .dot{width:12px;height:12px;border-radius:50%;background:var(--line)}
+  .dot.on{background:var(--accent)}
+  .foot .label{font-size:20px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+
+  .hr{height:1px;background:var(--line);width:100%}
+
+  /* closing */
+  .disc{
+    border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:8px;padding:34px 36px;background:var(--panel);
+  }
+  .disc .tag{font-size:20px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  .disc p{font-size:32px;line-height:1.45;color:#c3c8d0}
+  .cta{font-size:44px;font-weight:800;line-height:1.12;letter-spacing:-.01em;max-width:18ch}
+  .cta b{color:var(--accent)}
+
+  .swipe{font-size:24px;color:var(--muted);letter-spacing:.04em}
+  .swipe b{color:var(--accent)}
+
+  @media (max-width:520px){ .bar h1 span{display:none} }
+</style>
+</head>
+<body>
+
+  <div class="bar">
+    <h1>Carrossel <span>· 5 passos antes de viver de trading · 1080×1350</span></h1>
+    <button class="btn" id="export">Exportar PNGs</button>
+  </div>
+
+  <main class="deck" id="deck">
+
+    <!-- 1 · CAPA -->
+    <div class="frame"><section class="slide cover" data-name="01-capa">
+      <div class="top">
+        <div class="brand"><b>·</b> Guia rápido</div>
+        <div class="kicker">Realidade</div>
+      </div>
+      <div class="grow"></div>
+      <h2 class="title">5 passos antes de tentar viver de trading</h2>
+      <p class="sub">A maioria dos day traders <b>perde dinheiro no longo prazo</b>. Antes de largar tudo, cubra estas bases.</p>
+      <div class="grow"></div>
+      <div class="foot"><span class="label">Arraste para o lado →</span></div>
+    </section></div>
+
+    <!-- 2 · PASSO 01 -->
+    <div class="frame"><section class="slide" data-name="02-passo-01">
+      <div class="top">
+        <div class="idx"><span class="num">01</span><span class="of">/ 05</span></div>
+        <div class="kicker">Base</div>
+      </div>
+      <div class="grow"></div>
+      <h2 class="title">Garanta a base primeiro</h2>
+      <p class="body">Reserva de 6 a 12 meses, dívidas caras quitadas e uma renda que não dependa do mercado.</p>
+      <div class="grow"></div>
+      <div class="hr"></div>
+      <div class="foot" style="margin-top:24px">
+        <div class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+        <span class="label">Passo 1 de 5</span>
+      </div>
+    </section></div>
+
+    <!-- 3 · PASSO 02 -->
+    <div class="frame"><section class="slide" data-name="03-passo-02">
+      <div class="top">
+        <div class="idx"><span class="num">02</span><span class="of">/ 05</span></div>
+        <div class="kicker">Estudo</div>
+      </div>
+      <div class="grow"></div>
+      <h2 class="title">Estude antes de arriscar</h2>
+      <p class="body">6 a 12 meses entendendo produto, custos e tributação. Desconfie de curso que promete lucro fácil.</p>
+      <div class="grow"></div>
+      <div class="hr"></div>
+      <div class="foot" style="margin-top:24px">
+        <div class="dots"><i class="dot"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+        <span class="label">Passo 2 de 5</span>
+      </div>
+    </section></div>
+
+    <!-- 4 · PASSO 03 -->
+    <div class="frame"><section class="slide" data-name="04-passo-03">
+      <div class="top">
+        <div class="idx"><span class="num">03</span><span class="of">/ 05</span></div>
+        <div class="kicker">Sistema</div>
+      </div>
+      <div class="grow"></div>
+      <h2 class="title">Sistema escrito e testado</h2>
+      <p class="body">Regras de entrada, saída, stop e tamanho de posição. Registre toda operação, sem exceção.</p>
+      <div class="grow"></div>
+      <div class="hr"></div>
+      <div class="foot" style="margin-top:24px">
+        <div class="dots"><i class="dot"></i><i class="dot"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></div>
+        <span class="label">Passo 3 de 5</span>
+      </div>
+    </section></div>
+
+    <!-- 5 · PASSO 04 -->
+    <div class="frame"><section class="slide" data-name="05-passo-04">
+      <div class="top">
+        <div class="idx"><span class="num">04</span><span class="of">/ 05</span></div>
+        <div class="kicker">Risco</div>
+      </div>
+      <div class="grow"></div>
+      <h2 class="title">Gestão de risco acima de tudo</h2>
+      <p class="body">Risco pequeno e fixo por operação, perda máxima diária. Nunca dobre a aposta para recuperar.</p>
+      <div class="grow"></div>
+      <div class="hr"></div>
+      <div class="foot" style="margin-top:24px">
+        <div class="dots"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot on"></i><i class="dot"></i></div>
+        <span class="label">Passo 4 de 5</span>
+      </div>
+    </section></div>
+
+    <!-- 6 · PASSO 05 -->
+    <div class="frame"><section class="slide" data-name="06-passo-05">
+      <div class="top">
+        <div class="idx"><span class="num">05</span><span class="of">/ 05</span></div>
+        <div class="kicker">Negócio</div>
+      </div>
+      <div class="grow"></div>
+      <h2 class="title">Trate como negócio</h2>
+      <p class="body">Métricas mensais, revisão constante e um critério objetivo para parar quando não funcionar.</p>
+      <div class="grow"></div>
+      <div class="hr"></div>
+      <div class="foot" style="margin-top:24px">
+        <div class="dots"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot on"></i></div>
+        <span class="label">Passo 5 de 5</span>
+      </div>
+    </section></div>
+
+    <!-- 7 · ENCERRAMENTO -->
+    <div class="frame"><section class="slide" data-name="07-encerramento">
+      <div class="top">
+        <div class="brand"><b>·</b> Guia rápido</div>
+        <div class="kicker">Fim</div>
+      </div>
+      <div class="grow"></div>
+      <div class="disc">
+        <div class="tag">Aviso</div>
+        <p>Conteúdo educativo. Não é recomendação de investimento.</p>
+      </div>
+      <div style="height:44px"></div>
+      <h2 class="cta">Salve para reler e <b>compartilhe</b> com quem quer viver de trading.</h2>
+      <div class="grow"></div>
+      <div class="hr"></div>
+      <div class="foot" style="margin-top:24px">
+        <span class="swipe"><b>↑</b> Salvar · Compartilhar · Seguir</span>
+      </div>
+    </section></div>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    /* ---- responsive preview scale (never affects export) ---- */
+    function fit(){
+      const W = 1080, avail = Math.min(document.documentElement.clientWidth - 40, W);
+      document.documentElement.style.setProperty('--s', (avail / W).toFixed(4));
+    }
+    window.addEventListener('resize', fit);
+    fit();
+
+    /* ---- export each slide as a 1080x1350 PNG ---- */
+    const btn = document.getElementById('export');
+    btn.addEventListener('click', async () => {
+      const slides = [...document.querySelectorAll('.slide')];
+      btn.disabled = true;
+      const original = btn.textContent;
+      for (let i = 0; i < slides.length; i++){
+        const slide = slides[i];
+        btn.textContent = `Exportando ${i+1}/${slides.length}…`;
+        const prev = slide.style.transform;
+        slide.style.transform = 'none';           // capture at true 1080x1350
+        try{
+          const canvas = await html2canvas(slide, {
+            width: 1080, height: 1350,
+            windowWidth: 1080, windowHeight: 1350,
+            scale: 1, backgroundColor: '#0c0e11', useCORS: true
+          });
+          const a = document.createElement('a');
+          a.download = (slide.dataset.name || ('slide-' + (i+1))) + '.png';
+          a.href = canvas.toDataURL('image/png');
+          a.click();
+        } finally {
+          slide.style.transform = prev;
+        }
+        await new Promise(r => setTimeout(r, 220)); // let each download register
+      }
+      btn.textContent = original;
+      btn.disabled = false;
+    });
+  </script>
+</body>
+</html>
