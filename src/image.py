@@ -11,7 +11,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 from . import theme
 
-_W = _H = 1080
+_W, _H = 1080, 1350  # retrato (feed do Instagram)
 _MARGIN = 72
 _TEXT = (245, 245, 245)
 
@@ -94,7 +94,7 @@ def build_card(
 
     # Headline.
     ht_top = _MARGIN + pill_h + 50
-    ht_bottom = 470 if chart_img is not None else _H - 150
+    ht_bottom = 600 if chart_img is not None else _H - 150
     wrapped, font = _fit_headline(draw, headline, _W - 2 * _MARGIN, ht_bottom - ht_top)
     hb = draw.multiline_textbbox((0, 0), wrapped, font=font, spacing=12)
     if chart_img is None:
@@ -103,11 +103,12 @@ def build_card(
     else:
         ty = ht_top
     draw.multiline_text((_MARGIN, ty), wrapped, font=font, fill=_TEXT, spacing=12)
+    headline_bottom = ty + (hb[3] - hb[1])
 
-    # Gráfico (posts de mercado).
+    # Gráfico (posts de mercado) — ancorado logo abaixo da headline.
     if chart_img is not None:
         max_w = _W - 2 * _MARGIN
-        region_top = ht_bottom + 10
+        region_top = headline_bottom + 80
         region_bottom = _H - 150
         max_h = max(120, region_bottom - region_top)
         cw, ch = chart_img.size
