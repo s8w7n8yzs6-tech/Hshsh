@@ -60,6 +60,11 @@ do GitHub Actions.
 > configurado como assinatura. Ambos têm valores-padrão embutidos, então funcionam
 > mesmo sem definir as variables no GitHub.
 
+> 📄 **Passo a passo completo do Instagram:** veja [`SETUP_INSTAGRAM.md`](SETUP_INSTAGRAM.md)
+> — cobre criar o app Meta, gerar o token, achar o ID da conta e a **renovação
+> automática do token** (o token da Meta expira em ~60 dias; um workflow o renova
+> sozinho toda semana).
+
 ### Como obter as credenciais Meta
 - **Threads**: crie um app no [Meta for Developers](https://developers.facebook.com/),
   adicione a Threads API, conecte a conta Threads e gere um token de longa duração.

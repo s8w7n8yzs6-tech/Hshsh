@@ -2,3 +2,4 @@ anthropic>=0.40
 requests>=2.31
 Pillow>=10.0
 matplotlib>=3.7
+pynacl>=1.5   # usado só na renovação automática do token (grava Secret do GitHub)

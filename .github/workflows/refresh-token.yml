@@ -1,0 +1,27 @@
+name: Renovar token do Instagram
+
+# Renova o token de longa duração da Meta toda segunda-feira (bem antes dos ~60
+# dias de validade), gravando o novo token de volta no Secret do repositório.
+# Requer os Secrets: FB_APP_ID, FB_APP_SECRET, INSTAGRAM_ACCESS_TOKEN, GH_PAT.
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests pynacl
+      - name: Renovar e gravar o token
+        env:
+          FB_APP_ID: ${{ secrets.FB_APP_ID }}
+          FB_APP_SECRET: ${{ secrets.FB_APP_SECRET }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python -m src.refresh_token
