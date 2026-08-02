@@ -1,0 +1,80 @@
+name: Posts diários sobre trade
+
+# 20 posts/dia distribuídos das 07:00 às 20:30 (horário de Brasília, UTC-3).
+# Os horários abaixo estão em UTC (BRT + 3h). 2 posts do dia são de mercado
+# (08:25 = Ouro, 16:14 = Nasdaq); os demais focam no trader.
+on:
+  schedule:
+    - cron: "0 10 * * *"    # 07:00 BRT
+    - cron: "43 10 * * *"   # 07:43
+    - cron: "25 11 * * *"   # 08:25  (Ouro)
+    - cron: "8 12 * * *"    # 09:08
+    - cron: "51 12 * * *"   # 09:51
+    - cron: "33 13 * * *"   # 10:33
+    - cron: "16 14 * * *"   # 11:16
+    - cron: "58 14 * * *"   # 11:58
+    - cron: "41 15 * * *"   # 12:41
+    - cron: "24 16 * * *"   # 13:24
+    - cron: "6 17 * * *"    # 14:06
+    - cron: "49 17 * * *"   # 14:49
+    - cron: "32 18 * * *"   # 15:32
+    - cron: "14 19 * * *"   # 16:14  (Nasdaq)
+    - cron: "57 19 * * *"   # 16:57
+    - cron: "39 20 * * *"   # 17:39
+    - cron: "22 21 * * *"   # 18:22
+    - cron: "5 22 * * *"    # 19:05
+    - cron: "47 22 * * *"   # 19:47
+    - cron: "30 23 * * *"   # 20:30
+  workflow_dispatch:
+    inputs:
+      type:
+        description: "Tipo de post (opcional)"
+        required: false
+        type: choice
+        options: ["", "trader", "mercado"]
+      dry_run:
+        description: "Somente gerar, sem publicar"
+        required: false
+        type: boolean
+        default: false
+
+concurrency:
+  group: daily-posts
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Gerar e publicar
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_MODEL: ${{ vars.ANTHROPIC_MODEL }}
+          POST_LANGUAGE: ${{ vars.POST_LANGUAGE }}
+          POST_HANDLE: ${{ vars.POST_HANDLE }}
+          PLATFORMS: ${{ vars.PLATFORMS }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
+          POST_TYPE: ${{ inputs.type }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: python -m src.post
+
+      # Em modo dry_run é gerado um preview.png; deixamos disponível para download.
+      - name: Salvar prévia do card (dry_run)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: previa-do-card
+          path: preview.png
+          if-no-files-found: ignore
