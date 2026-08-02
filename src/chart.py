@@ -1,4 +1,4 @@
-"""Gera um gráfico de variação 24h (cripto) como imagem RGBA para compor no card."""
+"""Gráfico de candlestick (30 min) como imagem RGBA para compor no card."""
 from __future__ import annotations
 
 import io
@@ -8,51 +8,61 @@ import matplotlib
 matplotlib.use("Agg")  # backend headless (necessário no GitHub Actions)
 
 import matplotlib.pyplot as plt  # noqa: E402
+from matplotlib.patches import Rectangle  # noqa: E402
 from PIL import Image  # noqa: E402
 
-_UP = "#22c55e"    # verde
-_DOWN = "#ef4444"  # vermelho
+_UP = "#22c55e"     # verde (alta)
+_DOWN = "#ef4444"   # vermelho (baixa)
+_GRID = "#94a3b8"
 
 
-def render_change_chart(data: list[dict]) -> Image.Image:
-    """Barras horizontais da variação 24h (%) por ativo. Fundo transparente."""
-    labels = [d["short"] for d in data]
-    changes = [d["change"] for d in data]
-    colors = [_UP if c >= 0 else _DOWN for c in changes]
-
-    fig, ax = plt.subplots(figsize=(8.2, 3.4), dpi=150)
+def render_candles(candles: list[dict], label: str, change: float, interval: str = "30min") -> Image.Image:
+    """Desenha candlesticks OHLC. Fundo transparente, tema escuro."""
+    fig, ax = plt.subplots(figsize=(8.6, 5.6), dpi=150)
     fig.patch.set_alpha(0.0)
     ax.set_facecolor("none")
 
-    y = range(len(labels))
-    ax.barh(list(y), changes, color=colors, height=0.6, zorder=3)
-    ax.axvline(0, color="#94a3b8", linewidth=1, zorder=2)
+    highs = [c["h"] for c in candles]
+    lows = [c["l"] for c in candles]
+    price_range = (max(highs) - min(lows)) or 1.0
 
-    ax.set_yticks(list(y))
-    ax.set_yticklabels(labels, color="white", fontsize=15, fontweight="bold")
-    ax.set_xticks([])
-    for spine in ax.spines.values():
-        spine.set_visible(False)
-    ax.tick_params(length=0)
-    ax.set_title("Variação no dia (%)", color="white", fontsize=14, pad=10, loc="left")
-
-    span = max((abs(c) for c in changes), default=1) or 1
-    ax.set_xlim(-span * 1.35, span * 1.35)
-    for yi, c in zip(y, changes):
-        offset = span * 0.05
-        ax.text(
-            c + (offset if c >= 0 else -offset),
-            yi,
-            f"{c:+.2f}%",
-            va="center",
-            ha="left" if c >= 0 else "right",
-            color="white",
-            fontsize=14,
-            fontweight="bold",
+    for i, cd in enumerate(candles):
+        o, h, l, c = cd["o"], cd["h"], cd["l"], cd["c"]
+        color = _UP if c >= o else _DOWN
+        # pavio (máxima-mínima)
+        ax.plot([i, i], [l, h], color=color, linewidth=1.1, zorder=2)
+        # corpo (abertura-fechamento)
+        body_low = min(o, c)
+        body_h = abs(c - o) or price_range * 0.0008
+        ax.add_patch(
+            Rectangle((i - 0.32, body_low), 0.64, body_h, facecolor=color, edgecolor=color, zorder=3)
         )
 
+    ax.set_xlim(-1, len(candles))
+    pad = price_range * 0.08
+    ax.set_ylim(min(lows) - pad, max(highs) + pad)
+
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+    ax.set_xticks([])
+    ax.grid(axis="y", color=_GRID, alpha=0.16, linewidth=1)
+    ax.yaxis.tick_right()
+    ax.tick_params(length=0, colors="white", labelsize=13)
+    ax.yaxis.set_major_formatter(lambda v, _pos: f"{v:,.0f}")
+
+    sign = "+" if change >= 0 else ""
+    title_color = _UP if change >= 0 else _DOWN
+    ax.set_title(
+        f"{label} · {interval}    {sign}{change:.2f}%",
+        color=title_color,
+        fontsize=16,
+        loc="left",
+        pad=14,
+        fontweight="bold",
+    )
+
     buf = io.BytesIO()
-    fig.savefig(buf, format="png", transparent=True, bbox_inches="tight", pad_inches=0.1)
+    fig.savefig(buf, format="png", transparent=True, bbox_inches="tight", pad_inches=0.12)
     plt.close(fig)
     buf.seek(0)
     return Image.open(buf).convert("RGBA")

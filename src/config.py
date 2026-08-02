@@ -23,8 +23,9 @@ IMGBB_API_KEY = os.getenv("IMGBB_API_KEY", "")
 DRY_RUN = os.getenv("DRY_RUN", "false").lower() in ("1", "true", "yes")
 
 # Tipos de conteúdo e seus pesos na escolha aleatória.
+# Mercado (ouro/Nasdaq, com candlestick) tem o maior peso — é o foco.
 CONTENT_TYPES = ("motivacional", "mercado", "educacional")
-CONTENT_WEIGHTS = (0.35, 0.35, 0.30)
+CONTENT_WEIGHTS = (0.25, 0.50, 0.25)
 
 # Tipo fixo, se definido no ambiente (senão, sorteio ponderado).
 POST_TYPE = os.getenv("POST_TYPE", "").strip().lower() or None

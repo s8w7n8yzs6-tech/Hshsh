@@ -27,8 +27,8 @@ Cada post agora sai como um **card visual chamativo** (1080x1080), com:
 
 - **Tema por tipo de conteúdo** (cores + badge: `MINDSET`, `MERCADO`, `EDUCATIVO`)
 - **Chamada curta e impactante** na imagem + legenda completa no texto do post
-- **Gráfico automático** nos posts de mercado (variação no dia de XAU/USD e
-  Nasdaq 100, com dados reais do Yahoo Finance)
+- **Gráfico de candlestick (30 min)** nos posts de mercado: cada post foca em
+  **um** ativo (Ouro **ou** Nasdaq, alternando), com candles reais do Yahoo Finance
 - **Sua assinatura** (`@thiago.cunhaff`) no rodapé
 
 | Plataforma | Requisito de mídia | Observação |
@@ -91,7 +91,7 @@ python -m src.check
 src/
   config.py            # lê variáveis de ambiente
   market.py            # dados reais de Ouro (XAU/USD) e Nasdaq 100 (Yahoo Finance)
-  chart.py             # gráfico de variação (matplotlib) para posts de mercado
+  chart.py             # gráfico de candlestick 30min (matplotlib) para posts de mercado
   theme.py             # cores/badges por tipo de conteúdo
   generate.py          # escreve a chamada + a legenda via Claude
   image.py             # monta o card visual 1080x1080

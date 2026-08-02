@@ -28,8 +28,15 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
     content_type = content_type or choose_type()
     dry_run = config.DRY_RUN if dry_run is None else dry_run
 
-    market_data = market.get_market_data() if content_type == "mercado" else None
-    snapshot = market.get_market_snapshot(market_data) if content_type == "mercado" else None
+    # Posts de mercado: foca em UM ativo (ouro ou Nasdaq), alternado, com candles 30min.
+    asset = None
+    snapshot = None
+    if content_type == "mercado":
+        for key in random.sample(list(market.MARKET_ASSETS), k=len(market.MARKET_ASSETS)):
+            asset = market.fetch_asset(key)  # tenta o primeiro; se falhar, o outro
+            if asset:
+                break
+        snapshot = market.asset_snapshot(asset) if asset else None
 
     result = generate.generate_post(content_type, snapshot)
     used_type = result["type"]
@@ -41,7 +48,7 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
 
     # Sempre gera o card visual.
     out_path = "preview.png" if dry_run else os.path.join(tempfile.gettempdir(), "post_card.png")
-    image_path = _build_card(headline, used_type, market_data, out_path)
+    image_path = _build_card(headline, used_type, asset, out_path)
 
     if dry_run:
         print(f"DRY_RUN ativo — card salvo em {image_path}; nada publicado.")
@@ -79,15 +86,15 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
         raise SystemExit("Falhas de publicação:\n" + "\n".join(errors))
 
 
-def _build_card(headline: str, content_type: str, market_data, out_path: str) -> str:
+def _build_card(headline: str, content_type: str, asset: dict | None, out_path: str) -> str:
     from . import image
 
     chart_img = None
-    if content_type == "mercado" and market_data:
+    if content_type == "mercado" and asset:
         try:
             from . import chart
 
-            chart_img = chart.render_change_chart(market_data)
+            chart_img = chart.render_candles(asset["candles"], asset["label"], asset["change"])
         except Exception as exc:  # noqa: BLE001
             print(f"Aviso: não foi possível gerar o gráfico: {exc}", file=sys.stderr)
     return image.build_card(headline, content_type, config.POST_HANDLE, out_path, chart_img)
