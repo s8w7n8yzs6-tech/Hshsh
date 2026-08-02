@@ -6,112 +6,99 @@
 <title>Carrossel — 5 passos antes de viver de trading</title>
 <style>
   :root{
-    --bg:#0c0e11;
-    --panel:#101318;
-    --ink:#f3f4f6;
-    --muted:#8a919c;
-    --line:#20242c;
-    --accent:#e4a94f;
-    --w:1080px;
-    --h:1350px;
-    --pad:96px;
-    --s:1; /* preview scale, set by JS */
+    --bg:#0a0b0f;
+    --panel:#12141b;
+    --ink:#f6f7f9;
+    --muted:#9aa1ad;
+    --line:#242832;
+    --accent:#ffb224;      /* amber destaque */
+    --accent-ink:#0a0b0f;  /* texto sobre accent */
+    --w:1080px; --h:1350px; --pad:88px;
+    --s:1;
   }
-
   *{box-sizing:border-box;margin:0;padding:0}
-
-  html,body{
-    background:#050608;
-    color:var(--ink);
-    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased;
-  }
+  html,body{background:#050608;color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 
   /* ---------- toolbar ---------- */
-  .bar{
-    position:sticky;top:0;z-index:50;
-    display:flex;align-items:center;justify-content:space-between;gap:16px;
-    padding:16px 22px;
-    background:rgba(8,9,11,.86);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-  }
-  .bar h1{font-size:15px;font-weight:600;letter-spacing:.02em;color:var(--ink)}
+  .bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:16px 22px;background:rgba(8,9,11,.86);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .bar h1{font-size:15px;font-weight:600;letter-spacing:.02em}
   .bar span{color:var(--muted);font-weight:400}
-  .btn{
-    appearance:none;border:1px solid var(--accent);
-    background:var(--accent);color:#141414;
-    font:600 14px/1 system-ui,sans-serif;letter-spacing:.02em;
-    padding:12px 20px;border-radius:10px;cursor:pointer;
-    transition:opacity .15s ease;
-  }
-  .btn:hover{opacity:.88}
-  .btn:disabled{opacity:.5;cursor:progress}
+  .btn{appearance:none;border:none;background:var(--accent);color:var(--accent-ink);
+    font:700 14px/1 system-ui,sans-serif;letter-spacing:.02em;padding:13px 22px;border-radius:10px;cursor:pointer;
+    box-shadow:0 6px 22px rgba(255,178,36,.35);transition:transform .12s ease,opacity .12s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn:disabled{opacity:.55;cursor:progress;transform:none}
 
   /* ---------- deck / preview scaling ---------- */
   .deck{padding:34px 0 80px;display:flex;flex-direction:column;align-items:center;gap:30px}
-  .frame{
-    width:calc(var(--w) * var(--s));
-    height:calc(var(--h) * var(--s));
-    box-shadow:0 24px 60px rgba(0,0,0,.55);
-    border-radius:6px;overflow:hidden;
-  }
+  .frame{width:calc(var(--w)*var(--s));height:calc(var(--h)*var(--s));
+    box-shadow:0 24px 70px rgba(0,0,0,.6);border-radius:8px;overflow:hidden}
 
   /* ---------- the exported unit ---------- */
-  .slide{
-    width:var(--w);height:var(--h);
-    transform:scale(var(--s));transform-origin:top left;
-    background:var(--bg);color:var(--ink);
-    padding:var(--pad);
-    display:flex;flex-direction:column;
-    position:relative;overflow:hidden;
-  }
-  .slide::after{ /* hairline inner border for polish */
-    content:"";position:absolute;inset:28px;
-    border:1px solid rgba(255,255,255,.04);border-radius:4px;pointer-events:none;
-  }
+  .slide{width:var(--w);height:var(--h);transform:scale(var(--s));transform-origin:top left;
+    background:
+      radial-gradient(1100px 620px at 82% -6%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 60%),
+      radial-gradient(900px 700px at -8% 108%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 62%),
+      var(--bg);
+    color:var(--ink);padding:var(--pad);display:flex;flex-direction:column;position:relative;overflow:hidden}
+  /* faint dot grid texture */
+  .slide::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background-image:radial-gradient(rgba(255,255,255,.045) 1.4px, transparent 1.5px);background-size:34px 34px}
+  .slide::after{content:"";position:absolute;left:0;top:0;height:8px;width:100%;
+    background:linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 30%, transparent))}
+
+  /* giant ghost numeral watermark */
+  .ghost{position:absolute;right:-40px;bottom:-150px;font-size:640px;font-weight:900;line-height:.8;
+    letter-spacing:-.04em;color:transparent;-webkit-text-stroke:2px color-mix(in srgb, var(--accent) 26%, transparent);
+    user-select:none;pointer-events:none;z-index:0}
+  .slide>*{position:relative;z-index:1}
 
   .top{display:flex;align-items:center;justify-content:space-between}
-  .brand{font-size:22px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--muted)}
-  .brand b{color:var(--accent);font-weight:600}
   .grow{flex:1}
 
-  /* index badge on content slides */
-  .idx{display:flex;align-items:baseline;gap:18px}
-  .idx .num{font-size:84px;font-weight:800;line-height:.9;color:var(--accent);letter-spacing:-.02em}
-  .idx .of{font-size:24px;font-weight:500;color:var(--muted);letter-spacing:.06em}
+  .pill{display:inline-flex;align-items:center;gap:10px;font-size:22px;font-weight:800;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-ink);background:var(--accent);padding:12px 20px;border-radius:999px}
+  .pill.ghosted{background:transparent;color:var(--accent);border:2px solid color-mix(in srgb, var(--accent) 55%, transparent)}
+  .count{font-size:26px;font-weight:800;color:var(--ink);letter-spacing:.02em}
+  .count i{font-style:normal;color:var(--muted);font-weight:600;font-size:20px}
 
-  .kicker{font-size:22px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)}
+  .eyebrow{display:block;font-size:24px;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
 
-  h2.title{font-size:64px;font-weight:800;line-height:1.04;letter-spacing:-.02em;max-width:16ch}
-  p.body{font-size:35px;font-weight:400;line-height:1.5;color:#c3c8d0;max-width:22ch;margin-top:30px}
+  h2.title{font-size:72px;font-weight:900;line-height:1.02;letter-spacing:-.025em;max-width:15ch}
+  p.body{font-size:37px;font-weight:400;line-height:1.5;color:#c9cdd6;max-width:22ch;margin-top:34px}
+  .mk{color:var(--accent);font-weight:800}
+  .chip{color:var(--accent-ink);background:var(--accent);font-weight:800;padding:2px 12px;border-radius:8px;
+    box-decoration-break:clone;-webkit-box-decoration-break:clone}
 
   /* cover */
-  .cover h2.title{font-size:88px;line-height:1.02;max-width:14ch}
-  .cover .sub{font-size:36px;font-weight:400;line-height:1.45;color:var(--muted);max-width:22ch;margin-top:30px}
-  .cover .sub b{color:var(--ink);font-weight:600}
+  .cover .title{font-size:98px;line-height:.98;max-width:13ch;letter-spacing:-.03em}
+  .cover .title .grad{background:linear-gradient(100deg,#ffe6a8,var(--accent) 55%,#ff7a2f);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .cover .sub{font-size:38px;font-weight:400;line-height:1.45;color:var(--muted);max-width:23ch;margin-top:30px}
+  .cover .sub b{color:var(--ink);font-weight:700}
 
-  /* footer progress */
-  .foot{display:flex;align-items:center;gap:14px}
-  .dots{display:flex;gap:12px}
-  .dot{width:12px;height:12px;border-radius:50%;background:var(--line)}
-  .dot.on{background:var(--accent)}
-  .foot .label{font-size:20px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+  /* progress bar */
+  .progress{height:10px;border-radius:999px;background:var(--line);overflow:hidden;margin:0 0 22px}
+  .progress>span{display:block;height:100%;border-radius:999px;
+    background:linear-gradient(90deg,var(--accent),color-mix(in srgb,var(--accent) 55%, #fff))}
 
-  .hr{height:1px;background:var(--line);width:100%}
+  .foot{display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .foot .label{font-size:22px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .foot .brand{font-size:22px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+  .foot .brand b{color:var(--accent)}
+  .swipe{font-size:26px;color:var(--ink);font-weight:700;letter-spacing:.02em}
+  .swipe b{color:var(--accent)}
 
   /* closing */
-  .disc{
-    border:1px solid var(--line);border-left:3px solid var(--accent);
-    border-radius:8px;padding:34px 36px;background:var(--panel);
-  }
-  .disc .tag{font-size:20px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-  .disc p{font-size:32px;line-height:1.45;color:#c3c8d0}
-  .cta{font-size:44px;font-weight:800;line-height:1.12;letter-spacing:-.01em;max-width:18ch}
+  .disc{border:1px solid color-mix(in srgb,var(--accent) 35%, var(--line));border-left:6px solid var(--accent);
+    border-radius:12px;padding:34px 36px;background:color-mix(in srgb,var(--accent) 8%, var(--panel))}
+  .disc .tag{display:inline-block;font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+    font-weight:800;margin-bottom:14px}
+  .disc p{font-size:33px;line-height:1.4;color:#dfe3ea;font-weight:500}
+  .cta{font-size:64px;font-weight:900;line-height:1.05;letter-spacing:-.02em;max-width:15ch;margin-top:40px}
   .cta b{color:var(--accent)}
-
-  .swipe{font-size:24px;color:var(--muted);letter-spacing:.04em}
-  .swipe b{color:var(--accent)}
 
   @media (max-width:520px){ .bar h1 span{display:none} }
 </style>
@@ -127,162 +114,125 @@
 
     <!-- 1 · CAPA -->
     <div class="frame"><section class="slide cover" data-name="01-capa">
+      <div class="ghost">5</div>
       <div class="top">
-        <div class="brand"><b>·</b> Guia rápido</div>
-        <div class="kicker">Realidade</div>
+        <span class="pill">Realidade dura</span>
+        <span class="foot brand"><b>·</b> Guia rápido</span>
       </div>
       <div class="grow"></div>
-      <h2 class="title">5 passos antes de tentar viver de trading</h2>
+      <h2 class="title">5 passos antes de tentar <span class="grad">viver de trading</span></h2>
       <p class="sub">A maioria dos day traders <b>perde dinheiro no longo prazo</b>. Antes de largar tudo, cubra estas bases.</p>
       <div class="grow"></div>
-      <div class="foot"><span class="label">Arraste para o lado →</span></div>
+      <div class="foot"><span class="swipe"><b>→</b> Arraste para o lado</span></div>
     </section></div>
 
     <!-- 2 · PASSO 01 -->
     <div class="frame"><section class="slide" data-name="02-passo-01">
-      <div class="top">
-        <div class="idx"><span class="num">01</span><span class="of">/ 05</span></div>
-        <div class="kicker">Base</div>
-      </div>
+      <div class="ghost">01</div>
+      <div class="top"><span class="pill">Base</span><span class="count">01 <i>/ 05</i></span></div>
       <div class="grow"></div>
+      <span class="eyebrow">Passo 01</span>
       <h2 class="title">Garanta a base primeiro</h2>
-      <p class="body">Reserva de 6 a 12 meses, dívidas caras quitadas e uma renda que não dependa do mercado.</p>
+      <p class="body">Reserva de <span class="chip">6 a 12 meses</span>, dívidas caras quitadas e uma renda que não dependa do mercado.</p>
       <div class="grow"></div>
-      <div class="hr"></div>
-      <div class="foot" style="margin-top:24px">
-        <div class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
-        <span class="label">Passo 1 de 5</span>
-      </div>
+      <div class="progress"><span style="width:20%"></span></div>
+      <div class="foot"><span class="label">Passo 1 de 5</span><span class="brand"><b>·</b> Guia rápido</span></div>
     </section></div>
 
     <!-- 3 · PASSO 02 -->
     <div class="frame"><section class="slide" data-name="03-passo-02">
-      <div class="top">
-        <div class="idx"><span class="num">02</span><span class="of">/ 05</span></div>
-        <div class="kicker">Estudo</div>
-      </div>
+      <div class="ghost">02</div>
+      <div class="top"><span class="pill">Estudo</span><span class="count">02 <i>/ 05</i></span></div>
       <div class="grow"></div>
+      <span class="eyebrow">Passo 02</span>
       <h2 class="title">Estude antes de arriscar</h2>
-      <p class="body">6 a 12 meses entendendo produto, custos e tributação. Desconfie de curso que promete lucro fácil.</p>
+      <p class="body">6 a 12 meses entendendo produto, custos e tributação. Desconfie de <span class="mk">curso que promete lucro fácil</span>.</p>
       <div class="grow"></div>
-      <div class="hr"></div>
-      <div class="foot" style="margin-top:24px">
-        <div class="dots"><i class="dot"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
-        <span class="label">Passo 2 de 5</span>
-      </div>
+      <div class="progress"><span style="width:40%"></span></div>
+      <div class="foot"><span class="label">Passo 2 de 5</span><span class="brand"><b>·</b> Guia rápido</span></div>
     </section></div>
 
     <!-- 4 · PASSO 03 -->
     <div class="frame"><section class="slide" data-name="04-passo-03">
-      <div class="top">
-        <div class="idx"><span class="num">03</span><span class="of">/ 05</span></div>
-        <div class="kicker">Sistema</div>
-      </div>
+      <div class="ghost">03</div>
+      <div class="top"><span class="pill">Sistema</span><span class="count">03 <i>/ 05</i></span></div>
       <div class="grow"></div>
+      <span class="eyebrow">Passo 03</span>
       <h2 class="title">Sistema escrito e testado</h2>
-      <p class="body">Regras de entrada, saída, stop e tamanho de posição. Registre toda operação, sem exceção.</p>
+      <p class="body">Regras de entrada, saída, stop e tamanho de posição. <span class="mk">Registre toda operação</span>, sem exceção.</p>
       <div class="grow"></div>
-      <div class="hr"></div>
-      <div class="foot" style="margin-top:24px">
-        <div class="dots"><i class="dot"></i><i class="dot"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></div>
-        <span class="label">Passo 3 de 5</span>
-      </div>
+      <div class="progress"><span style="width:60%"></span></div>
+      <div class="foot"><span class="label">Passo 3 de 5</span><span class="brand"><b>·</b> Guia rápido</span></div>
     </section></div>
 
-    <!-- 5 · PASSO 04 -->
-    <div class="frame"><section class="slide" data-name="05-passo-04">
-      <div class="top">
-        <div class="idx"><span class="num">04</span><span class="of">/ 05</span></div>
-        <div class="kicker">Risco</div>
-      </div>
+    <!-- 5 · PASSO 04 (risco — accent vermelho) -->
+    <div class="frame"><section class="slide" data-name="05-passo-04" style="--accent:#ff5236;--accent-ink:#0a0b0f">
+      <div class="ghost">04</div>
+      <div class="top"><span class="pill">Risco</span><span class="count">04 <i>/ 05</i></span></div>
       <div class="grow"></div>
+      <span class="eyebrow">Passo 04</span>
       <h2 class="title">Gestão de risco acima de tudo</h2>
-      <p class="body">Risco pequeno e fixo por operação, perda máxima diária. Nunca dobre a aposta para recuperar.</p>
+      <p class="body">Risco pequeno e fixo por operação, perda máxima diária. <span class="chip">Nunca dobre</span> a aposta para recuperar.</p>
       <div class="grow"></div>
-      <div class="hr"></div>
-      <div class="foot" style="margin-top:24px">
-        <div class="dots"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot on"></i><i class="dot"></i></div>
-        <span class="label">Passo 4 de 5</span>
-      </div>
+      <div class="progress"><span style="width:80%"></span></div>
+      <div class="foot"><span class="label">Passo 4 de 5</span><span class="brand"><b>·</b> Guia rápido</span></div>
     </section></div>
 
     <!-- 6 · PASSO 05 -->
     <div class="frame"><section class="slide" data-name="06-passo-05">
-      <div class="top">
-        <div class="idx"><span class="num">05</span><span class="of">/ 05</span></div>
-        <div class="kicker">Negócio</div>
-      </div>
+      <div class="ghost">05</div>
+      <div class="top"><span class="pill">Negócio</span><span class="count">05 <i>/ 05</i></span></div>
       <div class="grow"></div>
+      <span class="eyebrow">Passo 05</span>
       <h2 class="title">Trate como negócio</h2>
-      <p class="body">Métricas mensais, revisão constante e um critério objetivo para parar quando não funcionar.</p>
+      <p class="body">Métricas mensais, revisão constante e um <span class="mk">critério objetivo para parar</span> quando não funcionar.</p>
       <div class="grow"></div>
-      <div class="hr"></div>
-      <div class="foot" style="margin-top:24px">
-        <div class="dots"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot on"></i></div>
-        <span class="label">Passo 5 de 5</span>
-      </div>
+      <div class="progress"><span style="width:100%"></span></div>
+      <div class="foot"><span class="label">Passo 5 de 5</span><span class="brand"><b>·</b> Guia rápido</span></div>
     </section></div>
 
     <!-- 7 · ENCERRAMENTO -->
     <div class="frame"><section class="slide" data-name="07-encerramento">
-      <div class="top">
-        <div class="brand"><b>·</b> Guia rápido</div>
-        <div class="kicker">Fim</div>
-      </div>
+      <div class="ghost">✓</div>
+      <div class="top"><span class="pill ghosted">Leia antes de operar</span><span class="brand foot"><b>·</b> Guia rápido</span></div>
       <div class="grow"></div>
       <div class="disc">
-        <div class="tag">Aviso</div>
+        <span class="tag">⚠ Aviso</span>
         <p>Conteúdo educativo. Não é recomendação de investimento.</p>
       </div>
-      <div style="height:44px"></div>
       <h2 class="cta">Salve para reler e <b>compartilhe</b> com quem quer viver de trading.</h2>
       <div class="grow"></div>
-      <div class="hr"></div>
-      <div class="foot" style="margin-top:24px">
-        <span class="swipe"><b>↑</b> Salvar · Compartilhar · Seguir</span>
-      </div>
+      <div class="foot"><span class="swipe"><b>↑</b> Salvar · Compartilhar · Seguir</span></div>
     </section></div>
 
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script>
-    /* ---- responsive preview scale (never affects export) ---- */
     function fit(){
-      const W = 1080, avail = Math.min(document.documentElement.clientWidth - 40, W);
-      document.documentElement.style.setProperty('--s', (avail / W).toFixed(4));
+      const W=1080, avail=Math.min(document.documentElement.clientWidth-40, W);
+      document.documentElement.style.setProperty('--s',(avail/W).toFixed(4));
     }
-    window.addEventListener('resize', fit);
-    fit();
+    window.addEventListener('resize',fit); fit();
 
-    /* ---- export each slide as a 1080x1350 PNG ---- */
-    const btn = document.getElementById('export');
-    btn.addEventListener('click', async () => {
-      const slides = [...document.querySelectorAll('.slide')];
-      btn.disabled = true;
-      const original = btn.textContent;
-      for (let i = 0; i < slides.length; i++){
-        const slide = slides[i];
-        btn.textContent = `Exportando ${i+1}/${slides.length}…`;
-        const prev = slide.style.transform;
-        slide.style.transform = 'none';           // capture at true 1080x1350
+    const btn=document.getElementById('export');
+    btn.addEventListener('click', async ()=>{
+      const slides=[...document.querySelectorAll('.slide')];
+      btn.disabled=true; const original=btn.textContent;
+      for(let i=0;i<slides.length;i++){
+        const slide=slides[i];
+        btn.textContent=`Exportando ${i+1}/${slides.length}…`;
+        const prev=slide.style.transform; slide.style.transform='none';
         try{
-          const canvas = await html2canvas(slide, {
-            width: 1080, height: 1350,
-            windowWidth: 1080, windowHeight: 1350,
-            scale: 1, backgroundColor: '#0c0e11', useCORS: true
-          });
-          const a = document.createElement('a');
-          a.download = (slide.dataset.name || ('slide-' + (i+1))) + '.png';
-          a.href = canvas.toDataURL('image/png');
-          a.click();
-        } finally {
-          slide.style.transform = prev;
-        }
-        await new Promise(r => setTimeout(r, 220)); // let each download register
+          const canvas=await html2canvas(slide,{width:1080,height:1350,windowWidth:1080,windowHeight:1350,
+            scale:1,backgroundColor:'#0a0b0f',useCORS:true});
+          const a=document.createElement('a');
+          a.download=(slide.dataset.name||('slide-'+(i+1)))+'.png';
+          a.href=canvas.toDataURL('image/png'); a.click();
+        } finally { slide.style.transform=prev; }
+        await new Promise(r=>setTimeout(r,220));
       }
-      btn.textContent = original;
-      btn.disabled = false;
+      btn.textContent=original; btn.disabled=false;
     });
   </script>
 </body>
