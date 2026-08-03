@@ -64,6 +64,22 @@ def _prompt(content_type: str, seed: int) -> str:
     )
 
 
+def _payload(content_type: str, seed: int) -> dict:
+    """Monta o corpo da requisição conforme o modelo (gpt-image-1 ou dall-e-3)."""
+    model = config.IMAGE_MODEL
+    body = {"model": model, "prompt": _prompt(content_type, seed), "n": 1}
+    if model.startswith("dall-e-3"):
+        # dall-e-3: retrato 1024x1792, qualidade standard|hd, b64 explícito.
+        body["size"] = "1024x1792"
+        body["quality"] = "hd" if config.IMAGE_QUALITY in ("high", "hd") else "standard"
+        body["response_format"] = "b64_json"
+    else:
+        # gpt-image-1: retrato 1024x1536, qualidade low|medium|high (b64 por padrão).
+        body["size"] = "1024x1536"
+        body["quality"] = config.IMAGE_QUALITY
+    return body
+
+
 def generate_background(content_type: str, seed: int = 0) -> Image.Image | None:
     """Gera um fundo fotorrealista de trader. Retorna None se não for possível."""
     if not config.OPENAI_API_KEY:
@@ -75,13 +91,7 @@ def generate_background(content_type: str, seed: int = 0) -> Image.Image | None:
                 "Authorization": f"Bearer {config.OPENAI_API_KEY}",
                 "Content-Type": "application/json",
             },
-            json={
-                "model": config.IMAGE_MODEL,
-                "prompt": _prompt(content_type, seed),
-                "size": "1024x1536",  # retrato
-                "quality": config.IMAGE_QUALITY,
-                "n": 1,
-            },
+            json=_payload(content_type, seed),
             timeout=180,
         )
         if r.status_code != 200:
