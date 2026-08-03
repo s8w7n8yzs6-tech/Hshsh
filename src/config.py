@@ -22,6 +22,12 @@ INSTAGRAM_USER_ID = os.getenv("INSTAGRAM_USER_ID", "").strip()
 INSTAGRAM_ACCESS_TOKEN = os.getenv("INSTAGRAM_ACCESS_TOKEN", "").strip()
 IMGBB_API_KEY = os.getenv("IMGBB_API_KEY", "").strip()
 
+# Geração de imagem por IA (fundo fotorrealista do card). Se a chave não estiver
+# presente ou a chamada falhar, o sistema volta para a cena desenhada (scene.py).
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
+IMAGE_MODEL = (os.getenv("IMAGE_MODEL") or "gpt-image-1").strip()
+IMAGE_QUALITY = (os.getenv("IMAGE_QUALITY") or "medium").strip()  # low | medium | high
+
 DRY_RUN = os.getenv("DRY_RUN", "false").lower() in ("1", "true", "yes")
 
 # Tipos de conteúdo. "mercado" = card com candlestick (só 2/dia: ouro e Nasdaq).

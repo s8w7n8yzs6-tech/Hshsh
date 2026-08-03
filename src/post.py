@@ -133,7 +133,7 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
 
 
 def _build_card(headline: str, content_type: str, asset: dict | None, out_path: str, seed: int = 0) -> str:
-    from . import image
+    from . import image, imagegen
 
     chart_img = None
     if content_type == "mercado" and asset:
@@ -143,7 +143,16 @@ def _build_card(headline: str, content_type: str, asset: dict | None, out_path: 
             chart_img = chart.render_candles(asset["candles"], asset["label"], asset["change"])
         except Exception as exc:  # noqa: BLE001
             print(f"Aviso: não foi possível gerar o gráfico: {exc}", file=sys.stderr)
-    return image.build_card(headline, content_type, config.POST_HANDLE, out_path, chart_img, seed)
+
+    # Fundo fotorrealista de IA (para do scroll). Se indisponível, usa a cena desenhada.
+    background = imagegen.generate_background(content_type, seed)
+    if background is not None:
+        print("Fundo: imagem fotorrealista gerada por IA.")
+    else:
+        print("Fundo: cena desenhada (IA indisponível ou sem OPENAI_API_KEY).")
+    return image.build_card(
+        headline, content_type, config.POST_HANDLE, out_path, chart_img, seed, background=background
+    )
 
 
 def _host_image(path: str) -> str | None:
