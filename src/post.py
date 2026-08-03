@@ -170,7 +170,7 @@ def _host_image(path: str) -> str | None:
             ["git", "config", "user.email", "github-actions[bot]@users.noreply.github.com"],
             check=True,
         )
-        subprocess.run(["git", "add", dest], check=True)
+        subprocess.run(["git", "add", "-f", dest], check=True)  # -f: .gitignore ignora *.png
         subprocess.run(["git", "commit", "-m", "chore: card do post"], check=False)
         for _ in range(3):
             subprocess.run(["git", "pull", "--rebase", "--autostash", "origin", "main"], check=False)
