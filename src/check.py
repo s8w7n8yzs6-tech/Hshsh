@@ -76,9 +76,7 @@ def main() -> None:
     print(f"  modelo: {config.ANTHROPIC_MODEL} | idioma: {config.POST_LANGUAGE} | @: {config.POST_HANDLE}")
 
     print("\nImagens:")
-    _ok("IMGBB_API_KEY presente") if config.IMGBB_API_KEY else _warn(
-        "IMGBB_API_KEY ausente — sem ela o Instagram não publica e o Threads cai para texto."
-    )
+    _ok("hospedagem via GitHub (URL raw) — não precisa de imgbb")
 
     print(f"\nPlataformas configuradas: {', '.join(config.PLATFORMS) or '(nenhuma)'}")
     _check_instagram()

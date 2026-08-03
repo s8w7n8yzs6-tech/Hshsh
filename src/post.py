@@ -94,7 +94,7 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
 
     image_url = _host_image(image_path)
     if image_url is None:
-        print("Aviso: sem IMGBB_API_KEY — publicando sem imagem onde possível.", file=sys.stderr)
+        print("Aviso: não foi possível hospedar a imagem.", file=sys.stderr)
 
     errors = []
     for platform in config.PLATFORMS:
@@ -148,14 +148,41 @@ def _build_card(headline: str, content_type: str, asset: dict | None, out_path: 
 
 
 def _host_image(path: str) -> str | None:
-    if not config.IMGBB_API_KEY:
+    """Hospeda a imagem no próprio GitHub (URL raw) e retorna a URL pública.
+
+    Commita a imagem no repositório e usa a URL raw pinada no commit (SHA), que é
+    pública, estável e sem limite de uso — sem depender de serviços externos.
+    """
+    import shutil
+    import subprocess
+    import time as _time
+
+    repo = os.environ.get("GITHUB_REPOSITORY")
+    if not repo:
+        print("Aviso: fora do GitHub Actions — não é possível hospedar a imagem.", file=sys.stderr)
         return None
     try:
-        from . import image_host
-
-        return image_host.upload_image(path)
+        dest = os.path.join("state", "card.png")
+        os.makedirs("state", exist_ok=True)
+        shutil.copyfile(path, dest)
+        subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=True)
+        subprocess.run(
+            ["git", "config", "user.email", "github-actions[bot]@users.noreply.github.com"],
+            check=True,
+        )
+        subprocess.run(["git", "add", dest], check=True)
+        subprocess.run(["git", "commit", "-m", "chore: card do post"], check=False)
+        for _ in range(3):
+            subprocess.run(["git", "pull", "--rebase", "--autostash", "origin", "main"], check=False)
+            if subprocess.run(["git", "push", "origin", "HEAD:main"], check=False).returncode == 0:
+                break
+            _time.sleep(3)
+        sha = subprocess.run(
+            ["git", "rev-parse", "HEAD"], capture_output=True, text=True
+        ).stdout.strip()
+        return f"https://raw.githubusercontent.com/{repo}/{sha}/state/card.png"
     except Exception as exc:  # noqa: BLE001
-        print(f"Aviso: não foi possível hospedar a imagem: {exc}", file=sys.stderr)
+        print(f"Aviso: falha ao hospedar imagem no GitHub: {exc}", file=sys.stderr)
         return None
 
 
