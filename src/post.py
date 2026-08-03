@@ -80,9 +80,11 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
     print(f"[{used_type}] headline: {headline}")
     print(f"legenda:\n{caption}\n")
 
-    # Sempre gera o card visual.
+    # Sempre gera o card visual. A semente varia a cena (paleta/telas) por post.
+    brt = timezone(timedelta(hours=config.BRT_OFFSET_HOURS))
+    seed = _current_slot() + datetime.now(brt).timetuple().tm_yday
     out_path = "preview.png" if dry_run else os.path.join(tempfile.gettempdir(), "post_card.png")
-    image_path = _build_card(headline, used_type, asset, out_path)
+    image_path = _build_card(headline, used_type, asset, out_path, seed)
 
     if dry_run:
         print(f"DRY_RUN ativo — card salvo em {image_path}; nada publicado.")
@@ -120,9 +122,6 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
         raise SystemExit("Falhas de publicação:\n" + "\n".join(errors))
 
     # Registra na memória (o workflow commita o arquivo depois de publicar).
-    from datetime import datetime, timezone, timedelta
-
-    brt = timezone(timedelta(hours=config.BRT_OFFSET_HOURS))
     history.append(
         {
             "date": datetime.now(brt).isoformat(timespec="minutes"),
@@ -133,7 +132,7 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
     )
 
 
-def _build_card(headline: str, content_type: str, asset: dict | None, out_path: str) -> str:
+def _build_card(headline: str, content_type: str, asset: dict | None, out_path: str, seed: int = 0) -> str:
     from . import image
 
     chart_img = None
@@ -144,7 +143,7 @@ def _build_card(headline: str, content_type: str, asset: dict | None, out_path: 
             chart_img = chart.render_candles(asset["candles"], asset["label"], asset["change"])
         except Exception as exc:  # noqa: BLE001
             print(f"Aviso: não foi possível gerar o gráfico: {exc}", file=sys.stderr)
-    return image.build_card(headline, content_type, config.POST_HANDLE, out_path, chart_img)
+    return image.build_card(headline, content_type, config.POST_HANDLE, out_path, chart_img, seed)
 
 
 def _host_image(path: str) -> str | None:
