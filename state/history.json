@@ -10,5 +10,11 @@
     "type": "mercado",
     "angle": "comente a amplitude entre a máxima e a mínima do período",
     "headline": "Nasdaq 100 sobe 1,58% com forte amplitude no dia"
+  },
+  {
+    "date": "2026-08-03T14:23-03:00",
+    "type": "trader",
+    "angle": "a importância de manter um diário de operações",
+    "headline": "Seu diário sabe mais sobre você do que o gráfico"
   }
 ]
