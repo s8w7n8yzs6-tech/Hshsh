@@ -77,6 +77,10 @@ def main() -> None:
 
     print("\nImagens:")
     _ok("hospedagem via GitHub (URL raw) — não precisa de imgbb")
+    if config.OPENAI_API_KEY:
+        _ok(f"fundo por IA ativo (OPENAI_API_KEY presente) — modelo {config.IMAGE_MODEL}, qualidade {config.IMAGE_QUALITY}")
+    else:
+        _warn("OPENAI_API_KEY ausente — os cards usarão a cena desenhada (sem foto de IA)")
 
     print(f"\nPlataformas configuradas: {', '.join(config.PLATFORMS) or '(nenhuma)'}")
     _check_instagram()
