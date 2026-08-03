@@ -34,5 +34,11 @@
     "type": "trader",
     "angle": "disciplina no gerenciamento de risco",
     "headline": "Você segue o stop até ele te dar razão?"
+  },
+  {
+    "date": "2026-08-03T15:29-03:00",
+    "type": "trader",
+    "angle": "disciplina no gerenciamento de risco",
+    "headline": "Você respeita o tamanho da posição ou só o stop?"
   }
 ]
