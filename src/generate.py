@@ -56,8 +56,9 @@ def generate_post(
     market_snapshot: str | None = None,
     angle: str | None = None,
     style: str | None = None,
+    avoid: list[str] | None = None,
 ) -> dict:
-    """Gera {headline, caption, type}. `angle`/`style` dão variedade e evitam repetição."""
+    """Gera {headline, caption, type}. `angle`/`style` variam; `avoid` evita repetir posts recentes."""
     if content_type not in _PROMPTS:
         raise ValueError(f"Tipo de conteúdo desconhecido: {content_type}")
 
@@ -77,6 +78,15 @@ def generate_post(
             )
         if style:
             prompt += f"\nFormato/estilo deste post: {style}."
+
+    if avoid:
+        recentes = "\n".join(f"- {h}" for h in avoid if h)
+        if recentes:
+            prompt += (
+                "\n\nEstes posts recentes JÁ foram publicados. NÃO repita as ideias, "
+                "as frases nem as aberturas deles — escreva algo claramente diferente:\n"
+                + recentes
+            )
 
     client = anthropic.Anthropic()
     resp = client.messages.create(

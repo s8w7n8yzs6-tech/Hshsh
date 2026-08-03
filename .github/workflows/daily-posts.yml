@@ -42,6 +42,9 @@ concurrency:
   group: daily-posts
   cancel-in-progress: false
 
+permissions:
+  contents: write   # para commitar a memória de posts (state/history.json)
+
 jobs:
   post:
     runs-on: ubuntu-latest
@@ -69,6 +72,20 @@ jobs:
           POST_TYPE: ${{ inputs.type }}
           DRY_RUN: ${{ inputs.dry_run }}
         run: python -m src.post
+
+      # Grava a memória de posts (só em publicação real e se houve mudança).
+      - name: Salvar memória de posts
+        if: ${{ inputs.dry_run != 'true' }}
+        run: |
+          if [ -n "$(git status --porcelain state/history.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add state/history.json
+            git commit -m "chore: memória de posts"
+            for i in 1 2 3; do
+              git pull --rebase --autostash origin main && git push && break || sleep 3
+            done
+          fi
 
       # Em modo dry_run é gerado um preview.png; deixamos disponível para download.
       - name: Salvar prévia do card (dry_run)
