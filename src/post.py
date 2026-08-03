@@ -44,6 +44,19 @@ def plan_post(content_type: str | None) -> tuple[str, str | None]:
     return "trader", None
 
 
+def _variety(content_type: str) -> tuple[str | None, str | None]:
+    """Escolhe (ângulo, estilo) para dar variedade e evitar posts repetidos."""
+    if content_type == "mercado":
+        return random.choice(config.MARKET_ANGLES), None
+    if content_type == "trader":
+        brt = timezone(timedelta(hours=config.BRT_OFFSET_HOURS))
+        day = datetime.now(brt).timetuple().tm_yday
+        # (slot + dia): não repete no mesmo dia e a rotação muda a cada dia.
+        angle = config.TRADER_ANGLES[(_current_slot() + day) % len(config.TRADER_ANGLES)]
+        return angle, random.choice(config.TRADER_FORMATS)
+    return None, None
+
+
 def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
     content_type, asset_key = plan_post(content_type)
     dry_run = config.DRY_RUN if dry_run is None else dry_run
@@ -57,7 +70,8 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
         else:
             snapshot = market.asset_snapshot(asset)
 
-    result = generate.generate_post(content_type, snapshot)
+    angle, style = _variety(content_type)
+    result = generate.generate_post(content_type, snapshot, angle=angle, style=style)
     used_type = result["type"]
     caption = result["caption"]
     headline = result["headline"]
