@@ -15,7 +15,7 @@ import sys
 import tempfile
 from datetime import datetime, timedelta, timezone
 
-from . import config, generate, market
+from . import config, generate, history, market
 from .publishers import instagram, threads
 
 
@@ -71,7 +71,8 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
             snapshot = market.asset_snapshot(asset)
 
     angle, style = _variety(content_type)
-    result = generate.generate_post(content_type, snapshot, angle=angle, style=style)
+    avoid = history.recent_headlines(20)  # memória: não repetir posts recentes
+    result = generate.generate_post(content_type, snapshot, angle=angle, style=style, avoid=avoid)
     used_type = result["type"]
     caption = result["caption"]
     headline = result["headline"]
@@ -117,6 +118,19 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
 
     if errors:
         raise SystemExit("Falhas de publicação:\n" + "\n".join(errors))
+
+    # Registra na memória (o workflow commita o arquivo depois de publicar).
+    from datetime import datetime, timezone, timedelta
+
+    brt = timezone(timedelta(hours=config.BRT_OFFSET_HOURS))
+    history.append(
+        {
+            "date": datetime.now(brt).isoformat(timespec="minutes"),
+            "type": used_type,
+            "angle": angle,
+            "headline": headline,
+        }
+    )
 
 
 def _build_card(headline: str, content_type: str, asset: dict | None, out_path: str) -> str:
