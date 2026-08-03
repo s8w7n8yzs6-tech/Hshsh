@@ -43,3 +43,60 @@ BRT_OFFSET_HOURS = -3
 
 # Tipo fixo, se definido no ambiente (senão, decidido pelo horário do slot).
 POST_TYPE = os.getenv("POST_TYPE", "").strip().lower() or None
+
+# --- Variedade dos posts (evita repetição) --------------------------------
+# Ângulos distintos para os posts de trader. O ângulo é escolhido por
+# (slot + dia do ano), então não repete no mesmo dia e roda ao longo dos dias.
+TRADER_ANGLES = [
+    "a ansiedade antes de abrir uma operação",
+    "a tentação de tentar recuperar rápido um prejuízo (revenge trade)",
+    "respeitar o stop mesmo quando dói",
+    "a paciência de esperar o setup certo aparecer",
+    "o medo de ficar de fora (FOMO)",
+    "operar demais (overtrading) e o cansaço mental",
+    "a solidão de quem opera sozinho em casa",
+    "acordar cedo para acompanhar a abertura do mercado",
+    "controlar a ganância depois de um bom lucro",
+    "a importância de manter um diário de operações",
+    "aceitar que ter perdas faz parte do jogo",
+    "disciplina no gerenciamento de risco",
+    "a montanha-russa emocional de um dia de operações",
+    "comemorar as pequenas evoluções, não só os grandes dias",
+    "parar de se comparar com outros traders",
+    "a diferença entre sorte pontual e consistência",
+    "desligar as telas para descansar a mente",
+    "o peso psicológico de segurar uma posição aberta",
+    "confiar no próprio plano em vez de improvisar",
+    "não mover o stop no calor da emoção",
+    "estudar e revisar operações no fim de semana",
+    "acertar a análise mas errar na execução",
+    "lidar com dias de lateralização e tédio no gráfico",
+    "a euforia perigosa depois de vários acertos seguidos",
+    "reduzir o tamanho da posição quando está em dúvida",
+    "a importância de dormir bem para operar melhor",
+    "não operar por impulso logo após uma notícia",
+    "rever operações passadas com honestidade",
+    "bater a meta do dia e ter a disciplina de parar",
+    "resistir ao 'só mais uma operação'",
+    "separar a vida pessoal do resultado do dia",
+    "a paciência de anos até virar um trader consistente",
+    "respeitar o horário de encerrar o dia de operações",
+    "a diferença entre ser trader e ser apostador",
+    "manter a rotina de estudo mesmo desmotivado",
+    "a gratidão por evoluir aos poucos, um dia de cada vez",
+]
+TRADER_FORMATS = [
+    "uma pergunta direta ao leitor",
+    "uma frase curta e de impacto",
+    "uma mini-reflexão em 2 ou 3 frases",
+    "uma situação do dia a dia com a qual o trader se identifica",
+    "uma verdade honesta que poucos falam",
+    "um lembrete acolhedor e encorajador",
+]
+# Enfoques para variar os posts de mercado.
+MARKET_ANGLES = [
+    "destaque a variação do dia e o que ela indica, de forma neutra",
+    "comente a amplitude entre a máxima e a mínima do período",
+    "fale sobre a volatilidade recente nos candles de 30 min",
+    "comente, sem prever direção, se o dia teve mais força compradora ou vendedora",
+]

@@ -51,8 +51,13 @@ _SCHEMA = {
 }
 
 
-def generate_post(content_type: str, market_snapshot: str | None = None) -> dict:
-    """Gera {headline, caption, type}. Sem dados de mercado, 'mercado' vira 'educacional'."""
+def generate_post(
+    content_type: str,
+    market_snapshot: str | None = None,
+    angle: str | None = None,
+    style: str | None = None,
+) -> dict:
+    """Gera {headline, caption, type}. `angle`/`style` dão variedade e evitam repetição."""
     if content_type not in _PROMPTS:
         raise ValueError(f"Tipo de conteúdo desconhecido: {content_type}")
 
@@ -61,8 +66,17 @@ def generate_post(content_type: str, market_snapshot: str | None = None) -> dict
 
     if content_type == "mercado":
         prompt = _PROMPTS["mercado"].format(market=market_snapshot)
+        if angle:
+            prompt += f"\n\nEnfoque desta vez: {angle}."
     else:
         prompt = _PROMPTS[content_type]
+        if angle:
+            prompt += (
+                f"\n\nÂngulo específico e OBRIGATÓRIO deste post (escreva exatamente "
+                f"sobre isto, de forma original e sem clichês repetidos): {angle}."
+            )
+        if style:
+            prompt += f"\nFormato/estilo deste post: {style}."
 
     client = anthropic.Anthropic()
     resp = client.messages.create(
