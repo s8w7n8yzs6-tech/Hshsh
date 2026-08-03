@@ -46,5 +46,11 @@
     "type": "mercado",
     "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
     "headline": "Nasdaq 100 dispara +2,67%: euforia ou armadilha mental?"
+  },
+  {
+    "date": "2026-08-03T17:20-03:00",
+    "type": "trader",
+    "angle": "parar de se comparar com outros traders",
+    "headline": "O trader que você admira também erra. Muito."
   }
 ]
