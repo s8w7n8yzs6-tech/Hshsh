@@ -28,10 +28,10 @@ on:
   workflow_dispatch:
     inputs:
       type:
-        description: "Tipo de post (opcional)"
+        description: "Formato do post (opcional)"
         required: false
         type: choice
-        options: ["", "trader", "mercado"]
+        options: ["", "trader", "mercado", "foto", "citacao", "lista", "mito_verdade", "numero"]
       dry_run:
         description: "Somente gerar, sem publicar"
         required: false
