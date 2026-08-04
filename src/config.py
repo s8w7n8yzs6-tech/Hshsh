@@ -34,6 +34,13 @@ DRY_RUN = os.getenv("DRY_RUN", "false").lower() in ("1", "true", "yes")
 # "trader" = conteúdo focado no trader (identificação) — os demais posts do dia.
 CONTENT_TYPES = ("trader", "mercado")
 
+# Formatos que se revezam nos posts de trader (dão variedade ao feed). O formato
+# de cada slot é escolhido por (slot + dia), então posts vizinhos são diferentes
+# e a ordem muda a cada dia. "foto" usa imagem de IA; os demais são desenhados.
+TRADER_FORMATS_ROTATION = ("foto", "citacao", "lista", "mito_verdade", "numero")
+# Todos os formatos válidos (para --type manual e validação).
+ALL_FORMATS = ("foto", "citacao", "lista", "mito_verdade", "numero", "mercado")
+
 # Horários dos 20 posts, em horário de Brasília (UTC-3), das 07:00 às 20:30.
 # O tipo de cada post é decidido pelo slot mais próximo do horário atual.
 SCHEDULE_BRT = [

@@ -1,4 +1,9 @@
-"""Geração do conteúdo (chamada da imagem + legenda) usando Claude."""
+"""Geração do conteúdo com Claude — um formato diferente por tipo de post.
+
+Cada formato (foto, mercado, citacao, lista, mito_verdade, numero) tem seu
+próprio prompt e esquema de saída. Retorna sempre `caption`, `fmt` e um campo
+`main` (texto representativo, usado para não repetir e para log).
+"""
 from __future__ import annotations
 
 import json
@@ -8,106 +13,167 @@ import anthropic
 from . import config
 
 _BASE_RULES = (
-    "Você cria conteúdo para redes sociais sobre trade e mercados financeiros. "
-    f"Escreva SEMPRE em {config.POST_LANGUAGE}, incluindo as hashtags. Nunca em inglês.\n"
-    "Você deve produzir dois campos:\n"
-    "- headline: um GANCHO curto que faça o trader PARAR e PENSAR — de preferência "
-    "uma pergunta provocativa ou uma verdade incômoda sobre a mente de quem opera "
-    "(máx ~70 caracteres, sem hashtags, sem @, sem aspas). Nada de frase motivacional "
-    "genérica ('disciplina é tudo'); prefira algo que gere identificação e reflexão.\n"
-    "- caption: o texto completo do post (máx ~400 caracteres) que DESENVOLVE a "
-    "reflexão da headline, tom humano e provocador, no máximo 1 ou 2 emojis, "
-    "terminando com 3 a 5 hashtags em português.\n"
-    "NUNCA dê recomendação de compra/venda, alvo de preço, promessa de lucro ou "
-    "aconselhamento financeiro. Nada de 'compre', 'venda', 'vai subir'. "
-    "Não inclua @ de usuários nem assinatura (é adicionada depois)."
+    "Você cria conteúdo para o Instagram de um trader, sobre a MENTE e a rotina de "
+    f"quem opera. Escreva SEMPRE em {config.POST_LANGUAGE}, incluindo hashtags. "
+    "Nunca em inglês.\n"
+    "Regras invioláveis: NUNCA dê recomendação de compra/venda, alvo de preço, "
+    "promessa de lucro ou aconselhamento financeiro. Nada de 'compre', 'venda', "
+    "'vai subir'. Não invente estatísticas de pesquisa nem números de desempenho. "
+    "Não inclua @ de usuário nem assinatura (é adicionada depois). Sem aspas "
+    "desnecessárias. Tom humano, direto e que gera identificação."
 )
 
-_PROMPTS = {
-    "trader": (
-        "Tema: um post que faça o trader PENSAR e se ENXERGAR — a mente e a realidade "
-        "psicológica de quem opera (ex.: operar pra ter razão em vez de lucrar, o ego "
-        "que não aceita o stop, a ilusão de controle, revenge trade, medo e ganância, "
-        "a montanha-russa emocional, autossabotagem, paciência, a solidão do day "
-        "trade, disciplina que ninguém vê). A headline deve ser um GANCHO reflexivo "
-        "(pergunta provocativa ou verdade incômoda) e a legenda desenvolve a ideia de "
-        "forma honesta e próxima, falando 'você'. Não é aula técnica nem comentário "
-        "de preço — é para tocar o lado mental do trader."
-    ),
-    "mercado": (
-        "Tema: comentário de mercado sobre O ATIVO abaixo (o post traz um gráfico "
-        "de candlestick de 30 min). Baseie-se NOS DADOS reais abaixo e descreva o "
-        "movimento do dia de forma neutra e informativa, sem prever direção nem "
-        "recomendar operações. A headline deve citar o ativo e o movimento do dia."
-        "\n\n{market}"
-    ),
+_FMT = {
+    "foto": {
+        "schema": {"headline": {"type": "string"}, "caption": {"type": "string"}},
+        "required": ["headline", "caption"],
+        "main": "headline",
+        "prompt": (
+            "Formato FOTO-REFLEXÃO (a imagem é uma foto de um trader). Crie:\n"
+            "- headline: um GANCHO curto (pergunta provocativa ou verdade incômoda "
+            "sobre a mente do trader), máx ~70 caracteres, sem hashtags.\n"
+            "- caption: desenvolve a reflexão (máx ~400 caracteres), 1-2 emojis no "
+            "máximo, terminando com 3-5 hashtags."
+        ),
+    },
+    "citacao": {
+        "schema": {"statement": {"type": "string"}, "caption": {"type": "string"}},
+        "required": ["statement", "caption"],
+        "main": "statement",
+        "prompt": (
+            "Formato CITAÇÃO (frase de destaque em fundo limpo). Crie:\n"
+            "- statement: uma frase FORTE e original sobre disciplina/psicologia do "
+            "trader, de impacto, máx ~120 caracteres, sem aspas e sem hashtags.\n"
+            "- caption: comenta/expande a frase (máx ~400 caracteres), 1-2 emojis, "
+            "terminando com 3-5 hashtags."
+        ),
+    },
+    "lista": {
+        "schema": {
+            "title": {"type": "string"},
+            "items": {"type": "array", "items": {"type": "string"}, "minItems": 3, "maxItems": 5},
+            "caption": {"type": "string"},
+        },
+        "required": ["title", "items", "caption"],
+        "main": "title",
+        "prompt": (
+            "Formato LISTA (conteúdo pra salvar). Crie:\n"
+            "- title: um título chamativo (ex.: '3 sinais de que você está em revenge "
+            "trade', '4 hábitos do trader consistente'), máx ~60 caracteres.\n"
+            "- items: de 3 a 5 itens CURTOS e diretos (cada um máx ~70 caracteres), "
+            "sem numeração (o número é desenhado automaticamente).\n"
+            "- caption: fecha a ideia (máx ~400 caracteres), 1-2 emojis, com 3-5 hashtags."
+        ),
+    },
+    "mito_verdade": {
+        "schema": {"mito": {"type": "string"}, "verdade": {"type": "string"}, "caption": {"type": "string"}},
+        "required": ["mito", "verdade", "caption"],
+        "main": "verdade",
+        "prompt": (
+            "Formato MITO x VERDADE (card dividido). Crie:\n"
+            "- mito: uma crença COMUM e equivocada do trader iniciante, curta (máx ~90 caracteres).\n"
+            "- verdade: a visão madura que corrige o mito, curta (máx ~90 caracteres).\n"
+            "- caption: explica o contraste (máx ~400 caracteres), 1-2 emojis, com 3-5 hashtags."
+        ),
+    },
+    "numero": {
+        "schema": {"stat": {"type": "string"}, "label": {"type": "string"}, "caption": {"type": "string"}},
+        "required": ["stat", "label", "caption"],
+        "main": "label",
+        "prompt": (
+            "Formato NÚMERO DE IMPACTO (um número gigante + um texto). Crie:\n"
+            "- stat: um número/símbolo CURTO e retórico sobre mentalidade (ex.: '1', "
+            "'2x', 'R$0', '10min', '-1%'). NÃO é estatística de pesquisa nem promessa "
+            "de lucro — é um recurso de reflexão.\n"
+            "- label: a frase que dá sentido ao número (máx ~90 caracteres).\n"
+            "- caption: desenvolve (máx ~400 caracteres), 1-2 emojis, com 3-5 hashtags."
+        ),
+    },
+    "mercado": {
+        "schema": {"headline": {"type": "string"}, "caption": {"type": "string"}},
+        "required": ["headline", "caption"],
+        "main": "headline",
+        "prompt": (
+            "Formato MERCADO (o post traz um gráfico de candlestick de 30 min do ativo "
+            "abaixo). Baseie-se NOS DADOS reais e descreva o movimento do dia de forma "
+            "neutra, sem prever direção nem recomendar operação.\n"
+            "- headline: cita o ativo e o movimento do dia (máx ~70 caracteres).\n"
+            "- caption: comenta os dados (máx ~400 caracteres), 1-2 emojis, com 3-5 hashtags.\n\n"
+            "{market}"
+        ),
+    },
 }
 
-_SCHEMA = {
-    "type": "object",
-    "properties": {
-        "headline": {"type": "string"},
-        "caption": {"type": "string"},
-    },
-    "required": ["headline", "caption"],
-    "additionalProperties": False,
-}
+
+def _schema(fmt: str) -> dict:
+    spec = _FMT[fmt]
+    return {
+        "type": "object",
+        "properties": spec["schema"],
+        "required": spec["required"],
+        "additionalProperties": False,
+    }
 
 
 def generate_post(
-    content_type: str,
+    fmt: str,
     market_snapshot: str | None = None,
     angle: str | None = None,
-    style: str | None = None,
     avoid: list[str] | None = None,
 ) -> dict:
-    """Gera {headline, caption, type}. `angle`/`style` variam; `avoid` evita repetir posts recentes."""
-    if content_type not in _PROMPTS:
-        raise ValueError(f"Tipo de conteúdo desconhecido: {content_type}")
+    """Gera o conteúdo do formato `fmt`. Retorna dict com os campos do formato + caption/fmt/main."""
+    if fmt not in _FMT:
+        raise ValueError(f"Formato desconhecido: {fmt}")
+    if fmt == "mercado" and not market_snapshot:
+        fmt = "foto"  # sem dados de mercado, cai para foto-reflexão
 
-    if content_type == "mercado" and not market_snapshot:
-        content_type = "trader"
-
-    if content_type == "mercado":
-        prompt = _PROMPTS["mercado"].format(market=market_snapshot)
+    spec = _FMT[fmt]
+    if fmt == "mercado":
+        prompt = spec["prompt"].format(market=market_snapshot)
         if angle:
             prompt += f"\n\nEnfoque desta vez: {angle}."
     else:
-        prompt = _PROMPTS[content_type]
+        prompt = spec["prompt"]
         if angle:
             prompt += (
-                f"\n\nÂngulo específico e OBRIGATÓRIO deste post (escreva exatamente "
-                f"sobre isto, de forma original e sem clichês repetidos): {angle}."
+                f"\n\nTEMA OBRIGATÓRIO deste post (escreva sobre isto, de forma "
+                f"original e sem clichês): {angle}."
             )
-        if style:
-            prompt += f"\nFormato/estilo deste post: {style}."
 
     if avoid:
         recentes = "\n".join(f"- {h}" for h in avoid if h)
         if recentes:
             prompt += (
-                "\n\nEstes posts recentes JÁ foram publicados. NÃO repita as ideias, "
-                "as frases nem as aberturas deles — escreva algo claramente diferente:\n"
-                + recentes
+                "\n\nEstes posts recentes JÁ saíram. NÃO repita as ideias, frases nem "
+                "as aberturas — escreva algo claramente diferente:\n" + recentes
             )
 
     client = anthropic.Anthropic()
     resp = client.messages.create(
         model=config.ANTHROPIC_MODEL,
-        max_tokens=700,
+        max_tokens=800,
         thinking={"type": "disabled"},
         system=_BASE_RULES,
         messages=[{"role": "user", "content": prompt}],
-        output_config={"format": {"type": "json_schema", "schema": _SCHEMA}},
+        output_config={"format": {"type": "json_schema", "schema": _schema(fmt)}},
     )
     raw = "".join(b.text for b in resp.content if b.type == "text").strip()
     parsed = json.loads(raw)
 
-    headline = parsed["headline"].strip()
-    caption = parsed["caption"].strip()
+    # Normaliza espaços e limpa campos de texto.
+    out: dict = {"fmt": fmt}
+    for key in spec["schema"]:
+        val = parsed.get(key)
+        if isinstance(val, str):
+            out[key] = val.strip()
+        elif isinstance(val, list):
+            out[key] = [str(x).strip() for x in val if str(x).strip()]
+        else:
+            out[key] = val
 
     handle = config.POST_HANDLE
+    caption = out.get("caption", "")
     if handle and handle.lower() not in caption.lower():
-        caption = f"{caption}\n\n{handle}"
-
-    return {"headline": headline, "caption": caption, "type": content_type}
+        out["caption"] = f"{caption}\n\n{handle}".strip()
+    out["main"] = out.get(spec["main"]) if isinstance(out.get(spec["main"]), str) else out.get("caption", "")
+    return out

@@ -28,63 +28,63 @@ def _current_slot() -> int:
     return diffs.index(min(diffs))
 
 
+def _day_of_year() -> int:
+    brt = timezone(timedelta(hours=config.BRT_OFFSET_HOURS))
+    return datetime.now(brt).timetuple().tm_yday
+
+
 def plan_post(content_type: str | None) -> tuple[str, str | None]:
-    """Decide (tipo, ativo). 2 slots/dia são de mercado (ouro/Nasdaq); o resto, trader."""
+    """Decide (formato, ativo). 2 slots/dia são mercado (ouro/Nasdaq); o resto revezam formatos."""
     ct = content_type or config.POST_TYPE
     if ct == "mercado":
         return "mercado", random.choice(list(market.MARKET_ASSETS))
-    if ct:  # tipo fixo (ex.: "trader")
+    if ct in config.TRADER_FORMATS_ROTATION:  # formato específico forçado
         return ct, None
 
     slot = _current_slot()
-    if slot == config.GOLD_SLOT_INDEX:
-        return "mercado", "ouro"
-    if slot == config.NASDAQ_SLOT_INDEX:
-        return "mercado", "nasdaq"
-    return "trader", None
+    if not ct:  # automático pelo horário
+        if slot == config.GOLD_SLOT_INDEX:
+            return "mercado", "ouro"
+        if slot == config.NASDAQ_SLOT_INDEX:
+            return "mercado", "nasdaq"
+    # "trader" (ou automático): revezar os formatos de trader por (slot + dia).
+    rotation = config.TRADER_FORMATS_ROTATION
+    return rotation[(slot + _day_of_year()) % len(rotation)], None
 
 
-def _variety(content_type: str) -> tuple[str | None, str | None]:
-    """Escolhe (ângulo, estilo) para dar variedade e evitar posts repetidos."""
-    if content_type == "mercado":
-        return random.choice(config.MARKET_ANGLES), None
-    if content_type == "trader":
-        brt = timezone(timedelta(hours=config.BRT_OFFSET_HOURS))
-        day = datetime.now(brt).timetuple().tm_yday
-        # (slot + dia): não repete no mesmo dia e a rotação muda a cada dia.
-        angle = config.TRADER_ANGLES[(_current_slot() + day) % len(config.TRADER_ANGLES)]
-        return angle, random.choice(config.TRADER_FORMATS)
-    return None, None
+def _angle(fmt: str) -> str | None:
+    """Tema (ângulo) do post, variando por (slot + dia) para não repetir."""
+    if fmt == "mercado":
+        return random.choice(config.MARKET_ANGLES)
+    return config.TRADER_ANGLES[(_current_slot() + _day_of_year()) % len(config.TRADER_ANGLES)]
 
 
 def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
-    content_type, asset_key = plan_post(content_type)
+    fmt, asset_key = plan_post(content_type)
     dry_run = config.DRY_RUN if dry_run is None else dry_run
 
     asset = None
     snapshot = None
-    if content_type == "mercado":
+    if fmt == "mercado":
         asset = market.fetch_asset(asset_key)
-        if not asset:  # se falhar o ativo, cai para conteúdo de trader
-            content_type = "trader"
+        if not asset:  # se falhar o ativo, cai para foto-reflexão
+            fmt = "foto"
         else:
             snapshot = market.asset_snapshot(asset)
 
-    angle, style = _variety(content_type)
+    angle = _angle(fmt)
     avoid = history.recent_headlines(20)  # memória: não repetir posts recentes
-    result = generate.generate_post(content_type, snapshot, angle=angle, style=style, avoid=avoid)
-    used_type = result["type"]
+    result = generate.generate_post(fmt, snapshot, angle=angle, avoid=avoid)
+    fmt = result["fmt"]  # pode ter caído de mercado para foto
     caption = result["caption"]
-    headline = result["headline"]
 
-    print(f"[{used_type}] headline: {headline}")
+    print(f"[{fmt}] {result.get('main', '')}")
     print(f"legenda:\n{caption}\n")
 
-    # Sempre gera o card visual. A semente varia a cena (paleta/telas) por post.
-    brt = timezone(timedelta(hours=config.BRT_OFFSET_HOURS))
-    seed = _current_slot() + datetime.now(brt).timetuple().tm_yday
+    # Sempre gera o card visual. A semente varia paleta/cena por post.
+    seed = _current_slot() + _day_of_year()
     out_path = "preview.png" if dry_run else os.path.join(tempfile.gettempdir(), "post_card.png")
-    image_path = _build_card(headline, used_type, asset, out_path, seed)
+    image_path = _build_card(result, asset, out_path, seed)
 
     if dry_run:
         print(f"DRY_RUN ativo — card salvo em {image_path}; nada publicado.")
@@ -122,21 +122,37 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
         raise SystemExit("Falhas de publicação:\n" + "\n".join(errors))
 
     # Registra na memória (o workflow commita o arquivo depois de publicar).
+    brt = timezone(timedelta(hours=config.BRT_OFFSET_HOURS))
     history.append(
         {
             "date": datetime.now(brt).isoformat(timespec="minutes"),
-            "type": used_type,
+            "type": fmt,
             "angle": angle,
-            "headline": headline,
+            "headline": result.get("main", ""),
         }
     )
 
 
-def _build_card(headline: str, content_type: str, asset: dict | None, out_path: str, seed: int = 0) -> str:
-    from . import image, imagegen
+def _build_card(result: dict, asset: dict | None, out_path: str, seed: int = 0) -> str:
+    """Desenha o card conforme o formato do post."""
+    from . import cards, image, imagegen
 
+    fmt = result["fmt"]
+    handle = config.POST_HANDLE
+
+    # Formatos desenhados (sem foto de IA) — dão variedade ao feed.
+    if fmt == "citacao":
+        return cards.build_quote(result["statement"], handle, out_path, seed)
+    if fmt == "lista":
+        return cards.build_list(result["title"], result["items"], handle, out_path, seed)
+    if fmt == "mito_verdade":
+        return cards.build_myth_truth(result["mito"], result["verdade"], handle, out_path, seed)
+    if fmt == "numero":
+        return cards.build_number(result["stat"], result["label"], handle, out_path, seed)
+
+    # Formatos com foto de IA: foto-reflexão e mercado.
     chart_img = None
-    if content_type == "mercado" and asset:
+    if fmt == "mercado" and asset:
         try:
             from . import chart
 
@@ -144,14 +160,11 @@ def _build_card(headline: str, content_type: str, asset: dict | None, out_path: 
         except Exception as exc:  # noqa: BLE001
             print(f"Aviso: não foi possível gerar o gráfico: {exc}", file=sys.stderr)
 
-    # Fundo fotorrealista de IA (para do scroll). Se indisponível, usa a cena desenhada.
-    background = imagegen.generate_background(content_type, seed)
-    if background is not None:
-        print("Fundo: imagem fotorrealista gerada por IA.")
-    else:
-        print("Fundo: cena desenhada (IA indisponível ou sem OPENAI_API_KEY).")
+    background = imagegen.generate_background("mercado" if fmt == "mercado" else "trader", seed)
+    print("Fundo: imagem de IA." if background is not None else "Fundo: cena desenhada (sem IA).")
+    badge = "mercado" if fmt == "mercado" else "trader"
     return image.build_card(
-        headline, content_type, config.POST_HANDLE, out_path, chart_img, seed, background=background
+        result["headline"], badge, handle, out_path, chart_img, seed, background=background
     )
 
 
@@ -196,7 +209,7 @@ def _host_image(path: str) -> str | None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Gera e publica um post sobre trade.")
-    parser.add_argument("--type", choices=config.CONTENT_TYPES, default=None)
+    parser.add_argument("--type", choices=("trader", *config.ALL_FORMATS), default=None)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     run(content_type=args.type, dry_run=True if args.dry_run else None)
