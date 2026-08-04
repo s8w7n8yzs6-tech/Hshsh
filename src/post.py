@@ -169,12 +169,13 @@ def _build_card(result: dict, asset: dict | None, out_path: str, seed: int = 0) 
 
 
 def _host_image(path: str) -> str | None:
-    """Hospeda a imagem no próprio GitHub (URL raw) e retorna a URL pública.
+    """Hospeda a imagem no GitHub (URL raw) SEM tocar no worktree nem no main.
 
-    Commita a imagem no repositório e usa a URL raw pinada no commit (SHA), que é
-    pública, estável e sem limite de uso — sem depender de serviços externos.
+    Usa plumbing do git (hash-object → mktree → commit-tree) para criar um commit
+    isolado só com a imagem e faz force-push para o ref `media`. A URL raw é pinada
+    no SHA do commit — pública e estável. Como não mexe no índice nem no main, não
+    há rebase nem conflito de binário entre as 20 execuções diárias.
     """
-    import shutil
     import subprocess
     import time as _time
 
@@ -182,26 +183,32 @@ def _host_image(path: str) -> str | None:
     if not repo:
         print("Aviso: fora do GitHub Actions — não é possível hospedar a imagem.", file=sys.stderr)
         return None
+
+    env = {
+        **os.environ,
+        "GIT_AUTHOR_NAME": "github-actions[bot]",
+        "GIT_AUTHOR_EMAIL": "github-actions[bot]@users.noreply.github.com",
+        "GIT_COMMITTER_NAME": "github-actions[bot]",
+        "GIT_COMMITTER_EMAIL": "github-actions[bot]@users.noreply.github.com",
+    }
+
+    def git(args, **kw):
+        return subprocess.run(["git", *args], capture_output=True, text=True, env=env, **kw)
+
     try:
-        dest = os.path.join("state", "card.png")
-        os.makedirs("state", exist_ok=True)
-        shutil.copyfile(path, dest)
-        subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=True)
-        subprocess.run(
-            ["git", "config", "user.email", "github-actions[bot]@users.noreply.github.com"],
-            check=True,
-        )
-        subprocess.run(["git", "add", "-f", dest], check=True)  # -f: .gitignore ignora *.png
-        subprocess.run(["git", "commit", "-m", "chore: card do post"], check=False)
-        for _ in range(3):
-            subprocess.run(["git", "pull", "--rebase", "--autostash", "origin", "main"], check=False)
-            if subprocess.run(["git", "push", "origin", "HEAD:main"], check=False).returncode == 0:
-                break
-            _time.sleep(3)
-        sha = subprocess.run(
-            ["git", "rev-parse", "HEAD"], capture_output=True, text=True
-        ).stdout.strip()
-        return f"https://raw.githubusercontent.com/{repo}/{sha}/state/card.png"
+        blob = git(["hash-object", "-w", path]).stdout.strip()
+        if not blob:
+            return None
+        tree = git(["mktree"], input=f"100644 blob {blob}\tcard.png\n").stdout.strip()
+        commit = git(["commit-tree", tree, "-m", "card do post"]).stdout.strip()
+        if not commit:
+            return None
+        for _ in range(4):
+            if git(["push", "-f", "origin", f"{commit}:refs/heads/media"]).returncode == 0:
+                return f"https://raw.githubusercontent.com/{repo}/{commit}/card.png"
+            _time.sleep(2)
+        print("Aviso: falha ao dar push da imagem para o ref media.", file=sys.stderr)
+        return None
     except Exception as exc:  # noqa: BLE001
         print(f"Aviso: falha ao hospedar imagem no GitHub: {exc}", file=sys.stderr)
         return None
