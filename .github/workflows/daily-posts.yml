@@ -3,28 +3,14 @@ name: Posts diários sobre trade
 # 20 posts/dia distribuídos das 07:00 às 20:30 (horário de Brasília, UTC-3).
 # Os horários abaixo estão em UTC (BRT + 3h). 2 posts do dia são de mercado
 # (08:25 = Ouro, 16:14 = Nasdaq); os demais focam no trader.
+# O agendador do GitHub é "best-effort" (atrasa/junta/pula horários). Por isso
+# disparamos com FREQUÊNCIA (a cada 20 min na janela 07:00–20:30 BRT = 10:00–23:40
+# UTC) e a lógica em src/post.py decide o que publicar: no máximo 1 post por
+# disparo — o próximo slot "devendo" — só depois do horário previsto, até 20/dia.
+# Assim, mesmo com o GitHub disparando torto, os posts saem espaçados e na janela.
 on:
   schedule:
-    - cron: "0 10 * * *"    # 07:00 BRT
-    - cron: "43 10 * * *"   # 07:43
-    - cron: "25 11 * * *"   # 08:25  (Ouro)
-    - cron: "8 12 * * *"    # 09:08
-    - cron: "51 12 * * *"   # 09:51
-    - cron: "33 13 * * *"   # 10:33
-    - cron: "16 14 * * *"   # 11:16
-    - cron: "58 14 * * *"   # 11:58
-    - cron: "41 15 * * *"   # 12:41
-    - cron: "24 16 * * *"   # 13:24
-    - cron: "6 17 * * *"    # 14:06
-    - cron: "49 17 * * *"   # 14:49
-    - cron: "32 18 * * *"   # 15:32
-    - cron: "14 19 * * *"   # 16:14  (Nasdaq)
-    - cron: "57 19 * * *"   # 16:57
-    - cron: "39 20 * * *"   # 17:39
-    - cron: "22 21 * * *"   # 18:22
-    - cron: "5 22 * * *"    # 19:05
-    - cron: "47 22 * * *"   # 19:47
-    - cron: "30 23 * * *"   # 20:30
+    - cron: "*/20 10-23 * * *"
   workflow_dispatch:
     inputs:
       type:

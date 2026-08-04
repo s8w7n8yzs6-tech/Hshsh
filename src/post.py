@@ -33,35 +33,73 @@ def _day_of_year() -> int:
     return datetime.now(brt).timetuple().tm_yday
 
 
+def _slot_plan(slot: int) -> tuple[str, str | None]:
+    """Formato/ativo de um slot: 2 slots são mercado (ouro/Nasdaq); o resto revezam."""
+    if slot == config.GOLD_SLOT_INDEX:
+        return "mercado", "ouro"
+    if slot == config.NASDAQ_SLOT_INDEX:
+        return "mercado", "nasdaq"
+    rotation = config.TRADER_FORMATS_ROTATION
+    return rotation[(slot + _day_of_year()) % len(rotation)], None
+
+
 def plan_post(content_type: str | None) -> tuple[str, str | None]:
-    """Decide (formato, ativo). 2 slots/dia são mercado (ouro/Nasdaq); o resto revezam formatos."""
+    """Decide (formato, ativo) para um disparo MANUAL forçado (--type / workflow_dispatch)."""
     ct = content_type or config.POST_TYPE
     if ct == "mercado":
         return "mercado", random.choice(list(market.MARKET_ASSETS))
     if ct in config.TRADER_FORMATS_ROTATION:  # formato específico forçado
         return ct, None
-
-    slot = _current_slot()
-    if not ct:  # automático pelo horário
-        if slot == config.GOLD_SLOT_INDEX:
-            return "mercado", "ouro"
-        if slot == config.NASDAQ_SLOT_INDEX:
-            return "mercado", "nasdaq"
-    # "trader" (ou automático): revezar os formatos de trader por (slot + dia).
-    rotation = config.TRADER_FORMATS_ROTATION
-    return rotation[(slot + _day_of_year()) % len(rotation)], None
+    return _slot_plan(_current_slot())  # "trader" ou vazio → pelo horário atual
 
 
-def _angle(fmt: str) -> str | None:
+def _posts_today() -> int:
+    """Quantos posts já foram publicados hoje (Brasília), lendo a memória."""
+    today = datetime.now(timezone(timedelta(hours=config.BRT_OFFSET_HOURS))).date().isoformat()
+    return sum(1 for e in history._load(history.HISTORY_PATH) if str(e.get("date", "")).startswith(today))
+
+
+def _due_slot() -> int | None:
+    """O próximo slot 'devendo': o de índice = nº de posts de hoje, se seu horário já chegou.
+
+    Torna o sistema à prova de atraso do agendador: cada disparo publica no máximo
+    um post — o próximo da fila — e só depois do horário previsto do slot. Assim não
+    posta de madrugada, não junta vários no mesmo minuto e não passa de 20/dia.
+    """
+    count = _posts_today()
+    if count >= len(config.SCHEDULE_BRT):
+        return None  # cota diária atingida
+    slot = count
+    h, m = config.SCHEDULE_BRT[slot]
+    now = datetime.now(timezone(timedelta(hours=config.BRT_OFFSET_HOURS)))
+    if now.hour * 60 + now.minute < h * 60 + m:
+        return None  # horário do próximo slot ainda não chegou
+    return slot
+
+
+def _angle(fmt: str, slot: int) -> str | None:
     """Tema (ângulo) do post, variando por (slot + dia) para não repetir."""
     if fmt == "mercado":
         return random.choice(config.MARKET_ANGLES)
-    return config.TRADER_ANGLES[(_current_slot() + _day_of_year()) % len(config.TRADER_ANGLES)]
+    return config.TRADER_ANGLES[(slot + _day_of_year()) % len(config.TRADER_ANGLES)]
 
 
 def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
-    fmt, asset_key = plan_post(content_type)
     dry_run = config.DRY_RUN if dry_run is None else dry_run
+    forced = content_type or config.POST_TYPE  # disparo manual com formato específico
+
+    if forced:
+        fmt, asset_key = plan_post(forced)
+        slot = _current_slot()
+    else:
+        slot = _due_slot()
+        if slot is None:
+            if not dry_run:
+                print("Nada a postar agora (fora da janela, horário do próximo slot "
+                      "ainda não chegou, ou cota diária de 20 já atingida).")
+                return
+            slot = _current_slot()  # em dry-run, prévia do slot atual
+        fmt, asset_key = _slot_plan(slot)
 
     asset = None
     snapshot = None
@@ -72,17 +110,17 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
         else:
             snapshot = market.asset_snapshot(asset)
 
-    angle = _angle(fmt)
+    angle = _angle(fmt, slot)
     avoid = history.recent_headlines(20)  # memória: não repetir posts recentes
     result = generate.generate_post(fmt, snapshot, angle=angle, avoid=avoid)
     fmt = result["fmt"]  # pode ter caído de mercado para foto
     caption = result["caption"]
 
-    print(f"[{fmt}] {result.get('main', '')}")
+    print(f"[slot {slot}] [{fmt}] {result.get('main', '')}")
     print(f"legenda:\n{caption}\n")
 
     # Sempre gera o card visual. A semente varia paleta/cena por post.
-    seed = _current_slot() + _day_of_year()
+    seed = slot + _day_of_year()
     out_path = "preview.png" if dry_run else os.path.join(tempfile.gettempdir(), "post_card.png")
     image_path = _build_card(result, asset, out_path, seed)
 
