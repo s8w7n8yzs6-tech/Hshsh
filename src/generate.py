@@ -51,7 +51,7 @@ _FMT = {
     "lista": {
         "schema": {
             "title": {"type": "string"},
-            "items": {"type": "array", "items": {"type": "string"}, "minItems": 3, "maxItems": 5},
+            "items": {"type": "array", "items": {"type": "string"}},
             "caption": {"type": "string"},
         },
         "required": ["title", "items", "caption"],
