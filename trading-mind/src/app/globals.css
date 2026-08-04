@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: "Inter", system-ui, sans-serif;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html,
+body {
+  background-color: #0d0d0d;
+  color: #ffffff;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+::selection {
+  background: rgba(108, 62, 255, 0.35);
+}
+
+/* Elegant thin scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+  background-clip: padding-box;
+}
+
+@layer components {
+  .glass {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(12px);
+  }
+
+  .card-base {
+    @apply rounded-2xl bg-card border border-line shadow-card;
+  }
+
+  .field {
+    @apply w-full rounded-xl bg-card2 border border-line2 px-3.5 py-2.5 text-sm text-ink
+      placeholder:text-muted/60 outline-none transition
+      focus:border-brand/60 focus:ring-2 focus:ring-brand/20;
+  }
+
+  .label {
+    @apply mb-1.5 block text-xs font-medium text-muted;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium
+      transition-all duration-200 disabled:opacity-40 disabled:pointer-events-none select-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand text-white hover:bg-brand-soft
+      shadow-[0_8px_30px_-10px_rgba(108,62,255,0.7)] hover:shadow-[0_10px_40px_-8px_rgba(108,62,255,0.9)];
+  }
+
+  .btn-ghost {
+    @apply btn bg-card2 text-ink border border-line2 hover:bg-white/5;
+  }
+
+  .btn-subtle {
+    @apply btn text-muted hover:text-ink hover:bg-white/5;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line2 bg-card2 px-2.5 py-1 text-xs text-muted;
+  }
+}
+
+/* Recharts polish */
+.recharts-cartesian-axis-tick text {
+  fill: #6f6f6f;
+  font-size: 11px;
+}
+.recharts-tooltip-wrapper:focus {
+  outline: none;
+}
