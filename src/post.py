@@ -90,17 +90,36 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
 
     if forced:
         fmt, asset_key = plan_post(forced)
-        slot = _current_slot()
-    else:
+        _post_one(_current_slot(), fmt, asset_key, dry_run)
+        return
+
+    # Automático: recupera vários horários atrasados de uma vez (até CATCHUP_MAX),
+    # para chegar perto dos 20/dia mesmo que o GitHub dispare poucas vezes.
+    published = 0
+    errors: list[str] = []
+    for _ in range(1 if dry_run else config.CATCHUP_MAX):
         slot = _due_slot()
         if slot is None:
-            if not dry_run:
-                print("Nada a postar agora (fora da janela, horário do próximo slot "
-                      "ainda não chegou, ou cota diária de 20 já atingida).")
-                return
-            slot = _current_slot()  # em dry-run, prévia do slot atual
+            break
         fmt, asset_key = _slot_plan(slot)
+        try:
+            _post_one(slot, fmt, asset_key, dry_run)
+            published += 1
+        except SystemExit as exc:  # falha de publicação de um post — segue tentando os demais
+            errors.append(str(exc))
+            break
+        if dry_run:
+            break
 
+    if published == 0 and not dry_run and not errors:
+        print("Nada a postar agora (fora da janela, horário do próximo slot ainda "
+              "não chegou, ou cota diária de 20 já atingida).")
+    if errors:
+        raise SystemExit("Falhas de publicação:\n" + "\n".join(errors))
+
+
+def _post_one(slot: int, fmt: str, asset_key: str | None, dry_run: bool) -> None:
+    """Gera e publica UM post do slot informado. Levanta SystemExit se a publicação falhar."""
     asset = None
     snapshot = None
     if fmt == "mercado":
@@ -159,7 +178,8 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
     if errors:
         raise SystemExit("Falhas de publicação:\n" + "\n".join(errors))
 
-    # Registra na memória (o workflow commita o arquivo depois de publicar).
+    # Registra na memória (o workflow commita o arquivo depois de publicar). Isso
+    # também faz o próximo _due_slot() enxergar o post recém-feito no mesmo job.
     brt = timezone(timedelta(hours=config.BRT_OFFSET_HOURS))
     history.append(
         {

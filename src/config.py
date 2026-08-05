@@ -38,6 +38,10 @@ CONTENT_TYPES = ("trader", "mercado")
 # de cada slot é escolhido por (slot + dia), então posts vizinhos são diferentes
 # e a ordem muda a cada dia. "foto" usa imagem de IA; os demais são desenhados.
 TRADER_FORMATS_ROTATION = ("foto", "citacao", "lista", "mito_verdade", "numero")
+# Máximo de posts que UM disparo pode recuperar de uma vez (catch-up). Se o GitHub
+# disparar poucas vezes no dia, cada disparo corre atrás de vários horários
+# atrasados, para chegar perto dos 20/dia. Em dias normais fica ~1 por disparo.
+CATCHUP_MAX = int(os.getenv("CATCHUP_MAX") or "4")
 # Todos os formatos válidos (para --type manual e validação).
 ALL_FORMATS = ("foto", "citacao", "lista", "mito_verdade", "numero", "mercado")
 
