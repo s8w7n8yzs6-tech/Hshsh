@@ -11,6 +11,12 @@ name: Posts diários sobre trade
 on:
   schedule:
     - cron: "*/20 10-23 * * *"
+  # Gatilho confiável externo ao cron do GitHub (que é instável): um "poke" em
+  # ops/poke feito por um agendador confiável dispara o workflow. A lógica em
+  # src/post.py decide o que publicar (próximos slots devidos, na janela).
+  push:
+    branches: [main]
+    paths: ["ops/poke"]
   workflow_dispatch:
     inputs:
       type:
