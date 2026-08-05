@@ -154,5 +154,11 @@
     "type": "mito_verdade",
     "angle": "respeitar o stop mesmo quando dói",
     "headline": "Sair no stop é seguir o acordo que você fez antes da dor aparecer"
+  },
+  {
+    "date": "2026-08-05T08:26-03:00",
+    "type": "mercado",
+    "angle": "fale sobre a volatilidade recente nos candles de 30 min",
+    "headline": "Ouro dispara +4,48% e mexe forte nos candles de 30min"
   }
 ]
