@@ -142,5 +142,17 @@
     "type": "lista",
     "angle": "a solidão de quem opera sozinho em casa",
     "headline": "4 sinais de que a solidão tá pesando na sua operação"
+  },
+  {
+    "date": "2026-08-05T08:21-03:00",
+    "type": "lista",
+    "angle": "a tentação de tentar recuperar rápido um prejuízo (revenge trade)",
+    "headline": "4 sinais de que você quer devolver a conta na mão do mercado"
+  },
+  {
+    "date": "2026-08-05T08:21-03:00",
+    "type": "mito_verdade",
+    "angle": "respeitar o stop mesmo quando dói",
+    "headline": "Sair no stop é seguir o acordo que você fez antes da dor aparecer"
   }
 ]
