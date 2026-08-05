@@ -160,5 +160,29 @@
     "type": "mercado",
     "angle": "fale sobre a volatilidade recente nos candles de 30 min",
     "headline": "Ouro dispara +4,48% e mexe forte nos candles de 30min"
+  },
+  {
+    "date": "2026-08-05T17:46-03:00",
+    "type": "foto",
+    "angle": "o medo de ficar de fora (FOMO)",
+    "headline": "O movimento que você perdeu não te devia nada"
+  },
+  {
+    "date": "2026-08-05T17:46-03:00",
+    "type": "citacao",
+    "angle": "operar demais (overtrading) e o cansaço mental",
+    "headline": "Cada entrada extra é energia mental que a operação certa não vai ter"
+  },
+  {
+    "date": "2026-08-05T17:47-03:00",
+    "type": "lista",
+    "angle": "a solidão de quem opera sozinho em casa",
+    "headline": "5 sinais de que a rotina solo tá te consumindo"
+  },
+  {
+    "date": "2026-08-05T17:47-03:00",
+    "type": "mito_verdade",
+    "angle": "acordar cedo para acompanhar a abertura do mercado",
+    "headline": "Acordar cedo sem preparo só antecipa o cansaço, não a lucidez"
   }
 ]
