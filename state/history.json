@@ -184,5 +184,29 @@
     "type": "mito_verdade",
     "angle": "acordar cedo para acompanhar a abertura do mercado",
     "headline": "Acordar cedo sem preparo só antecipa o cansaço, não a lucidez"
+  },
+  {
+    "date": "2026-08-05T21:13-03:00",
+    "type": "numero",
+    "angle": "controlar a ganância depois de um bom lucro",
+    "headline": "lucro certo já foi mais do que a próxima entrada forçada vai deixar"
+  },
+  {
+    "date": "2026-08-05T21:14-03:00",
+    "type": "foto",
+    "angle": "a importância de manter um diário de operações",
+    "headline": "Sem diário, cada erro é sempre a primeira vez"
+  },
+  {
+    "date": "2026-08-05T21:14-03:00",
+    "type": "citacao",
+    "angle": "aceitar que ter perdas faz parte do jogo",
+    "headline": "Perder faz parte da conta, não é falha no seu plano"
+  },
+  {
+    "date": "2026-08-05T21:14-03:00",
+    "type": "lista",
+    "angle": "disciplina no gerenciamento de risco",
+    "headline": "5 provas de que o risco te opera, não o contrário"
   }
 ]
