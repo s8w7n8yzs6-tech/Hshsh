@@ -256,5 +256,29 @@
     "type": "lista",
     "angle": "a solidão de quem opera sozinho em casa",
     "headline": "3 coisas que ninguém te avisa sobre operar sozinho"
+  },
+  {
+    "date": "2026-08-07T12:39-03:00",
+    "type": "mito_verdade",
+    "angle": "acordar cedo para acompanhar a abertura do mercado",
+    "headline": "Acordar cedo sem plano só te dá mais tempo pra ansiedade"
+  },
+  {
+    "date": "2026-08-07T12:40-03:00",
+    "type": "numero",
+    "angle": "controlar a ganância depois de um bom lucro",
+    "headline": "trade a mais depois do lucro é a ganância pedindo pra assinar embaixo"
+  },
+  {
+    "date": "2026-08-07T12:40-03:00",
+    "type": "foto",
+    "angle": "a importância de manter um diário de operações",
+    "headline": "Sem registro, você repete o erro achando que é estratégia nova"
+  },
+  {
+    "date": "2026-08-07T12:41-03:00",
+    "type": "citacao",
+    "angle": "aceitar que ter perdas faz parte do jogo",
+    "headline": "Quem não fez as pazes com a perda ainda tá operando contra si mesmo"
   }
 ]
