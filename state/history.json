@@ -322,5 +322,23 @@
     "type": "mito_verdade",
     "angle": "o peso psicológico de segurar uma posição aberta",
     "headline": "Segurar sem motivo novo é só medo de admitir que a ideia pode ter acabado"
+  },
+  {
+    "date": "2026-08-07T19:20-03:00",
+    "type": "numero",
+    "angle": "confiar no próprio plano em vez de improvisar",
+    "headline": "É o espaço que sobra pra improviso quando o plano já decidiu tudo antes"
+  },
+  {
+    "date": "2026-08-07T19:20-03:00",
+    "type": "foto",
+    "angle": "não mover o stop no calor da emoção",
+    "headline": "Mover o stop no calor do momento é negociar com você mesmo"
+  },
+  {
+    "date": "2026-08-07T19:21-03:00",
+    "type": "citacao",
+    "angle": "estudar e revisar operações no fim de semana",
+    "headline": "Fim de semana sem revisão é história que se repete na segunda"
   }
 ]
