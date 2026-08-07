@@ -304,5 +304,23 @@
     "type": "foto",
     "angle": "parar de se comparar com outros traders",
     "headline": "O print do outro trader te motiva ou te sabota?"
+  },
+  {
+    "date": "2026-08-07T17:24-03:00",
+    "type": "citacao",
+    "angle": "a diferença entre sorte pontual e consistência",
+    "headline": "Sorte aparece uma vez. Consistência aparece toda vez que você escolhe repetir o processo."
+  },
+  {
+    "date": "2026-08-07T17:25-03:00",
+    "type": "mercado",
+    "angle": "comente a amplitude entre a máxima e a mínima do período",
+    "headline": "Nasdaq 100 sobe +5,12% com amplitude de quase 820 pontos no dia"
+  },
+  {
+    "date": "2026-08-07T17:25-03:00",
+    "type": "mito_verdade",
+    "angle": "o peso psicológico de segurar uma posição aberta",
+    "headline": "Segurar sem motivo novo é só medo de admitir que a ideia pode ter acabado"
   }
 ]
