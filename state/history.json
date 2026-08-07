@@ -232,5 +232,29 @@
     "type": "citacao",
     "angle": "operar demais (overtrading) e o cansaço mental",
     "headline": "Quem opera cansado não busca lucro, busca alívio pra ansiedade"
+  },
+  {
+    "date": "2026-08-07T09:29-03:00",
+    "type": "numero",
+    "angle": "a paciência de esperar o setup certo aparecer",
+    "headline": "operações feitas enquanto o setup não aparece — e tá tudo certo"
+  },
+  {
+    "date": "2026-08-07T09:30-03:00",
+    "type": "foto",
+    "angle": "o medo de ficar de fora (FOMO)",
+    "headline": "Você entrou porque o gráfico chamou ou porque os outros já estavam lá?"
+  },
+  {
+    "date": "2026-08-07T09:31-03:00",
+    "type": "mercado",
+    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
+    "headline": "Ouro sobe +8,46% no dia e testa 4.387,10 em candles de 30min"
+  },
+  {
+    "date": "2026-08-07T09:32-03:00",
+    "type": "lista",
+    "angle": "a solidão de quem opera sozinho em casa",
+    "headline": "3 coisas que ninguém te avisa sobre operar sozinho"
   }
 ]
