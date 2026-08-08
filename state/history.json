@@ -430,5 +430,23 @@
     "type": "lista",
     "angle": "desligar as telas para descansar a mente",
     "headline": "4 sinais de que sua tela virou vício, não ferramenta"
+  },
+  {
+    "date": "2026-08-08T17:54-03:00",
+    "type": "mercado",
+    "angle": "comente a amplitude entre a máxima e a mínima do período",
+    "headline": "Nasdaq 100: quase 820 pontos entre topo e fundo do dia"
+  },
+  {
+    "date": "2026-08-08T17:55-03:00",
+    "type": "numero",
+    "angle": "confiar no próprio plano em vez de improvisar",
+    "headline": "É o número de vezes que o plano precisa da sua opinião no meio do trade"
+  },
+  {
+    "date": "2026-08-08T17:55-03:00",
+    "type": "foto",
+    "angle": "não mover o stop no calor da emoção",
+    "headline": "Esticar o stop é a única vez que você trapaceia contra si mesmo"
   }
 ]
