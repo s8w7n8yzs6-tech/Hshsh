@@ -400,5 +400,17 @@
     "type": "lista",
     "angle": "disciplina no gerenciamento de risco",
     "headline": "5 provas que o risco não é negociável pra você"
+  },
+  {
+    "date": "2026-08-08T14:04-03:00",
+    "type": "mito_verdade",
+    "angle": "a montanha-russa emocional de um dia de operações",
+    "headline": "Trader bom sente tudo igual, a diferença é não deixar a emoção dirigir a mão"
+  },
+  {
+    "date": "2026-08-08T14:05-03:00",
+    "type": "numero",
+    "angle": "comemorar as pequenas evoluções, não só os grandes dias",
+    "headline": "Uma vela verde a mais no seu processo já é evolução, não precisa ser o dia inteiro"
   }
 ]
