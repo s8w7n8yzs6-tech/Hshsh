@@ -340,5 +340,17 @@
     "type": "citacao",
     "angle": "estudar e revisar operações no fim de semana",
     "headline": "Fim de semana sem revisão é história que se repete na segunda"
+  },
+  {
+    "date": "2026-08-07T21:00-03:00",
+    "type": "lista",
+    "angle": "acertar a análise mas errar na execução",
+    "headline": "Análise certa, execução errada: o combo que dói mais"
+  },
+  {
+    "date": "2026-08-07T21:00-03:00",
+    "type": "mito_verdade",
+    "angle": "lidar com dias de lateralização e tédio no gráfico",
+    "headline": "Dia lateral testa sua paciência, não sua capacidade de prever o próximo movimento"
   }
 ]
