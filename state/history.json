@@ -364,5 +364,29 @@
     "type": "citacao",
     "angle": "operar demais (overtrading) e o cansaço mental",
     "headline": "Mente cansada não erra menos, só demora mais pra perceber que já errou"
+  },
+  {
+    "date": "2026-08-08T10:55-03:00",
+    "type": "mercado",
+    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
+    "headline": "Ouro dispara +9,07% no dia e chega perto de 4.432,30"
+  },
+  {
+    "date": "2026-08-08T10:55-03:00",
+    "type": "mito_verdade",
+    "angle": "acordar cedo para acompanhar a abertura do mercado",
+    "headline": "Acordar cedo sem clareza mental só te coloca mais perto do erro, mais rápido"
+  },
+  {
+    "date": "2026-08-08T10:55-03:00",
+    "type": "numero",
+    "angle": "controlar a ganância depois de um bom lucro",
+    "headline": "Um lucro bom não pede revanche, pede saída limpa"
+  },
+  {
+    "date": "2026-08-08T10:56-03:00",
+    "type": "foto",
+    "angle": "a importância de manter um diário de operações",
+    "headline": "Você lembra o que sentiu no seu último trade ou só o resultado?"
   }
 ]
