@@ -454,5 +454,23 @@
     "type": "citacao",
     "angle": "estudar e revisar operações no fim de semana",
     "headline": "Sábado é o único dia em que o gráfico não pode te enganar de novo"
+  },
+  {
+    "date": "2026-08-08T20:49-03:00",
+    "type": "lista",
+    "angle": "acertar a análise mas errar na execução",
+    "headline": "Previu certo e mesmo assim perdeu? Isso tem nome"
+  },
+  {
+    "date": "2026-08-08T20:49-03:00",
+    "type": "mito_verdade",
+    "angle": "lidar com dias de lateralização e tédio no gráfico",
+    "headline": "Dia parado também é dado. Ele mostra quem aguenta ficar de fora sem se punir"
+  },
+  {
+    "date": "2026-08-08T20:49-03:00",
+    "type": "numero",
+    "angle": "a euforia perigosa depois de vários acertos seguidos",
+    "headline": "É o número de acertos seguidos que costuma vir antes do maior erro do mês"
   }
 ]
