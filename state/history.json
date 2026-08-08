@@ -388,5 +388,17 @@
     "type": "foto",
     "angle": "a importância de manter um diário de operações",
     "headline": "Você lembra o que sentiu no seu último trade ou só o resultado?"
+  },
+  {
+    "date": "2026-08-08T12:02-03:00",
+    "type": "citacao",
+    "angle": "aceitar que ter perdas faz parte do jogo",
+    "headline": "Perda não é castigo por errar, é o preço fixo de continuar jogando"
+  },
+  {
+    "date": "2026-08-08T12:03-03:00",
+    "type": "lista",
+    "angle": "disciplina no gerenciamento de risco",
+    "headline": "5 provas que o risco não é negociável pra você"
   }
 ]
