@@ -472,5 +472,17 @@
     "type": "numero",
     "angle": "a euforia perigosa depois de vários acertos seguidos",
     "headline": "É o número de acertos seguidos que costuma vir antes do maior erro do mês"
+  },
+  {
+    "date": "2026-08-09T08:16-03:00",
+    "type": "citacao",
+    "angle": "operar demais (overtrading) e o cansaço mental",
+    "headline": "Cada entrada extra depois da certa é a mente pedindo pra parar e você fingindo não ouvir"
+  },
+  {
+    "date": "2026-08-09T08:16-03:00",
+    "type": "lista",
+    "angle": "a solidão de quem opera sozinho em casa",
+    "headline": "4 verdades sobre operar sozinho em casa"
   }
 ]
