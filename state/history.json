@@ -490,5 +490,23 @@
     "type": "padrao",
     "angle": "Triângulo: as máximas e mínimas se aproximam formando um triângulo (compressão); mostra um mercado indeciso acumulando força.",
     "headline": "Triângulo é quando máximas e mínimas vão se apertando no gráfico, formando um funil. Costuma indicar mercado indeciso, acumulando energia pra um movimento futuro."
+  },
+  {
+    "date": "2026-08-09T10:57-03:00",
+    "type": "mito_verdade",
+    "angle": "controlar a ganância depois de um bom lucro",
+    "headline": "Depois de um dia de lucro forte, o mercado não te deve nada além do próximo trade neutro"
+  },
+  {
+    "date": "2026-08-09T10:58-03:00",
+    "type": "conceito",
+    "angle": "por que backtestar e revisar as operações passadas",
+    "headline": "Backtest não é sobre acertar, é sobre entender"
+  },
+  {
+    "date": "2026-08-09T10:58-03:00",
+    "type": "numero",
+    "angle": "aceitar que ter perdas faz parte do jogo",
+    "headline": "das rotinas que duram tem um espaço reservado pra perder"
   }
 ]
