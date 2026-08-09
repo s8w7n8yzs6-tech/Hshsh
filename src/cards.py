@@ -39,6 +39,14 @@ def theme(seed: int) -> dict:
     return THEMES[seed % len(THEMES)]
 
 
+_DARK = [t for t in THEMES if t["dark"]]
+
+
+def dark_theme(seed: int) -> dict:
+    """Tema escuro (melhor para diagramas de gráfico)."""
+    return _DARK[seed % len(_DARK)]
+
+
 def _font(path: str, size: int) -> ImageFont.FreeTypeFont:
     try:
         return ImageFont.truetype(path, size)
@@ -173,6 +181,67 @@ def build_myth_truth(mito: str, verdade: str, handle: str, out_path: str, seed: 
     # linha divisória
     d.line([(_MARGIN, mid), (_W - _MARGIN, mid)], fill=th["muted"] + (120,), width=2)
     half(mid, _H - 40, green, "VERDADE", verdade)
+
+    _footer(d, th, handle)
+    img.convert("RGB").save(out_path, "PNG")
+    return out_path
+
+
+def build_pattern(nome: str, explicacao: str, diagram: "object", handle: str,
+                  out_path: str, seed: int = 0) -> str:
+    """Card educativo 'Aprenda um padrão': título + diagrama de gráfico + explicação."""
+    from PIL import Image
+
+    th = dark_theme(seed)
+    img = _bg(th)
+    d = ImageDraw.Draw(img)
+    _badge(d, th, "APRENDA UM PADRÃO")
+
+    # Título (nome do padrão).
+    ty = _MARGIN + 92
+    tw, tfont, tsp = _wrap_fit(d, nome, _SANS_B, _W - 2 * _MARGIN, 170, 72, 44)
+    d.multiline_text((_MARGIN, ty), tw, font=tfont, fill=th["fg"], spacing=tsp)
+    tb = d.multiline_textbbox((_MARGIN, ty), tw, font=tfont, spacing=tsp)
+
+    # Diagrama do padrão (imagem RGBA já renderizada), centralizado.
+    diag_top = tb[3] + 40
+    diag_w = _W - 2 * _MARGIN
+    diag_h = 560
+    if diagram is not None:
+        fit = diagram if isinstance(diagram, Image.Image) else None
+        if fit is not None:
+            f = fit.copy()
+            f.thumbnail((diag_w, diag_h))
+            img.alpha_composite(f, ((_W - f.width) // 2, diag_top))
+
+    # Explicação abaixo do diagrama.
+    exp_top = diag_top + diag_h + 24
+    ew, efont, esp = _wrap_fit(d, explicacao, _SANS_R, _W - 2 * _MARGIN,
+                               _H - 120 - exp_top, 42, 28, spacing_ratio=0.2)
+    d.multiline_text((_MARGIN, exp_top), ew, font=efont, fill=th["muted"], spacing=esp)
+
+    _footer(d, th, handle)
+    img.convert("RGB").save(out_path, "PNG")
+    return out_path
+
+
+def build_concept(titulo: str, explicacao: str, handle: str, out_path: str, seed: int = 0) -> str:
+    """Card educativo de conceito: título forte + explicação clara."""
+    th = theme(seed)
+    img = _bg(th)
+    d = ImageDraw.Draw(img)
+    _badge(d, th, "APRENDA")
+
+    ty = _MARGIN + 96
+    tw, tfont, tsp = _wrap_fit(d, titulo, _SANS_B, _W - 2 * _MARGIN, 300, 78, 44)
+    d.multiline_text((_MARGIN, ty), tw, font=tfont, fill=th["fg"], spacing=tsp)
+    tb = d.multiline_textbbox((_MARGIN, ty), tw, font=tfont, spacing=tsp)
+    d.rounded_rectangle([_MARGIN, tb[3] + 30, _MARGIN + 96, tb[3] + 40], radius=5, fill=th["accent"])
+
+    exp_top = tb[3] + 76
+    ew, efont, esp = _wrap_fit(d, explicacao, _SANS_R, _W - 2 * _MARGIN,
+                               _H - 130 - exp_top, 50, 30, spacing_ratio=0.22)
+    d.multiline_text((_MARGIN, exp_top), ew, font=efont, fill=th["fg"], spacing=esp)
 
     _footer(d, th, handle)
     img.convert("RGB").save(out_path, "PNG")
