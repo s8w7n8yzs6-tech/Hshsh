@@ -37,13 +37,20 @@ CONTENT_TYPES = ("trader", "mercado")
 # Formatos que se revezam nos posts de trader (dão variedade ao feed). O formato
 # de cada slot é escolhido por (slot + dia), então posts vizinhos são diferentes
 # e a ordem muda a cada dia. "foto" usa imagem de IA; os demais são desenhados.
-TRADER_FORMATS_ROTATION = ("foto", "citacao", "lista", "mito_verdade", "numero")
+# Metade do dia é DESENVOLVIMENTO (educativo: padrões/gráficos/conceitos/dicas) e
+# metade é MENTALIDADE (o lado psicológico). Slots pares = educativo, ímpares =
+# mentalidade → 10 e 10, intercalados no feed.
+MENTALITY_FORMATS = ("foto", "citacao", "mito_verdade", "numero", "lista")
+EDU_FORMATS = ("padrao", "conceito", "dica")  # nos slots pares que não são mercado
+TRADER_FORMATS_ROTATION = MENTALITY_FORMATS  # compat: usado no disparo manual "trader"
+
 # Máximo de posts que UM disparo pode recuperar de uma vez (catch-up). Se o GitHub
 # disparar poucas vezes no dia, cada disparo corre atrás de vários horários
 # atrasados, para chegar perto dos 20/dia. Em dias normais fica ~1 por disparo.
 CATCHUP_MAX = int(os.getenv("CATCHUP_MAX") or "4")
 # Todos os formatos válidos (para --type manual e validação).
-ALL_FORMATS = ("foto", "citacao", "lista", "mito_verdade", "numero", "mercado")
+ALL_FORMATS = ("foto", "citacao", "lista", "mito_verdade", "numero",
+               "padrao", "conceito", "dica", "mercado")
 
 # Horários dos 20 posts, em horário de Brasília (UTC-3), das 07:00 às 20:30.
 # O tipo de cada post é decidido pelo slot mais próximo do horário atual.
@@ -54,8 +61,8 @@ SCHEDULE_BRT = [
     (17, 39), (18, 22), (19, 5), (19, 47), (20, 30),
 ]
 # Índices (na lista acima) dos 2 posts de mercado do dia:
-GOLD_SLOT_INDEX = 2      # 08:25 — Ouro
-NASDAQ_SLOT_INDEX = 13   # 16:14 — Nasdaq (pregão dos EUA aberto)
+GOLD_SLOT_INDEX = 2      # 08:25 — Ouro (slot par = educativo)
+NASDAQ_SLOT_INDEX = 12   # 15:32 — Nasdaq (pregão dos EUA aberto; slot par)
 BRT_OFFSET_HOURS = -3
 
 # Tipo fixo, se definido no ambiente (senão, decidido pelo horário do slot).

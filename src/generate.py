@@ -89,6 +89,51 @@ _FMT = {
             "- caption: desenvolve (máx ~400 caracteres), 1-2 emojis, com 3-5 hashtags."
         ),
     },
+    "padrao": {
+        "schema": {"explicacao": {"type": "string"}, "caption": {"type": "string"}},
+        "required": ["explicacao", "caption"],
+        "main": "explicacao",
+        "prompt": (
+            "Formato APRENDA UM PADRÃO (o card mostra um DIAGRAMA do padrão). Ensine, "
+            "de forma EDUCATIVA e para iniciantes, o padrão indicado abaixo. É ENSINO, "
+            "não recomendação: não mande comprar/vender/entrar; deixe implícito que "
+            "serve para estudo e deve ser confirmado com o método e a gestão de risco.\n"
+            "- explicacao: 1 a 2 frases (máx ~180 caracteres) dizendo o que é o padrão "
+            "e o que ele costuma sinalizar, de forma neutra.\n"
+            "- caption: aprofunda de forma didática (máx ~400 caracteres), 1-2 emojis, "
+            "terminando com 3-5 hashtags."
+        ),
+    },
+    "conceito": {
+        "schema": {"titulo": {"type": "string"}, "explicacao": {"type": "string"}, "caption": {"type": "string"}},
+        "required": ["titulo", "explicacao", "caption"],
+        "main": "titulo",
+        "prompt": (
+            "Formato CONCEITO (educativo). Ensine, para iniciantes, o conceito de "
+            "mercado indicado abaixo, de forma clara e prática. É ENSINO, não "
+            "recomendação de operação.\n"
+            "- titulo: título curto e claro do conceito (máx ~48 caracteres).\n"
+            "- explicacao: explicação didática (máx ~240 caracteres).\n"
+            "- caption: complementa (máx ~400 caracteres), 1-2 emojis, com 3-5 hashtags."
+        ),
+    },
+    "dica": {
+        "schema": {
+            "title": {"type": "string"},
+            "items": {"type": "array", "items": {"type": "string"}},
+            "caption": {"type": "string"},
+        },
+        "required": ["title", "items", "caption"],
+        "main": "title",
+        "prompt": (
+            "Formato DICAS (lista educativa pra salvar) sobre o tema indicado abaixo, "
+            "para o trader evoluir. Educativo, sem recomendar operação específica.\n"
+            "- title: título chamativo (máx ~58 caracteres).\n"
+            "- items: de 3 a 5 dicas CURTAS e acionáveis (cada uma máx ~70 caracteres), "
+            "sem numeração (o número é desenhado).\n"
+            "- caption: fecha (máx ~400 caracteres), 1-2 emojis, com 3-5 hashtags."
+        ),
+    },
     "mercado": {
         "schema": {"headline": {"type": "string"}, "caption": {"type": "string"}},
         "required": ["headline", "caption"],

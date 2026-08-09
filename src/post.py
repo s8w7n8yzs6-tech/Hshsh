@@ -34,13 +34,21 @@ def _day_of_year() -> int:
 
 
 def _slot_plan(slot: int) -> tuple[str, str | None]:
-    """Formato/ativo de um slot: 2 slots são mercado (ouro/Nasdaq); o resto revezam."""
+    """Formato/ativo de um slot.
+
+    Slots PARES = desenvolvimento (educativo): 2 são mercado (ouro/Nasdaq) e os
+    demais revezam padrão/conceito/dica. Slots ÍMPARES = mentalidade. Resultado:
+    10 educativos + 10 de mentalidade por dia, intercalados no feed.
+    """
+    day = _day_of_year()
     if slot == config.GOLD_SLOT_INDEX:
         return "mercado", "ouro"
     if slot == config.NASDAQ_SLOT_INDEX:
         return "mercado", "nasdaq"
-    rotation = config.TRADER_FORMATS_ROTATION
-    return rotation[(slot + _day_of_year()) % len(rotation)], None
+    if slot % 2 == 0:  # educativo
+        return config.EDU_FORMATS[(slot // 2 + day) % len(config.EDU_FORMATS)], None
+    ment = config.MENTALITY_FORMATS  # mentalidade
+    return ment[((slot - 1) // 2 + day) % len(ment)], None
 
 
 def plan_post(content_type: str | None) -> tuple[str, str | None]:
@@ -48,7 +56,7 @@ def plan_post(content_type: str | None) -> tuple[str, str | None]:
     ct = content_type or config.POST_TYPE
     if ct == "mercado":
         return "mercado", random.choice(list(market.MARKET_ASSETS))
-    if ct in config.TRADER_FORMATS_ROTATION:  # formato específico forçado
+    if ct in config.ALL_FORMATS:  # formato específico forçado
         return ct, None
     return _slot_plan(_current_slot())  # "trader" ou vazio → pelo horário atual
 
@@ -129,10 +137,25 @@ def _post_one(slot: int, fmt: str, asset_key: str | None, dry_run: bool) -> None
         else:
             snapshot = market.asset_snapshot(asset)
 
-    angle = _angle(fmt, slot)
+    # Assunto (tema) do post. Para os formatos educativos, escolhe um padrão/
+    # conceito específico da biblioteca, variando por (slot + dia).
+    from . import patterns
+
+    day = _day_of_year()
+    pattern = None
+    if fmt == "padrao":
+        pattern = patterns.pick_pattern(slot // 2 + day)
+        angle = f"{pattern['nome']}: {pattern['hint']}"
+    elif fmt in ("conceito", "dica"):
+        angle = patterns.pick_concept(slot // 2 + day)
+    else:
+        angle = _angle(fmt, slot)
+
     avoid = history.recent_headlines(20)  # memória: não repetir posts recentes
     result = generate.generate_post(fmt, snapshot, angle=angle, avoid=avoid)
     fmt = result["fmt"]  # pode ter caído de mercado para foto
+    if pattern is not None:
+        result["_pattern"] = pattern  # nome + diagrama para o card
     caption = result["caption"]
 
     print(f"[slot {slot}] [{fmt}] {result.get('main', '')}")
@@ -207,6 +230,22 @@ def _build_card(result: dict, asset: dict | None, out_path: str, seed: int = 0) 
         return cards.build_myth_truth(result["mito"], result["verdade"], handle, out_path, seed)
     if fmt == "numero":
         return cards.build_number(result["stat"], result["label"], handle, out_path, seed)
+
+    # Formatos educativos (desenvolvimento do trader).
+    if fmt == "padrao":
+        from . import edu
+
+        pat = result.get("_pattern") or {}
+        diagram = None
+        try:
+            diagram = edu.render_pattern(pat, 940, 620) if pat else None
+        except Exception as exc:  # noqa: BLE001
+            print(f"Aviso: não foi possível desenhar o diagrama: {exc}", file=sys.stderr)
+        return cards.build_pattern(pat.get("nome", ""), result["explicacao"], diagram, handle, out_path, seed)
+    if fmt == "conceito":
+        return cards.build_concept(result["titulo"], result["explicacao"], handle, out_path, seed)
+    if fmt == "dica":
+        return cards.build_list(result["title"], result["items"], handle, out_path, seed, badge="APRENDA")
 
     # Formatos com foto de IA: foto-reflexão e mercado.
     chart_img = None
