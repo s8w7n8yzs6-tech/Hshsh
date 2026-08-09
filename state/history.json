@@ -508,5 +508,17 @@
     "type": "numero",
     "angle": "aceitar que ter perdas faz parte do jogo",
     "headline": "das rotinas que duram tem um espaço reservado pra perder"
+  },
+  {
+    "date": "2026-08-09T12:16-03:00",
+    "type": "dica",
+    "angle": "gerenciamento de risco: arriscar só uma pequena parte da banca por operação",
+    "headline": "O tamanho do risco importa mais que a entrada"
+  },
+  {
+    "date": "2026-08-09T12:17-03:00",
+    "type": "lista",
+    "angle": "a montanha-russa emocional de um dia de operações",
+    "headline": "5 fases do dia que sua mente atravessa e some"
   }
 ]
