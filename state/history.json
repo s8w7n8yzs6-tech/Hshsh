@@ -538,5 +538,29 @@
     "type": "conceito",
     "angle": "o que é o stop loss e por que ele protege a conta",
     "headline": "Stop loss: o freio que você decide antes"
+  },
+  {
+    "date": "2026-08-09T18:06-03:00",
+    "type": "citacao",
+    "angle": "desligar as telas para descansar a mente",
+    "headline": "A mente que nunca desliga a tela também nunca desliga a ansiedade"
+  },
+  {
+    "date": "2026-08-09T18:06-03:00",
+    "type": "mercado",
+    "angle": "comente, sem prever direção, se o dia teve mais força compradora ou vendedora",
+    "headline": "Nasdaq 100 sobe +5,12% no dia, fechando perto da máxima"
+  },
+  {
+    "date": "2026-08-09T18:07-03:00",
+    "type": "mito_verdade",
+    "angle": "confiar no próprio plano em vez de improvisar",
+    "headline": "Se o mercado mudou, a operação acaba. O plano continua igual pro próximo trade"
+  },
+  {
+    "date": "2026-08-09T18:07-03:00",
+    "type": "padrao",
+    "angle": "Suporte e resistência: regiões em que o preço costuma parar de subir (resistência) ou de cair (suporte); base para entender onde o mercado 'respeita' níveis.",
+    "headline": "Suporte e resistência são regiões onde o preço historicamente encontra dificuldade para cair ou subir, como se houvesse uma barreira invisível ali."
   }
 ]
