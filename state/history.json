@@ -610,5 +610,29 @@
     "type": "numero",
     "angle": "a importância de manter um diário de operações",
     "headline": "é o tamanho do diário de quem só opera de memória"
+  },
+  {
+    "date": "2026-08-10T12:35-03:00",
+    "type": "dica",
+    "angle": "gerenciamento de risco: arriscar só uma pequena parte da banca por operação",
+    "headline": "Quanto da banca você deixaria vazar de uma vez?"
+  },
+  {
+    "date": "2026-08-10T12:35-03:00",
+    "type": "lista",
+    "angle": "disciplina no gerenciamento de risco",
+    "headline": "4 sinais de que o risco tá fora do seu controle"
+  },
+  {
+    "date": "2026-08-10T12:36-03:00",
+    "type": "padrao",
+    "angle": "Estrela cadente: candle de corpo pequeno embaixo e pavio superior longo, após uma alta; é estudado como possível sinal de enfraquecimento da alta.",
+    "headline": "Estrela cadente é um candle com corpo pequeno na parte inferior e pavio superior longo, formado após uma alta. Costuma ser estudado como sinal de possível exaustão dos compradores."
+  },
+  {
+    "date": "2026-08-10T12:37-03:00",
+    "type": "foto",
+    "angle": "comemorar as pequenas evoluções, não só os grandes dias",
+    "headline": "Você comemora quando corrige um erro ou só quando ganha?"
   }
 ]
