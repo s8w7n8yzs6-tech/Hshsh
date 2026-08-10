@@ -586,5 +586,29 @@
     "type": "dica",
     "angle": "por que operar a favor da tendência costuma ser mais seguro",
     "headline": "Nadar contra a correnteza cansa antes de afundar"
+  },
+  {
+    "date": "2026-08-10T09:11-03:00",
+    "type": "padrao",
+    "angle": "Triângulo: as máximas e mínimas se aproximam formando um triângulo (compressão); mostra um mercado indeciso acumulando força.",
+    "headline": "Triângulo é a compressão gradual das máximas e mínimas no gráfico, formando um funil. Costuma refletir um mercado indeciso, acumulando energia."
+  },
+  {
+    "date": "2026-08-10T09:11-03:00",
+    "type": "mito_verdade",
+    "angle": "acordar cedo para acompanhar a abertura do mercado",
+    "headline": "Acordar cedo sem plano só antecipa o cansaço, não o resultado"
+  },
+  {
+    "date": "2026-08-10T09:12-03:00",
+    "type": "mercado",
+    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
+    "headline": "Ouro sobe +3,46% no dia e testa região próxima da máxima"
+  },
+  {
+    "date": "2026-08-10T09:12-03:00",
+    "type": "numero",
+    "angle": "a importância de manter um diário de operações",
+    "headline": "é o tamanho do diário de quem só opera de memória"
   }
 ]
