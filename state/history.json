@@ -658,5 +658,23 @@
     "type": "mito_verdade",
     "angle": "o peso psicológico de segurar uma posição aberta",
     "headline": "Segurar posição é administrar incerteza, não provar força de vontade"
+  },
+  {
+    "date": "2026-08-10T17:26-03:00",
+    "type": "mercado",
+    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
+    "headline": "Nasdaq 100 varia +2,94% no dia, entre 29.128 e 29.784"
+  },
+  {
+    "date": "2026-08-10T17:26-03:00",
+    "type": "numero",
+    "angle": "não mover o stop no calor da emoção",
+    "headline": "É quanto o stop deveria se mexer quando a emoção manda mover ele"
+  },
+  {
+    "date": "2026-08-10T17:26-03:00",
+    "type": "conceito",
+    "angle": "o que é tendência de alta, de baixa e lateral",
+    "headline": "O que define a direção do preço"
   }
 ]
