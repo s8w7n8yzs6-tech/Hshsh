@@ -634,5 +634,29 @@
     "type": "foto",
     "angle": "comemorar as pequenas evoluções, não só os grandes dias",
     "headline": "Você comemora quando corrige um erro ou só quando ganha?"
+  },
+  {
+    "date": "2026-08-10T15:12-03:00",
+    "type": "conceito",
+    "angle": "o que é o stop loss e por que ele protege a conta",
+    "headline": "Stop loss: o limite que existe antes da dor"
+  },
+  {
+    "date": "2026-08-10T15:13-03:00",
+    "type": "citacao",
+    "angle": "a diferença entre sorte pontual e consistência",
+    "headline": "Sorte aparece uma vez. Consistência aparece na planilha, mês após mês"
+  },
+  {
+    "date": "2026-08-10T15:13-03:00",
+    "type": "dica",
+    "angle": "a diferença entre suporte e resistência na prática",
+    "headline": "Suporte e resistência não são iguais na prática"
+  },
+  {
+    "date": "2026-08-10T15:13-03:00",
+    "type": "mito_verdade",
+    "angle": "o peso psicológico de segurar uma posição aberta",
+    "headline": "Segurar posição é administrar incerteza, não provar força de vontade"
   }
 ]
