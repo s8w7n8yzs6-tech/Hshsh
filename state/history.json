@@ -694,5 +694,17 @@
     "type": "foto",
     "angle": "a euforia perigosa depois de vários acertos seguidos",
     "headline": "Depois de ganhar 5 vezes seguidas, você ainda segue o plano?"
+  },
+  {
+    "date": "2026-08-10T21:04-03:00",
+    "type": "padrao",
+    "angle": "Rompimento: o preço fica 'preso' abaixo de uma resistência e depois a ultrapassa com força; conceito de rompimento de nível.",
+    "headline": "Rompimento é quando o preço testa uma resistência várias vezes e enfim a ultrapassa com força, o que costuma indicar mudança de fase no mercado."
+  },
+  {
+    "date": "2026-08-10T21:05-03:00",
+    "type": "citacao",
+    "angle": "a importância de dormir bem para operar melhor",
+    "headline": "Noite mal dormida vira decisão mal tomada no pregão seguinte"
   }
 ]
