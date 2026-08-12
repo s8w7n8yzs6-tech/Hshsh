@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mente de Trader — Coach IA & Diário</title>
+<meta name="description" content="Psicólogo financeiro, coach e diário de trade com IA para day traders.">
+<style>
+  :root{
+    --bg:#080d14; --bg2:#0e1a28; --card:#0f1c2b; --card2:#122234;
+    --line:#1e3247; --line2:#28425c;
+    --txt:#e8f0f7; --muted:#8aa2b8; --muted2:#5f7488;
+    --accent:#2dd4bf; --accent2:#38bdf8;
+    --green:#34d399; --red:#f87171; --amber:#fbbf24;
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:radial-gradient(1200px 600px at 80% -10%, #10263c 0, transparent 60%),
+               radial-gradient(900px 500px at -10% 10%, #0d2233 0, transparent 55%),
+               var(--bg);
+    color:var(--txt);
+    font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    min-height:100vh;
+  }
+  a{color:var(--accent2)}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px 16px 80px}
+  header.top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .logo{width:40px;height:40px;border-radius:11px;flex:0 0 auto;
+    background:linear-gradient(140deg,var(--accent),var(--accent2));
+    display:grid;place-items:center;color:#04121a;font-weight:800;font-size:20px;box-shadow:var(--shadow)}
+  .brand h1{font-size:19px;margin:0;letter-spacing:.2px}
+  .brand p{margin:2px 0 0;color:var(--muted);font-size:12.5px}
+  .disc{margin:10px 0 18px;font-size:12px;color:var(--muted2);
+    background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+
+  nav.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+  nav.tabs button{
+    background:var(--card);color:var(--muted);border:1px solid var(--line);
+    padding:9px 14px;border-radius:11px;cursor:pointer;font-size:14px;font-weight:600;
+    transition:.15s}
+  nav.tabs button:hover{border-color:var(--line2);color:var(--txt)}
+  nav.tabs button.active{
+    background:linear-gradient(140deg,rgba(45,212,191,.18),rgba(56,189,248,.14));
+    color:var(--txt);border-color:var(--accent)}
+
+  .panel{display:none;animation:fade .2s ease}
+  .panel.on{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px;box-shadow:var(--shadow);margin-bottom:16px}
+  .card h2{margin:0 0 4px;font-size:16px}
+  .card .sub{color:var(--muted);font-size:12.5px;margin:0 0 14px}
+
+  .grid{display:grid;gap:12px}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:1fr 1fr 1fr}
+  @media(max-width:640px){.g2,.g3{grid-template-columns:1fr}}
+
+  label{display:block;font-size:12px;color:var(--muted);margin:0 0 5px;font-weight:600}
+  input,select,textarea{
+    width:100%;background:var(--bg2);color:var(--txt);border:1px solid var(--line);
+    border-radius:10px;padding:10px 12px;font-size:14px;font-family:inherit;outline:none}
+  input:focus,select:focus,textarea:focus{border-color:var(--accent)}
+  textarea{resize:vertical;min-height:70px}
+  .field{margin-bottom:12px}
+
+  .btn{background:linear-gradient(140deg,var(--accent),var(--accent2));color:#04121a;
+    border:none;border-radius:11px;padding:11px 18px;font-weight:700;font-size:14px;cursor:pointer}
+  .btn:hover{filter:brightness(1.06)}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line2)}
+  .btn.sm{padding:7px 12px;font-size:13px}
+  .btn.danger{background:transparent;border:1px solid var(--red);color:var(--red)}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .spacer{flex:1}
+
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);
+    color:var(--muted);font-size:12.5px;cursor:pointer;user-select:none}
+  .chip.on{border-color:var(--accent);color:var(--txt);background:rgba(45,212,191,.12)}
+
+  .stat{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:14px}
+  .stat .k{font-size:12px;color:var(--muted);font-weight:600}
+  .stat .v{font-size:24px;font-weight:800;margin-top:4px}
+  .v.pos{color:var(--green)} .v.neg{color:var(--red)}
+
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.4px}
+  td .tag{font-size:11px;padding:2px 7px;border-radius:6px;background:var(--bg2);border:1px solid var(--line);color:var(--muted)}
+  .pill{padding:2px 8px;border-radius:6px;font-size:11.5px;font-weight:700}
+  .pill.buy{background:rgba(52,211,153,.14);color:var(--green)}
+  .pill.sell{background:rgba(248,113,113,.14);color:var(--red)}
+  .num.pos{color:var(--green)} .num.neg{color:var(--red)}
+  .empty{color:var(--muted2);text-align:center;padding:26px 10px;font-size:13px}
+
+  /* chat */
+  .chat{display:flex;flex-direction:column;height:min(62vh,560px)}
+  .msgs{flex:1;overflow-y:auto;padding:6px 2px;display:flex;flex-direction:column;gap:12px}
+  .msg{max-width:88%;padding:11px 14px;border-radius:14px;font-size:14px;white-space:pre-wrap;line-height:1.55}
+  .msg.bot{background:var(--card2);border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:4px}
+  .msg.me{background:linear-gradient(140deg,rgba(45,212,191,.16),rgba(56,189,248,.13));
+    border:1px solid var(--accent);align-self:flex-end;border-bottom-right-radius:4px}
+  .msg .who{font-size:11px;color:var(--muted);margin-bottom:4px;font-weight:700;letter-spacing:.3px}
+  .composer{display:flex;gap:8px;margin-top:12px}
+  .composer textarea{min-height:46px;max-height:120px}
+  .typing{color:var(--muted);font-size:13px;font-style:italic}
+  .quicks{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px}
+  .quicks .chip{font-size:12px}
+
+  .bars{display:flex;flex-direction:column;gap:9px;margin-top:6px}
+  .bar{display:grid;grid-template-columns:120px 1fr 44px;align-items:center;gap:10px;font-size:12.5px}
+  .bar .track{height:9px;background:var(--bg2);border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+  .bar .fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+
+  .spark{height:70px;width:100%}
+  .note{font-size:12px;color:var(--muted2);margin-top:8px}
+  details summary{cursor:pointer;color:var(--muted);font-size:12.5px;font-weight:600}
+  .kv{display:flex;justify-content:space-between;padding:4px 0;font-size:13px;border-bottom:1px dashed var(--line)}
+  .kv span:last-child{color:var(--txt);font-weight:600}
+  .toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);
+    background:var(--card2);border:1px solid var(--accent);color:var(--txt);
+    padding:10px 16px;border-radius:12px;box-shadow:var(--shadow);font-size:13px;
+    opacity:0;pointer-events:none;transition:.25s}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(-4px)}
+  .badge-live{font-size:10.5px;padding:2px 7px;border-radius:6px;font-weight:800;letter-spacing:.4px}
+  .badge-live.ia{background:rgba(56,189,248,.16);color:var(--accent2);border:1px solid var(--accent2)}
+  .badge-live.local{background:rgba(138,162,184,.14);color:var(--muted);border:1px solid var(--line2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="logo">M</div>
+    <div class="brand">
+      <h1>Mente de Trader</h1>
+      <p>Psicólogo financeiro · Coach · Diário de trade — com IA</p>
+    </div>
+    <div class="spacer"></div>
+    <span id="modeBadge" class="badge-live local">MODO LOCAL</span>
+  </header>
+
+  <div class="disc">
+    ⚠️ Ferramenta <b>educacional e de apoio psicológico/comportamental</b>. Não é
+    recomendação de compra/venda, alvo de preço nem promessa de lucro. Seus dados
+    ficam <b>apenas neste navegador</b> (localStorage). Em caso de sofrimento
+    intenso, procure um profissional de saúde.
+  </div>
+
+  <nav class="tabs">
+    <button data-tab="coach" class="active">🧠 Coach IA</button>
+    <button data-tab="journal">📓 Diário</button>
+    <button data-tab="dash">📊 Painel</button>
+    <button data-tab="checkin">💬 Check‑in emocional</button>
+    <button data-tab="config">⚙️ IA / Dados</button>
+  </nav>
+
+  <!-- ================= COACH ================= -->
+  <section id="coach" class="panel on">
+    <div class="card">
+      <h2>Coach & psicólogo financeiro</h2>
+      <p class="sub">Converse sobre disciplina, medo, ganância, revenge trade, rotina.
+        Ele lê o seu diário para dar respostas com base no <b>seu</b> comportamento.</p>
+      <div class="quicks" id="quicks">
+        <span class="chip" data-q="Acabei de tomar um stop e estou com raiva. Como não entrar em revenge trade agora?">Tomei stop, quero revidar</span>
+        <span class="chip" data-q="Analise meus últimos trades e diga meu principal erro comportamental.">Analise meus erros</span>
+        <span class="chip" data-q="Estou com medo de puxar o gatilho mesmo com o setup certo. O que fazer?">Medo de entrar</span>
+        <span class="chip" data-q="Como montar uma rotina pré‑mercado que me deixe disciplinado?">Rotina pré‑mercado</span>
+        <span class="chip" data-q="Fiz vários trades hoje sem plano. Estou em overtrading?">Estou em overtrading?</span>
+      </div>
+      <div class="chat">
+        <div class="msgs" id="msgs"></div>
+        <div class="composer">
+          <textarea id="chatInput" placeholder="Escreva o que está sentindo ou perguntando..." rows="1"></textarea>
+          <button class="btn" id="sendBtn">Enviar</button>
+        </div>
+      </div>
+      <p class="note">Sem chave de API, o coach responde de forma inteligente porém
+        offline (baseado em regras + seu diário). Ative o <b>Claude</b> na aba
+        <b>IA / Dados</b> para respostas mais ricas.</p>
+    </div>
+  </section>
+
+  <!-- ================= JOURNAL ================= -->
+  <section id="journal" class="panel">
+    <div class="card">
+      <h2>Registrar operação</h2>
+      <p class="sub">Anote o trade e — mais importante — o <b>estado emocional</b> e se
+        seguiu o plano. É isso que revela seus padrões.</p>
+      <div class="grid g3">
+        <div class="field"><label>Data</label><input type="date" id="f_date"></div>
+        <div class="field"><label>Ativo</label><input id="f_asset" list="assets" placeholder="XAU/USD, Nasdaq..."><datalist id="assets"><option>XAU/USD</option><option>Nasdaq</option><option>WIN</option><option>WDO</option><option>Bitcoin</option></datalist></div>
+        <div class="field"><label>Direção</label><select id="f_dir"><option value="compra">Compra</option><option value="venda">Venda</option></select></div>
+      </div>
+      <div class="grid g3">
+        <div class="field"><label>Resultado (R$ ou pontos)</label><input id="f_pnl" type="number" step="any" placeholder="ex.: 150 ou -80"></div>
+        <div class="field"><label>Risco em R (múltiplo)</label><input id="f_r" type="number" step="any" placeholder="ex.: 1.5 ou -1"></div>
+        <div class="field"><label>Seguiu o plano?</label><select id="f_plan"><option value="sim">Sim</option><option value="nao">Não</option></select></div>
+      </div>
+      <div class="grid g2">
+        <div class="field"><label>Emoção antes</label>
+          <div class="chips" id="emoBefore"></div></div>
+        <div class="field"><label>Emoção depois</label>
+          <div class="chips" id="emoAfter"></div></div>
+      </div>
+      <div class="field"><label>Erros / gatilhos (marque o que rolou)</label>
+        <div class="chips" id="mistakes"></div></div>
+      <div class="field"><label>Notas — o que passou pela sua cabeça?</label>
+        <textarea id="f_notes" placeholder="Contexto, o que sentiu, o que aprendeu..."></textarea></div>
+      <div class="row">
+        <button class="btn" id="saveTrade">Salvar operação</button>
+        <button class="btn ghost sm" id="clearForm">Limpar</button>
+        <span class="spacer"></span>
+        <span id="editHint" class="note" style="display:none">✏️ editando um registro</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="row"><h2 style="margin:0">Histórico</h2><span class="spacer"></span>
+        <button class="btn ghost sm" id="exportBtn">Exportar JSON</button>
+        <button class="btn ghost sm" id="importBtn">Importar</button>
+        <input type="file" id="importFile" accept="application/json" style="display:none">
+      </div>
+      <div style="overflow-x:auto;margin-top:12px">
+        <table id="tradeTable">
+          <thead><tr><th>Data</th><th>Ativo</th><th>Dir</th><th>R$/pts</th><th>R</th><th>Plano</th><th>Emoção</th><th></th></tr></thead>
+          <tbody id="tradeBody"></tbody>
+        </table>
+      </div>
+      <div class="empty" id="tradeEmpty">Nenhuma operação registrada ainda.</div>
+    </div>
+  </section>
+
+  <!-- ================= DASHBOARD ================= -->
+  <section id="dash" class="panel">
+    <div class="grid g3">
+      <div class="stat"><div class="k">Operações</div><div class="v" id="s_count">0</div></div>
+      <div class="stat"><div class="k">Taxa de acerto</div><div class="v" id="s_win">–</div></div>
+      <div class="stat"><div class="k">Resultado acumulado</div><div class="v" id="s_pnl">–</div></div>
+    </div>
+    <div class="grid g3">
+      <div class="stat"><div class="k">Fator de lucro</div><div class="v" id="s_pf">–</div></div>
+      <div class="stat"><div class="k">Aderência ao plano</div><div class="v" id="s_plan">–</div></div>
+      <div class="stat"><div class="k">Expectativa (R médio)</div><div class="v" id="s_exp">–</div></div>
+    </div>
+
+    <div class="card">
+      <h2>Curva de resultado</h2>
+      <p class="sub">Evolução do acumulado ao longo das operações.</p>
+      <svg class="spark" id="equity" viewBox="0 0 600 70" preserveAspectRatio="none"></svg>
+    </div>
+
+    <div class="card">
+      <h2>Resultado por emoção (antes de entrar)</h2>
+      <p class="sub">Onde você ganha e onde você sangra dinheiro emocionalmente.</p>
+      <div class="bars" id="emoBars"></div>
+      <div class="empty" id="emoEmpty">Registre operações com emoção para ver o padrão.</div>
+    </div>
+
+    <div class="card">
+      <h2>Plano vs. improviso</h2>
+      <div class="grid g2" id="planCompare"></div>
+      <div class="empty" id="planEmpty">Ainda sem dados suficientes.</div>
+    </div>
+  </section>
+
+  <!-- ================= CHECKIN ================= -->
+  <section id="checkin" class="panel">
+    <div class="card">
+      <h2>Check‑in emocional do dia</h2>
+      <p class="sub">Antes de operar, um minuto de consciência evita horas de prejuízo.</p>
+      <div class="field"><label>Como está seu estado agora? (1 = péssimo, 10 = ótimo/centrado)</label>
+        <input type="range" id="c_mood" min="1" max="10" value="6" oninput="document.getElementById('c_moodv').textContent=this.value">
+        <div class="note">Nível: <b id="c_moodv">6</b></div></div>
+      <div class="grid g3">
+        <div class="field"><label>Dormiu bem?</label><select id="c_sleep"><option>Sim</option><option>Mais ou menos</option><option>Não</option></select></div>
+        <div class="field"><label>Está sob pressão financeira?</label><select id="c_pressure"><option>Não</option><option>Um pouco</option><option>Muito</option></select></div>
+        <div class="field"><label>Tem um plano claro pra hoje?</label><select id="c_hasplan"><option>Sim</option><option>Parcial</option><option>Não</option></select></div>
+      </div>
+      <div class="field"><label>O que pode te desestabilizar hoje?</label><input id="c_risk" placeholder="ex.: recuperar a perda de ontem"></div>
+      <div class="row"><button class="btn" id="c_run">Fazer check‑in</button></div>
+      <div id="c_out" style="margin-top:14px"></div>
+    </div>
+    <div class="card">
+      <h2>Histórico de humor</h2>
+      <svg class="spark" id="moodSpark" viewBox="0 0 600 70" preserveAspectRatio="none"></svg>
+      <div class="empty" id="moodEmpty">Faça seu primeiro check‑in.</div>
+    </div>
+  </section>
+
+  <!-- ================= CONFIG ================= -->
+  <section id="config" class="panel">
+    <div class="card">
+      <h2>Ativar o Claude (opcional)</h2>
+      <p class="sub">Para respostas mais ricas do coach. A chave fica só neste navegador
+        e as chamadas vão direto do seu navegador para a Anthropic.</p>
+      <div class="field"><label>Anthropic API Key (sk‑ant‑...)</label>
+        <input id="apiKey" type="password" placeholder="cole sua chave" autocomplete="off"></div>
+      <div class="field"><label>Modelo</label>
+        <select id="model">
+          <option value="claude-sonnet-5">claude-sonnet-5 (recomendado)</option>
+          <option value="claude-haiku-4-5">claude-haiku-4-5 (mais barato)</option>
+          <option value="claude-opus-4-8">claude-opus-4-8 (mais capaz)</option>
+        </select></div>
+      <div class="row">
+        <button class="btn" id="saveKey">Salvar</button>
+        <button class="btn ghost sm" id="testKey">Testar conexão</button>
+        <button class="btn danger sm" id="clearKey">Remover chave</button>
+      </div>
+      <p class="note" id="keyStatus"></p>
+      <div class="disc" style="margin-top:14px">
+        🔒 Segurança: expor uma chave de API no navegador tem risco. Use uma chave
+        dedicada com limite de gasto. Para produção com muitos usuários, o ideal é
+        um backend — este modo direto é para <b>uso pessoal</b>.
+      </div>
+    </div>
+    <div class="card">
+      <h2>Seus dados</h2>
+      <div class="row">
+        <button class="btn ghost sm" id="exportBtn2">Exportar tudo (JSON)</button>
+        <button class="btn danger sm" id="wipe">Apagar tudo</button>
+      </div>
+      <p class="note">Tudo é salvo localmente. Exporte para não perder ao trocar de navegador.</p>
+    </div>
+  </section>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(() => {
+  "use strict";
+  const $ = s => document.querySelector(s);
+  const $$ = s => [...document.querySelectorAll(s)];
+  const LS = {
+    trades:'mt_trades', moods:'mt_moods', key:'mt_key', model:'mt_model', chat:'mt_chat'
+  };
+  const load = (k,def) => { try{ return JSON.parse(localStorage.getItem(k)) ?? def }catch{ return def } };
+  const save = (k,v) => localStorage.setItem(k, JSON.stringify(v));
+  const fmtNum = n => (n>0?'+':'') + (Math.round(n*100)/100).toLocaleString('pt-BR');
+  const uid = () => Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+  let toastT;
+  function toast(m){ const t=$('#toast'); t.textContent=m; t.classList.add('show');
+    clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('show'),2200); }
+
+  // ---------- state ----------
+  let trades = load(LS.trades, []);
+  let moods = load(LS.moods, []);
+  let editingId = null;
+
+  const EMOS = ['Calmo','Confiante','Ansioso','Medo','Ganância','Euforia','Raiva','FOMO','Tédio','Cansado'];
+  const MISTAKES = ['Revenge trade','Entrei sem setup','Movi o stop','Aumentei perdendo','Saí cedo demais','Overtrading','Ignorei o risco','Fui por FOMO','Sem plano'];
+
+  // ---------- tabs ----------
+  $$('nav.tabs button').forEach(b => b.onclick = () => {
+    $$('nav.tabs button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    $$('.panel').forEach(p=>p.classList.remove('on'));
+    $('#'+b.dataset.tab).classList.add('on');
+    if(b.dataset.tab==='dash') renderDash();
+    if(b.dataset.tab==='checkin') renderMood();
+  });
+
+  // ---------- chip groups ----------
+  function chipGroup(el, opts){
+    el.innerHTML='';
+    opts.forEach(o=>{
+      const c=document.createElement('span'); c.className='chip'; c.textContent=o; c.dataset.v=o;
+      c.onclick=()=>c.classList.toggle('on'); el.appendChild(c);
+    });
+  }
+  function chipGet(el){ return $$('.chip.on', el).map(c=>c.dataset.v); }
+  function chipSet(el, vals){ $$('.chip',el).forEach(c=>c.classList.toggle('on', vals.includes(c.dataset.v))); }
+  chipGroup($('#emoBefore'), EMOS);
+  chipGroup($('#emoAfter'), EMOS);
+  chipGroup($('#mistakes'), MISTAKES);
+  $('#f_date').value = new Date().toISOString().slice(0,10);
+
+  // ---------- journal ----------
+  function collectForm(){
+    return {
+      id: editingId || uid(),
+      date: $('#f_date').value || new Date().toISOString().slice(0,10),
+      asset: $('#f_asset').value.trim() || '—',
+      dir: $('#f_dir').value,
+      pnl: parseFloat($('#f_pnl').value)||0,
+      r: $('#f_r').value===''?null:parseFloat($('#f_r').value),
+      plan: $('#f_plan').value,
+      before: chipGet($('#emoBefore')),
+      after: chipGet($('#emoAfter')),
+      mistakes: chipGet($('#mistakes')),
+      notes: $('#f_notes').value.trim()
+    };
+  }
+  function clearForm(){
+    editingId=null;
+    ['f_asset','f_pnl','f_r','f_notes'].forEach(id=>$('#'+id).value='');
+    $('#f_date').value=new Date().toISOString().slice(0,10);
+    chipSet($('#emoBefore'),[]); chipSet($('#emoAfter'),[]); chipSet($('#mistakes'),[]);
+    $('#editHint').style.display='none';
+  }
+  $('#clearForm').onclick=clearForm;
+  $('#saveTrade').onclick=()=>{
+    const t=collectForm();
+    const i=trades.findIndex(x=>x.id===t.id);
+    if(i>=0) trades[i]=t; else trades.unshift(t);
+    save(LS.trades,trades); clearForm(); renderTrades();
+    toast(i>=0?'Operação atualizada':'Operação salva ✓');
+  };
+  function editTrade(id){
+    const t=trades.find(x=>x.id===id); if(!t)return;
+    editingId=id;
+    $('#f_date').value=t.date; $('#f_asset').value=t.asset==='—'?'':t.asset;
+    $('#f_dir').value=t.dir; $('#f_pnl').value=t.pnl; $('#f_r').value=t.r??'';
+    $('#f_plan').value=t.plan; $('#f_notes').value=t.notes||'';
+    chipSet($('#emoBefore'),t.before||[]); chipSet($('#emoAfter'),t.after||[]);
+    chipSet($('#mistakes'),t.mistakes||[]);
+    $('#editHint').style.display='inline'; window.scrollTo({top:0,behavior:'smooth'});
+  }
+  function delTrade(id){ if(!confirm('Apagar esta operação?'))return;
+    trades=trades.filter(x=>x.id!==id); save(LS.trades,trades); renderTrades(); }
+  function renderTrades(){
+    const body=$('#tradeBody'); body.innerHTML='';
+    $('#tradeEmpty').style.display = trades.length?'none':'block';
+    trades.forEach(t=>{
+      const tr=document.createElement('tr');
+      const emo=(t.before||[]).slice(0,2).join(', ')||'—';
+      tr.innerHTML=`
+        <td>${t.date.slice(5)}</td>
+        <td>${t.asset}</td>
+        <td><span class="pill ${t.dir==='compra'?'buy':'sell'}">${t.dir==='compra'?'C':'V'}</span></td>
+        <td class="num ${t.pnl>=0?'pos':'neg'}">${fmtNum(t.pnl)}</td>
+        <td class="num ${(t.r||0)>=0?'pos':'neg'}">${t.r==null?'—':fmtNum(t.r)}</td>
+        <td><span class="tag">${t.plan==='sim'?'✓':'✕'}</span></td>
+        <td style="color:var(--muted)">${emo}</td>
+        <td class="row" style="gap:6px;justify-content:flex-end">
+          <button class="btn ghost sm" data-edit="${t.id}">✏️</button>
+          <button class="btn danger sm" data-del="${t.id}">🗑</button></td>`;
+      body.appendChild(tr);
+    });
+    $$('[data-edit]').forEach(b=>b.onclick=()=>editTrade(b.dataset.edit));
+    $$('[data-del]').forEach(b=>b.onclick=()=>delTrade(b.dataset.del));
+  }
+
+  // export / import
+  function exportAll(){
+    const blob=new Blob([JSON.stringify({trades,moods,exported:new Date().toISOString()},null,2)],{type:'application/json'});
+    const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+    a.download='mente-de-trader-backup.json'; a.click();
+  }
+  $('#exportBtn').onclick=exportAll; $('#exportBtn2').onclick=exportAll;
+  $('#importBtn').onclick=()=>$('#importFile').click();
+  $('#importFile').onchange=e=>{
+    const f=e.target.files[0]; if(!f)return; const rd=new FileReader();
+    rd.onload=()=>{ try{ const d=JSON.parse(rd.result);
+      if(Array.isArray(d.trades)) trades=d.trades; if(Array.isArray(d.moods)) moods=d.moods;
+      save(LS.trades,trades); save(LS.moods,moods); renderTrades();
+      toast('Dados importados ✓'); }catch{ toast('Arquivo inválido'); } };
+    rd.readAsText(f);
+  };
+
+  // ---------- analytics ----------
+  function stats(){
+    const n=trades.length;
+    const wins=trades.filter(t=>t.pnl>0), losses=trades.filter(t=>t.pnl<0);
+    const gross=trades.reduce((a,t)=>a+t.pnl,0);
+    const gp=wins.reduce((a,t)=>a+t.pnl,0), gl=Math.abs(losses.reduce((a,t)=>a+t.pnl,0));
+    const withR=trades.filter(t=>t.r!=null);
+    const expR=withR.length? withR.reduce((a,t)=>a+t.r,0)/withR.length : null;
+    return {
+      n, winRate: n? wins.length/n*100 : null, gross,
+      pf: gl>0? gp/gl : (gp>0? Infinity : null),
+      planRate: n? trades.filter(t=>t.plan==='sim').length/n*100 : null,
+      expR
+    };
+  }
+  function renderDash(){
+    const s=stats();
+    $('#s_count').textContent=s.n;
+    $('#s_win').textContent=s.winRate==null?'–':s.winRate.toFixed(0)+'%';
+    const p=$('#s_pnl'); p.textContent=s.n?fmtNum(s.gross):'–'; p.className='v '+(s.gross>=0?'pos':'neg');
+    $('#s_pf').textContent=s.pf==null?'–':(s.pf===Infinity?'∞':s.pf.toFixed(2));
+    $('#s_plan').textContent=s.planRate==null?'–':s.planRate.toFixed(0)+'%';
+    const e=$('#s_exp'); e.textContent=s.expR==null?'–':fmtNum(s.expR)+'R';
+    if(s.expR!=null) e.className='v '+(s.expR>=0?'pos':'neg');
+    drawEquity(); drawEmoBars(); drawPlanCompare();
+  }
+  function drawEquity(){
+    const svg=$('#equity'); const ch=[...trades].reverse();
+    let acc=0; const pts=ch.map(t=>acc+=t.pnl);
+    if(!pts.length){ svg.innerHTML=''; return; }
+    const min=Math.min(0,...pts), max=Math.max(0,...pts), rng=(max-min)||1;
+    const X=i=>ch.length<2?300:i/(ch.length-1)*600;
+    const Y=v=>65-((v-min)/rng)*60;
+    const line=pts.map((v,i)=>`${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(' ');
+    const area=`0,70 ${line} 600,70`;
+    const up=pts[pts.length-1]>=0;
+    const col=up?'#34d399':'#f87171';
+    svg.innerHTML=`<polygon points="${area}" fill="${col}" opacity=".12"/>
+      <polyline points="${line}" fill="none" stroke="${col}" stroke-width="2"/>
+      <line x1="0" y1="${Y(0)}" x2="600" y2="${Y(0)}" stroke="#28425c" stroke-dasharray="4 4"/>`;
+  }
+  function drawEmoBars(){
+    const map={};
+    trades.forEach(t=>(t.before||[]).forEach(e=>{
+      map[e]=map[e]||{sum:0,n:0}; map[e].sum+=t.pnl; map[e].n++; }));
+    const arr=Object.entries(map).sort((a,b)=>a[1].sum-b[1].sum);
+    $('#emoEmpty').style.display=arr.length?'none':'block';
+    const maxAbs=Math.max(1,...arr.map(([,d])=>Math.abs(d.sum)));
+    $('#emoBars').innerHTML=arr.map(([e,d])=>{
+      const pct=Math.abs(d.sum)/maxAbs*100; const pos=d.sum>=0;
+      return `<div class="bar"><div>${e} <span style="color:var(--muted2)">(${d.n})</span></div>
+        <div class="track"><div class="fill" style="width:${pct}%;background:${pos?'linear-gradient(90deg,#2dd4bf,#38bdf8)':'#f87171'}"></div></div>
+        <div class="num ${pos?'pos':'neg'}" style="text-align:right">${fmtNum(d.sum)}</div></div>`;
+    }).join('');
+  }
+  function drawPlanCompare(){
+    const seg=k=>{ const g=trades.filter(t=>t.plan===k);
+      const sum=g.reduce((a,t)=>a+t.pnl,0);
+      const wr=g.length? g.filter(t=>t.pnl>0).length/g.length*100 : 0;
+      return {n:g.length,sum,wr}; };
+    const s=seg('sim'), n=seg('nao');
+    $('#planEmpty').style.display=(s.n||n.n)?'none':'block';
+    const box=(t,d,good)=>`<div class="stat"><div class="k">${t} (${d.n} ops)</div>
+      <div class="v ${d.sum>=0?'pos':'neg'}" style="font-size:20px">${fmtNum(d.sum)}</div>
+      <div class="note">Acerto: ${d.wr.toFixed(0)}%</div></div>`;
+    $('#planCompare').innerHTML=(s.n?box('✓ Seguindo o plano',s):'')+(n.n?box('✕ Improvisando',n):'');
+  }
+
+  // ---------- check-in ----------
+  $('#c_run').onclick=()=>{
+    const m={date:new Date().toISOString().slice(0,10), mood:+$('#c_mood').value,
+      sleep:$('#c_sleep').value, pressure:$('#c_pressure').value,
+      hasplan:$('#c_hasplan').value, risk:$('#c_risk').value.trim(), ts:Date.now()};
+    moods.unshift(m); save(LS.moods,moods);
+    const flags=[];
+    if(m.mood<=4) flags.push('seu estado emocional está baixo');
+    if(m.sleep==='Não') flags.push('você não dormiu bem');
+    if(m.pressure==='Muito') flags.push('há forte pressão financeira — o pior estado para operar alavancado');
+    if(m.hasplan==='Não') flags.push('você não tem um plano claro pra hoje');
+    if(m.risk) flags.push('gatilho declarado: “'+m.risk+'”');
+    let verdict, tone;
+    if(flags.length>=2){ verdict='🔴 Dia de risco alto. Considere operar menor, no simulador, ou nem operar.'; tone='var(--red)'; }
+    else if(flags.length===1){ verdict='🟡 Atenção. Reduza tamanho e defina um limite de perda antes de começar.'; tone='var(--amber)'; }
+    else{ verdict='🟢 Bom estado para operar — com disciplina e no seu plano.'; tone='var(--green)'; }
+    $('#c_out').innerHTML=`<div class="card" style="margin:0;border-color:${tone}">
+      <b style="color:${tone}">${verdict}</b>
+      ${flags.length?`<ul style="margin:8px 0 0;padding-left:18px;color:var(--muted)">${flags.map(f=>`<li>${f}</li>`).join('')}</ul>`:''}
+      <p class="note">Registrado. Regra de ouro: <b>estado ruim → risco mínimo</b>.</p></div>`;
+    $('#c_risk').value='';
+    renderMood();
+    toast('Check‑in registrado ✓');
+  };
+  function renderMood(){
+    const svg=$('#moodSpark'); const ch=[...moods].reverse();
+    $('#moodEmpty').style.display=ch.length?'none':'block';
+    if(!ch.length){ svg.innerHTML=''; return; }
+    const X=i=>ch.length<2?300:i/(ch.length-1)*600;
+    const Y=v=>65-((v-1)/9)*60;
+    const line=ch.map((m,i)=>`${X(i).toFixed(1)},${Y(m.mood).toFixed(1)}`).join(' ');
+    svg.innerHTML=`<polyline points="${line}" fill="none" stroke="#38bdf8" stroke-width="2"/>
+      ${ch.map((m,i)=>`<circle cx="${X(i).toFixed(1)}" cy="${Y(m.mood).toFixed(1)}" r="2.5" fill="#2dd4bf"/>`).join('')}`;
+  }
+
+  // ---------- config / key ----------
+  function refreshMode(){
+    const k=load(LS.key,''); const badge=$('#modeBadge');
+    if(k){ badge.textContent='CLAUDE ATIVO'; badge.className='badge-live ia'; }
+    else{ badge.textContent='MODO LOCAL'; badge.className='badge-live local'; }
+  }
+  $('#apiKey').value=load(LS.key,''); $('#model').value=load(LS.model,'claude-sonnet-5');
+  $('#saveKey').onclick=()=>{ save(LS.key,$('#apiKey').value.trim()); save(LS.model,$('#model').value);
+    refreshMode(); $('#keyStatus').textContent='Salvo. '+($('#apiKey').value.trim()?'Coach usará o Claude.':'Sem chave — modo local.'); toast('Configuração salva'); };
+  $('#clearKey').onclick=()=>{ localStorage.removeItem(LS.key); $('#apiKey').value=''; refreshMode(); $('#keyStatus').textContent='Chave removida.'; };
+  $('#testKey').onclick=async()=>{
+    const k=$('#apiKey').value.trim(); if(!k){ $('#keyStatus').textContent='Cole uma chave primeiro.'; return; }
+    $('#keyStatus').textContent='Testando...';
+    try{ await callClaude([{role:'user',content:'Responda apenas: ok'}],'Você é um teste.',k,$('#model').value,16);
+      $('#keyStatus').textContent='✓ Conexão OK.'; }
+    catch(e){ $('#keyStatus').textContent='✕ Falhou: '+e.message; }
+  };
+  $('#wipe').onclick=()=>{ if(!confirm('Apagar TODOS os dados (diário, humor, chat)?'))return;
+    [LS.trades,LS.moods,LS.chat].forEach(k=>localStorage.removeItem(k));
+    trades=[]; moods=[]; renderTrades(); renderDash(); renderMood(); initChat(true); toast('Tudo apagado'); };
+
+  // ---------- Claude call (direct browser) ----------
+  async function callClaude(messages, system, key, model, maxTok=700){
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'content-type':'application/json','x-api-key':key,
+        'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({model,max_tokens:maxTok,system,messages})
+    });
+    if(!res.ok){ const t=await res.text().catch(()=>''); throw new Error(res.status+' '+t.slice(0,120)); }
+    const d=await res.json();
+    return (d.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('').trim();
+  }
+
+  // ---------- coach ----------
+  const SYSTEM = `Você é um coach e "psicólogo financeiro" para day traders, em português do Brasil.
+Foco: PSICOLOGIA e COMPORTAMENTO (disciplina, medo, ganância, revenge trade, FOMO, overtrading, gestão de risco, rotina, controle emocional).
+Tom: empático, direto, humano, prático. Faça perguntas quando útil. Respostas curtas (máx ~6 linhas).
+REGRAS INVIOLÁVEIS: nunca dê recomendação de compra/venda, alvo de preço, previsão de mercado ou promessa de lucro. Não é conselho financeiro. Se houver sinal de sofrimento grave, sugira ajuda profissional.
+Use os DADOS DO DIÁRIO fornecidos para personalizar (cite padrões reais do usuário quando existirem).`;
+
+  function journalContext(){
+    if(!trades.length) return 'O usuário ainda não registrou operações.';
+    const s=stats();
+    const emo={}; trades.forEach(t=>(t.before||[]).forEach(e=>{emo[e]=emo[e]||{s:0,n:0};emo[e].s+=t.pnl;emo[e].n++;}));
+    const worst=Object.entries(emo).sort((a,b)=>a[1].s-b[1].s)[0];
+    const mis={}; trades.forEach(t=>(t.mistakes||[]).forEach(m=>mis[m]=(mis[m]||0)+1));
+    const topMis=Object.entries(mis).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([m,n])=>`${m}(${n}x)`).join(', ');
+    const last=trades.slice(0,5).map(t=>`${t.date.slice(5)} ${t.asset} ${t.dir} ${fmtNum(t.pnl)} plano:${t.plan} emo:${(t.before||[]).join('/')||'-'}`).join(' | ');
+    return `DADOS DO DIÁRIO (${s.n} ops): acerto ${s.winRate?.toFixed(0)}%, resultado ${fmtNum(s.gross)}, aderência ao plano ${s.planRate?.toFixed(0)}%${s.expR!=null?`, expectativa ${fmtNum(s.expR)}R`:''}.`
+      + (worst&&worst[1].s<0?` Emoção que mais dá prejuízo: ${worst[0]} (${fmtNum(worst[1].s)}).`:'')
+      + (topMis?` Erros recorrentes: ${topMis}.`:'')
+      + ` Últimas ops: ${last}.`;
+  }
+
+  // offline rule-based coach
+  function localCoach(text){
+    const q=text.toLowerCase();
+    const ctx=trades.length?stats():null;
+    const emo={}; trades.forEach(t=>(t.before||[]).forEach(e=>{emo[e]=emo[e]||{s:0,n:0};emo[e].s+=t.pnl;emo[e].n++;}));
+    const worst=Object.entries(emo).sort((a,b)=>a[1].s-b[1].s)[0];
+    const has=(...w)=>w.some(x=>q.includes(x));
+
+    if(has('revenge','revidar','recuperar','raiva','stopado','tomei stop','me vingar')){
+      return `Respira. Esse impulso de "recuperar agora" é o revenge trade — e ele quase sempre transforma uma perda controlada em um dia destruído.\n\n• Feche a plataforma por 15 min. A perda já aconteceu; o mercado abre amanhã.\n• O próximo trade só vale se tiver setup, não emoção.\n• Escreva no diário o que sentiu — isso tira a carga da cabeça.${worst&&worst[0]==='Raiva'?'\n\nSeu diário mostra que operar com raiva já te custou '+fmtNum(worst[1].s)+'. O dado não mente.':''}`;
+    }
+    if(has('medo','travado','não consigo entrar','puxar o gatilho','gatilho','hesito','hesita')){
+      return `Medo de entrar geralmente é falta de confiança no plano, não covardia.\n\n• O setup está 100% definido antes do pregão? Se não, o medo é sinal correto.\n• Reduza o tamanho até o ponto em que a perda não dói — a disciplina se constrói com risco pequeno.\n• Trade não tomado com setup válido: anote como "erro" também. Deixar de agir é uma decisão.`;
+    }
+    if(has('overtrading','muitos trades','vários trades','não paro','sem plano','ansioso','ansiedade')){
+      const n=ctx?ctx.n:0;
+      return `Overtrading é o mercado cobrando sua ansiedade. Sinais: operar por tédio, sem setup, aumentando a frequência após perdas.\n\n• Defina ANTES: número máximo de trades e limite de perda do dia. Bateu, acabou.\n• Menos trades de qualidade > muitos trades por impulso.\n• Pergunte a cada entrada: "isso está no meu plano ou é ansiedade?"${n?`\n\nVocê tem ${n} ops registradas — se boa parte foi "sem plano", esse é o ponto nº1 a atacar.`:''}`;
+    }
+    if(has('ganância','ganancia','euforia','não realizo','deixo correr demais','saí cedo','sair cedo')){
+      return `Ganância e medo são o mesmo problema: falta de regra de saída definida antes.\n\n• Defina alvo e stop ANTES de entrar e obedeça — sem "só mais um pouco".\n• Realizar parcial tira o peso emocional de decidir tudo de uma vez.\n• Euforia depois de um gain é o momento mais perigoso: é quando se devolve o lucro.`;
+    }
+    if(has('rotina','pré','pre-mercado','pré-mercado','disciplina','hábito','habito')){
+      return `Rotina pré‑mercado (5 min) blinda seu emocional:\n\n1. Check‑in emocional (use a aba aqui) — estado ruim = risco mínimo.\n2. Reveja seu plano: quais setups, qual risco por trade, limite de perda do dia.\n3. Defina o número máximo de operações.\n4. Uma frase‑âncora: "protejo capital antes de buscar lucro."\n\nConsistência vem da rotina, não da adrenalina.`;
+    }
+    if(has('analis','meu erro','meus erros','padrão','padrao','como estou','avalie')){
+      if(!ctx) return 'Ainda não há operações no diário. Registre alguns trades (com emoção e se seguiu o plano) que eu te mostro seus padrões reais.';
+      const mis={}; trades.forEach(t=>(t.mistakes||[]).forEach(m=>mis[m]=(mis[m]||0)+1));
+      const top=Object.entries(mis).sort((a,b)=>b[1]-a[1])[0];
+      let out=`Do seu diário (${ctx.n} ops):\n• Acerto: ${ctx.winRate.toFixed(0)}% | Resultado: ${fmtNum(ctx.gross)} | Aderência ao plano: ${ctx.planRate.toFixed(0)}%.`;
+      if(ctx.planRate<70) out+=`\n• Você improvisa demais — trades fora do plano costumam ser os que sangram. Foque em subir a aderência.`;
+      if(worst&&worst[1].s<0) out+=`\n• Sua emoção mais cara é "${worst[0]}" (${fmtNum(worst[1].s)}). Quando sentir isso, pare.`;
+      if(top) out+=`\n• Erro mais recorrente: ${top[0]} (${top[1]}x).`;
+      out+=`\n\nPrincipal alavanca: transformar disciplina de plano em hábito.`;
+      return out;
+    }
+    return `Estou aqui como seu coach comportamental. Me conte o que está sentindo — antes, durante ou depois do trade — que a gente trabalha isso.\n\nPosso ajudar com: revenge trade, medo de entrar, overtrading, ganância, rotina e análise dos seus padrões no diário.${ctx?`\n\n(Você tem ${ctx.n} ops registradas — posso analisá‑las: peça "analise meus erros".)`:' (Dica: registre trades no Diário para respostas personalizadas.)'}`;
+  }
+
+  // chat plumbing
+  let chatLog = load(LS.chat, []);
+  function pushMsg(role,text,persist=true){
+    const el=document.createElement('div'); el.className='msg '+(role==='me'?'me':'bot');
+    el.innerHTML=`<div class="who">${role==='me'?'VOCÊ':'COACH'}</div>`+text.replace(/</g,'&lt;');
+    $('#msgs').appendChild(el); $('#msgs').scrollTop=$('#msgs').scrollHeight;
+    if(persist){ chatLog.push({role,text}); save(LS.chat,chatLog); }
+  }
+  function initChat(reset){
+    if(reset){ chatLog=[]; save(LS.chat,chatLog); }
+    $('#msgs').innerHTML='';
+    if(!chatLog.length){
+      pushMsg('bot','Oi 👋 Sou seu coach e psicólogo financeiro. Como você está chegando pro mercado hoje — e o que quer trabalhar: disciplina, medo, revenge trade, rotina? Se preferir, clique num atalho acima.',true);
+    } else chatLog.forEach(m=>pushMsg(m.role,m.text,false));
+  }
+  async function send(text){
+    text=text.trim(); if(!text)return;
+    pushMsg('me',text);
+    $('#chatInput').value=''; autoGrow();
+    const key=load(LS.key,''); const model=load(LS.model,'claude-sonnet-5');
+    const typing=document.createElement('div'); typing.className='typing'; typing.textContent='Coach está pensando...';
+    $('#msgs').appendChild(typing); $('#msgs').scrollTop=$('#msgs').scrollHeight;
+    try{
+      let reply;
+      if(key){
+        const history=chatLog.slice(-10).map(m=>({role:m.role==='me'?'user':'assistant',content:m.text}));
+        const sys=SYSTEM+'\n\n'+journalContext();
+        reply=await callClaude(history.concat([{role:'user',content:text}]),sys,key,model,700);
+        if(!reply) reply=localCoach(text);
+      } else {
+        await new Promise(r=>setTimeout(r,350));
+        reply=localCoach(text);
+      }
+      typing.remove(); pushMsg('bot',reply);
+    }catch(e){
+      typing.remove();
+      pushMsg('bot',localCoach(text)+`\n\n(⚠️ Claude indisponível: ${e.message}. Respondi em modo local — verifique a chave em IA/Dados.)`);
+    }
+  }
+  $('#sendBtn').onclick=()=>send($('#chatInput').value);
+  const ta=$('#chatInput');
+  function autoGrow(){ ta.style.height='auto'; ta.style.height=Math.min(120,ta.scrollHeight)+'px'; }
+  ta.addEventListener('input',autoGrow);
+  ta.addEventListener('keydown',e=>{ if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); send(ta.value); } });
+  $$('#quicks .chip').forEach(c=>c.onclick=()=>send(c.dataset.q));
+
+  // ---------- init ----------
+  renderTrades(); refreshMode(); initChat(false);
+})();
+</script>
+</body>
+</html>
