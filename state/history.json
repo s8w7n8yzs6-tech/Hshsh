@@ -826,5 +826,29 @@
     "type": "foto",
     "angle": "disciplina no gerenciamento de risco",
     "headline": "Você define o risco antes ou depois de perder?"
+  },
+  {
+    "date": "2026-08-12T12:44-03:00",
+    "type": "conceito",
+    "angle": "o que é o stop loss e por que ele protege a conta",
+    "headline": "Stop loss: o limite que você escolhe antes"
+  },
+  {
+    "date": "2026-08-12T12:44-03:00",
+    "type": "citacao",
+    "angle": "comemorar as pequenas evoluções, não só os grandes dias",
+    "headline": "Corrigir um erro pequeno vale mais que acertar um dia inteiro"
+  },
+  {
+    "date": "2026-08-12T12:45-03:00",
+    "type": "dica",
+    "angle": "a diferença entre suporte e resistência na prática",
+    "headline": "Suporte e resistência não são o mesmo papel"
+  },
+  {
+    "date": "2026-08-12T12:45-03:00",
+    "type": "mito_verdade",
+    "angle": "a diferença entre sorte pontual e consistência",
+    "headline": "Um resultado bom mostra o que deu certo agora, não o que funciona sempre"
   }
 ]
