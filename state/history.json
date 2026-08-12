@@ -802,5 +802,29 @@
     "type": "foto",
     "angle": "lidar com dias de lateralização e tédio no gráfico",
     "headline": "Dia parado no gráfico é o dia mais perigoso pra sua cabeça"
+  },
+  {
+    "date": "2026-08-12T09:35-03:00",
+    "type": "dica",
+    "angle": "gerenciamento de risco: arriscar só uma pequena parte da banca por operação",
+    "headline": "O tamanho da aposta importa mais que a ideia"
+  },
+  {
+    "date": "2026-08-12T09:35-03:00",
+    "type": "lista",
+    "angle": "a importância de manter um diário de operações",
+    "headline": "Sem diário, você repete erro achando que é azar"
+  },
+  {
+    "date": "2026-08-12T09:36-03:00",
+    "type": "mercado",
+    "angle": "fale sobre a volatilidade recente nos candles de 30 min",
+    "headline": "Ouro sobe +2,85% com candles de 30 min bem agitados"
+  },
+  {
+    "date": "2026-08-12T09:37-03:00",
+    "type": "foto",
+    "angle": "disciplina no gerenciamento de risco",
+    "headline": "Você define o risco antes ou depois de perder?"
   }
 ]
