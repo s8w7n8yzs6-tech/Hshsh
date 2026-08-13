@@ -1,29 +1,5 @@
 [
   {
-    "date": "2026-08-03T14:32-03:00",
-    "type": "trader",
-    "angle": "aceitar que ter perdas faz parte do jogo",
-    "headline": "Perder não é falha. É custo do jogo."
-  },
-  {
-    "date": "2026-08-03T15:22-03:00",
-    "type": "trader",
-    "angle": "disciplina no gerenciamento de risco",
-    "headline": "Você segue o stop até ele te dar razão?"
-  },
-  {
-    "date": "2026-08-03T15:29-03:00",
-    "type": "trader",
-    "angle": "disciplina no gerenciamento de risco",
-    "headline": "Você respeita o tamanho da posição ou só o stop?"
-  },
-  {
-    "date": "2026-08-03T16:10-03:00",
-    "type": "mercado",
-    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
-    "headline": "Nasdaq 100 dispara +2,67%: euforia ou armadilha mental?"
-  },
-  {
     "date": "2026-08-03T17:20-03:00",
     "type": "trader",
     "angle": "parar de se comparar com outros traders",
@@ -898,5 +874,29 @@
     "type": "numero",
     "angle": "desligar as telas para descansar a mente",
     "headline": "Notificações abertas depois que a corretora fecha"
+  },
+  {
+    "date": "2026-08-13T16:43-03:00",
+    "type": "conceito",
+    "angle": "o que é tendência de alta, de baixa e lateral",
+    "headline": "Preço tem direção: alta, baixa ou de lado"
+  },
+  {
+    "date": "2026-08-13T16:43-03:00",
+    "type": "lista",
+    "angle": "confiar no próprio plano em vez de improvisar",
+    "headline": "4 sinais de que você abandonou o plano no meio"
+  },
+  {
+    "date": "2026-08-13T16:43-03:00",
+    "type": "dica",
+    "angle": "por que operar a favor da tendência costuma ser mais seguro",
+    "headline": "Nadar a favor da correnteza cansa menos"
+  },
+  {
+    "date": "2026-08-13T16:44-03:00",
+    "type": "foto",
+    "angle": "estudar e revisar operações no fim de semana",
+    "headline": "Domingo à noite e o gráfico que você fingiu não abrir"
   }
 ]
