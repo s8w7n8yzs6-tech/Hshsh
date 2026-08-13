@@ -1,29 +1,5 @@
 [
   {
-    "date": "2026-08-03T17:20-03:00",
-    "type": "trader",
-    "angle": "parar de se comparar com outros traders",
-    "headline": "O trader que você admira também erra. Muito."
-  },
-  {
-    "date": "2026-08-03T17:41-03:00",
-    "type": "trader",
-    "angle": "parar de se comparar com outros traders",
-    "headline": "Você opera pra bater alguém ou pra seguir seu plano?"
-  },
-  {
-    "date": "2026-08-03T17:46-03:00",
-    "type": "trader",
-    "angle": "parar de se comparar com outros traders",
-    "headline": "Por que o resultado do outro grupo te deixa inquieto?"
-  },
-  {
-    "date": "2026-08-03T17:48-03:00",
-    "type": "trader",
-    "angle": "parar de se comparar com outros traders",
-    "headline": "O print do lucro alheio já sabotou sua entrada?"
-  },
-  {
     "date": "2026-08-03T18:49-03:00",
     "type": "trader",
     "angle": "desligar as telas para descansar a mente",
@@ -898,5 +874,29 @@
     "type": "foto",
     "angle": "estudar e revisar operações no fim de semana",
     "headline": "Domingo à noite e o gráfico que você fingiu não abrir"
+  },
+  {
+    "date": "2026-08-13T19:24-03:00",
+    "type": "mercado",
+    "angle": "comente, sem prever direção, se o dia teve mais força compradora ou vendedora",
+    "headline": "Nasdaq 100 sobe +2,42% no dia, com amplitude de mais de 700 pontos"
+  },
+  {
+    "date": "2026-08-13T19:24-03:00",
+    "type": "citacao",
+    "angle": "lidar com dias de lateralização e tédio no gráfico",
+    "headline": "Gráfico parado não é convite pra você criar movimento onde não existe"
+  },
+  {
+    "date": "2026-08-13T19:25-03:00",
+    "type": "conceito",
+    "angle": "o perigo da alavancagem alta para iniciantes",
+    "headline": "Alavancagem alta multiplica prejuízo também"
+  },
+  {
+    "date": "2026-08-13T19:25-03:00",
+    "type": "mito_verdade",
+    "angle": "reduzir o tamanho da posição quando está em dúvida",
+    "headline": "Dúvida real pede posição menor, não coragem maior"
   }
 ]
