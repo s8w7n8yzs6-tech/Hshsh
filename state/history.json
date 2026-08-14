@@ -1,29 +1,5 @@
 [
   {
-    "date": "2026-08-04T05:11-03:00",
-    "type": "citacao",
-    "angle": "a ansiedade antes de abrir uma operação",
-    "headline": "O dedo treme antes do clique porque o ego já apostou no resultado"
-  },
-  {
-    "date": "2026-08-04T05:13-03:00",
-    "type": "citacao",
-    "angle": "a ansiedade antes de abrir uma operação",
-    "headline": "A pressa pra clicar já é o mercado te cobrando uma resposta que ele nunca pediu"
-  },
-  {
-    "date": "2026-08-04T12:03-03:00",
-    "type": "citacao",
-    "angle": "operar demais (overtrading) e o cansaço mental",
-    "headline": "Cada entrada forçada tira um pouco da lucidez que a próxima vai precisar"
-  },
-  {
-    "date": "2026-08-04T17:54-03:00",
-    "type": "lista",
-    "angle": "a solidão de quem opera sozinho em casa",
-    "headline": "4 sinais de que a solidão tá pesando na sua operação"
-  },
-  {
     "date": "2026-08-05T08:21-03:00",
     "type": "lista",
     "angle": "a tentação de tentar recuperar rápido um prejuízo (revenge trade)",
@@ -898,5 +874,29 @@
     "type": "lista",
     "angle": "o peso psicológico de segurar uma posição aberta",
     "headline": "4 sinais de que a posição aberta tomou conta de você"
+  },
+  {
+    "date": "2026-08-14T17:17-03:00",
+    "type": "dica",
+    "angle": "por que operar a favor da tendência costuma ser mais seguro",
+    "headline": "Contra a maré: por que a tendência dá menos trabalho"
+  },
+  {
+    "date": "2026-08-14T17:17-03:00",
+    "type": "foto",
+    "angle": "não mover o stop no calor da emoção",
+    "headline": "O clique que muda o stop não é análise, é pânico"
+  },
+  {
+    "date": "2026-08-14T17:18-03:00",
+    "type": "padrao",
+    "angle": "Rompimento: o preço fica 'preso' abaixo de uma resistência e depois a ultrapassa com força; conceito de rompimento de nível.",
+    "headline": "Rompimento é quando o preço testa uma resistência várias vezes até romper com força, sinalizando possível continuidade do movimento."
+  },
+  {
+    "date": "2026-08-14T17:18-03:00",
+    "type": "citacao",
+    "angle": "acertar a análise mas errar na execução",
+    "headline": "A análise pode estar certa e a mão errar tudo na hora do clique"
   }
 ]
