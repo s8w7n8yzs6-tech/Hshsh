@@ -1,29 +1,5 @@
 [
   {
-    "date": "2026-08-05T08:21-03:00",
-    "type": "lista",
-    "angle": "a tentação de tentar recuperar rápido um prejuízo (revenge trade)",
-    "headline": "4 sinais de que você quer devolver a conta na mão do mercado"
-  },
-  {
-    "date": "2026-08-05T08:21-03:00",
-    "type": "mito_verdade",
-    "angle": "respeitar o stop mesmo quando dói",
-    "headline": "Sair no stop é seguir o acordo que você fez antes da dor aparecer"
-  },
-  {
-    "date": "2026-08-05T08:26-03:00",
-    "type": "mercado",
-    "angle": "fale sobre a volatilidade recente nos candles de 30 min",
-    "headline": "Ouro dispara +4,48% e mexe forte nos candles de 30min"
-  },
-  {
-    "date": "2026-08-05T17:46-03:00",
-    "type": "foto",
-    "angle": "o medo de ficar de fora (FOMO)",
-    "headline": "O movimento que você perdeu não te devia nada"
-  },
-  {
     "date": "2026-08-05T17:46-03:00",
     "type": "citacao",
     "angle": "operar demais (overtrading) e o cansaço mental",
@@ -898,5 +874,29 @@
     "type": "citacao",
     "angle": "acertar a análise mas errar na execução",
     "headline": "A análise pode estar certa e a mão errar tudo na hora do clique"
+  },
+  {
+    "date": "2026-08-14T18:12-03:00",
+    "type": "mercado",
+    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
+    "headline": "Nasdaq 100 fecha o dia em alta de +1,09%"
+  },
+  {
+    "date": "2026-08-14T18:13-03:00",
+    "type": "mito_verdade",
+    "angle": "a euforia perigosa depois de vários acertos seguidos",
+    "headline": "sequência boa é estatística, não é comprovação de habilidade superior"
+  },
+  {
+    "date": "2026-08-14T18:13-03:00",
+    "type": "dica",
+    "angle": "por que ter um plano de trade escrito antes de operar",
+    "headline": "Plano escrito: a diferença entre operar e apostar"
+  },
+  {
+    "date": "2026-08-14T18:13-03:00",
+    "type": "numero",
+    "angle": "a importância de dormir bem para operar melhor",
+    "headline": "Foi o tanto que você dormiu antes de abrir o gráfico hoje"
   }
 ]
