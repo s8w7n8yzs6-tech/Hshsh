@@ -1,29 +1,5 @@
 [
   {
-    "date": "2026-08-03T18:49-03:00",
-    "type": "trader",
-    "angle": "desligar as telas para descansar a mente",
-    "headline": "Você já esqueceu como é ficar entediado sem gráfico?"
-  },
-  {
-    "date": "2026-08-03T19:20-03:00",
-    "type": "trader",
-    "angle": "desligar as telas para descansar a mente",
-    "headline": "Quando foi a última vez que você desligou tudo?"
-  },
-  {
-    "date": "2026-08-03T19:39-03:00",
-    "type": "trader",
-    "angle": "o peso psicológico de segurar uma posição aberta",
-    "headline": "Segurar a posição pesa mais que qualquer análise?"
-  },
-  {
-    "date": "2026-08-03T20:49-03:00",
-    "type": "trader",
-    "angle": "confiar no próprio plano em vez de improvisar",
-    "headline": "Você opera o plano ou improvisa quando o preço mexe?"
-  },
-  {
     "date": "2026-08-03T21:17-03:00",
     "type": "trader",
     "angle": "confiar no próprio plano em vez de improvisar",
@@ -898,5 +874,29 @@
     "type": "mito_verdade",
     "angle": "reduzir o tamanho da posição quando está em dúvida",
     "headline": "Dúvida real pede posição menor, não coragem maior"
+  },
+  {
+    "date": "2026-08-14T09:29-03:00",
+    "type": "conceito",
+    "angle": "o que é o stop loss e por que ele protege a conta",
+    "headline": "Stop loss: o preço que você define antes de entrar"
+  },
+  {
+    "date": "2026-08-14T09:29-03:00",
+    "type": "citacao",
+    "angle": "disciplina no gerenciamento de risco",
+    "headline": "Risco definido antes é gestão. Risco definido depois é desespero disfarçado de estratégia."
+  },
+  {
+    "date": "2026-08-14T09:30-03:00",
+    "type": "mercado",
+    "angle": "fale sobre a volatilidade recente nos candles de 30 min",
+    "headline": "Ouro (XAU/USD) sobe +1,52% em candles de 30 min bem agitados"
+  },
+  {
+    "date": "2026-08-14T09:30-03:00",
+    "type": "mito_verdade",
+    "angle": "comemorar as pequenas evoluções, não só os grandes dias",
+    "headline": "o dia bom é aquele em que você seguiu o plano, mesmo que o resultado tenha sido pequeno"
   }
 ]
