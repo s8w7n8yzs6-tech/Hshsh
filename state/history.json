@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-05T21:13-03:00",
-    "type": "numero",
-    "angle": "controlar a ganância depois de um bom lucro",
-    "headline": "lucro certo já foi mais do que a próxima entrada forçada vai deixar"
-  },
-  {
     "date": "2026-08-05T21:14-03:00",
     "type": "foto",
     "angle": "a importância de manter um diário de operações",
@@ -898,5 +892,11 @@
     "type": "conceito",
     "angle": "o conceito de pullback (respiro) dentro de uma tendência",
     "headline": "Pullback: a tendência dando um respiro"
+  },
+  {
+    "date": "2026-08-14T20:51-03:00",
+    "type": "foto",
+    "angle": "resistir ao 'só mais uma operação'",
+    "headline": "O dia já fechou no verde. Por que a mão ainda quer clicar?"
   }
 ]
