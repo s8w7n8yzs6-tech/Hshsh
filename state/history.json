@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-05T17:46-03:00",
-    "type": "citacao",
-    "angle": "operar demais (overtrading) e o cansaço mental",
-    "headline": "Cada entrada extra é energia mental que a operação certa não vai ter"
-  },
-  {
     "date": "2026-08-05T17:47-03:00",
     "type": "lista",
     "angle": "a solidão de quem opera sozinho em casa",
@@ -898,5 +892,11 @@
     "type": "numero",
     "angle": "a importância de dormir bem para operar melhor",
     "headline": "Foi o tanto que você dormiu antes de abrir o gráfico hoje"
+  },
+  {
+    "date": "2026-08-14T18:58-03:00",
+    "type": "padrao",
+    "angle": "Engolfo de alta: uma vela de alta que 'engole' totalmente a vela de baixa anterior; estudado como possível sinal de reversão para cima.",
+    "headline": "Engolfo de alta é quando uma vela de alta cobre totalmente o corpo da vela de baixa anterior, estudado como possível sinal de reversão."
   }
 ]
