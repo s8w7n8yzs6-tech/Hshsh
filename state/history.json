@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-05T17:47-03:00",
-    "type": "lista",
-    "angle": "a solidão de quem opera sozinho em casa",
-    "headline": "5 sinais de que a rotina solo tá te consumindo"
-  },
-  {
-    "date": "2026-08-05T17:47-03:00",
-    "type": "mito_verdade",
-    "angle": "acordar cedo para acompanhar a abertura do mercado",
-    "headline": "Acordar cedo sem preparo só antecipa o cansaço, não a lucidez"
-  },
-  {
     "date": "2026-08-05T21:13-03:00",
     "type": "numero",
     "angle": "controlar a ganância depois de um bom lucro",
@@ -898,5 +886,17 @@
     "type": "padrao",
     "angle": "Engolfo de alta: uma vela de alta que 'engole' totalmente a vela de baixa anterior; estudado como possível sinal de reversão para cima.",
     "headline": "Engolfo de alta é quando uma vela de alta cobre totalmente o corpo da vela de baixa anterior, estudado como possível sinal de reversão."
+  },
+  {
+    "date": "2026-08-14T19:55-03:00",
+    "type": "lista",
+    "angle": "rever operações passadas com honestidade",
+    "headline": "4 perguntas pra revisar seu trade sem se enganar"
+  },
+  {
+    "date": "2026-08-14T19:55-03:00",
+    "type": "conceito",
+    "angle": "o conceito de pullback (respiro) dentro de uma tendência",
+    "headline": "Pullback: a tendência dando um respiro"
   }
 ]
