@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-07T15:09-03:00",
-    "type": "mito_verdade",
-    "angle": "a montanha-russa emocional de um dia de operações",
-    "headline": "O dia bom é aquele em que você sente tudo e ainda segue o plano"
-  },
-  {
     "date": "2026-08-07T15:10-03:00",
     "type": "numero",
     "angle": "comemorar as pequenas evoluções, não só os grandes dias",
@@ -898,5 +892,11 @@
     "type": "lista",
     "angle": "não operar por impulso logo após uma notícia",
     "headline": "3 sinais de que a notícia tá operando por você"
+  },
+  {
+    "date": "2026-08-15T18:42-03:00",
+    "type": "conceito",
+    "angle": "o conceito de pullback (respiro) dentro de uma tendência",
+    "headline": "Pullback: quando é respiro e quando é fim"
   }
 ]
