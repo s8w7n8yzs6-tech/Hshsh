@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-07T17:24-03:00",
-    "type": "citacao",
-    "angle": "a diferença entre sorte pontual e consistência",
-    "headline": "Sorte aparece uma vez. Consistência aparece toda vez que você escolhe repetir o processo."
-  },
-  {
     "date": "2026-08-07T17:25-03:00",
     "type": "mercado",
     "angle": "comente a amplitude entre a máxima e a mínima do período",
@@ -898,5 +892,11 @@
     "type": "dica",
     "angle": "por que não mover o stop no meio da operação",
     "headline": "Mover o stop no meio da operação custa caro"
+  },
+  {
+    "date": "2026-08-15T20:40-03:00",
+    "type": "citacao",
+    "angle": "separar a vida pessoal do resultado do dia",
+    "headline": "O resultado do pregão fica na mesa de operação. Ele não janta com sua família."
   }
 ]
