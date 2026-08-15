@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-07T12:41-03:00",
-    "type": "citacao",
-    "angle": "aceitar que ter perdas faz parte do jogo",
-    "headline": "Quem não fez as pazes com a perda ainda tá operando contra si mesmo"
-  },
-  {
-    "date": "2026-08-07T15:09-03:00",
-    "type": "lista",
-    "angle": "disciplina no gerenciamento de risco",
-    "headline": "4 sinais de que o risco tá largado na sua mão"
-  },
-  {
     "date": "2026-08-07T15:09-03:00",
     "type": "mito_verdade",
     "angle": "a montanha-russa emocional de um dia de operações",
@@ -898,5 +886,17 @@
     "type": "numero",
     "angle": "reduzir o tamanho da posição quando está em dúvida",
     "headline": "Na dúvida, o tamanho da posição cai pela metade, não a atenção"
+  },
+  {
+    "date": "2026-08-15T17:50-03:00",
+    "type": "padrao",
+    "angle": "Engolfo de alta: uma vela de alta que 'engole' totalmente a vela de baixa anterior; estudado como possível sinal de reversão para cima.",
+    "headline": "Engolfo de alta é o corpo de uma vela de alta cobrindo por completo o corpo da vela de baixa anterior, estudado como possível virada do movimento."
+  },
+  {
+    "date": "2026-08-15T17:51-03:00",
+    "type": "lista",
+    "angle": "não operar por impulso logo após uma notícia",
+    "headline": "3 sinais de que a notícia tá operando por você"
   }
 ]
