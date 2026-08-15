@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-05T21:14-03:00",
-    "type": "lista",
-    "angle": "disciplina no gerenciamento de risco",
-    "headline": "5 provas de que o risco te opera, não o contrário"
-  },
-  {
     "date": "2026-08-06T22:45-03:00",
     "type": "mito_verdade",
     "angle": "respeitar o stop mesmo quando dói",
@@ -898,5 +892,11 @@
     "type": "mito_verdade",
     "angle": "a montanha-russa emocional de um dia de operações",
     "headline": "trader bom sente a emoção inteira e ainda assim segue o plano"
+  },
+  {
+    "date": "2026-08-15T08:41-03:00",
+    "type": "mercado",
+    "angle": "comente a amplitude entre a máxima e a mínima do período",
+    "headline": "Ouro (XAU/USD) sobe +1,73%: amplitude do dia passa de 89 pontos"
   }
 ]
