@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-07T09:32-03:00",
-    "type": "lista",
-    "angle": "a solidão de quem opera sozinho em casa",
-    "headline": "3 coisas que ninguém te avisa sobre operar sozinho"
-  },
-  {
     "date": "2026-08-07T12:39-03:00",
     "type": "mito_verdade",
     "angle": "acordar cedo para acompanhar a abertura do mercado",
@@ -898,5 +892,11 @@
     "type": "citacao",
     "angle": "estudar e revisar operações no fim de semana",
     "headline": "Segunda-feira ganha quem revisou o gráfico no domingo, não quem descansou dele"
+  },
+  {
+    "date": "2026-08-15T14:43-03:00",
+    "type": "conceito",
+    "angle": "o perigo da alavancagem alta para iniciantes",
+    "headline": "Alavancagem alta: o freio que some"
   }
 ]
