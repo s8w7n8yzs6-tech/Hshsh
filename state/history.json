@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-07T09:29-03:00",
-    "type": "numero",
-    "angle": "a paciência de esperar o setup certo aparecer",
-    "headline": "operações feitas enquanto o setup não aparece — e tá tudo certo"
-  },
-  {
-    "date": "2026-08-07T09:30-03:00",
-    "type": "foto",
-    "angle": "o medo de ficar de fora (FOMO)",
-    "headline": "Você entrou porque o gráfico chamou ou porque os outros já estavam lá?"
-  },
-  {
     "date": "2026-08-07T09:31-03:00",
     "type": "mercado",
     "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
@@ -898,5 +886,17 @@
     "type": "dica",
     "angle": "por que operar a favor da tendência costuma ser mais seguro",
     "headline": "Nadar a favor: menos esforço pra ficar de pé"
+  },
+  {
+    "date": "2026-08-15T12:43-03:00",
+    "type": "foto",
+    "angle": "confiar no próprio plano em vez de improvisar",
+    "headline": "O gráfico mudou. Seu plano também vai mudar?"
+  },
+  {
+    "date": "2026-08-15T12:43-03:00",
+    "type": "padrao",
+    "angle": "Rompimento: o preço fica 'preso' abaixo de uma resistência e depois a ultrapassa com força; conceito de rompimento de nível.",
+    "headline": "Rompimento é quando o preço comprime abaixo de uma resistência e depois passa por ela com força, sinalizando possível continuidade do movimento."
   }
 ]
