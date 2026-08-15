@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-07T12:40-03:00",
-    "type": "foto",
-    "angle": "a importância de manter um diário de operações",
-    "headline": "Sem registro, você repete o erro achando que é estratégia nova"
-  },
-  {
     "date": "2026-08-07T12:41-03:00",
     "type": "citacao",
     "angle": "aceitar que ter perdas faz parte do jogo",
@@ -898,5 +892,11 @@
     "type": "mercado",
     "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
     "headline": "Nasdaq 100 varia +1,09% e amplitude passa de 700 pontos"
+  },
+  {
+    "date": "2026-08-15T16:52-03:00",
+    "type": "numero",
+    "angle": "reduzir o tamanho da posição quando está em dúvida",
+    "headline": "Na dúvida, o tamanho da posição cai pela metade, não a atenção"
   }
 ]
