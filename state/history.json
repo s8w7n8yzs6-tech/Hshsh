@@ -1,18 +1,6 @@
 [
   {
     "date": "2026-08-05T21:14-03:00",
-    "type": "foto",
-    "angle": "a importância de manter um diário de operações",
-    "headline": "Sem diário, cada erro é sempre a primeira vez"
-  },
-  {
-    "date": "2026-08-05T21:14-03:00",
-    "type": "citacao",
-    "angle": "aceitar que ter perdas faz parte do jogo",
-    "headline": "Perder faz parte da conta, não é falha no seu plano"
-  },
-  {
-    "date": "2026-08-05T21:14-03:00",
     "type": "lista",
     "angle": "disciplina no gerenciamento de risco",
     "headline": "5 provas de que o risco te opera, não o contrário"
@@ -898,5 +886,17 @@
     "type": "foto",
     "angle": "resistir ao 'só mais uma operação'",
     "headline": "O dia já fechou no verde. Por que a mão ainda quer clicar?"
+  },
+  {
+    "date": "2026-08-15T07:50-03:00",
+    "type": "dica",
+    "angle": "a diferença entre suporte e resistência na prática",
+    "headline": "Suporte e resistência não são a mesma coisa que zona"
+  },
+  {
+    "date": "2026-08-15T07:51-03:00",
+    "type": "mito_verdade",
+    "angle": "a montanha-russa emocional de um dia de operações",
+    "headline": "trader bom sente a emoção inteira e ainda assim segue o plano"
   }
 ]
