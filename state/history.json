@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-07T15:10-03:00",
-    "type": "numero",
-    "angle": "comemorar as pequenas evoluções, não só os grandes dias",
-    "headline": "melhor que ontem já é resultado. Não precisa ser 100% pra contar."
-  },
-  {
-    "date": "2026-08-07T15:10-03:00",
-    "type": "foto",
-    "angle": "parar de se comparar com outros traders",
-    "headline": "O print do outro trader te motiva ou te sabota?"
-  },
-  {
     "date": "2026-08-07T17:24-03:00",
     "type": "citacao",
     "angle": "a diferença entre sorte pontual e consistência",
@@ -898,5 +886,17 @@
     "type": "conceito",
     "angle": "o conceito de pullback (respiro) dentro de uma tendência",
     "headline": "Pullback: quando é respiro e quando é fim"
+  },
+  {
+    "date": "2026-08-15T19:51-03:00",
+    "type": "foto",
+    "angle": "bater a meta do dia e ter a disciplina de parar",
+    "headline": "Bateu a meta. E agora, quem manda: você ou a vontade?"
+  },
+  {
+    "date": "2026-08-15T19:52-03:00",
+    "type": "dica",
+    "angle": "por que não mover o stop no meio da operação",
+    "headline": "Mover o stop no meio da operação custa caro"
   }
 ]
