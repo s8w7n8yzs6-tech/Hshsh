@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-06T22:46-03:00",
-    "type": "citacao",
-    "angle": "operar demais (overtrading) e o cansaço mental",
-    "headline": "Quem opera cansado não busca lucro, busca alívio pra ansiedade"
-  },
-  {
     "date": "2026-08-07T09:29-03:00",
     "type": "numero",
     "angle": "a paciência de esperar o setup certo aparecer",
@@ -898,5 +892,11 @@
     "type": "lista",
     "angle": "desligar as telas para descansar a mente",
     "headline": "5 sinais de que sua mente pede tela desligada"
+  },
+  {
+    "date": "2026-08-15T11:43-03:00",
+    "type": "dica",
+    "angle": "por que operar a favor da tendência costuma ser mais seguro",
+    "headline": "Nadar a favor: menos esforço pra ficar de pé"
   }
 ]
