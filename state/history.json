@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-07T09:31-03:00",
-    "type": "mercado",
-    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
-    "headline": "Ouro sobe +8,46% no dia e testa 4.387,10 em candles de 30min"
-  },
-  {
     "date": "2026-08-07T09:32-03:00",
     "type": "lista",
     "angle": "a solidão de quem opera sozinho em casa",
@@ -898,5 +892,11 @@
     "type": "padrao",
     "angle": "Rompimento: o preço fica 'preso' abaixo de uma resistência e depois a ultrapassa com força; conceito de rompimento de nível.",
     "headline": "Rompimento é quando o preço comprime abaixo de uma resistência e depois passa por ela com força, sinalizando possível continuidade do movimento."
+  },
+  {
+    "date": "2026-08-15T13:54-03:00",
+    "type": "citacao",
+    "angle": "estudar e revisar operações no fim de semana",
+    "headline": "Segunda-feira ganha quem revisou o gráfico no domingo, não quem descansou dele"
   }
 ]
