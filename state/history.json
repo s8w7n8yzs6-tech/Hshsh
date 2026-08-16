@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-08T12:03-03:00",
-    "type": "lista",
-    "angle": "disciplina no gerenciamento de risco",
-    "headline": "5 provas que o risco não é negociável pra você"
-  },
-  {
-    "date": "2026-08-08T14:04-03:00",
-    "type": "mito_verdade",
-    "angle": "a montanha-russa emocional de um dia de operações",
-    "headline": "Trader bom sente tudo igual, a diferença é não deixar a emoção dirigir a mão"
-  },
-  {
     "date": "2026-08-08T14:05-03:00",
     "type": "numero",
     "angle": "comemorar as pequenas evoluções, não só os grandes dias",
@@ -898,5 +886,17 @@
     "type": "lista",
     "angle": "a importância de dormir bem para operar melhor",
     "headline": "Sono ruim, gráfico mentiroso: 4 sinais claros"
+  },
+  {
+    "date": "2026-08-16T17:50-03:00",
+    "type": "conceito",
+    "angle": "o conceito de pullback (respiro) dentro de uma tendência",
+    "headline": "Pullback: a respiração da tendência"
+  },
+  {
+    "date": "2026-08-16T17:51-03:00",
+    "type": "foto",
+    "angle": "rever operações passadas com honestidade",
+    "headline": "Você revê seus trades ou só reconta as vitórias?"
   }
 ]
