@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-08T14:05-03:00",
-    "type": "numero",
-    "angle": "comemorar as pequenas evoluções, não só os grandes dias",
-    "headline": "Uma vela verde a mais no seu processo já é evolução, não precisa ser o dia inteiro"
-  },
-  {
     "date": "2026-08-08T16:10-03:00",
     "type": "foto",
     "angle": "parar de se comparar com outros traders",
@@ -898,5 +892,11 @@
     "type": "foto",
     "angle": "rever operações passadas com honestidade",
     "headline": "Você revê seus trades ou só reconta as vitórias?"
+  },
+  {
+    "date": "2026-08-16T18:40-03:00",
+    "type": "dica",
+    "angle": "por que não mover o stop no meio da operação",
+    "headline": "Stop no lugar errado nasce antes do trade"
   }
 ]
