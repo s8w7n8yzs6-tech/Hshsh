@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-08T10:56-03:00",
-    "type": "foto",
-    "angle": "a importância de manter um diário de operações",
-    "headline": "Você lembra o que sentiu no seu último trade ou só o resultado?"
-  },
-  {
     "date": "2026-08-08T12:02-03:00",
     "type": "citacao",
     "angle": "aceitar que ter perdas faz parte do jogo",
@@ -898,5 +892,11 @@
     "type": "numero",
     "angle": "a euforia perigosa depois de vários acertos seguidos",
     "headline": "Quatro trades certos seguidos e a cabeça já quer dobrar a aposta no quinto"
+  },
+  {
+    "date": "2026-08-16T16:01-03:00",
+    "type": "mercado",
+    "angle": "comente a amplitude entre a máxima e a mínima do período",
+    "headline": "Nasdaq 100 +1,09%: mais de 700 pontos entre topo e fundo"
   }
 ]
