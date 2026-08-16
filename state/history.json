@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-07T21:00-03:00",
-    "type": "mito_verdade",
-    "angle": "lidar com dias de lateralização e tédio no gráfico",
-    "headline": "Dia lateral testa sua paciência, não sua capacidade de prever o próximo movimento"
-  },
-  {
     "date": "2026-08-08T08:06-03:00",
     "type": "foto",
     "angle": "o medo de ficar de fora (FOMO)",
@@ -898,5 +892,11 @@
     "type": "foto",
     "angle": "o peso psicológico de segurar uma posição aberta",
     "headline": "Posição aberta pesa mais no peito do que na conta"
+  },
+  {
+    "date": "2026-08-16T11:53-03:00",
+    "type": "padrao",
+    "angle": "Rompimento: o preço fica 'preso' abaixo de uma resistência e depois a ultrapassa com força; conceito de rompimento de nível.",
+    "headline": "Rompimento é quando o preço testa várias vezes uma resistência, comprime ali, e depois passa por ela com força e volume."
   }
 ]
