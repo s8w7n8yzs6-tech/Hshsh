@@ -1,23 +1,5 @@
 [
   {
-    "date": "2026-08-07T19:20-03:00",
-    "type": "foto",
-    "angle": "não mover o stop no calor da emoção",
-    "headline": "Mover o stop no calor do momento é negociar com você mesmo"
-  },
-  {
-    "date": "2026-08-07T19:21-03:00",
-    "type": "citacao",
-    "angle": "estudar e revisar operações no fim de semana",
-    "headline": "Fim de semana sem revisão é história que se repete na segunda"
-  },
-  {
-    "date": "2026-08-07T21:00-03:00",
-    "type": "lista",
-    "angle": "acertar a análise mas errar na execução",
-    "headline": "Análise certa, execução errada: o combo que dói mais"
-  },
-  {
     "date": "2026-08-07T21:00-03:00",
     "type": "mito_verdade",
     "angle": "lidar com dias de lateralização e tédio no gráfico",
@@ -898,5 +880,23 @@
     "type": "mercado",
     "angle": "fale sobre a volatilidade recente nos candles de 30 min",
     "headline": "Ouro (XAU/USD) +1,24%: candles de 30min sacodem o dia"
+  },
+  {
+    "date": "2026-08-16T10:43-03:00",
+    "type": "lista",
+    "angle": "a diferença entre sorte pontual e consistência",
+    "headline": "Sorte aparece uma vez. Consistência aparece no extrato"
+  },
+  {
+    "date": "2026-08-16T10:44-03:00",
+    "type": "dica",
+    "angle": "por que operar a favor da tendência costuma ser mais seguro",
+    "headline": "Contra a maré: por que isso custa mais caro"
+  },
+  {
+    "date": "2026-08-16T10:44-03:00",
+    "type": "foto",
+    "angle": "o peso psicológico de segurar uma posição aberta",
+    "headline": "Posição aberta pesa mais no peito do que na conta"
   }
 ]
