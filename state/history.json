@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-08-07T19:20-03:00",
-    "type": "numero",
-    "angle": "confiar no próprio plano em vez de improvisar",
-    "headline": "É o espaço que sobra pra improviso quando o plano já decidiu tudo antes"
-  },
-  {
-    "date": "2026-08-07T19:20-03:00",
     "type": "foto",
     "angle": "não mover o stop no calor da emoção",
     "headline": "Mover o stop no calor do momento é negociar com você mesmo"
@@ -898,5 +892,11 @@
     "type": "numero",
     "angle": "comemorar as pequenas evoluções, não só os grandes dias",
     "headline": "Melhorar 1% na disciplina vale mais que acertar o dia inteiro"
+  },
+  {
+    "date": "2026-08-16T08:42-03:00",
+    "type": "mercado",
+    "angle": "fale sobre a volatilidade recente nos candles de 30 min",
+    "headline": "Ouro (XAU/USD) +1,24%: candles de 30min sacodem o dia"
   }
 ]
