@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-08-08T10:55-03:00",
-    "type": "mito_verdade",
-    "angle": "acordar cedo para acompanhar a abertura do mercado",
-    "headline": "Acordar cedo sem clareza mental só te coloca mais perto do erro, mais rápido"
-  },
-  {
-    "date": "2026-08-08T10:55-03:00",
     "type": "numero",
     "angle": "controlar a ganância depois de um bom lucro",
     "headline": "Um lucro bom não pede revanche, pede saída limpa"
@@ -898,5 +892,11 @@
     "type": "mito_verdade",
     "angle": "acertar a análise mas errar na execução",
     "headline": "Análise certa com execução errada dá prejuízo do mesmo jeito"
+  },
+  {
+    "date": "2026-08-16T14:40-03:00",
+    "type": "dica",
+    "angle": "por que ter um plano de trade escrito antes de operar",
+    "headline": "Sem plano escrito, quem decide é o improviso"
   }
 ]
