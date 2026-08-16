@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-08T12:02-03:00",
-    "type": "citacao",
-    "angle": "aceitar que ter perdas faz parte do jogo",
-    "headline": "Perda não é castigo por errar, é o preço fixo de continuar jogando"
-  },
-  {
     "date": "2026-08-08T12:03-03:00",
     "type": "lista",
     "angle": "disciplina no gerenciamento de risco",
@@ -898,5 +892,11 @@
     "type": "mercado",
     "angle": "comente a amplitude entre a máxima e a mínima do período",
     "headline": "Nasdaq 100 +1,09%: mais de 700 pontos entre topo e fundo"
+  },
+  {
+    "date": "2026-08-16T16:50-03:00",
+    "type": "lista",
+    "angle": "a importância de dormir bem para operar melhor",
+    "headline": "Sono ruim, gráfico mentiroso: 4 sinais claros"
   }
 ]
