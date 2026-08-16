@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-08T10:55-03:00",
-    "type": "numero",
-    "angle": "controlar a ganância depois de um bom lucro",
-    "headline": "Um lucro bom não pede revanche, pede saída limpa"
-  },
-  {
     "date": "2026-08-08T10:56-03:00",
     "type": "foto",
     "angle": "a importância de manter um diário de operações",
@@ -898,5 +892,11 @@
     "type": "dica",
     "angle": "por que ter um plano de trade escrito antes de operar",
     "headline": "Sem plano escrito, quem decide é o improviso"
+  },
+  {
+    "date": "2026-08-16T15:00-03:00",
+    "type": "numero",
+    "angle": "a euforia perigosa depois de vários acertos seguidos",
+    "headline": "Quatro trades certos seguidos e a cabeça já quer dobrar a aposta no quinto"
   }
 ]
