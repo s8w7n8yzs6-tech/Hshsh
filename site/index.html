@@ -179,9 +179,9 @@
           <button class="btn" id="sendBtn">Enviar</button>
         </div>
       </div>
-      <p class="note">Sem chave de API, o coach responde de forma inteligente porém
-        offline (baseado em regras + seu diário). Ative o <b>Claude</b> na aba
-        <b>IA / Dados</b> para respostas mais ricas.</p>
+      <p class="note">O coach responde com base em <b>regras + análise do seu diário</b>
+        — funciona sem internet e sem custo. O modo com <b>Claude/LLM</b> em tempo real
+        só está disponível na versão auto‑hospedada (veja a aba <b>IA / Dados</b>).</p>
     </div>
   </section>
 
@@ -295,9 +295,11 @@
   <!-- ================= CONFIG ================= -->
   <section id="config" class="panel">
     <div class="card">
-      <h2>Ativar o Claude (opcional)</h2>
-      <p class="sub">Para respostas mais ricas do coach. A chave fica só neste navegador
-        e as chamadas vão direto do seu navegador para a Anthropic.</p>
+      <h2>Ativar o Claude (só na versão auto‑hospedada)</h2>
+      <p class="sub">⚠️ Nesta hospedagem (Claude), a página não pode chamar um LLM por
+        segurança — o coach roda em modo local. Os campos abaixo valem para quando você
+        rodar o site por conta própria (GitHub Pages / arquivo local): a chave fica só no
+        navegador e as chamadas vão direto para a Anthropic.</p>
       <div class="field"><label>Anthropic API Key (sk‑ant‑...)</label>
         <input id="apiKey" type="password" placeholder="cole sua chave" autocomplete="off"></div>
       <div class="field"><label>Modelo</label>
@@ -447,10 +449,18 @@
   }
 
   // export / import
-  function exportAll(){
-    const blob=new Blob([JSON.stringify({trades,moods,exported:new Date().toISOString()},null,2)],{type:'application/json'});
+  async function exportAll(){
+    const json=JSON.stringify({trades,moods,exported:new Date().toISOString()},null,2);
+    // Hospedado no Claude: usa a capability "downloads". Fora dela (GitHub Pages
+    // / arquivo local): cai para o link de download tradicional.
+    try{
+      const c=window.claude;
+      const dl=(c&&typeof c.use==='function')?await c.use('downloads'):null;
+      if(dl){ await dl.save({filename:'mente-de-trader-backup.json',data:json}); toast('Backup salvo ✓'); return; }
+    }catch(e){ if(e&&e.code==='declined'){ return; } }
+    const blob=new Blob([json],{type:'application/json'});
     const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
-    a.download='mente-de-trader-backup.json'; a.click();
+    a.download='mente-de-trader-backup.json'; a.click(); toast('Backup exportado ✓');
   }
   $('#exportBtn').onclick=exportAll; $('#exportBtn2').onclick=exportAll;
   $('#importBtn').onclick=()=>$('#importFile').click();
