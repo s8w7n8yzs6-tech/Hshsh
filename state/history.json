@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-08-08T10:55-03:00",
-    "type": "mercado",
-    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
-    "headline": "Ouro dispara +9,07% no dia e chega perto de 4.432,30"
-  },
-  {
-    "date": "2026-08-08T10:55-03:00",
     "type": "mito_verdade",
     "angle": "acordar cedo para acompanhar a abertura do mercado",
     "headline": "Acordar cedo sem clareza mental só te coloca mais perto do erro, mais rápido"
@@ -898,5 +892,11 @@
     "type": "conceito",
     "angle": "o perigo da alavancagem alta para iniciantes",
     "headline": "Alavancagem alta multiplica erro, não acerto"
+  },
+  {
+    "date": "2026-08-16T13:55-03:00",
+    "type": "mito_verdade",
+    "angle": "acertar a análise mas errar na execução",
+    "headline": "Análise certa com execução errada dá prejuízo do mesmo jeito"
   }
 ]
