@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-08T08:06-03:00",
-    "type": "foto",
-    "angle": "o medo de ficar de fora (FOMO)",
-    "headline": "Aquela entrada apressada era plano ou medo de perder o trem?"
-  },
-  {
-    "date": "2026-08-08T08:06-03:00",
-    "type": "citacao",
-    "angle": "operar demais (overtrading) e o cansaço mental",
-    "headline": "Mente cansada não erra menos, só demora mais pra perceber que já errou"
-  },
-  {
     "date": "2026-08-08T10:55-03:00",
     "type": "mercado",
     "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
@@ -898,5 +886,17 @@
     "type": "padrao",
     "angle": "Rompimento: o preço fica 'preso' abaixo de uma resistência e depois a ultrapassa com força; conceito de rompimento de nível.",
     "headline": "Rompimento é quando o preço testa várias vezes uma resistência, comprime ali, e depois passa por ela com força e volume."
+  },
+  {
+    "date": "2026-08-16T12:45-03:00",
+    "type": "citacao",
+    "angle": "não mover o stop no calor da emoção",
+    "headline": "Mexer no stop no meio do susto não é ajuste, é fuga disfarçada"
+  },
+  {
+    "date": "2026-08-16T12:45-03:00",
+    "type": "conceito",
+    "angle": "o perigo da alavancagem alta para iniciantes",
+    "headline": "Alavancagem alta multiplica erro, não acerto"
   }
 ]
