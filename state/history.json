@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-08T16:10-03:00",
-    "type": "foto",
-    "angle": "parar de se comparar com outros traders",
-    "headline": "Sua conta cresce no seu ritmo ou no ritmo do feed?"
-  },
-  {
-    "date": "2026-08-08T16:10-03:00",
-    "type": "citacao",
-    "angle": "a diferença entre sorte pontual e consistência",
-    "headline": "Sorte é aplaudida uma vez. Consistência nem é notada, porque virou rotina."
-  },
-  {
     "date": "2026-08-08T16:11-03:00",
     "type": "lista",
     "angle": "desligar as telas para descansar a mente",
@@ -898,5 +886,17 @@
     "type": "dica",
     "angle": "por que não mover o stop no meio da operação",
     "headline": "Stop no lugar errado nasce antes do trade"
+  },
+  {
+    "date": "2026-08-16T19:50-03:00",
+    "type": "citacao",
+    "angle": "resistir ao 'só mais uma operação'",
+    "headline": "O mercado fecha quando você decide. Não quando você acerta."
+  },
+  {
+    "date": "2026-08-16T19:50-03:00",
+    "type": "padrao",
+    "angle": "Topo duplo: dois topos na mesma região seguidos de queda abaixo da 'linha de pescoço'; estudado como possível sinal de reversão de alta para baixa.",
+    "headline": "Topo duplo é quando o preço testa duas vezes a mesma região sem conseguir romper, formando dois picos parecidos antes de ceder."
   }
 ]
