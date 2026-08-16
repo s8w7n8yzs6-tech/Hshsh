@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-07T17:25-03:00",
-    "type": "mercado",
-    "angle": "comente a amplitude entre a máxima e a mínima do período",
-    "headline": "Nasdaq 100 sobe +5,12% com amplitude de quase 820 pontos no dia"
-  },
-  {
-    "date": "2026-08-07T17:25-03:00",
-    "type": "mito_verdade",
-    "angle": "o peso psicológico de segurar uma posição aberta",
-    "headline": "Segurar sem motivo novo é só medo de admitir que a ideia pode ter acabado"
-  },
-  {
     "date": "2026-08-07T19:20-03:00",
     "type": "numero",
     "angle": "confiar no próprio plano em vez de improvisar",
@@ -898,5 +886,17 @@
     "type": "citacao",
     "angle": "separar a vida pessoal do resultado do dia",
     "headline": "O resultado do pregão fica na mesa de operação. Ele não janta com sua família."
+  },
+  {
+    "date": "2026-08-16T07:51-03:00",
+    "type": "padrao",
+    "angle": "Suporte e resistência: regiões em que o preço costuma parar de subir (resistência) ou de cair (suporte); base para entender onde o mercado 'respeita' níveis.",
+    "headline": "Suporte é a região onde o preço tende a parar de cair e resistência onde tende a parar de subir, revelando zonas de disputa entre compradores e vendedores."
+  },
+  {
+    "date": "2026-08-16T07:52-03:00",
+    "type": "numero",
+    "angle": "comemorar as pequenas evoluções, não só os grandes dias",
+    "headline": "Melhorar 1% na disciplina vale mais que acertar o dia inteiro"
   }
 ]
