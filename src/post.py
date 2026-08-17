@@ -45,8 +45,8 @@ def _slot_plan(slot: int) -> tuple[str, str | None]:
         return "mercado", "ouro"
     if slot == config.NASDAQ_SLOT_INDEX:
         return "mercado", "nasdaq"
-    if slot % 2 == 0:  # educativo
-        return config.EDU_FORMATS[(slot // 2 + day) % len(config.EDU_FORMATS)], None
+    if slot % 2 == 0:  # educativo — o acervo (pool) decide o assunto, sem repetir
+        return "edu", None
     ment = config.MENTALITY_FORMATS  # mentalidade
     return ment[((slot - 1) // 2 + day) % len(ment)], None
 
@@ -92,20 +92,26 @@ def _angle(fmt: str, slot: int) -> str | None:
     return config.TRADER_ANGLES[(slot + _day_of_year()) % len(config.TRADER_ANGLES)]
 
 
-def _pick_pattern_not_recent(base: int, avoid_last: int = 8) -> dict:
-    """Escolhe um padrão começando em `base`, pulando os usados nos últimos posts."""
+def _next_edu_subject(fmt: str | None = None) -> dict:
+    """Próximo assunto educativo do acervo que AINDA NÃO foi usado (nunca repete).
+
+    Lê as chaves já publicadas na memória e devolve o primeiro item do acervo que
+    ainda não saiu. Se `fmt` for dado, restringe a esse formato. Só recicla quando
+    o acervo inteiro tiver sido usado.
+    """
     from . import patterns
 
-    recent = {
-        str(e.get("angle", "")).split(":")[0].strip()
-        for e in history._load(history.HISTORY_PATH)[-avoid_last * 2:]
-        if e.get("type") == "padrao"
-    }
-    for off in range(len(patterns.PATTERNS)):
-        cand = patterns.pick_pattern(base + off)
-        if cand["nome"] not in recent:
-            return cand
-    return patterns.pick_pattern(base)
+    pool = patterns.build_pool()
+    used = {e.get("subject") for e in history._load(history.HISTORY_PATH) if e.get("subject")}
+    for item in pool:
+        if fmt and item["fmt"] != fmt:
+            continue
+        if item["key"] not in used:
+            return item
+    for item in pool:  # acervo esgotado: recicla (raro; centenas de posts depois)
+        if not fmt or item["fmt"] == fmt:
+            return item
+    return pool[0]
 
 
 def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
@@ -153,25 +159,24 @@ def _post_one(slot: int, fmt: str, asset_key: str | None, dry_run: bool) -> None
         else:
             snapshot = market.asset_snapshot(asset)
 
-    # Assunto (tema) do post. Para os formatos educativos, escolhe um padrão/
-    # conceito específico da biblioteca, variando por (slot + dia).
-    from . import patterns
+    # Assunto do post. Formatos educativos ("edu" ou forçados) puxam o próximo
+    # assunto do acervo que ainda não foi usado — assim NADA se repete.
+    subject = None
+    if fmt in ("edu", "padrao", "conceito", "dica"):
+        subject = _next_edu_subject(None if fmt == "edu" else fmt)
+        fmt = subject["fmt"]
 
-    day = _day_of_year()
-    pattern = None
-    if fmt == "padrao":
-        pattern = _pick_pattern_not_recent(slot // 2 + day)
-        angle = f"{pattern['nome']}: {pattern['hint']}"
-    elif fmt in ("conceito", "dica"):
-        angle = patterns.pick_concept(slot // 2 + day)
+    if subject is not None:
+        nome = (subject.get("nome") or "").strip()
+        angle = f"{nome}: {subject['hint']}".strip(": ").strip() if nome else subject["hint"]
     else:
         angle = _angle(fmt, slot)
 
     avoid = history.recent_headlines(20)  # memória: não repetir posts recentes
     result = generate.generate_post(fmt, snapshot, angle=angle, avoid=avoid)
     fmt = result["fmt"]  # pode ter caído de mercado para foto
-    if pattern is not None:
-        result["_pattern"] = pattern  # nome + diagrama para o card
+    if subject is not None:
+        result["_subject"] = subject  # formato, badge e diagrama do assunto
     caption = result["caption"]
 
     print(f"[slot {slot}] [{fmt}] {result.get('main', '')}")
@@ -220,14 +225,15 @@ def _post_one(slot: int, fmt: str, asset_key: str | None, dry_run: bool) -> None
     # Registra na memória (o workflow commita o arquivo depois de publicar). Isso
     # também faz o próximo _due_slot() enxergar o post recém-feito no mesmo job.
     brt = timezone(timedelta(hours=config.BRT_OFFSET_HOURS))
-    history.append(
-        {
-            "date": datetime.now(brt).isoformat(timespec="minutes"),
-            "type": fmt,
-            "angle": angle,
-            "headline": result.get("main", ""),
-        }
-    )
+    entry = {
+        "date": datetime.now(brt).isoformat(timespec="minutes"),
+        "type": fmt,
+        "angle": angle,
+        "headline": result.get("main", ""),
+    }
+    if result.get("_subject"):
+        entry["subject"] = result["_subject"]["key"]  # marca o assunto como usado (nunca repetir)
+    history.append(entry)
 
 
 def _build_card(result: dict, asset: dict | None, out_path: str, seed: int = 0) -> str:
@@ -248,10 +254,11 @@ def _build_card(result: dict, asset: dict | None, out_path: str, seed: int = 0) 
         return cards.build_number(result["stat"], result["label"], handle, out_path, seed)
 
     # Formatos educativos (desenvolvimento do trader).
+    subject = result.get("_subject") or {}
     if fmt == "padrao":
         from . import edu
 
-        pat = result.get("_pattern") or {}
+        pat = subject.get("pattern") or {}
         diagram = None
         try:
             diagram = edu.render_pattern(pat, 940, 620, seed=seed) if pat else None
@@ -259,9 +266,11 @@ def _build_card(result: dict, asset: dict | None, out_path: str, seed: int = 0) 
             print(f"Aviso: não foi possível desenhar o diagrama: {exc}", file=sys.stderr)
         return cards.build_pattern(pat.get("nome", ""), result["explicacao"], diagram, handle, out_path, seed)
     if fmt == "conceito":
-        return cards.build_concept(result["titulo"], result["explicacao"], handle, out_path, seed)
+        return cards.build_concept(result["titulo"], result["explicacao"], handle, out_path, seed,
+                                   badge=subject.get("badge", "APRENDA"))
     if fmt == "dica":
-        return cards.build_list(result["title"], result["items"], handle, out_path, seed, badge="APRENDA")
+        return cards.build_list(result["title"], result["items"], handle, out_path, seed,
+                                badge=subject.get("badge", "APRENDA"))
 
     # Formatos com foto de IA: foto-reflexão e mercado.
     chart_img = None
