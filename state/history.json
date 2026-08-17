@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-08-09T14:08-03:00",
-    "type": "foto",
-    "angle": "parar de se comparar com outros traders",
-    "headline": "O print do outro trader não mostra o rebate dele de ontem"
-  },
-  {
-    "date": "2026-08-09T14:08-03:00",
     "type": "conceito",
     "angle": "o que é o stop loss e por que ele protege a conta",
     "headline": "Stop loss: o freio que você decide antes"
@@ -898,5 +892,12 @@
     "type": "citacao",
     "angle": "bater a meta do dia e ter a disciplina de parar",
     "headline": "Bater a meta e continuar operando é escolher a ganância no lugar da vitória"
+  },
+  {
+    "date": "2026-08-17T18:11-03:00",
+    "type": "conceito",
+    "angle": "Pullback na média móvel: em uma tendência, esperar o preço recuar até uma média móvel antes de continuar o movimento",
+    "headline": "Pullback: o recuo que testa sua paciência",
+    "subject": "est:pullback-media-movel"
   }
 ]
