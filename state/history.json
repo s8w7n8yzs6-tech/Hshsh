@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-09T14:08-03:00",
-    "type": "conceito",
-    "angle": "o que é o stop loss e por que ele protege a conta",
-    "headline": "Stop loss: o freio que você decide antes"
-  },
-  {
-    "date": "2026-08-09T18:06-03:00",
-    "type": "citacao",
-    "angle": "desligar as telas para descansar a mente",
-    "headline": "A mente que nunca desliga a tela também nunca desliga a ansiedade"
-  },
-  {
     "date": "2026-08-09T18:06-03:00",
     "type": "mercado",
     "angle": "comente, sem prever direção, se o dia teve mais força compradora ou vendedora",
@@ -899,5 +887,18 @@
     "angle": "Pullback na média móvel: em uma tendência, esperar o preço recuar até uma média móvel antes de continuar o movimento",
     "headline": "Pullback: o recuo que testa sua paciência",
     "subject": "est:pullback-media-movel"
+  },
+  {
+    "date": "2026-08-17T19:53-03:00",
+    "type": "mito_verdade",
+    "angle": "separar a vida pessoal do resultado do dia",
+    "headline": "Resultado do dia é número. Quem você é não muda com ele"
+  },
+  {
+    "date": "2026-08-17T19:54-03:00",
+    "type": "padrao",
+    "angle": "Martelo: candle de corpo pequeno no topo e pavio inferior longo, que aparece após uma queda; é estudado como possível sinal de enfraquecimento da baixa.",
+    "headline": "O martelo é um candle com corpo pequeno no topo e um pavio inferior longo, que surge depois de uma queda. É estudado como possível indício de que os vendedores estão perdendo força.",
+    "subject": "pat:martelo"
   }
 ]
