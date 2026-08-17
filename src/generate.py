@@ -109,10 +109,13 @@ _FMT = {
         "required": ["titulo", "explicacao", "caption"],
         "main": "titulo",
         "prompt": (
-            "Formato CONCEITO (educativo). Ensine, para iniciantes, o conceito de "
-            "mercado indicado abaixo, de forma clara e prática. É ENSINO, não "
-            "recomendação de operação.\n"
-            "- titulo: título curto e claro do conceito (máx ~48 caracteres).\n"
+            "Formato APRENDA (educativo). Ensine, para iniciantes, o tema indicado "
+            "abaixo — pode ser um CONCEITO, um INDICADOR técnico ou uma ESTRATÉGIA de "
+            "trade. Explique o que é e como costuma ser usado/observado, de forma clara "
+            "e prática. É ENSINO, não recomendação: não mande comprar/vender, não dê "
+            "alvo de preço nem prometa resultado; deixe implícito que precisa ser "
+            "confirmado com o método e a gestão de risco de cada um.\n"
+            "- titulo: título curto e claro do tema (máx ~48 caracteres).\n"
             "- explicacao: explicação didática (máx ~240 caracteres).\n"
             "- caption: complementa (máx ~400 caracteres), 1-2 emojis, com 3-5 hashtags."
         ),

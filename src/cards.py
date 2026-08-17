@@ -225,12 +225,13 @@ def build_pattern(nome: str, explicacao: str, diagram: "object", handle: str,
     return out_path
 
 
-def build_concept(titulo: str, explicacao: str, handle: str, out_path: str, seed: int = 0) -> str:
-    """Card educativo de conceito: título forte + explicação clara."""
+def build_concept(titulo: str, explicacao: str, handle: str, out_path: str, seed: int = 0,
+                  badge: str = "APRENDA") -> str:
+    """Card educativo (conceito/indicador/estratégia): título forte + explicação clara."""
     th = theme(seed)
     img = _bg(th)
     d = ImageDraw.Draw(img)
-    _badge(d, th, "APRENDA")
+    _badge(d, th, badge)
 
     ty = _MARGIN + 96
     tw, tfont, tsp = _wrap_fit(d, titulo, _SANS_B, _W - 2 * _MARGIN, 300, 78, 44)
