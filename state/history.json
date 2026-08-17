@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-09T18:06-03:00",
-    "type": "mercado",
-    "angle": "comente, sem prever direção, se o dia teve mais força compradora ou vendedora",
-    "headline": "Nasdaq 100 sobe +5,12% no dia, fechando perto da máxima"
-  },
-  {
     "date": "2026-08-09T18:07-03:00",
     "type": "mito_verdade",
     "angle": "confiar no próprio plano em vez de improvisar",
@@ -900,5 +894,11 @@
     "angle": "Martelo: candle de corpo pequeno no topo e pavio inferior longo, que aparece após uma queda; é estudado como possível sinal de enfraquecimento da baixa.",
     "headline": "O martelo é um candle com corpo pequeno no topo e um pavio inferior longo, que surge depois de uma queda. É estudado como possível indício de que os vendedores estão perdendo força.",
     "subject": "pat:martelo"
+  },
+  {
+    "date": "2026-08-17T20:49-03:00",
+    "type": "numero",
+    "angle": "respeitar o horário de encerrar o dia de operações",
+    "headline": "Passou disso, a tela já ganhou de você"
   }
 ]
