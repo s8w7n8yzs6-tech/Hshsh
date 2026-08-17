@@ -1,29 +1,5 @@
 [
   {
-    "date": "2026-08-08T20:49-03:00",
-    "type": "numero",
-    "angle": "a euforia perigosa depois de vários acertos seguidos",
-    "headline": "É o número de acertos seguidos que costuma vir antes do maior erro do mês"
-  },
-  {
-    "date": "2026-08-09T08:16-03:00",
-    "type": "citacao",
-    "angle": "operar demais (overtrading) e o cansaço mental",
-    "headline": "Cada entrada extra depois da certa é a mente pedindo pra parar e você fingindo não ouvir"
-  },
-  {
-    "date": "2026-08-09T08:16-03:00",
-    "type": "lista",
-    "angle": "a solidão de quem opera sozinho em casa",
-    "headline": "4 verdades sobre operar sozinho em casa"
-  },
-  {
-    "date": "2026-08-09T09:29-03:00",
-    "type": "padrao",
-    "angle": "Triângulo: as máximas e mínimas se aproximam formando um triângulo (compressão); mostra um mercado indeciso acumulando força.",
-    "headline": "Triângulo é quando máximas e mínimas vão se apertando no gráfico, formando um funil. Costuma indicar mercado indeciso, acumulando energia pra um movimento futuro."
-  },
-  {
     "date": "2026-08-09T10:57-03:00",
     "type": "mito_verdade",
     "angle": "controlar a ganância depois de um bom lucro",
@@ -898,5 +874,29 @@
     "type": "citacao",
     "angle": "confiar no próprio plano em vez de improvisar",
     "headline": "Improvisar no meio do trade é trocar mapa por instinto no meio da tempestade"
+  },
+  {
+    "date": "2026-08-17T14:00-03:00",
+    "type": "conceito",
+    "angle": "o perigo da alavancagem alta para iniciantes",
+    "headline": "Alavancagem alta: a conta que iniciante não faz"
+  },
+  {
+    "date": "2026-08-17T14:00-03:00",
+    "type": "mito_verdade",
+    "angle": "estudar e revisar operações no fim de semana",
+    "headline": "Fim de semana é o único momento em que dá pra revisar sem a pressão do próprio dinheiro em jogo"
+  },
+  {
+    "date": "2026-08-17T14:00-03:00",
+    "type": "dica",
+    "angle": "por que ter um plano de trade escrito antes de operar",
+    "headline": "Papel escrito não deixa a mente reescrever a história"
+  },
+  {
+    "date": "2026-08-17T14:01-03:00",
+    "type": "numero",
+    "angle": "lidar com dias de lateralização e tédio no gráfico",
+    "headline": "É a variação que mais testa sua paciência, não sua análise"
   }
 ]
