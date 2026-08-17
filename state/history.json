@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-08T17:54-03:00",
-    "type": "mercado",
-    "angle": "comente a amplitude entre a máxima e a mínima do período",
-    "headline": "Nasdaq 100: quase 820 pontos entre topo e fundo do dia"
-  },
-  {
-    "date": "2026-08-08T17:55-03:00",
-    "type": "numero",
-    "angle": "confiar no próprio plano em vez de improvisar",
-    "headline": "É o número de vezes que o plano precisa da sua opinião no meio do trade"
-  },
-  {
     "date": "2026-08-08T17:55-03:00",
     "type": "foto",
     "angle": "não mover o stop no calor da emoção",
@@ -898,5 +886,17 @@
     "type": "mito_verdade",
     "angle": "a paciência de anos até virar um trader consistente",
     "headline": "O tempo de maturação é irredutível, cada erro precisa ser vivido pra virar reflexo"
+  },
+  {
+    "date": "2026-08-17T08:01-03:00",
+    "type": "conceito",
+    "angle": "o que é tendência de alta, de baixa e lateral",
+    "headline": "Alta, baixa ou lateral: leia o mapa"
+  },
+  {
+    "date": "2026-08-17T08:01-03:00",
+    "type": "lista",
+    "angle": "parar de se comparar com outros traders",
+    "headline": "4 provas de que comparação é veneno pro trade"
   }
 ]
