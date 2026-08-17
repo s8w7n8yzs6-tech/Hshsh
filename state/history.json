@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-09T10:58-03:00",
-    "type": "numero",
-    "angle": "aceitar que ter perdas faz parte do jogo",
-    "headline": "das rotinas que duram tem um espaço reservado pra perder"
-  },
-  {
-    "date": "2026-08-09T12:16-03:00",
-    "type": "dica",
-    "angle": "gerenciamento de risco: arriscar só uma pequena parte da banca por operação",
-    "headline": "O tamanho do risco importa mais que a entrada"
-  },
-  {
     "date": "2026-08-09T12:17-03:00",
     "type": "lista",
     "angle": "a montanha-russa emocional de um dia de operações",
@@ -898,5 +886,17 @@
     "type": "lista",
     "angle": "reduzir o tamanho da posição quando está em dúvida",
     "headline": "Duvidou? Diminui. Não some, nem dobra"
+  },
+  {
+    "date": "2026-08-17T16:45-03:00",
+    "type": "mercado",
+    "angle": "comente a amplitude entre a máxima e a mínima do período",
+    "headline": "Nasdaq 100 +1,31%: quase 480 pontos separam topo e fundo"
+  },
+  {
+    "date": "2026-08-17T16:46-03:00",
+    "type": "foto",
+    "angle": "não operar por impulso logo após uma notícia",
+    "headline": "Notícia quente, dedo coçando: essa é a hora que mais te derruba"
   }
 ]
