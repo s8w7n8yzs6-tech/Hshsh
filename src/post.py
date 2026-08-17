@@ -92,6 +92,22 @@ def _angle(fmt: str, slot: int) -> str | None:
     return config.TRADER_ANGLES[(slot + _day_of_year()) % len(config.TRADER_ANGLES)]
 
 
+def _pick_pattern_not_recent(base: int, avoid_last: int = 8) -> dict:
+    """Escolhe um padrão começando em `base`, pulando os usados nos últimos posts."""
+    from . import patterns
+
+    recent = {
+        str(e.get("angle", "")).split(":")[0].strip()
+        for e in history._load(history.HISTORY_PATH)[-avoid_last * 2:]
+        if e.get("type") == "padrao"
+    }
+    for off in range(len(patterns.PATTERNS)):
+        cand = patterns.pick_pattern(base + off)
+        if cand["nome"] not in recent:
+            return cand
+    return patterns.pick_pattern(base)
+
+
 def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
     dry_run = config.DRY_RUN if dry_run is None else dry_run
     forced = content_type or config.POST_TYPE  # disparo manual com formato específico
@@ -144,7 +160,7 @@ def _post_one(slot: int, fmt: str, asset_key: str | None, dry_run: bool) -> None
     day = _day_of_year()
     pattern = None
     if fmt == "padrao":
-        pattern = patterns.pick_pattern(slot // 2 + day)
+        pattern = _pick_pattern_not_recent(slot // 2 + day)
         angle = f"{pattern['nome']}: {pattern['hint']}"
     elif fmt in ("conceito", "dica"):
         angle = patterns.pick_concept(slot // 2 + day)
@@ -238,7 +254,7 @@ def _build_card(result: dict, asset: dict | None, out_path: str, seed: int = 0) 
         pat = result.get("_pattern") or {}
         diagram = None
         try:
-            diagram = edu.render_pattern(pat, 940, 620) if pat else None
+            diagram = edu.render_pattern(pat, 940, 620, seed=seed) if pat else None
         except Exception as exc:  # noqa: BLE001
             print(f"Aviso: não foi possível desenhar o diagrama: {exc}", file=sys.stderr)
         return cards.build_pattern(pat.get("nome", ""), result["explicacao"], diagram, handle, out_path, seed)

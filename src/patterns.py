@@ -90,6 +90,41 @@ PATTERNS = [
         "hlines": [("Resistência", 0.58, "down")],
         "hint": "o preço fica 'preso' abaixo de uma resistência e depois a ultrapassa com força; conceito de rompimento de nível.",
     },
+    {
+        "key": "fundo_duplo",
+        "nome": "Fundo duplo",
+        "tipo": "linha",
+        "path": [(0.03, 0.70), (0.22, 0.24), (0.40, 0.50), (0.60, 0.25),
+                 (0.80, 0.64), (0.97, 0.78)],
+        "hlines": [("Suporte", 0.25, "up"), ("Linha de pescoço", 0.50, "neutral")],
+        "hint": "dois fundos na mesma região seguidos de alta acima da 'linha de pescoço'; estudado como possível reversão de baixa para alta.",
+    },
+    {
+        "key": "oco",
+        "nome": "Ombro-cabeça-ombro",
+        "tipo": "linha",
+        "path": [(0.03, 0.32), (0.16, 0.62), (0.28, 0.44), (0.42, 0.80),
+                 (0.56, 0.42), (0.70, 0.62), (0.84, 0.40), (0.97, 0.26)],
+        "hlines": [("Linha de pescoço", 0.43, "neutral")],
+        "hint": "três topos com o do meio (a 'cabeça') mais alto; estudado como possível sinal de reversão de alta para baixa.",
+    },
+    {
+        "key": "bandeira",
+        "nome": "Bandeira",
+        "tipo": "linha",
+        "path": [(0.03, 0.24), (0.14, 0.74), (0.26, 0.60), (0.38, 0.70),
+                 (0.50, 0.56), (0.62, 0.66), (0.74, 0.54), (0.86, 0.78), (0.97, 0.88)],
+        "hint": "uma forte alta, um respiro curto de correção (a 'bandeira') e a retomada do movimento; padrão de continuação.",
+    },
+    {
+        "key": "canal_alta",
+        "nome": "Canal de alta",
+        "tipo": "linha",
+        "path": [(0.03, 0.30), (0.16, 0.50), (0.30, 0.36), (0.44, 0.58),
+                 (0.58, 0.46), (0.72, 0.68), (0.86, 0.56), (0.97, 0.74)],
+        "trendlines": [((0.05, 0.38), (0.97, 0.80)), ((0.05, 0.24), (0.97, 0.62))],
+        "hint": "máximas e mínimas subindo entre duas linhas paralelas; mostra uma tendência de alta organizada dentro de um canal.",
+    },
 ]
 
 # Conceitos/dicas educativas (sem diagrama próprio; formato de texto/lista).
