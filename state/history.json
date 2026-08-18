@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-10T12:35-03:00",
-    "type": "dica",
-    "angle": "gerenciamento de risco: arriscar só uma pequena parte da banca por operação",
-    "headline": "Quanto da banca você deixaria vazar de uma vez?"
-  },
-  {
-    "date": "2026-08-10T12:35-03:00",
-    "type": "lista",
-    "angle": "disciplina no gerenciamento de risco",
-    "headline": "4 sinais de que o risco tá fora do seu controle"
-  },
-  {
     "date": "2026-08-10T12:36-03:00",
     "type": "padrao",
     "angle": "Estrela cadente: candle de corpo pequeno embaixo e pavio superior longo, após uma alta; é estudado como possível sinal de enfraquecimento da alta.",
@@ -904,5 +892,18 @@
     "type": "lista",
     "angle": "a euforia perigosa depois de vários acertos seguidos",
     "headline": "A sequência de acertos que engana antes de cobrar a conta"
+  },
+  {
+    "date": "2026-08-18T15:05-03:00",
+    "type": "conceito",
+    "angle": "Rompimento de resistência: quando o preço ultrapassa com força uma região que antes o segurava (breakout)",
+    "headline": "Rompimento de resistência: o breakout",
+    "subject": "est:rompimento-resistencia"
+  },
+  {
+    "date": "2026-08-18T15:05-03:00",
+    "type": "foto",
+    "angle": "a importância de dormir bem para operar melhor",
+    "headline": "Sono ruim já é prejuízo antes mesmo de abrir o gráfico"
   }
 ]
