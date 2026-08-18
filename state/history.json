@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-10T15:12-03:00",
-    "type": "conceito",
-    "angle": "o que é o stop loss e por que ele protege a conta",
-    "headline": "Stop loss: o limite que existe antes da dor"
-  },
-  {
-    "date": "2026-08-10T15:13-03:00",
-    "type": "citacao",
-    "angle": "a diferença entre sorte pontual e consistência",
-    "headline": "Sorte aparece uma vez. Consistência aparece na planilha, mês após mês"
-  },
-  {
     "date": "2026-08-10T15:13-03:00",
     "type": "dica",
     "angle": "a diferença entre suporte e resistência na prática",
@@ -905,5 +893,18 @@
     "type": "citacao",
     "angle": "rever operações passadas com honestidade",
     "headline": "Reler seu histórico sem se defender é o exercício mais desconfortável do trading"
+  },
+  {
+    "date": "2026-08-18T17:54-03:00",
+    "type": "conceito",
+    "angle": "IFR (RSI): o Índice de Força Relativa, que mede se um ativo está muito comprado ou muito vendido",
+    "headline": "IFR: o termômetro de força do preço",
+    "subject": "ind:ifr-rsi"
+  },
+  {
+    "date": "2026-08-18T17:54-03:00",
+    "type": "mito_verdade",
+    "angle": "resistir ao 'só mais uma operação'",
+    "headline": "O dinheiro que você não perde também é dinheiro que você guarda"
   }
 ]
