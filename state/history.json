@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-10T09:12-03:00",
-    "type": "numero",
-    "angle": "a importância de manter um diário de operações",
-    "headline": "é o tamanho do diário de quem só opera de memória"
-  },
-  {
     "date": "2026-08-10T12:35-03:00",
     "type": "dica",
     "angle": "gerenciamento de risco: arriscar só uma pequena parte da banca por operação",
@@ -904,5 +898,11 @@
     "angle": "Estrela cadente: candle de corpo pequeno embaixo e pavio superior longo, após uma alta; é estudado como possível sinal de enfraquecimento da alta.",
     "headline": "Estrela cadente é um candle de corpo pequeno na base e pavio superior longo, aparecendo após uma alta. Estudado como possível sinal de perda de força compradora.",
     "subject": "pat:estrela_cadente"
+  },
+  {
+    "date": "2026-08-18T14:02-03:00",
+    "type": "lista",
+    "angle": "a euforia perigosa depois de vários acertos seguidos",
+    "headline": "A sequência de acertos que engana antes de cobrar a conta"
   }
 ]
