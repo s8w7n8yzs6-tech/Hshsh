@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-08-10T15:13-03:00",
-    "type": "dica",
-    "angle": "a diferença entre suporte e resistência na prática",
-    "headline": "Suporte e resistência não são iguais na prática"
-  },
-  {
-    "date": "2026-08-10T15:13-03:00",
     "type": "mito_verdade",
     "angle": "o peso psicológico de segurar uma posição aberta",
     "headline": "Segurar posição é administrar incerteza, não provar força de vontade"
@@ -906,5 +900,12 @@
     "type": "mito_verdade",
     "angle": "resistir ao 'só mais uma operação'",
     "headline": "O dinheiro que você não perde também é dinheiro que você guarda"
+  },
+  {
+    "date": "2026-08-18T18:50-03:00",
+    "type": "conceito",
+    "angle": "a relação risco/retorno (por que buscar ganho maior que a perda arriscada)",
+    "headline": "Risco x retorno: por que a conta fecha",
+    "subject": "con:relacao-risco-retorno-buscar"
   }
 ]
