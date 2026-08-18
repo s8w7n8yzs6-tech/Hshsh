@@ -364,6 +364,57 @@ DICA_THEMES += [
     "aumentar o risco só depois de provar consistência",
 ]
 
+# Maiores dúvidas de iniciantes no FOREX (câmbio). Cada item vira um post
+# educativo que RESPONDE a pergunta de forma clara, para iniciante, sem
+# recomendar operação. Base: docs/pesquisa-duvidas-forex-iniciantes.md.
+# Formato (nome=a dúvida, hint=o que explicar). Badge "DÚVIDA DE INICIANTE".
+DUVIDAS_FOREX = [
+    ("O que é Forex, afinal?", "o mercado de troca de moedas: comprar e vender pares (ex.: EUR/USD) tentando lucrar com a variação de uma frente à outra"),
+    ("O que é um par de moedas?", "toda cotação envolve a moeda base e a cotada; EUR/USD=1,10 significa que 1 euro vale 1,10 dólar — você compra uma e vende a outra ao mesmo tempo"),
+    ("Onde fica a 'bolsa' do Forex?", "não há prédio central: é um mercado de balcão (OTC), descentralizado e global, com polos em Londres, Nova York e Tóquio"),
+    ("Por que o Forex funciona 24 horas?", "as praças financeiras se revezam pelo globo em três sessões (Ásia, Londres, Nova York), mantendo o mercado aberto de segunda a sexta"),
+    ("Qual a diferença entre 'comprado' e 'vendido'?", "comprado (long) aposta na alta e vendido (short) aposta na queda; no Forex dá para operar nas duas direções"),
+    ("O que é um pip?", "a menor variação padrão de preço de um par: 0,0001 na maioria e 0,01 nos pares com iene; é a régua para medir quanto o preço andou"),
+    ("O que é lote (e mini/micro lote)?", "o tamanho da operação: 1 lote padrão são 100.000 unidades, mini 10.000, micro 1.000; quanto maior o lote, mais cada pip vale e maior o risco"),
+    ("O que é alavancagem?", "um multiplicador que deixa controlar uma posição maior que o depósito; amplia lucro E perda na mesma proporção — a principal causa de contas zeradas"),
+    ("O que é margem e chamada de margem?", "a quantia que a corretora segura para manter a posição aberta; quando a margem livre acaba, vem a chamada de margem e a posição pode ser encerrada"),
+    ("O que é spread?", "a diferença entre o preço de compra e o de venda; é o custo embutido de cada operação, por isso você já entra levemente no negativo"),
+    ("O que é swap (rolagem)?", "a taxa paga ou recebida por manter uma posição aberta de um dia para o outro, por causa da diferença de juros entre as duas moedas"),
+    ("O que é stop loss e take profit?", "stop loss fecha a posição no prejuízo num nível definido para limitar a perda; take profit fecha no lucro num alvo definido"),
+    ("O que são majors, minors e exóticos?", "majors são os pares mais líquidos, todos com dólar; minors não têm dólar; exóticos misturam uma major com a moeda de uma economia menor (mais risco)"),
+    ("Com quanto dinheiro dá para começar?", "algumas corretoras aceitam contas pequenas, mas o valor certo é o que você pode perder por inteiro sem afetar suas contas — começar pequeno é gestão de risco"),
+    ("Preciso usar conta demo antes?", "sim: a demo deixa aprender a plataforma e testar a estratégia sem arriscar dinheiro real; a ressalva é que falta a pressão emocional do dinheiro de verdade"),
+    ("Quais pares são melhores para começar?", "os majors, com destaque para EUR/USD: alta liquidez, spread baixo e muito material de estudo; USD/JPY e GBP/USD também são citados"),
+    ("Quanto tempo leva para aprender Forex?", "o básico em 1 a 3 meses, mas a consistência costuma levar de 1 a 3 anos de estudo e prática; não existe atalho de aprender em uma semana"),
+    ("Preciso ficar o dia todo no gráfico?", "não: ordens de stop e alvo executam sozinhas; passar horas na tela costuma aumentar o estresse e as decisões impulsivas, não o lucro"),
+    ("Análise técnica ou fundamentalista?", "técnica estuda o gráfico (preço, padrões); fundamentalista estuda economia e notícias (juros, inflação, emprego); muitos combinam as duas"),
+    ("Notícia importa mesmo com gráfico 'perfeito'?", "sim: decisão de juros e dados econômicos podem anular qualquer padrão em segundos, por isso acompanhar a agenda econômica faz parte"),
+    ("Existe indicador ou robô que acerta sempre?", "não: nenhum indicador prevê o futuro, todos só organizam o passado; promessa de sinal infalível é sinal de golpe"),
+    ("O que é gestão de risco e por que é a parte nº 1?", "o conjunto de regras que protege o capital para você continuar operando; é ela, não a estratégia, que separa quem sobrevive de quem quebra"),
+    ("Quanto arriscar por operação?", "uma fração pequena e fixa da conta por trade, de modo que nenhuma operação sozinha possa machucar a conta de forma grave"),
+    ("O que é risco/retorno (R:R)?", "a relação entre o que se arrisca e o que se busca ganhar; buscar ganho maior que a perda arriscada permite ser lucrativo mesmo errando parte das vezes"),
+    ("Por que a alavancagem alta é perigosa?", "porque multiplica a perda: com alavancagem grande, um movimento pequeno contra você já aciona a chamada de margem"),
+    ("O que é drawdown?", "a queda do capital do topo até o fundo numa sequência ruim; acompanhá-lo mostra o risco real da estratégia, não só o lucro"),
+    ("Por que trade é '80% cabeça'?", "porque a maioria das perdas vem de decisão emocional, não de falta de técnica; a estratégia só funciona se a cabeça deixar você segui-la"),
+    ("O que é medo e ganância no trade?", "medo faz realizar o lucro cedo demais; ganância faz segurar tempo demais e aumentar posição sem critério — as duas distorcem o plano"),
+    ("O que é FOMO no trade?", "o medo de ficar de fora, que faz entrar correndo num movimento que já andou; nem o profissional pega todos os movimentos, e perder um trade não é problema"),
+    ("O que é revenge trade?", "perder e entrar de novo na hora, sem setup, só para recuperar; é o sinal mais claro de que a emoção assumiu o controle e costuma aprofundar o prejuízo"),
+    ("Como controlar as emoções operando?", "não é força de vontade, é rotina e regra: plano escrito, tamanho fixo, limite de perda no dia e checklist antes de entrar tiram a decisão do calor do momento"),
+    ("Qual a diferença entre scalp, day, swing e position?", "scalp opera segundos a minutos; day abre e fecha no mesmo dia; swing segura dias a semanas; position segura semanas a meses"),
+    ("Preciso de uma estratégia complexa?", "não: uma estratégia simples, bem entendida e seguida com disciplina vence uma complexa mal executada; o segredo é repetir o mesmo processo"),
+    ("O que é backtest?", "testar a estratégia em dados passados para ver como ela teria se comportado, sem ajustá-la até parecer perfeita no histórico (overfitting)"),
+    ("Quanto custa operar e onde a corretora ganha?", "principalmente no spread e às vezes numa comissão por lote, somando o swap overnight; custo alto corrói o resultado de quem opera muito"),
+    ("O que é slippage?", "quando a ordem executa num preço um pouco diferente do esperado, comum em alta volatilidade ou baixa liquidez, como na saída de uma notícia"),
+    ("Forex é legal no Brasil?", "operar por corretoras estrangeiras reguladas é permitido a residentes, cumpridas as regras do Banco Central e as fiscais; o Forex não é regulado pela CVM no país"),
+    ("Como escolher uma corretora?", "priorizar corretoras reguladas por autoridade reconhecida, verificando reputação, avaliações reais e condições de saque antes de depositar"),
+    ("Preciso declarar imposto sobre lucro no Forex?", "sim: todo ganho com câmbio no exterior é tributável e deve ser informado; guardar os relatórios da plataforma desde o primeiro mês evita dor de cabeça"),
+    ("Dá para ficar rico rápido no Forex?", "não existe número garantido, e essa é justamente a expectativa que mais quebra iniciante; retorno alto vem sempre com risco alto"),
+    ("Por que a maioria perde no Forex?", "as causas mais citadas são decisão emocional, alavancagem excessiva, falta de disciplina/plano e expectativa irreal — quase nunca 'faltou a estratégia certa'"),
+    ("Dá para viver de Forex?", "para uma minoria, com anos de estudo, capital adequado e disciplina; tratar o trade como renda única no começo é um erro clássico"),
+    ("Como reconhecer um golpe de Forex?", "promessa de lucro garantido, robô que nunca perde, rentabilidade fixa e alta, pressão para depositar rápido e recrutamento em corrente; lucro garantido não existe"),
+    ("Desempenho passado garante o futuro?", "não: resultado passado, seu ou de um sinal, não garante o futuro; cada trade é uma probabilidade, não uma certeza"),
+]
+
 _STOP = {"a", "o", "e", "de", "do", "da", "que", "na", "no", "um", "uma", "por", "para", "com", "os", "as"}
 
 
@@ -410,6 +461,11 @@ def build_pool() -> list[dict]:
         {"key": f"dic:{_slug(t)}", "fmt": "dica", "badge": "APRENDA",
          "nome": "", "hint": t}
         for t in DICA_THEMES
+    ])
+    cats.append([
+        {"key": f"fx:{_slug(nome)}", "fmt": "conceito", "badge": "DÚVIDA DE INICIANTE",
+         "nome": nome, "hint": hint}
+        for nome, hint in DUVIDAS_FOREX
     ])
 
     # Intercala as categorias (round-robin) para o feed ficar variado.
