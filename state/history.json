@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-10T15:13-03:00",
-    "type": "mito_verdade",
-    "angle": "o peso psicológico de segurar uma posição aberta",
-    "headline": "Segurar posição é administrar incerteza, não provar força de vontade"
-  },
-  {
-    "date": "2026-08-10T17:26-03:00",
-    "type": "mercado",
-    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
-    "headline": "Nasdaq 100 varia +2,94% no dia, entre 29.128 e 29.784"
-  },
-  {
     "date": "2026-08-10T17:26-03:00",
     "type": "numero",
     "angle": "não mover o stop no calor da emoção",
@@ -907,5 +895,18 @@
     "angle": "a relação risco/retorno (por que buscar ganho maior que a perda arriscada)",
     "headline": "Risco x retorno: por que a conta fecha",
     "subject": "con:relacao-risco-retorno-buscar"
+  },
+  {
+    "date": "2026-08-18T19:55-03:00",
+    "type": "numero",
+    "angle": "a paciência de anos até virar um trader consistente",
+    "headline": "anos é o tempo que muita gente leva até parar de tratar o mercado como aposta"
+  },
+  {
+    "date": "2026-08-18T19:55-03:00",
+    "type": "dica",
+    "angle": "dimensionar o tamanho da posição pelo risco",
+    "headline": "Tamanho da posição não é achismo",
+    "subject": "dic:dimensionar-tamanho-posicao-pelo"
   }
 ]
