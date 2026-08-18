@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-09T18:07-03:00",
-    "type": "mito_verdade",
-    "angle": "confiar no próprio plano em vez de improvisar",
-    "headline": "Se o mercado mudou, a operação acaba. O plano continua igual pro próximo trade"
-  },
-  {
-    "date": "2026-08-09T18:07-03:00",
-    "type": "padrao",
-    "angle": "Suporte e resistência: regiões em que o preço costuma parar de subir (resistência) ou de cair (suporte); base para entender onde o mercado 'respeita' níveis.",
-    "headline": "Suporte e resistência são regiões onde o preço historicamente encontra dificuldade para cair ou subir, como se houvesse uma barreira invisível ali."
-  },
-  {
     "date": "2026-08-09T20:00-03:00",
     "type": "numero",
     "angle": "estudar e revisar operações no fim de semana",
@@ -900,5 +888,18 @@
     "type": "numero",
     "angle": "respeitar o horário de encerrar o dia de operações",
     "headline": "Passou disso, a tela já ganhou de você"
+  },
+  {
+    "date": "2026-08-18T08:00-03:00",
+    "type": "conceito",
+    "angle": "Médias móveis: a média do preço em X períodos, usada para suavizar o gráfico e ler a tendência",
+    "headline": "Média móvel: a curva que filtra o ruído",
+    "subject": "ind:medias-moveis"
+  },
+  {
+    "date": "2026-08-18T08:00-03:00",
+    "type": "foto",
+    "angle": "a diferença entre sorte pontual e consistência",
+    "headline": "Um trade certo não prova nada. Cem, sim."
   }
 ]
