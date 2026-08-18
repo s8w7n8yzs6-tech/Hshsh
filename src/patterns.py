@@ -364,55 +364,66 @@ DICA_THEMES += [
     "aumentar o risco só depois de provar consistência",
 ]
 
-# Maiores dúvidas de iniciantes no FOREX (câmbio). Cada item vira um post
-# educativo que RESPONDE a pergunta de forma clara, para iniciante, sem
-# recomendar operação. Base: docs/pesquisa-duvidas-forex-iniciantes.md.
+# Dúvidas de quem JÁ SABE o que é Forex mas ainda é iniciante (segundo estágio:
+# já entende pip, lote e alavancagem, mas trava na EXECUÇÃO, no dimensionamento,
+# na consistência e na mecânica). Cada item vira um post educativo que RESPONDE
+# a pergunta, sem recomendar operação. Base: docs/pesquisa-duvidas-forex-iniciantes.md.
 # Formato (nome=a dúvida, hint=o que explicar). Badge "DÚVIDA DE INICIANTE".
 DUVIDAS_FOREX = [
-    ("O que é Forex, afinal?", "o mercado de troca de moedas: comprar e vender pares (ex.: EUR/USD) tentando lucrar com a variação de uma frente à outra"),
-    ("O que é um par de moedas?", "toda cotação envolve a moeda base e a cotada; EUR/USD=1,10 significa que 1 euro vale 1,10 dólar — você compra uma e vende a outra ao mesmo tempo"),
-    ("Onde fica a 'bolsa' do Forex?", "não há prédio central: é um mercado de balcão (OTC), descentralizado e global, com polos em Londres, Nova York e Tóquio"),
-    ("Por que o Forex funciona 24 horas?", "as praças financeiras se revezam pelo globo em três sessões (Ásia, Londres, Nova York), mantendo o mercado aberto de segunda a sexta"),
-    ("Qual a diferença entre 'comprado' e 'vendido'?", "comprado (long) aposta na alta e vendido (short) aposta na queda; no Forex dá para operar nas duas direções"),
-    ("O que é um pip?", "a menor variação padrão de preço de um par: 0,0001 na maioria e 0,01 nos pares com iene; é a régua para medir quanto o preço andou"),
-    ("O que é lote (e mini/micro lote)?", "o tamanho da operação: 1 lote padrão são 100.000 unidades, mini 10.000, micro 1.000; quanto maior o lote, mais cada pip vale e maior o risco"),
-    ("O que é alavancagem?", "um multiplicador que deixa controlar uma posição maior que o depósito; amplia lucro E perda na mesma proporção — a principal causa de contas zeradas"),
-    ("O que é margem e chamada de margem?", "a quantia que a corretora segura para manter a posição aberta; quando a margem livre acaba, vem a chamada de margem e a posição pode ser encerrada"),
-    ("O que é spread?", "a diferença entre o preço de compra e o de venda; é o custo embutido de cada operação, por isso você já entra levemente no negativo"),
-    ("O que é swap (rolagem)?", "a taxa paga ou recebida por manter uma posição aberta de um dia para o outro, por causa da diferença de juros entre as duas moedas"),
-    ("O que é stop loss e take profit?", "stop loss fecha a posição no prejuízo num nível definido para limitar a perda; take profit fecha no lucro num alvo definido"),
-    ("O que são majors, minors e exóticos?", "majors são os pares mais líquidos, todos com dólar; minors não têm dólar; exóticos misturam uma major com a moeda de uma economia menor (mais risco)"),
-    ("Com quanto dinheiro dá para começar?", "algumas corretoras aceitam contas pequenas, mas o valor certo é o que você pode perder por inteiro sem afetar suas contas — começar pequeno é gestão de risco"),
-    ("Preciso usar conta demo antes?", "sim: a demo deixa aprender a plataforma e testar a estratégia sem arriscar dinheiro real; a ressalva é que falta a pressão emocional do dinheiro de verdade"),
-    ("Quais pares são melhores para começar?", "os majors, com destaque para EUR/USD: alta liquidez, spread baixo e muito material de estudo; USD/JPY e GBP/USD também são citados"),
-    ("Quanto tempo leva para aprender Forex?", "o básico em 1 a 3 meses, mas a consistência costuma levar de 1 a 3 anos de estudo e prática; não existe atalho de aprender em uma semana"),
-    ("Preciso ficar o dia todo no gráfico?", "não: ordens de stop e alvo executam sozinhas; passar horas na tela costuma aumentar o estresse e as decisões impulsivas, não o lucro"),
-    ("Análise técnica ou fundamentalista?", "técnica estuda o gráfico (preço, padrões); fundamentalista estuda economia e notícias (juros, inflação, emprego); muitos combinam as duas"),
-    ("Notícia importa mesmo com gráfico 'perfeito'?", "sim: decisão de juros e dados econômicos podem anular qualquer padrão em segundos, por isso acompanhar a agenda econômica faz parte"),
-    ("Existe indicador ou robô que acerta sempre?", "não: nenhum indicador prevê o futuro, todos só organizam o passado; promessa de sinal infalível é sinal de golpe"),
-    ("O que é gestão de risco e por que é a parte nº 1?", "o conjunto de regras que protege o capital para você continuar operando; é ela, não a estratégia, que separa quem sobrevive de quem quebra"),
-    ("Quanto arriscar por operação?", "uma fração pequena e fixa da conta por trade, de modo que nenhuma operação sozinha possa machucar a conta de forma grave"),
-    ("O que é risco/retorno (R:R)?", "a relação entre o que se arrisca e o que se busca ganhar; buscar ganho maior que a perda arriscada permite ser lucrativo mesmo errando parte das vezes"),
-    ("Por que a alavancagem alta é perigosa?", "porque multiplica a perda: com alavancagem grande, um movimento pequeno contra você já aciona a chamada de margem"),
-    ("O que é drawdown?", "a queda do capital do topo até o fundo numa sequência ruim; acompanhá-lo mostra o risco real da estratégia, não só o lucro"),
-    ("Por que trade é '80% cabeça'?", "porque a maioria das perdas vem de decisão emocional, não de falta de técnica; a estratégia só funciona se a cabeça deixar você segui-la"),
-    ("O que é medo e ganância no trade?", "medo faz realizar o lucro cedo demais; ganância faz segurar tempo demais e aumentar posição sem critério — as duas distorcem o plano"),
-    ("O que é FOMO no trade?", "o medo de ficar de fora, que faz entrar correndo num movimento que já andou; nem o profissional pega todos os movimentos, e perder um trade não é problema"),
-    ("O que é revenge trade?", "perder e entrar de novo na hora, sem setup, só para recuperar; é o sinal mais claro de que a emoção assumiu o controle e costuma aprofundar o prejuízo"),
-    ("Como controlar as emoções operando?", "não é força de vontade, é rotina e regra: plano escrito, tamanho fixo, limite de perda no dia e checklist antes de entrar tiram a decisão do calor do momento"),
-    ("Qual a diferença entre scalp, day, swing e position?", "scalp opera segundos a minutos; day abre e fecha no mesmo dia; swing segura dias a semanas; position segura semanas a meses"),
-    ("Preciso de uma estratégia complexa?", "não: uma estratégia simples, bem entendida e seguida com disciplina vence uma complexa mal executada; o segredo é repetir o mesmo processo"),
-    ("O que é backtest?", "testar a estratégia em dados passados para ver como ela teria se comportado, sem ajustá-la até parecer perfeita no histórico (overfitting)"),
-    ("Quanto custa operar e onde a corretora ganha?", "principalmente no spread e às vezes numa comissão por lote, somando o swap overnight; custo alto corrói o resultado de quem opera muito"),
-    ("O que é slippage?", "quando a ordem executa num preço um pouco diferente do esperado, comum em alta volatilidade ou baixa liquidez, como na saída de uma notícia"),
-    ("Forex é legal no Brasil?", "operar por corretoras estrangeiras reguladas é permitido a residentes, cumpridas as regras do Banco Central e as fiscais; o Forex não é regulado pela CVM no país"),
-    ("Como escolher uma corretora?", "priorizar corretoras reguladas por autoridade reconhecida, verificando reputação, avaliações reais e condições de saque antes de depositar"),
-    ("Preciso declarar imposto sobre lucro no Forex?", "sim: todo ganho com câmbio no exterior é tributável e deve ser informado; guardar os relatórios da plataforma desde o primeiro mês evita dor de cabeça"),
-    ("Dá para ficar rico rápido no Forex?", "não existe número garantido, e essa é justamente a expectativa que mais quebra iniciante; retorno alto vem sempre com risco alto"),
-    ("Por que a maioria perde no Forex?", "as causas mais citadas são decisão emocional, alavancagem excessiva, falta de disciplina/plano e expectativa irreal — quase nunca 'faltou a estratégia certa'"),
-    ("Dá para viver de Forex?", "para uma minoria, com anos de estudo, capital adequado e disciplina; tratar o trade como renda única no começo é um erro clássico"),
-    ("Como reconhecer um golpe de Forex?", "promessa de lucro garantido, robô que nunca perde, rentabilidade fixa e alta, pressão para depositar rápido e recrutamento em corrente; lucro garantido não existe"),
-    ("Desempenho passado garante o futuro?", "não: resultado passado, seu ou de um sinal, não garante o futuro; cada trade é uma probabilidade, não uma certeza"),
+    # -- Dimensionamento de posição (o cálculo que trava todo mundo) --
+    ("Como calcular o tamanho do lote pelo risco?", "parte do risco em dinheiro dividido pela distância do stop em pips vezes o valor do pip; ex.: arriscar 100 num stop de 50 pips com pip de 10/lote dá 0,2 lote"),
+    ("Como saber quanto vale 1 pip na minha conta?", "o valor do pip depende do par e do tamanho do lote: cerca de 10 por pip no lote padrão, 1 no mini e 0,10 no micro para a maioria dos pares em dólar"),
+    ("Por que arriscar 1% se posso arriscar mais?", "o 1% mantém qualquer sequência de perdas sobrevivível; arriscar muito por trade eleva o risco de ruína e a pressão emocional que quebra o plano"),
+    ("Devo usar risco fixo em % ou valor fixo?", "risco fixo em % da conta ajusta o tamanho conforme a banca cresce ou encolhe; risco em valor fixo é mais simples, mas não se adapta ao tamanho da conta"),
+    ("Meu stop 'apertado' está me tirando cedo?", "stop curto reduz a perda por trade mas aumenta a chance de ser estopado pelo ruído; o stop deve caber na estrutura do gráfico, e o lote se ajusta a ele — não o contrário"),
+    # -- Execução e tipos de ordem --
+    ("Buy stop x buy limit: qual a diferença?", "buy limit compra ABAIXO do preço atual (esperando recuo); buy stop compra ACIMA (confirmando rompimento); um busca preço melhor, o outro busca confirmação"),
+    ("A mercado ou ordem pendente: quando usar cada uma?", "a mercado entra já, no preço atual, útil quando o gatilho é agora; pendente deixa o preço vir até seu nível, evitando perseguir e pagar mais spread"),
+    ("Quando mover o stop para o zero a zero (breakeven)?", "geralmente após o trade andar a favor uma distância razoável; protege de virar perda, mas mover cedo demais te tira no ruído normal do movimento"),
+    ("Vale a pena realizar parcial?", "encerrar parte no primeiro alvo trava lucro e reduz a pressão; deixar o resto correr com stop no zero busca o movimento maior — é troca entre conforto e potencial"),
+    ("Como funciona o trailing stop na prática?", "o stop acompanha o preço a uma distância fixa em pips, subindo numa compra e nunca descendo; protege lucro, mas se for curto demais te tira cedo"),
+    # -- Consistência: 'tenho estratégia boa e ainda perco' --
+    ("Tenho estratégia boa, por que ainda perco?", "quase sempre a falha é execução, não a estratégia: entrar antes de confirmar, alargar o stop, e caçar um segundo trade para recuperar destroem uma boa estratégia"),
+    ("O que é overtrading e por que me sabota?", "operar demais por tédio ou impaciência aumenta custo, cansaço de decisão e força setups ruins; menos trades de qualidade batem muitos trades medianos"),
+    ("Por que meu risco varia de um trade para outro?", "risco variável (um pequeno por cautela, o próximo grande porque 'parece certo') é a marca do amador; padronizar o risco por trade é o que gera consistência"),
+    ("Quantas operações por dia é saudável?", "não há número mágico, mas poucas operações alinhadas ao plano batem muitas por impulso; definir um teto por dia corta o overtrading"),
+    ("Como sei se minha estratégia realmente funciona?", "por uma amostra grande de trades seguindo a MESMA regra e medindo expectativa (acerto x payoff), não por dois ou três resultados recentes"),
+    # -- Métricas, journal e backtest --
+    ("O que é expectância (edge) e como medir?", "é o resultado médio esperado por trade: combina taxa de acerto e payoff; positiva no longo prazo é o que faz a estratégia valer a pena"),
+    ("Taxa de acerto alta é sempre melhor?", "não: dá para lucrar acertando pouco se o ganho médio for bem maior que a perda; e dá para perder acertando muito se cada perda for enorme"),
+    ("Por que manter um diário de operações?", "sem registrar contexto, tamanho e emoção de cada trade não há como achar o padrão dos seus erros; o journal é o que transforma prática em evolução"),
+    ("Como faço um backtest sem me enganar?", "testando a mesma regra numa amostra grande sem ajustar os parâmetros até ficar 'perfeita' no passado (overfitting), que não se repete ao vivo"),
+    ("O que é R múltiplo?", "medir cada resultado em múltiplos do risco inicial (1R): um ganho de 2R pagou dois riscos; pensar em R tira o foco do dinheiro e coloca no processo"),
+    # -- Sessões, timing e liquidez --
+    ("Qual é o melhor horário para operar?", "a sobreposição Londres–Nova York concentra o maior volume e os spreads mais estreitos; fora dela a liquidez cai e o movimento fica mais errático"),
+    ("Por que o spread alarga em certos horários?", "em baixa liquidez (virada de dia, fim de sessão) e ao redor de notícias fortes o spread abre; entrar nesses momentos encarece muito a operação"),
+    ("O horário muda qual par eu devo acompanhar?", "cada sessão movimenta mais certos pares; operar um par no seu horário de maior liquidez costuma dar spread menor e movimento mais limpo"),
+    # -- Notícias --
+    ("Como uso o calendário econômico?", "para saber quando saem dados de alto impacto (juros, inflação/CPI, emprego/NFP) que mexem no câmbio, e decidir se opera ou fica de fora naquele horário"),
+    ("Devo operar na hora da notícia?", "é o momento de maior spread, slippage e reversão brusca; muitos iniciantes evitam operar no minuto do dado justamente por isso"),
+    ("Por que fui estopado bem no pavio e o preço voltou?", "em picos de volatilidade (notícia, baixa liquidez) o preço faz pavios rápidos e o spread alarga, tocando stops antes de retomar; é execução, não 'perseguição'"),
+    # -- Correlação e exposição --
+    ("O que é correlação entre pares e por que importa?", "pares que andam juntos (ex.: vários com dólar) somam risco: abrir três posições correlacionadas é quase triplicar a mesma aposta sem perceber"),
+    ("Estou diversificando ou dobrando o mesmo risco?", "abrir vários trades na mesma direção do dólar não diversifica — concentra; checar uma matriz de correlação evita empilhar risco escondido"),
+    # -- Custos escondidos --
+    ("Por que meu resultado veio pior que o esperado?", "quase sempre spread, swap, slippage ou comissão que não entraram na conta do trade; custo pequeno por operação vira muito em quem opera bastante"),
+    ("O swap pode comer meu lucro no swing?", "sim: manter posição vários dias pode acumular swap negativo; em operações longas o custo overnight precisa entrar na conta do resultado"),
+    # -- Demo para real --
+    ("Por que ganho na demo e perco no real?", "na demo não há a pressão emocional do dinheiro real; medo e ganância mudam a execução — a técnica é a mesma, o gatilho psicológico não"),
+    ("Como faço a transição da demo para o real?", "começando com o menor tamanho possível (micro) para sentir a emoção com risco mínimo, e só aumentando depois de provar consistência com dinheiro real"),
+    ("Quanto tempo devo ficar na demo?", "até repetir o mesmo processo com resultado estável por uma amostra grande; passar cedo demais para o real costuma custar caro, ficar tempo demais adia o teste emocional"),
+    # -- Gestão avançada e psicologia de segundo estágio --
+    ("O que é risco de ruína?", "a probabilidade de a conta quebrar por uma sequência de perdas; risco alto por trade a dispara mesmo com estratégia lucrativa — por isso o tamanho da posição é vital"),
+    ("Quando posso aumentar o tamanho da posição?", "só depois de provar consistência por uma amostra grande; aumentar por euforia após acertos seguidos é como a maioria devolve o lucro"),
+    ("Devo reduzir o risco depois de perder?", "reduzir o tamanho numa sequência ruim protege o capital e a cabeça; aumentar para 'recuperar rápido' é o caminho mais curto para quebrar"),
+    ("Como paro de mexer no stop no meio do trade?", "definindo stop e alvo ANTES de entrar e não tocando neles; a regra escrita tira a decisão do calor do momento, que é onde a perda pequena vira grande"),
+    ("Como lido com uma sequência de perdas (drawdown)?", "esperando: drawdown faz parte de qualquer estratégia; o que importa é o tamanho dele caber no seu risco e você seguir o mesmo processo sem revidar"),
+    ("Devo ter só uma estratégia ou várias?", "no começo, dominar UMA a fundo dá mais consistência que pular entre várias; trocar de método a cada perda impede qualquer uma de provar seu valor"),
+    ("Qual timeframe usar já sabendo o básico?", "o maior dá o contexto e o menor a entrada; alinhar dois tempos (top-down) evita operar contra o cenário principal — mais tempo gráfico nem sempre é melhor"),
+    # -- Mesa proprietária (prop firm) --
+    ("O que é uma mesa proprietária (prop firm)?", "empresa que dá capital para operar após um teste pago; você opera o dinheiro dela seguindo regras e divide o lucro — o foco delas é proteção do capital"),
+    ("Drawdown estático x trailing: qual a diferença?", "o estático mede a perda a partir do saldo inicial; o trailing sobe junto com o lucro e aperta o limite — é a regra que mais reprova quem passaria pelo alvo"),
+    ("Vale a pena entrar numa prop firm como iniciante?", "só faz sentido com consistência já provada: as regras (meta, perda diária, trailing, janelas de notícia) reprovam quem ainda não domina gestão de risco"),
 ]
 
 _STOP = {"a", "o", "e", "de", "do", "da", "que", "na", "no", "um", "uma", "por", "para", "com", "os", "as"}
