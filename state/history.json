@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-08-10T17:26-03:00",
-    "type": "numero",
-    "angle": "não mover o stop no calor da emoção",
-    "headline": "É quanto o stop deveria se mexer quando a emoção manda mover ele"
-  },
-  {
-    "date": "2026-08-10T17:26-03:00",
     "type": "conceito",
     "angle": "o que é tendência de alta, de baixa e lateral",
     "headline": "O que define a direção do preço"
@@ -908,5 +902,11 @@
     "angle": "dimensionar o tamanho da posição pelo risco",
     "headline": "Tamanho da posição não é achismo",
     "subject": "dic:dimensionar-tamanho-posicao-pelo"
+  },
+  {
+    "date": "2026-08-18T20:49-03:00",
+    "type": "lista",
+    "angle": "a diferença entre ser trader e ser apostador",
+    "headline": "5 diferenças entre trader e apostador"
   }
 ]
