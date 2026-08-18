@@ -1,23 +1,5 @@
 [
   {
-    "date": "2026-08-10T09:11-03:00",
-    "type": "padrao",
-    "angle": "Triângulo: as máximas e mínimas se aproximam formando um triângulo (compressão); mostra um mercado indeciso acumulando força.",
-    "headline": "Triângulo é a compressão gradual das máximas e mínimas no gráfico, formando um funil. Costuma refletir um mercado indeciso, acumulando energia."
-  },
-  {
-    "date": "2026-08-10T09:11-03:00",
-    "type": "mito_verdade",
-    "angle": "acordar cedo para acompanhar a abertura do mercado",
-    "headline": "Acordar cedo sem plano só antecipa o cansaço, não o resultado"
-  },
-  {
-    "date": "2026-08-10T09:12-03:00",
-    "type": "mercado",
-    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
-    "headline": "Ouro sobe +3,46% no dia e testa região próxima da máxima"
-  },
-  {
     "date": "2026-08-10T09:12-03:00",
     "type": "numero",
     "angle": "a importância de manter um diário de operações",
@@ -902,5 +884,25 @@
     "type": "mito_verdade",
     "angle": "não mover o stop no calor da emoção",
     "headline": "Stop movido no calor do momento não é ajuste técnico, é medo disfarçado de estratégia"
+  },
+  {
+    "date": "2026-08-18T12:53-03:00",
+    "type": "dica",
+    "angle": "montar um plano de trade antes de operar",
+    "headline": "Sem plano, você não decide: reage",
+    "subject": "dic:montar-plano-trade-antes"
+  },
+  {
+    "date": "2026-08-18T12:53-03:00",
+    "type": "numero",
+    "angle": "acertar a análise mas errar na execução",
+    "headline": "A análise certa e a entrada errada moram no mesmo trade"
+  },
+  {
+    "date": "2026-08-18T12:53-03:00",
+    "type": "padrao",
+    "angle": "Estrela cadente: candle de corpo pequeno embaixo e pavio superior longo, após uma alta; é estudado como possível sinal de enfraquecimento da alta.",
+    "headline": "Estrela cadente é um candle de corpo pequeno na base e pavio superior longo, aparecendo após uma alta. Estudado como possível sinal de perda de força compradora.",
+    "subject": "pat:estrela_cadente"
   }
 ]
