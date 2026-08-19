@@ -384,16 +384,9 @@ def build_pool() -> list[dict]:
     próximo item cuja `key` ainda não apareceu na memória — assim NADA se repete
     até o acervo inteiro ser usado (dezenas de assuntos distintos).
     """
-    from . import people
-
+    # Acervo de "aprender" (texto). As HISTÓRIAS (carrosséis com pessoas) são
+    # tratadas à parte em post.py, com renovação automática do acervo de pessoas.
     cats: list[list[dict]] = []
-
-    # No lugar dos padrões gráficos: carrosséis com a história de nomes do mercado.
-    cats.append([
-        {"key": f"his:{people.slug(nome)}", "fmt": "historia", "badge": "HISTÓRIA",
-         "nome": nome, "hint": hint}
-        for nome, hint in people.PEOPLE
-    ])
     cats.append([
         {"key": f"est:{_slug(nome)}", "fmt": "conceito", "badge": "ESTRATÉGIA",
          "nome": nome, "hint": hint}

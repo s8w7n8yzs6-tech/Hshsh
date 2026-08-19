@@ -92,23 +92,60 @@ def _angle(fmt: str, slot: int) -> str | None:
     return config.TRADER_ANGLES[(slot + _day_of_year()) % len(config.TRADER_ANGLES)]
 
 
-def _next_edu_subject(fmt: str | None = None) -> dict:
-    """Próximo assunto educativo do acervo que AINDA NÃO foi usado (nunca repete).
+HISTORIA_EVERY = 5  # 1 a cada 5 posts educativos é uma HISTÓRIA (carrossel)
 
-    Lê as chaves já publicadas na memória e devolve o primeiro item do acervo que
-    ainda não saiu. Se `fmt` for dado, restringe a esse formato. Só recicla quando
-    o acervo inteiro tiver sido usado.
+
+def _used_subjects() -> set:
+    return {e.get("subject") for e in history._load(history.HISTORY_PATH) if e.get("subject")}
+
+
+def _next_historia_subject(used: set) -> dict:
+    """Próxima PESSOA ainda não usada. Renova o acervo (descobre novos nomes) ao esgotar."""
+    from . import people
+
+    def mk(nome, hint):
+        return {"key": f"his:{people.slug(nome)}", "fmt": "historia", "badge": "HISTÓRIA",
+                "nome": nome, "hint": hint}
+
+    for nome, hint in people.PEOPLE:
+        if f"his:{people.slug(nome)}" not in used:
+            return mk(nome, hint)
+
+    # Acervo de pessoas esgotado → renova com nomes reais novos (nunca repete).
+    used_names = [e.get("headline", "") for e in history._load(history.HISTORY_PATH)
+                  if e.get("type") == "historia"]
+    for nome, hint in generate.discover_people([n for n, _ in people.PEOPLE] + used_names):
+        if f"his:{people.slug(nome)}" not in used:
+            return mk(nome, hint)
+
+    nome, hint = people.PEOPLE[0]  # fallback extremo
+    return mk(nome, hint)
+
+
+def _next_edu_subject(fmt: str | None = None) -> dict:
+    """Próximo assunto educativo que AINDA NÃO foi usado (nunca repete).
+
+    HISTÓRIAS (carrosséis de pessoas) aparecem 1 a cada HISTORIA_EVERY posts
+    educativos e têm renovação automática do acervo de pessoas. Os demais formatos
+    vêm do acervo de "aprender" (estratégias/indicadores/conceitos/dicas).
     """
     from . import patterns
 
+    used = _used_subjects()
+    if fmt == "historia":
+        return _next_historia_subject(used)
+    if fmt is None:
+        edu_count = sum(1 for e in history._load(history.HISTORY_PATH) if e.get("subject"))
+        if edu_count % HISTORIA_EVERY == 0:
+            return _next_historia_subject(used)
+
     pool = patterns.build_pool()
-    used = {e.get("subject") for e in history._load(history.HISTORY_PATH) if e.get("subject")}
     for item in pool:
         if fmt and item["fmt"] != fmt:
             continue
         if item["key"] not in used:
             return item
-    for item in pool:  # acervo esgotado: recicla (raro; centenas de posts depois)
+    for item in pool:  # acervo de aprender esgotado: recicla (centenas de posts depois)
         if not fmt or item["fmt"] == fmt:
             return item
     return pool[0]
@@ -244,14 +281,21 @@ def _build_media(result: dict, asset: dict | None, seed: int, dry_run: bool) -> 
     if fmt == "historia":
         import shutil
 
-        from . import cards
+        from . import cards, photos
 
         subj = result.get("_subject") or {}
+        nome = subj.get("nome", "")
+        photo, credit = (None, "")
+        try:
+            photo, credit = photos.fetch_person_photo(nome)
+            print(f"Foto da pessoa: {'encontrada (Wikimedia)' if photo is not None else 'não encontrada'}.")
+        except Exception as exc:  # noqa: BLE001
+            print(f"Aviso: falha ao buscar foto: {exc}", file=sys.stderr)
         out_dir = "preview_carousel" if dry_run else os.path.join(tmp, "carousel")
         shutil.rmtree(out_dir, ignore_errors=True)
         return cards.build_story_carousel(
-            subj.get("nome", ""), result.get("cover", ""), result.get("slides", []),
-            config.POST_HANDLE, out_dir, seed,
+            nome, result.get("cover", ""), result.get("slides", []),
+            config.POST_HANDLE, out_dir, seed, photo=photo, credit=credit,
         )
     out_path = "preview.png" if dry_run else os.path.join(tmp, "post_card.png")
     return [_build_card(result, asset, out_path, seed)]
