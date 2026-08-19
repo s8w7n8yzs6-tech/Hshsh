@@ -1,23 +1,5 @@
 [
   {
-    "date": "2026-08-11T09:29-03:00",
-    "type": "conceito",
-    "angle": "por que backtestar e revisar as operações passadas",
-    "headline": "Backtestar: revisar antes de repetir"
-  },
-  {
-    "date": "2026-08-11T09:30-03:00",
-    "type": "numero",
-    "angle": "controlar a ganância depois de um bom lucro",
-    "headline": "É o número de trades que a euforia do lucro anterior pode transformar em prejuízo"
-  },
-  {
-    "date": "2026-08-11T09:31-03:00",
-    "type": "mercado",
-    "angle": "fale sobre a volatilidade recente nos candles de 30 min",
-    "headline": "Ouro: candles de 30 min mostram amplitude de 120 pontos no dia"
-  },
-  {
     "date": "2026-08-11T09:31-03:00",
     "type": "lista",
     "angle": "aceitar que ter perdas faz parte do jogo",
@@ -910,5 +892,25 @@
     "type": "numero",
     "angle": "estudar e revisar operações no fim de semana",
     "headline": "O tempo que separa quem repete erro de quem entende o próprio padrão"
+  },
+  {
+    "date": "2026-08-19T12:52-03:00",
+    "type": "conceito",
+    "angle": "MACD: a convergência/divergência de médias, usada para ler força e mudança de tendência",
+    "headline": "MACD: leitura de força e virada de tendência",
+    "subject": "ind:macd"
+  },
+  {
+    "date": "2026-08-19T12:52-03:00",
+    "type": "lista",
+    "angle": "lidar com dias de lateralização e tédio no gráfico",
+    "headline": "Dia parado no gráfico: 4 formas de não se sabotar"
+  },
+  {
+    "date": "2026-08-19T12:53-03:00",
+    "type": "conceito",
+    "angle": "o que é o stop loss e por que ele protege a conta",
+    "headline": "Stop loss: o preço de continuar no jogo",
+    "subject": "con:stop-loss-ele-protege"
   }
 ]
