@@ -137,6 +137,35 @@ _FMT = {
             "- caption: fecha (máx ~400 caracteres), 1-2 emojis, com 3-5 hashtags."
         ),
     },
+    "historia": {
+        "schema": {
+            "cover": {"type": "string"},
+            "slides": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {"titulo": {"type": "string"}, "texto": {"type": "string"}},
+                    "required": ["titulo", "texto"],
+                    "additionalProperties": False,
+                },
+            },
+            "caption": {"type": "string"},
+        },
+        "required": ["cover", "slides", "caption"],
+        "main": "cover",
+        "prompt": (
+            "Formato HISTÓRIA (um CARROSSEL do Instagram) sobre a PESSOA REAL indicada "
+            "abaixo. Conte, de forma FACTUAL, respeitosa e inspiradora, a trajetória e "
+            "as lições dela para quem investe/opera. REGRAS: não invente fatos, datas "
+            "exatas, números específicos nem citações entre aspas; se não tiver certeza, "
+            "fale de forma geral. Nada de recomendação de compra/venda. Produza:\n"
+            "- cover: uma frase-gancho curta e forte para a CAPA (máx ~75 caracteres).\n"
+            "- slides: de 4 a 6 capítulos, cada um {titulo (máx ~34 caracteres), texto "
+            "(máx ~230 caracteres)}, contando origem, virada, filosofia e a lição final.\n"
+            "- caption: legenda do post (máx ~500 caracteres), 1-2 emojis, terminando "
+            "com 3-5 hashtags."
+        ),
+    },
     "mercado": {
         "schema": {"headline": {"type": "string"}, "caption": {"type": "string"}},
         "required": ["headline", "caption"],

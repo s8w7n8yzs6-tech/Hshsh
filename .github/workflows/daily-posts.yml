@@ -23,7 +23,7 @@ on:
         description: "Formato do post (opcional)"
         required: false
         type: choice
-        options: ["", "trader", "mercado", "foto", "citacao", "lista", "mito_verdade", "numero", "padrao", "conceito", "dica"]
+        options: ["", "trader", "mercado", "foto", "citacao", "lista", "mito_verdade", "numero", "historia", "conceito", "dica"]
       dry_run:
         description: "Somente gerar, sem publicar"
         required: false

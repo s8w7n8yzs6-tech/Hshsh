@@ -162,7 +162,7 @@ def _post_one(slot: int, fmt: str, asset_key: str | None, dry_run: bool) -> None
     # Assunto do post. Formatos educativos ("edu" ou forçados) puxam o próximo
     # assunto do acervo que ainda não foi usado — assim NADA se repete.
     subject = None
-    if fmt in ("edu", "padrao", "conceito", "dica"):
+    if fmt in ("edu", "historia", "conceito", "dica"):
         subject = _next_edu_subject(None if fmt == "edu" else fmt)
         fmt = subject["fmt"]
 
@@ -182,35 +182,36 @@ def _post_one(slot: int, fmt: str, asset_key: str | None, dry_run: bool) -> None
     print(f"[slot {slot}] [{fmt}] {result.get('main', '')}")
     print(f"legenda:\n{caption}\n")
 
-    # Sempre gera o card visual. A semente varia paleta/cena por post.
+    # Gera a(s) imagem(ns). Carrossel (história) vira vários slides; o resto, 1 card.
     seed = slot + _day_of_year()
-    out_path = "preview.png" if dry_run else os.path.join(tempfile.gettempdir(), "post_card.png")
-    image_path = _build_card(result, asset, out_path, seed)
+    image_paths = _build_media(result, asset, seed, dry_run)
 
     if dry_run:
-        print(f"DRY_RUN ativo — card salvo em {image_path}; nada publicado.")
+        print(f"DRY_RUN ativo — {len(image_paths)} imagem(ns) gerada(s); nada publicado.")
         return
 
     if not config.PLATFORMS:
         print("Nenhuma plataforma configurada (PLATFORMS). Nada publicado.")
         return
 
-    image_url = _host_image(image_path)
-    if image_url is None:
+    image_urls = _host_images(image_paths)
+    if not image_urls:
         print("Aviso: não foi possível hospedar a imagem.", file=sys.stderr)
+    is_carousel = len(image_urls) > 1
 
     errors = []
     for platform in config.PLATFORMS:
         try:
             if platform == "threads":
-                if image_url:
-                    post_id = threads.publish_image(image_url, caption)
+                if image_urls:
+                    post_id = threads.publish_image(image_urls[0], caption)
                 else:
                     post_id = threads.publish_text(caption)
             elif platform == "instagram":
-                if not image_url:
-                    raise RuntimeError("Instagram requer imagem (configure IMGBB_API_KEY).")
-                post_id = instagram.publish_image(image_url, caption)
+                if not image_urls:
+                    raise RuntimeError("Instagram requer imagem.")
+                post_id = (instagram.publish_carousel(image_urls, caption) if is_carousel
+                           else instagram.publish_image(image_urls[0], caption))
             else:
                 print(f"Plataforma desconhecida ignorada: {platform}")
                 continue
@@ -234,6 +235,26 @@ def _post_one(slot: int, fmt: str, asset_key: str | None, dry_run: bool) -> None
     if result.get("_subject"):
         entry["subject"] = result["_subject"]["key"]  # marca o assunto como usado (nunca repetir)
     history.append(entry)
+
+
+def _build_media(result: dict, asset: dict | None, seed: int, dry_run: bool) -> list[str]:
+    """Retorna a lista de imagens do post: 1 card normal, ou vários slides (carrossel)."""
+    fmt = result["fmt"]
+    tmp = tempfile.gettempdir()
+    if fmt == "historia":
+        import shutil
+
+        from . import cards
+
+        subj = result.get("_subject") or {}
+        out_dir = "preview_carousel" if dry_run else os.path.join(tmp, "carousel")
+        shutil.rmtree(out_dir, ignore_errors=True)
+        return cards.build_story_carousel(
+            subj.get("nome", ""), result.get("cover", ""), result.get("slides", []),
+            config.POST_HANDLE, out_dir, seed,
+        )
+    out_path = "preview.png" if dry_run else os.path.join(tmp, "post_card.png")
+    return [_build_card(result, asset, out_path, seed)]
 
 
 def _build_card(result: dict, asset: dict | None, out_path: str, seed: int = 0) -> str:
@@ -290,21 +311,23 @@ def _build_card(result: dict, asset: dict | None, out_path: str, seed: int = 0) 
     )
 
 
-def _host_image(path: str) -> str | None:
-    """Hospeda a imagem no GitHub (URL raw) SEM tocar no worktree nem no main.
+def _host_images(paths: list[str]) -> list[str]:
+    """Hospeda 1+ imagens no GitHub (URLs raw) SEM tocar no worktree nem no main.
 
     Usa plumbing do git (hash-object → mktree → commit-tree) para criar um commit
-    isolado só com a imagem e faz force-push para o ref `media`. A URL raw é pinada
-    no SHA do commit — pública e estável. Como não mexe no índice nem no main, não
-    há rebase nem conflito de binário entre as 20 execuções diárias.
+    isolado com as imagens e faz force-push para o ref `media`. As URLs raw ficam
+    pinadas no SHA do commit — públicas e estáveis, sem rebase nem conflito.
     """
     import subprocess
     import time as _time
 
+    paths = [p for p in (paths or []) if p]
+    if not paths:
+        return []
     repo = os.environ.get("GITHUB_REPOSITORY")
     if not repo:
         print("Aviso: fora do GitHub Actions — não é possível hospedar a imagem.", file=sys.stderr)
-        return None
+        return []
 
     env = {
         **os.environ,
@@ -318,22 +341,26 @@ def _host_image(path: str) -> str | None:
         return subprocess.run(["git", *args], capture_output=True, text=True, env=env, **kw)
 
     try:
-        blob = git(["hash-object", "-w", path]).stdout.strip()
-        if not blob:
-            return None
-        tree = git(["mktree"], input=f"100644 blob {blob}\tcard.png\n").stdout.strip()
-        commit = git(["commit-tree", tree, "-m", "card do post"]).stdout.strip()
+        entries = []
+        for i, path in enumerate(paths):
+            blob = git(["hash-object", "-w", path]).stdout.strip()
+            if not blob:
+                return []
+            entries.append(f"100644 blob {blob}\timg_{i}.png")
+        tree = git(["mktree"], input="".join(e + "\n" for e in entries)).stdout.strip()
+        commit = git(["commit-tree", tree, "-m", "cards do post"]).stdout.strip()
         if not commit:
-            return None
+            return []
         for _ in range(4):
             if git(["push", "-f", "origin", f"{commit}:refs/heads/media"]).returncode == 0:
-                return f"https://raw.githubusercontent.com/{repo}/{commit}/card.png"
+                return [f"https://raw.githubusercontent.com/{repo}/{commit}/img_{i}.png"
+                        for i in range(len(paths))]
             _time.sleep(2)
-        print("Aviso: falha ao dar push da imagem para o ref media.", file=sys.stderr)
-        return None
+        print("Aviso: falha ao dar push das imagens para o ref media.", file=sys.stderr)
+        return []
     except Exception as exc:  # noqa: BLE001
-        print(f"Aviso: falha ao hospedar imagem no GitHub: {exc}", file=sys.stderr)
-        return None
+        print(f"Aviso: falha ao hospedar imagens no GitHub: {exc}", file=sys.stderr)
+        return []
 
 
 def main() -> None:

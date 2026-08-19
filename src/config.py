@@ -50,7 +50,7 @@ TRADER_FORMATS_ROTATION = MENTALITY_FORMATS  # compat: usado no disparo manual "
 CATCHUP_MAX = int(os.getenv("CATCHUP_MAX") or "4")
 # Todos os formatos válidos (para --type manual e validação).
 ALL_FORMATS = ("foto", "citacao", "lista", "mito_verdade", "numero",
-               "padrao", "conceito", "dica", "mercado")
+               "historia", "conceito", "dica", "mercado")
 
 # Horários dos 20 posts, em horário de Brasília (UTC-3), das 07:00 às 20:30.
 # O tipo de cada post é decidido pelo slot mais próximo do horário atual.
