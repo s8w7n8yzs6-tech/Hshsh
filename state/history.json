@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-08-11T12:46-03:00",
-    "type": "conceito",
-    "angle": "o que é o stop loss e por que ele protege a conta",
-    "headline": "Stop loss é um contrato com você mesmo"
-  },
-  {
-    "date": "2026-08-11T12:46-03:00",
     "type": "citacao",
     "angle": "parar de se comparar com outros traders",
     "headline": "O gráfico do outro trader não paga suas contas nem cobre seus erros"
@@ -914,5 +908,11 @@
     "angle": "Charlie Munger: sócio de Warren Buffett na Berkshire; conhecido pelos modelos mentais e pela racionalidade",
     "headline": "O homem que lia mais do que operava",
     "subject": "his:charlie-munger"
+  },
+  {
+    "date": "2026-08-19T16:13-03:00",
+    "type": "mercado",
+    "angle": "comente, sem prever direção, se o dia teve mais força compradora ou vendedora",
+    "headline": "Nasdaq 100 cai 0,95% no dia, testando a mínima recente"
   }
 ]
