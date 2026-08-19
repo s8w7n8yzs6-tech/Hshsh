@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-11T12:46-03:00",
-    "type": "citacao",
-    "angle": "parar de se comparar com outros traders",
-    "headline": "O gráfico do outro trader não paga suas contas nem cobre seus erros"
-  },
-  {
-    "date": "2026-08-11T16:46-03:00",
-    "type": "dica",
-    "angle": "a diferença entre suporte e resistência na prática",
-    "headline": "Suporte e resistência: leia a reação, não a linha"
-  },
-  {
     "date": "2026-08-11T16:46-03:00",
     "type": "mito_verdade",
     "angle": "desligar as telas para descansar a mente",
@@ -914,5 +902,18 @@
     "type": "mercado",
     "angle": "comente, sem prever direção, se o dia teve mais força compradora ou vendedora",
     "headline": "Nasdaq 100 cai 0,95% no dia, testando a mínima recente"
+  },
+  {
+    "date": "2026-08-19T16:59-03:00",
+    "type": "mito_verdade",
+    "angle": "bater a meta do dia e ter a disciplina de parar",
+    "headline": "Bater a meta é o sinal pra fechar o gráfico, não pra forçar mais uma entrada"
+  },
+  {
+    "date": "2026-08-19T17:00-03:00",
+    "type": "dica",
+    "angle": "definir e respeitar o stop",
+    "headline": "Stop definido antes, não durante o pânico",
+    "subject": "dic:definir-respeitar-stop"
   }
 ]
