@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-11T16:47-03:00",
-    "type": "numero",
-    "angle": "confiar no próprio plano em vez de improvisar",
-    "headline": "É o espaço que o plano deixa para você improvisar no meio da operação"
-  },
-  {
-    "date": "2026-08-11T19:24-03:00",
-    "type": "mercado",
-    "angle": "comente a amplitude entre a máxima e a mínima do período",
-    "headline": "Nasdaq 100 cai -0,70%, com amplitude de 450 pontos no dia"
-  },
-  {
     "date": "2026-08-11T19:24-03:00",
     "type": "lista",
     "angle": "estudar e revisar operações no fim de semana",
@@ -916,5 +904,18 @@
     "angle": "Price action em suporte/resistência: ler o comportamento das velas ao chegar em níveis importantes, sem indicadores",
     "headline": "Price action em zonas de suporte e resistência",
     "subject": "est:price-action-em-suporte"
+  },
+  {
+    "date": "2026-08-19T19:55-03:00",
+    "type": "lista",
+    "angle": "respeitar o horário de encerrar o dia de operações",
+    "headline": "4 provas de que o horário de parar existe por um motivo"
+  },
+  {
+    "date": "2026-08-19T19:55-03:00",
+    "type": "conceito",
+    "angle": "Bandas de Bollinger: bandas que se abrem e fecham conforme a volatilidade do preço",
+    "headline": "Bandas de Bollinger: o fôlego do preço",
+    "subject": "ind:bandas-bollinger"
   }
 ]
