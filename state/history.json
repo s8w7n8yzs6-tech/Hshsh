@@ -1,23 +1,5 @@
 [
   {
-    "date": "2026-08-10T19:23-03:00",
-    "type": "foto",
-    "angle": "a euforia perigosa depois de vários acertos seguidos",
-    "headline": "Depois de ganhar 5 vezes seguidas, você ainda segue o plano?"
-  },
-  {
-    "date": "2026-08-10T21:04-03:00",
-    "type": "padrao",
-    "angle": "Rompimento: o preço fica 'preso' abaixo de uma resistência e depois a ultrapassa com força; conceito de rompimento de nível.",
-    "headline": "Rompimento é quando o preço testa uma resistência várias vezes e enfim a ultrapassa com força, o que costuma indicar mudança de fase no mercado."
-  },
-  {
-    "date": "2026-08-10T21:05-03:00",
-    "type": "citacao",
-    "angle": "a importância de dormir bem para operar melhor",
-    "headline": "Noite mal dormida vira decisão mal tomada no pregão seguinte"
-  },
-  {
     "date": "2026-08-11T09:29-03:00",
     "type": "conceito",
     "angle": "por que backtestar e revisar as operações passadas",
@@ -909,5 +891,24 @@
     "type": "mercado",
     "angle": "fale sobre a volatilidade recente nos candles de 30 min",
     "headline": "Ouro (XAU/USD) +0,89%: candles de 30 min entre 4.378 e 4.463"
+  },
+  {
+    "date": "2026-08-19T11:06-03:00",
+    "type": "mito_verdade",
+    "angle": "confiar no próprio plano em vez de improvisar",
+    "headline": "O instinto sob pressão repete padrões antigos, o plano escrito é o que te tira do automático"
+  },
+  {
+    "date": "2026-08-19T11:06-03:00",
+    "type": "conceito",
+    "angle": "Rompimento de range: operar a saída de uma consolidação lateral (o preço 'preso' entre dois níveis)",
+    "headline": "Rompimento de range: saindo da lateralidade",
+    "subject": "est:rompimento-range"
+  },
+  {
+    "date": "2026-08-19T11:07-03:00",
+    "type": "numero",
+    "angle": "estudar e revisar operações no fim de semana",
+    "headline": "O tempo que separa quem repete erro de quem entende o próprio padrão"
   }
 ]
