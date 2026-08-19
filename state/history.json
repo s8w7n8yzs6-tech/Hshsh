@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-10T17:26-03:00",
-    "type": "conceito",
-    "angle": "o que é tendência de alta, de baixa e lateral",
-    "headline": "O que define a direção do preço"
-  },
-  {
-    "date": "2026-08-10T19:22-03:00",
-    "type": "lista",
-    "angle": "acertar a análise mas errar na execução",
-    "headline": "5 sinais de que a análise tava certa e você errou"
-  },
-  {
     "date": "2026-08-10T19:22-03:00",
     "type": "dica",
     "angle": "por que operar a favor da tendência costuma ser mais seguro",
@@ -908,5 +896,18 @@
     "type": "lista",
     "angle": "a diferença entre ser trader e ser apostador",
     "headline": "5 diferenças entre trader e apostador"
+  },
+  {
+    "date": "2026-08-19T07:59-03:00",
+    "type": "padrao",
+    "angle": "Engolfo de alta: uma vela de alta que 'engole' totalmente a vela de baixa anterior; estudado como possível sinal de reversão para cima.",
+    "headline": "O engolfo de alta acontece quando uma vela de alta cobre totalmente o corpo da vela de baixa anterior. É estudado como possível sinal de reversão após uma queda.",
+    "subject": "pat:engolfo_alta"
+  },
+  {
+    "date": "2026-08-19T07:59-03:00",
+    "type": "citacao",
+    "angle": "desligar as telas para descansar a mente",
+    "headline": "A tela apagada também é parte da estratégia"
   }
 ]
