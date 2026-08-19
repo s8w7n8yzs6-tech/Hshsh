@@ -426,6 +426,44 @@ DUVIDAS_FOREX = [
     ("Vale a pena entrar numa prop firm como iniciante?", "só faz sentido com consistência já provada: as regras (meta, perda diária, trailing, janelas de notícia) reprovam quem ainda não domina gestão de risco"),
 ]
 
+# MENTALIDADE do trader de segundo estágio: quem já domina o básico mas ainda
+# briga com a própria cabeça. Foco em pensar em probabilidades, processo acima
+# do resultado, aceitar a perda, paciência, ego e identidade. Cada item vira um
+# post educativo que TRABALHA a mentalidade, sem recomendar operação.
+# Base: docs/pesquisa-duvidas-forex-iniciantes.md. Badge "MENTALIDADE".
+MENTALIDADE_FOREX = [
+    # -- Pensar em probabilidades --
+    ("Como penso em probabilidades em vez de certezas?", "cada trade é um evento incerto entre muitos; como o cassino, você não sabe a próxima mão, mas confia na matemática ao longo de milhares — o resultado vem da amostra, não do trade"),
+    ("Por que 'qualquer coisa pode acontecer' me liberta?", "aceitar que qualquer trade pode dar errado tira o peso de acertar cada um; essa crença é a base para seguir a regra sem medo e sem travar na dúvida"),
+    ("Preciso ter razão no trade para ganhar dinheiro?", "não: ter razão é ego, ganhar dinheiro é seguir o processo; buscar estar certo faz segurar perda e realizar lucro cedo — os dois destroem o resultado"),
+    ("Como paro de buscar o setup 'perfeito'?", "não existe certeza, existe probabilidade a favor; esperar a confirmação perfeita gera FOMO e entrada atrasada — o plano define 'bom o bastante', não 'perfeito'"),
+    # -- Processo acima do resultado --
+    ("Como julgo se operei bem num dia de perda?", "pela aderência ao plano, não pelo saldo: seguir a regra e perder é um bom trade; furar a regra e ganhar é um mau trade que você vai repetir"),
+    ("Por que focar no processo e não no dinheiro?", "o resultado de um trade é aleatório; o processo é o que você controla e o que se repete — focar no dinheiro traz medo e ganância na pior hora"),
+    ("Devo olhar o lucro/prejuízo a cada minuto?", "olhar o saldo o tempo todo transfere a decisão para a emoção; acompanhar o preço pela estrutura, e não pelo dinheiro na tela, mantém a cabeça objetiva"),
+    ("Como meço evolução sem ser pelo lucro?", "por disciplina: trades dentro do plano, risco padronizado, erros repetidos caindo; o lucro é consequência de um processo bom mantido numa amostra grande"),
+    # -- Aceitar a perda --
+    ("Como aceito a perda sem me abalar?", "a perda não é erro, é parte da distribuição da estratégia; aceitá-la ANTES de entrar (imaginar o pior cenário) tira o susto e evita o revenge trade"),
+    ("Por que a perda parece um fracasso pessoal?", "porque o ego confunde o resultado do trade com o seu valor; um trade perdido é só informação de um evento probabilístico, não um veredito sobre você"),
+    ("Como não levo a perda para o próximo trade?", "encerrando o ciclo: registrar o que aconteceu, aceitar como custo do negócio e voltar ao mesmo processo — carregar a perda é o que gera o revide"),
+    ("Estopar e o preço voltar significa que errei?", "não: o stop protegeu o risco planejado; um trade bem executado pode perder, e um mal executado pode ganhar — o certo é ter seguido a regra"),
+    # -- Paciência e não operar --
+    ("Ficar de fora também é uma decisão?", "sim: não operar quando não há setup protege capital e cabeça ao mesmo tempo; esperar é disciplina ativa, não perda de tempo"),
+    ("Como aguento a ansiedade de ficar parado?", "lembrando que o mercado recompensa mais paciência e disciplina do que previsão; a pressa de estar sempre posicionado é o que gera o overtrading"),
+    ("Como resisto ao tédio que me faz operar à toa?", "reconhecendo o tédio como gatilho, não como sinal; operar para se sentir ativo força setups ruins — o plano diz quando agir, não a inquietação"),
+    # -- Ego, identidade e comparação --
+    ("Como separo meu valor pessoal do resultado?", "lembrando que sua autoestima não é o extrato: tratar cada trade como negócio, e não como prova de quem você é, tira o ego da decisão"),
+    ("Por que não devo me comparar com outros traders?", "cada um tem capital, tempo e temperamento diferentes; comparar acelera o risco e a pressa — o único parâmetro útil é a sua própria evolução de processo"),
+    ("O excesso de confiança depois de acertar é perigoso?", "muito: uma sequência de acertos infla o ego e faz aumentar o risco na hora errada; consistência é humildade repetida, não euforia"),
+    ("Como lido com a vontade de 'provar que eu estava certo'?", "abrindo mão dela: insistir numa posição só para ter razão é ego puro; o mercado não deve nada a você, e a regra vale mais que o seu palpite"),
+    # -- Hábitos, rotina e disciplina sustentável --
+    ("Disciplina é força de vontade?", "não, é hábito: rotina de preparação, regra escrita, tamanho fixo e limite de perda tornam a disciplina automática, sem depender do humor do dia"),
+    ("Sono, saúde e rotina afetam meu trade?", "sim: traders consistentes tratam sono, exercício e alimentação como base da disciplina — cabeça cansada decide pior e cede mais à emoção"),
+    ("Como registro a emoção, e não só o trade?", "anotando como você se sentiu em cada operação junto do gráfico; rever os estados de cabeça nos altos e baixos revela o padrão que te faz furar a regra"),
+    ("Como construo confiança real na minha estratégia?", "por evidência: uma amostra grande seguindo a mesma regra prova o edge; confiança vem de dados repetidos, não de um bom dia isolado"),
+    ("Preciso controlar as emoções ou conviver com elas?", "conviver: o objetivo não é não sentir medo ou euforia, é não deixar que decidam por você — a regra fica entre a emoção e o clique"),
+]
+
 _STOP = {"a", "o", "e", "de", "do", "da", "que", "na", "no", "um", "uma", "por", "para", "com", "os", "as"}
 
 
@@ -477,6 +515,11 @@ def build_pool() -> list[dict]:
         {"key": f"fx:{_slug(nome)}", "fmt": "conceito", "badge": "DÚVIDA DE INICIANTE",
          "nome": nome, "hint": hint}
         for nome, hint in DUVIDAS_FOREX
+    ])
+    cats.append([
+        {"key": f"men:{_slug(nome)}", "fmt": "conceito", "badge": "MENTALIDADE",
+         "nome": nome, "hint": hint}
+        for nome, hint in MENTALIDADE_FOREX
     ])
 
     # Intercala as categorias (round-robin) para o feed ficar variado.
