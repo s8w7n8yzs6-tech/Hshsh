@@ -196,70 +196,138 @@ def _dots(d, th, total, active):
         d.ellipse([x0 + i * gap - r, y - r, x0 + i * gap + r, y + r], fill=col)
 
 
+def _cover_crop(img, w: int, h: int):
+    from PIL import Image
+
+    iw, ih = img.size
+    scale = max(w / iw, h / ih)
+    r = img.resize((max(1, int(iw * scale)), max(1, int(ih * scale))), Image.LANCZOS)
+    x = (r.width - w) // 2
+    y = max(0, int((r.height - h) * 0.30))  # tende a manter o rosto (topo)
+    return r.crop((x, y, x + w, y + h)).convert("RGB")
+
+
+def _duotone(img, shadow, highlight):
+    """Aplica duotone: sombra→realce, para um visual coeso e chamativo."""
+    import numpy as np
+
+    g = np.asarray(img.convert("L"), dtype=np.float32) / 255.0
+    g = np.clip((g - 0.5) * 1.15 + 0.5, 0, 1)  # leve aumento de contraste
+    sh = np.array(shadow, dtype=np.float32)
+    hi = np.array(highlight, dtype=np.float32)
+    out = (sh[None, None, :] * (1 - g[..., None]) + hi[None, None, :] * g[..., None])
+    from PIL import Image
+
+    return Image.fromarray(out.astype("uint8"), "RGB").convert("RGBA")
+
+
+def _vscrim(top_a: int, bot_a: int, color=(4, 6, 11)):
+    """Gradiente vertical translúcido (para legibilidade do texto sobre a foto)."""
+    layer = Image.new("RGBA", (_W, _H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    for y in range(_H):
+        t = y / (_H - 1)
+        a = int(top_a + (bot_a - top_a) * t)
+        d.line([(0, y), (_W, y)], fill=color + (max(0, min(255, a)),))
+    return layer
+
+
 def build_story_carousel(nome: str, cover: str, slides: list, handle: str,
-                         out_dir: str, seed: int = 0) -> list:
-    """Monta os slides de um carrossel-história (capa + capítulos + CTA). Retorna os caminhos."""
+                         out_dir: str, seed: int = 0, photo=None, credit: str = "") -> list:
+    """Carrossel-história com FOTO (duotone) da pessoa. Sem foto, usa capa tipográfica."""
     import os
 
     th = dark_theme(seed)
+    accent = th["accent"]
+    hi = tuple(int(accent[i] * 0.55 + 235 * 0.45) for i in range(3))  # realce claro do accent
+    shadow = (6, 8, 14)
     slides = [s for s in (slides or []) if s.get("titulo") or s.get("texto")][:7]
     total = 1 + len(slides) + 1
     os.makedirs(out_dir, exist_ok=True)
     paths: list[str] = []
+
+    duo = _duotone(photo, shadow, hi) if photo is not None else None
 
     def save(img, i):
         p = os.path.join(out_dir, f"slide_{i:02d}.png")
         img.convert("RGB").save(p, "PNG")
         paths.append(p)
 
-    # --- Capa ---
-    img = _bg(th)
+    def credit_tag(d):
+        if credit:
+            cf = _font(_SANS_R, 20)
+            cb = d.textbbox((0, 0), credit, font=cf)
+            d.text((_W - _MARGIN - (cb[2] - cb[0]), _H - 66), credit, font=cf, fill=(200, 205, 215))
+
+    # --- CAPA: foto em tela cheia + nome grande embaixo ---
+    if duo is not None:
+        img = _cover_crop(duo, _W, _H).convert("RGBA")
+        img.alpha_composite(_vscrim(70, 240))
+    else:
+        img = _bg(th)
     d = ImageDraw.Draw(img)
     _badge(d, th, "HISTÓRIA")
-    ny = _MARGIN + 150
-    nw, nf, nsp = _wrap_fit(d, nome, _SANS_B, _W - 2 * _MARGIN, 380, 100, 54)
-    d.multiline_text((_MARGIN, ny), nw, font=nf, fill=th["fg"], spacing=nsp)
-    nb = d.multiline_textbbox((_MARGIN, ny), nw, font=nf, spacing=nsp)
-    d.rounded_rectangle([_MARGIN, nb[3] + 30, _MARGIN + 90, nb[3] + 42], radius=6, fill=th["accent"])
-    cw, cf, csp = _wrap_fit(d, cover, _SANS_R, _W - 2 * _MARGIN, 320, 50, 30)
-    d.multiline_text((_MARGIN, nb[3] + 74), cw, font=cf, fill=th["muted"], spacing=csp)
-    af = _font(_SANS_B, 30)
+    nw, nf, nsp = _wrap_fit(d, nome, _SANS_B, _W - 2 * _MARGIN, 300, 104, 56)
+    nb0 = d.multiline_textbbox((0, 0), nw, font=nf, spacing=nsp)
+    name_h = nb0[3] - nb0[1]
+    hook_h = 150
+    ny = _H - 190 - hook_h - name_h
+    d.rounded_rectangle([_MARGIN, ny - 26, _MARGIN + 84, ny - 16], radius=5, fill=accent)
+    d.multiline_text((_MARGIN, ny), nw, font=nf, fill=(255, 255, 255), spacing=nsp)
+    cw, cf2, csp = _wrap_fit(d, cover, _SANS_R, _W - 2 * _MARGIN, hook_h, 46, 30)
+    d.multiline_text((_MARGIN, ny + name_h + 26), cw, font=cf2, fill=(214, 219, 228), spacing=csp)
+    af = _font(_SANS_B, 28)
     txt = "ARRASTE  →"
     tb = d.textbbox((0, 0), txt, font=af)
-    pw = tb[2] - tb[0]
-    d.rounded_rectangle([_MARGIN, _H - 150, _MARGIN + pw + 52, _H - 150 + tb[3] - tb[1] + 30],
-                        radius=30, outline=th["accent"], width=2)
-    d.text((_MARGIN + 26, _H - 150 + 15 - tb[1]), txt, font=af, fill=th["accent"])
+    d.rounded_rectangle([_MARGIN, _H - 118, _MARGIN + (tb[2] - tb[0]) + 50, _H - 118 + (tb[3] - tb[1]) + 28],
+                        radius=28, fill=accent)
+    d.text((_MARGIN + 25, _H - 118 + 14 - tb[1]), txt, font=af, fill=(9, 12, 18))
+    credit_tag(d)
     _dots(d, th, total, 0)
     save(img, 0)
 
-    # --- Capítulos ---
+    # --- CAPÍTULOS: faixa de foto no topo + número + título + texto ---
+    band_h = 520
+    band = _cover_crop(duo, _W, band_h) if duo is not None else None
     for i, s in enumerate(slides):
         img = _bg(th)
+        if band is not None:
+            img.alpha_composite(band.convert("RGBA"), (0, 0))
+            sc = Image.new("RGBA", (_W, _H), (0, 0, 0, 0))
+            sd = ImageDraw.Draw(sc)
+            for y in range(band_h - 160, band_h):
+                a = int(255 * (y - (band_h - 160)) / 160)
+                sd.line([(0, y), (_W, y)], fill=th["bg2"] + (a,) if th.get("bg2") else (6, 8, 14, a))
+            img.alpha_composite(sc)
         d = ImageDraw.Draw(img)
-        big = _font(_SANS_B, 150)
-        d.text((_MARGIN - 6, _MARGIN - 20), f"{i + 1:02d}", font=big, fill=th["accent"])
-        ty = _MARGIN + 180
-        tw, tf, tsp = _wrap_fit(d, s.get("titulo", ""), _SANS_B, _W - 2 * _MARGIN, 220, 66, 40)
+        big = _font(_SANS_B, 120)
+        d.text((_MARGIN, band_h - 150 if band is not None else _MARGIN), f"{i + 1:02d}", font=big, fill=accent)
+        ty = band_h + 28 if band is not None else _MARGIN + 170
+        tw, tf, tsp = _wrap_fit(d, s.get("titulo", ""), _SANS_B, _W - 2 * _MARGIN, 200, 64, 40)
         d.multiline_text((_MARGIN, ty), tw, font=tf, fill=th["fg"], spacing=tsp)
         tb2 = d.multiline_textbbox((_MARGIN, ty), tw, font=tf, spacing=tsp)
         bw, bf, bsp = _wrap_fit(d, s.get("texto", ""), _SANS_R, _W - 2 * _MARGIN,
-                                _H - 180 - (tb2[3] + 40), 46, 30, spacing_ratio=0.22)
-        d.multiline_text((_MARGIN, tb2[3] + 44), bw, font=bf, fill=th["muted"], spacing=bsp)
+                                _H - 150 - (tb2[3] + 34), 44, 28, spacing_ratio=0.22)
+        d.multiline_text((_MARGIN, tb2[3] + 38), bw, font=bf, fill=th["muted"], spacing=bsp)
         _dots(d, th, total, i + 1)
         _footer(d, th, handle)
         save(img, i + 1)
 
     # --- CTA final ---
-    img = _bg(th)
+    if duo is not None:
+        img = _cover_crop(duo, _W, _H).convert("RGBA")
+        img.alpha_composite(_vscrim(180, 250))
+    else:
+        img = _bg(th)
     d = ImageDraw.Draw(img)
     _badge(d, th, "SEGUE A GENTE")
-    cw2, cf2, csp2 = _wrap_fit(d, "Mais histórias que fizeram o mercado",
+    cw2, cf3, csp2 = _wrap_fit(d, "Mais histórias que fizeram o mercado",
                                _SANS_B, _W - 2 * _MARGIN, 360, 84, 48)
-    d.multiline_text((_MARGIN, _MARGIN + 200), cw2, font=cf2, fill=th["fg"], spacing=csp2)
-    hf = _font(_SANS_B, 60)
-    d.ellipse([_MARGIN, int(_H * 0.62) + 14, _MARGIN + 26, int(_H * 0.62) + 40], fill=th["accent"])
-    d.text((_MARGIN + 44, int(_H * 0.62)), handle, font=hf, fill=th["accent"])
+    d.multiline_text((_MARGIN, int(_H * 0.44)), cw2, font=cf3, fill=(255, 255, 255), spacing=csp2)
+    hf = _font(_SANS_B, 58)
+    hy = int(_H * 0.68)
+    d.ellipse([_MARGIN, hy + 14, _MARGIN + 24, hy + 38], fill=accent)
+    d.text((_MARGIN + 42, hy), handle, font=hf, fill=accent)
     _dots(d, th, total, total - 1)
     save(img, total - 1)
 

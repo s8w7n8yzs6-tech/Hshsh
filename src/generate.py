@@ -182,6 +182,60 @@ _FMT = {
 }
 
 
+def discover_people(exclude: list[str], n: int = 10) -> list[tuple[str, str]]:
+    """Descobre novos nomes REAIS do mercado (renovação do acervo de histórias).
+
+    Retorna [(nome, motivo)] de pessoas famosas do mercado financeiro (global ou
+    Brasil) que NÃO estão na lista de exclusão. Usado quando o acervo de pessoas
+    se esgota, para nunca repetir.
+    """
+    excl = ", ".join(exclude[-80:]) if exclude else "(nenhum)"
+    schema = {
+        "type": "object",
+        "properties": {
+            "pessoas": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {"nome": {"type": "string"}, "motivo": {"type": "string"}},
+                    "required": ["nome", "motivo"],
+                    "additionalProperties": False,
+                },
+            }
+        },
+        "required": ["pessoas"],
+        "additionalProperties": False,
+    }
+    prompt = (
+        f"Liste {n} pessoas REAIS e conhecidas do mercado financeiro (investidores, "
+        "traders, gestores, economistas ou fundadores), misturando nomes globais e "
+        "brasileiros, que provavelmente tenham página na Wikipédia. Não invente nomes. "
+        "NÃO inclua nenhum destes (já usados): " + excl + ".\n"
+        "Para cada uma: nome completo e um 'motivo' de uma linha (por que é conhecida)."
+    )
+    try:
+        client = anthropic.Anthropic()
+        resp = client.messages.create(
+            model=config.ANTHROPIC_MODEL,
+            max_tokens=900,
+            thinking={"type": "disabled"},
+            system="Você conhece bem a história do mercado financeiro. Responda só com fatos.",
+            messages=[{"role": "user", "content": prompt}],
+            output_config={"format": {"type": "json_schema", "schema": schema}},
+        )
+        raw = "".join(b.text for b in resp.content if b.type == "text").strip()
+        data = json.loads(raw)
+        out = []
+        for p in data.get("pessoas", []):
+            nome = str(p.get("nome", "")).strip()
+            motivo = str(p.get("motivo", "")).strip()
+            if nome:
+                out.append((nome, motivo))
+        return out
+    except Exception:  # noqa: BLE001 — sem descoberta, o chamador tem fallback
+        return []
+
+
 def _schema(fmt: str) -> dict:
     spec = _FMT[fmt]
     return {
