@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-08-11T16:46-03:00",
-    "type": "mito_verdade",
-    "angle": "desligar as telas para descansar a mente",
-    "headline": "Tela apagada cedo é o que mantém a leitura do mercado afiada no dia seguinte"
-  },
-  {
-    "date": "2026-08-11T16:46-03:00",
     "type": "padrao",
     "angle": "Suporte e resistência: regiões em que o preço costuma parar de subir (resistência) ou de cair (suporte); base para entender onde o mercado 'respeita' níveis.",
     "headline": "Suporte é onde o preço tende a parar de cair e resistência onde tende a parar de subir, formando zonas que o mercado costuma respeitar."
@@ -915,5 +909,11 @@
     "angle": "definir e respeitar o stop",
     "headline": "Stop definido antes, não durante o pânico",
     "subject": "dic:definir-respeitar-stop"
+  },
+  {
+    "date": "2026-08-19T17:59-03:00",
+    "type": "numero",
+    "angle": "separar a vida pessoal do resultado do dia",
+    "headline": "É o valor que o resultado do dia deveria ter na sua noite de sono"
   }
 ]
