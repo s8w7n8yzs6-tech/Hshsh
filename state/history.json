@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-11T19:24-03:00",
-    "type": "lista",
-    "angle": "estudar e revisar operações no fim de semana",
-    "headline": "Sábado é dia de trade também (só que sem risco)"
-  },
-  {
     "date": "2026-08-11T19:25-03:00",
     "type": "dica",
     "angle": "por que operar a favor da tendência costuma ser mais seguro",
@@ -917,5 +911,11 @@
     "angle": "Bandas de Bollinger: bandas que se abrem e fecham conforme a volatilidade do preço",
     "headline": "Bandas de Bollinger: o fôlego do preço",
     "subject": "ind:bandas-bollinger"
+  },
+  {
+    "date": "2026-08-19T20:49-03:00",
+    "type": "foto",
+    "angle": "manter a rotina de estudo mesmo desmotivado",
+    "headline": "Estudar sem vontade é a parte que ninguém mostra"
   }
 ]
