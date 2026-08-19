@@ -244,7 +244,13 @@ def generate_post(
         if isinstance(val, str):
             out[key] = val.strip()
         elif isinstance(val, list):
-            out[key] = [str(x).strip() for x in val if str(x).strip()]
+            cleaned = []
+            for x in val:
+                if isinstance(x, dict):  # ex.: slides do carrossel {titulo, texto}
+                    cleaned.append({k: (v.strip() if isinstance(v, str) else v) for k, v in x.items()})
+                elif str(x).strip():
+                    cleaned.append(str(x).strip())
+            out[key] = cleaned
         else:
             out[key] = val
 
