@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-11T09:31-03:00",
-    "type": "lista",
-    "angle": "aceitar que ter perdas faz parte do jogo",
-    "headline": "5 verdades sobre perder que ninguém te conta"
-  },
-  {
     "date": "2026-08-11T12:45-03:00",
     "type": "padrao",
     "angle": "Estrela cadente: candle de corpo pequeno embaixo e pavio superior longo, após uma alta; é estudado como possível sinal de enfraquecimento da alta.",
@@ -912,5 +906,11 @@
     "angle": "o que é o stop loss e por que ele protege a conta",
     "headline": "Stop loss: o preço de continuar no jogo",
     "subject": "con:stop-loss-ele-protege"
+  },
+  {
+    "date": "2026-08-19T14:00-03:00",
+    "type": "foto",
+    "angle": "reduzir o tamanho da posição quando está em dúvida",
+    "headline": "Dúvida na entrada? O tamanho da posição já é a resposta"
   }
 ]
