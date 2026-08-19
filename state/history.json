@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-11T12:45-03:00",
-    "type": "padrao",
-    "angle": "Estrela cadente: candle de corpo pequeno embaixo e pavio superior longo, após uma alta; é estudado como possível sinal de enfraquecimento da alta.",
-    "headline": "O pavio superior longo mostra que compradores empurraram o preço bem mais alto, mas venderam recuou tudo até o fechamento próximo da abertura."
-  },
-  {
     "date": "2026-08-11T12:46-03:00",
     "type": "foto",
     "angle": "a montanha-russa emocional de um dia de operações",
@@ -912,5 +906,12 @@
     "type": "foto",
     "angle": "reduzir o tamanho da posição quando está em dúvida",
     "headline": "Dúvida na entrada? O tamanho da posição já é a resposta"
+  },
+  {
+    "date": "2026-08-19T14:23-03:00",
+    "type": "historia",
+    "angle": "Warren Buffett: o maior nome do investimento em valor, à frente da Berkshire Hathaway; conhecido pela paciência e pelo foco no longo prazo",
+    "headline": "Ele decidiu ser paciente antes de decidir ser rico",
+    "subject": "his:warren-buffett"
   }
 ]
