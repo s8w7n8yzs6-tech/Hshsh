@@ -187,6 +187,85 @@ def build_myth_truth(mito: str, verdade: str, handle: str, out_path: str, seed: 
     return out_path
 
 
+def _dots(d, th, total, active):
+    gap, r = 22, 5
+    x0 = (_W - (total - 1) * gap) // 2
+    y = _H - 42
+    for i in range(total):
+        col = th["accent"] if i == active else th["muted"]
+        d.ellipse([x0 + i * gap - r, y - r, x0 + i * gap + r, y + r], fill=col)
+
+
+def build_story_carousel(nome: str, cover: str, slides: list, handle: str,
+                         out_dir: str, seed: int = 0) -> list:
+    """Monta os slides de um carrossel-história (capa + capítulos + CTA). Retorna os caminhos."""
+    import os
+
+    th = dark_theme(seed)
+    slides = [s for s in (slides or []) if s.get("titulo") or s.get("texto")][:7]
+    total = 1 + len(slides) + 1
+    os.makedirs(out_dir, exist_ok=True)
+    paths: list[str] = []
+
+    def save(img, i):
+        p = os.path.join(out_dir, f"slide_{i:02d}.png")
+        img.convert("RGB").save(p, "PNG")
+        paths.append(p)
+
+    # --- Capa ---
+    img = _bg(th)
+    d = ImageDraw.Draw(img)
+    _badge(d, th, "HISTÓRIA")
+    ny = _MARGIN + 150
+    nw, nf, nsp = _wrap_fit(d, nome, _SANS_B, _W - 2 * _MARGIN, 380, 100, 54)
+    d.multiline_text((_MARGIN, ny), nw, font=nf, fill=th["fg"], spacing=nsp)
+    nb = d.multiline_textbbox((_MARGIN, ny), nw, font=nf, spacing=nsp)
+    d.rounded_rectangle([_MARGIN, nb[3] + 30, _MARGIN + 90, nb[3] + 42], radius=6, fill=th["accent"])
+    cw, cf, csp = _wrap_fit(d, cover, _SANS_R, _W - 2 * _MARGIN, 320, 50, 30)
+    d.multiline_text((_MARGIN, nb[3] + 74), cw, font=cf, fill=th["muted"], spacing=csp)
+    af = _font(_SANS_B, 30)
+    txt = "ARRASTE  →"
+    tb = d.textbbox((0, 0), txt, font=af)
+    pw = tb[2] - tb[0]
+    d.rounded_rectangle([_MARGIN, _H - 150, _MARGIN + pw + 52, _H - 150 + tb[3] - tb[1] + 30],
+                        radius=30, outline=th["accent"], width=2)
+    d.text((_MARGIN + 26, _H - 150 + 15 - tb[1]), txt, font=af, fill=th["accent"])
+    _dots(d, th, total, 0)
+    save(img, 0)
+
+    # --- Capítulos ---
+    for i, s in enumerate(slides):
+        img = _bg(th)
+        d = ImageDraw.Draw(img)
+        big = _font(_SANS_B, 150)
+        d.text((_MARGIN - 6, _MARGIN - 20), f"{i + 1:02d}", font=big, fill=th["accent"])
+        ty = _MARGIN + 180
+        tw, tf, tsp = _wrap_fit(d, s.get("titulo", ""), _SANS_B, _W - 2 * _MARGIN, 220, 66, 40)
+        d.multiline_text((_MARGIN, ty), tw, font=tf, fill=th["fg"], spacing=tsp)
+        tb2 = d.multiline_textbbox((_MARGIN, ty), tw, font=tf, spacing=tsp)
+        bw, bf, bsp = _wrap_fit(d, s.get("texto", ""), _SANS_R, _W - 2 * _MARGIN,
+                                _H - 180 - (tb2[3] + 40), 46, 30, spacing_ratio=0.22)
+        d.multiline_text((_MARGIN, tb2[3] + 44), bw, font=bf, fill=th["muted"], spacing=bsp)
+        _dots(d, th, total, i + 1)
+        _footer(d, th, handle)
+        save(img, i + 1)
+
+    # --- CTA final ---
+    img = _bg(th)
+    d = ImageDraw.Draw(img)
+    _badge(d, th, "SEGUE A GENTE")
+    cw2, cf2, csp2 = _wrap_fit(d, "Mais histórias que fizeram o mercado",
+                               _SANS_B, _W - 2 * _MARGIN, 360, 84, 48)
+    d.multiline_text((_MARGIN, _MARGIN + 200), cw2, font=cf2, fill=th["fg"], spacing=csp2)
+    hf = _font(_SANS_B, 60)
+    d.ellipse([_MARGIN, int(_H * 0.62) + 14, _MARGIN + 26, int(_H * 0.62) + 40], fill=th["accent"])
+    d.text((_MARGIN + 44, int(_H * 0.62)), handle, font=hf, fill=th["accent"])
+    _dots(d, th, total, total - 1)
+    save(img, total - 1)
+
+    return paths
+
+
 def build_pattern(nome: str, explicacao: str, diagram: "object", handle: str,
                   out_path: str, seed: int = 0) -> str:
     """Card educativo 'Aprenda um padrão': título + diagrama de gráfico + explicação."""

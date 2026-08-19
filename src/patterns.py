@@ -384,12 +384,15 @@ def build_pool() -> list[dict]:
     próximo item cuja `key` ainda não apareceu na memória — assim NADA se repete
     até o acervo inteiro ser usado (dezenas de assuntos distintos).
     """
+    from . import people
+
     cats: list[list[dict]] = []
 
+    # No lugar dos padrões gráficos: carrosséis com a história de nomes do mercado.
     cats.append([
-        {"key": f"pat:{p['key']}", "fmt": "padrao", "badge": "APRENDA UM PADRÃO",
-         "nome": p["nome"], "hint": p["hint"], "pattern": p}
-        for p in PATTERNS
+        {"key": f"his:{people.slug(nome)}", "fmt": "historia", "badge": "HISTÓRIA",
+         "nome": nome, "hint": hint}
+        for nome, hint in people.PEOPLE
     ])
     cats.append([
         {"key": f"est:{_slug(nome)}", "fmt": "conceito", "badge": "ESTRATÉGIA",

@@ -65,3 +65,47 @@ def publish_image(image_url: str, caption: str, timeout: int = 30) -> str:
         timeout,
     )
     return published["id"]
+
+
+def publish_carousel(image_urls: list[str], caption: str, timeout: int = 30) -> str:
+    """Publica um carrossel (várias imagens) com legenda e retorna o ID da mídia."""
+    if not (config.INSTAGRAM_USER_ID and config.INSTAGRAM_ACCESS_TOKEN):
+        raise RuntimeError(
+            "Credenciais do Instagram ausentes (INSTAGRAM_USER_ID / INSTAGRAM_ACCESS_TOKEN)."
+        )
+    urls = [u for u in image_urls if u][:10]  # Instagram aceita de 2 a 10 itens
+    if len(urls) < 2:
+        return publish_image(urls[0], caption, timeout) if urls else ""
+
+    child_ids: list[str] = []
+    for url in urls:
+        item = _post(
+            f"{_BASE}/{config.INSTAGRAM_USER_ID}/media",
+            {
+                "image_url": url,
+                "is_carousel_item": "true",
+                "access_token": config.INSTAGRAM_ACCESS_TOKEN,
+            },
+            timeout,
+        )
+        _wait_ready(item["id"], timeout)
+        child_ids.append(item["id"])
+
+    carousel = _post(
+        f"{_BASE}/{config.INSTAGRAM_USER_ID}/media",
+        {
+            "media_type": "CAROUSEL",
+            "children": ",".join(child_ids),
+            "caption": caption,
+            "access_token": config.INSTAGRAM_ACCESS_TOKEN,
+        },
+        timeout,
+    )
+    _wait_ready(carousel["id"], timeout)
+
+    published = _post(
+        f"{_BASE}/{config.INSTAGRAM_USER_ID}/media_publish",
+        {"creation_id": carousel["id"], "access_token": config.INSTAGRAM_ACCESS_TOKEN},
+        timeout,
+    )
+    return published["id"]
