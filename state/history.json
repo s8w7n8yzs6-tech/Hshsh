@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-10T19:22-03:00",
-    "type": "dica",
-    "angle": "por que operar a favor da tendência costuma ser mais seguro",
-    "headline": "Ir contra o fluxo custa mais caro do que parece"
-  },
-  {
     "date": "2026-08-10T19:23-03:00",
     "type": "foto",
     "angle": "a euforia perigosa depois de vários acertos seguidos",
@@ -909,5 +903,11 @@
     "type": "citacao",
     "angle": "desligar as telas para descansar a mente",
     "headline": "A tela apagada também é parte da estratégia"
+  },
+  {
+    "date": "2026-08-19T08:56-03:00",
+    "type": "mercado",
+    "angle": "fale sobre a volatilidade recente nos candles de 30 min",
+    "headline": "Ouro (XAU/USD) +0,89%: candles de 30 min entre 4.378 e 4.463"
   }
 ]
