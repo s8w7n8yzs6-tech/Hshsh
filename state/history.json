@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-13T12:44-03:00",
-    "type": "mito_verdade",
-    "angle": "parar de se comparar com outros traders",
-    "headline": "Você não sabe o risco, o capital nem o histórico completo dele. Só vê o print"
-  },
-  {
     "date": "2026-08-13T12:45-03:00",
     "type": "padrao",
     "angle": "Suporte e resistência: regiões em que o preço costuma parar de subir (resistência) ou de cair (suporte); base para entender onde o mercado 'respeita' níveis.",
@@ -925,5 +919,11 @@
     "angle": "organizar a rotina de estudo do trader",
     "headline": "Sua rotina de estudo cabe numa agenda de verdade?",
     "subject": "dic:organizar-rotina-estudo-trader"
+  },
+  {
+    "date": "2026-08-20T20:55-03:00",
+    "type": "citacao",
+    "angle": "a gratidão por evoluir aos poucos, um dia de cada vez",
+    "headline": "Não agradeço pelo trade de hoje. Agradeço por ser um trader diferente do de ontem."
   }
 ]
