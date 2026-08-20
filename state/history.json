@@ -1,29 +1,5 @@
 [
   {
-    "date": "2026-08-12T19:23-03:00",
-    "type": "padrao",
-    "angle": "Suporte e resistência: regiões em que o preço costuma parar de subir (resistência) ou de cair (suporte); base para entender onde o mercado 'respeita' níveis.",
-    "headline": "Suporte e resistência marcam faixas de preço, não linhas exatas, onde o mercado costuma hesitar antes de decidir a próxima direção."
-  },
-  {
-    "date": "2026-08-12T19:23-03:00",
-    "type": "numero",
-    "angle": "o peso psicológico de segurar uma posição aberta",
-    "headline": "O tempo que a posição fica aberta na sua cabeça, não na tela"
-  },
-  {
-    "date": "2026-08-12T19:24-03:00",
-    "type": "conceito",
-    "angle": "o que é tendência de alta, de baixa e lateral",
-    "headline": "Alta, baixa ou de lado: qual é a fase?"
-  },
-  {
-    "date": "2026-08-12T19:24-03:00",
-    "type": "lista",
-    "angle": "não mover o stop no calor da emoção",
-    "headline": "4 sinais de que você tá mexendo no stop errado"
-  },
-  {
     "date": "2026-08-13T09:36-03:00",
     "type": "padrao",
     "angle": "Estrela cadente: candle de corpo pequeno embaixo e pavio superior longo, após uma alta; é estudado como possível sinal de enfraquecimento da alta.",
@@ -921,5 +897,30 @@
     "type": "citacao",
     "angle": "a importância de dormir bem para operar melhor",
     "headline": "O trader cansado não erra a leitura do mercado, erra a leitura de si mesmo"
+  },
+  {
+    "date": "2026-08-20T16:18-03:00",
+    "type": "conceito",
+    "angle": "Estocástico: um oscilador que compara o fechamento com a faixa de preço do período",
+    "headline": "Estocástico: onde o fechamento aterrissou",
+    "subject": "ind:estocastico"
+  },
+  {
+    "date": "2026-08-20T16:19-03:00",
+    "type": "mito_verdade",
+    "angle": "rever operações passadas com honestidade",
+    "headline": "Quem não revisa com honestidade repete o mesmo erro com roupagem nova"
+  },
+  {
+    "date": "2026-08-20T16:19-03:00",
+    "type": "mercado",
+    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
+    "headline": "Nasdaq 100 recua 2,98% e se aproxima da mínima do dia"
+  },
+  {
+    "date": "2026-08-20T16:20-03:00",
+    "type": "numero",
+    "angle": "resistir ao 'só mais uma operação'",
+    "headline": "a operação que você não fez também entra na sua estatística de disciplina"
   }
 ]
