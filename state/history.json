@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-13T09:37-03:00",
-    "type": "mercado",
-    "angle": "comente a amplitude entre a máxima e a mínima do período",
-    "headline": "Ouro (XAU/USD) sobe +1,84% com quase 90 pontos de amplitude"
-  },
-  {
     "date": "2026-08-13T09:38-03:00",
     "type": "citacao",
     "angle": "a montanha-russa emocional de um dia de operações",
@@ -923,5 +917,12 @@
     "type": "lista",
     "angle": "a paciência de anos até virar um trader consistente",
     "headline": "Anos calados até o mercado te ouvir"
+  },
+  {
+    "date": "2026-08-20T18:58-03:00",
+    "type": "historia",
+    "angle": "Peter Lynch: gestor do fundo Magellan na Fidelity; defensor de investir no que você entende",
+    "headline": "Ele geria bilhões olhando prateleira de supermercado",
+    "subject": "his:peter-lynch"
   }
 ]
