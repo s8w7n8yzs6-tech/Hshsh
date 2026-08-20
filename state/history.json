@@ -1,29 +1,5 @@
 [
   {
-    "date": "2026-08-12T12:44-03:00",
-    "type": "conceito",
-    "angle": "o que é o stop loss e por que ele protege a conta",
-    "headline": "Stop loss: o limite que você escolhe antes"
-  },
-  {
-    "date": "2026-08-12T12:44-03:00",
-    "type": "citacao",
-    "angle": "comemorar as pequenas evoluções, não só os grandes dias",
-    "headline": "Corrigir um erro pequeno vale mais que acertar um dia inteiro"
-  },
-  {
-    "date": "2026-08-12T12:45-03:00",
-    "type": "dica",
-    "angle": "a diferença entre suporte e resistência na prática",
-    "headline": "Suporte e resistência não são o mesmo papel"
-  },
-  {
-    "date": "2026-08-12T12:45-03:00",
-    "type": "mito_verdade",
-    "angle": "a diferença entre sorte pontual e consistência",
-    "headline": "Um resultado bom mostra o que deu certo agora, não o que funciona sempre"
-  },
-  {
     "date": "2026-08-12T19:23-03:00",
     "type": "padrao",
     "angle": "Suporte e resistência: regiões em que o preço costuma parar de subir (resistência) ou de cair (suporte); base para entender onde o mercado 'respeita' níveis.",
@@ -919,5 +895,31 @@
     "type": "lista",
     "angle": "acertar a análise mas errar na execução",
     "headline": "Análise certa, execução errada: 4 pontos cegos"
+  },
+  {
+    "date": "2026-08-20T14:14-03:00",
+    "type": "dica",
+    "angle": "escolher poucos ativos para acompanhar",
+    "headline": "Menos ativos, mais leitura de verdade",
+    "subject": "dic:escolher-poucos-ativos-acompanhar"
+  },
+  {
+    "date": "2026-08-20T14:15-03:00",
+    "type": "foto",
+    "angle": "a euforia perigosa depois de vários acertos seguidos",
+    "headline": "Depois de ganhar cinco vezes seguidas, você ainda pensa ou só repete?"
+  },
+  {
+    "date": "2026-08-20T14:15-03:00",
+    "type": "conceito",
+    "angle": "Cruzamento de médias móveis: usar o cruzamento de uma média rápida com uma lenta para ler a mudança de tendência",
+    "headline": "Cruzamento de médias: rápida x lenta",
+    "subject": "est:cruzamento-medias-moveis"
+  },
+  {
+    "date": "2026-08-20T14:15-03:00",
+    "type": "citacao",
+    "angle": "a importância de dormir bem para operar melhor",
+    "headline": "O trader cansado não erra a leitura do mercado, erra a leitura de si mesmo"
   }
 ]
