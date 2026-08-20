@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-13T09:36-03:00",
-    "type": "padrao",
-    "angle": "Estrela cadente: candle de corpo pequeno embaixo e pavio superior longo, após uma alta; é estudado como possível sinal de enfraquecimento da alta.",
-    "headline": "Estrela cadente é um candle com corpo pequeno na base e pavio superior longo, aparecendo depois de uma alta. É estudado como possível sinal de que os compradores perderam força."
-  },
-  {
-    "date": "2026-08-13T09:37-03:00",
-    "type": "foto",
-    "angle": "aceitar que ter perdas faz parte do jogo",
-    "headline": "Perder é custo de operar, não prova de que você errou"
-  },
-  {
     "date": "2026-08-13T09:37-03:00",
     "type": "mercado",
     "angle": "comente a amplitude entre a máxima e a mínima do período",
@@ -922,5 +910,18 @@
     "type": "numero",
     "angle": "resistir ao 'só mais uma operação'",
     "headline": "a operação que você não fez também entra na sua estatística de disciplina"
+  },
+  {
+    "date": "2026-08-20T17:52-03:00",
+    "type": "conceito",
+    "angle": "o papel do volume para confirmar um movimento",
+    "headline": "Volume: o motor por trás do preço",
+    "subject": "con:papel-volume-confirmar-movimento"
+  },
+  {
+    "date": "2026-08-20T17:52-03:00",
+    "type": "lista",
+    "angle": "a paciência de anos até virar um trader consistente",
+    "headline": "Anos calados até o mercado te ouvir"
   }
 ]
