@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-13T09:38-03:00",
-    "type": "citacao",
-    "angle": "a montanha-russa emocional de um dia de operações",
-    "headline": "Você não sai do mesmo jeito que entrou, mesmo fechando no zero a zero"
-  },
-  {
-    "date": "2026-08-13T12:44-03:00",
-    "type": "dica",
-    "angle": "a diferença entre suporte e resistência na prática",
-    "headline": "Suporte e resistência: o que muda na prática"
-  },
-  {
     "date": "2026-08-13T12:44-03:00",
     "type": "mito_verdade",
     "angle": "parar de se comparar com outros traders",
@@ -924,5 +912,18 @@
     "angle": "Peter Lynch: gestor do fundo Magellan na Fidelity; defensor de investir no que você entende",
     "headline": "Ele geria bilhões olhando prateleira de supermercado",
     "subject": "his:peter-lynch"
+  },
+  {
+    "date": "2026-08-20T20:00-03:00",
+    "type": "foto",
+    "angle": "a diferença entre ser trader e ser apostador",
+    "headline": "Apostador quer sentir. Trader quer entender."
+  },
+  {
+    "date": "2026-08-20T20:01-03:00",
+    "type": "dica",
+    "angle": "organizar a rotina de estudo do trader",
+    "headline": "Sua rotina de estudo cabe numa agenda de verdade?",
+    "subject": "dic:organizar-rotina-estudo-trader"
   }
 ]
