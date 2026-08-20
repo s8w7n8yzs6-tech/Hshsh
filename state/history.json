@@ -1,29 +1,5 @@
 [
   {
-    "date": "2026-08-12T09:35-03:00",
-    "type": "dica",
-    "angle": "gerenciamento de risco: arriscar só uma pequena parte da banca por operação",
-    "headline": "O tamanho da aposta importa mais que a ideia"
-  },
-  {
-    "date": "2026-08-12T09:35-03:00",
-    "type": "lista",
-    "angle": "a importância de manter um diário de operações",
-    "headline": "Sem diário, você repete erro achando que é azar"
-  },
-  {
-    "date": "2026-08-12T09:36-03:00",
-    "type": "mercado",
-    "angle": "fale sobre a volatilidade recente nos candles de 30 min",
-    "headline": "Ouro sobe +2,85% com candles de 30 min bem agitados"
-  },
-  {
-    "date": "2026-08-12T09:37-03:00",
-    "type": "foto",
-    "angle": "disciplina no gerenciamento de risco",
-    "headline": "Você define o risco antes ou depois de perder?"
-  },
-  {
     "date": "2026-08-12T12:44-03:00",
     "type": "conceito",
     "angle": "o que é o stop loss e por que ele protege a conta",
@@ -918,5 +894,30 @@
     "type": "mito_verdade",
     "angle": "o peso psicológico de segurar uma posição aberta",
     "headline": "Segurar sem motivo novo é só medo de admitir que a leitura mudou"
+  },
+  {
+    "date": "2026-08-20T12:51-03:00",
+    "type": "mercado",
+    "angle": "fale sobre a volatilidade recente nos candles de 30 min",
+    "headline": "Ouro (XAU/USD) +3,52%: candles de 30 min mostram amplitude forte"
+  },
+  {
+    "date": "2026-08-20T12:52-03:00",
+    "type": "numero",
+    "angle": "não mover o stop no calor da emoção",
+    "headline": "É quantas vezes o stop deveria mudar depois de aberto: zero"
+  },
+  {
+    "date": "2026-08-20T12:53-03:00",
+    "type": "historia",
+    "angle": "Benjamin Graham: o 'pai do value investing', autor de O Investidor Inteligente e mentor de Buffett",
+    "headline": "O professor que via preço e enxergava valor",
+    "subject": "his:benjamin-graham"
+  },
+  {
+    "date": "2026-08-20T12:53-03:00",
+    "type": "lista",
+    "angle": "acertar a análise mas errar na execução",
+    "headline": "Análise certa, execução errada: 4 pontos cegos"
   }
 ]
