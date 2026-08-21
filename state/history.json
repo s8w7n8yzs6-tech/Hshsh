@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-13T19:24-03:00",
-    "type": "citacao",
-    "angle": "lidar com dias de lateralização e tédio no gráfico",
-    "headline": "Gráfico parado não é convite pra você criar movimento onde não existe"
-  },
-  {
-    "date": "2026-08-13T19:25-03:00",
-    "type": "conceito",
-    "angle": "o perigo da alavancagem alta para iniciantes",
-    "headline": "Alavancagem alta multiplica prejuízo também"
-  },
-  {
     "date": "2026-08-13T19:25-03:00",
     "type": "mito_verdade",
     "angle": "reduzir o tamanho da posição quando está em dúvida",
@@ -928,5 +916,18 @@
     "angle": "o que é tendência de alta, de baixa e lateral",
     "headline": "Alta, baixa ou lateral: como ler o gráfico",
     "subject": "con:tendencia-alta-baixa-lateral"
+  },
+  {
+    "date": "2026-08-21T12:58-03:00",
+    "type": "citacao",
+    "angle": "reduzir o tamanho da posição quando está em dúvida",
+    "headline": "Dúvida não pede coragem, pede posição menor"
+  },
+  {
+    "date": "2026-08-21T13:00-03:00",
+    "type": "historia",
+    "angle": "Ray Dalio: fundador da Bridgewater, maior fundo hedge do mundo; conhecido pelos princípios e pela diversificação",
+    "headline": "Ele quebrou tudo antes de construir o maior fundo do mundo",
+    "subject": "his:ray-dalio"
   }
 ]
