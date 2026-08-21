@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-08-13T16:43-03:00",
-    "type": "conceito",
-    "angle": "o que é tendência de alta, de baixa e lateral",
-    "headline": "Preço tem direção: alta, baixa ou de lado"
-  },
-  {
-    "date": "2026-08-13T16:43-03:00",
     "type": "lista",
     "angle": "confiar no próprio plano em vez de improvisar",
     "headline": "4 sinais de que você abandonou o plano no meio"
@@ -926,5 +920,11 @@
     "type": "numero",
     "angle": "confiar no próprio plano em vez de improvisar",
     "headline": "Improvisos novos que cabem dentro de um plano já validado"
+  },
+  {
+    "date": "2026-08-21T09:04-03:00",
+    "type": "mercado",
+    "angle": "fale sobre a volatilidade recente nos candles de 30 min",
+    "headline": "Ouro dispara +5,36% com candles de 30 min amplos e nervosos"
   }
 ]
