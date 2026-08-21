@@ -1,0 +1,41 @@
+name: Post único — Bitcoin
+
+# Post pontual (estilo tweet + gráfico da alta do BTC + shorts liquidados).
+# NÃO faz parte do rodízio automático — roda só quando disparado manualmente.
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Somente gerar as imagens, sem publicar"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write   # push das imagens para o ref `media`
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Publicar post único do Bitcoin
+        env:
+          POST_HANDLE: ${{ vars.POST_HANDLE }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            python -m src.oneoff --dry-run
+          else
+            python -m src.oneoff
+          fi
