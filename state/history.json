@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-13T12:45-03:00",
-    "type": "padrao",
-    "angle": "Suporte e resistência: regiões em que o preço costuma parar de subir (resistência) ou de cair (suporte); base para entender onde o mercado 'respeita' níveis.",
-    "headline": "Suporte e resistência são zonas onde o preço historicamente perdeu força pra continuar caindo ou subindo, indicando possível pausa ou reação."
-  },
-  {
-    "date": "2026-08-13T12:45-03:00",
-    "type": "numero",
-    "angle": "desligar as telas para descansar a mente",
-    "headline": "Notificações abertas depois que a corretora fecha"
-  },
-  {
     "date": "2026-08-13T16:43-03:00",
     "type": "conceito",
     "angle": "o que é tendência de alta, de baixa e lateral",
@@ -925,5 +913,18 @@
     "type": "citacao",
     "angle": "a gratidão por evoluir aos poucos, um dia de cada vez",
     "headline": "Não agradeço pelo trade de hoje. Agradeço por ser um trader diferente do de ontem."
+  },
+  {
+    "date": "2026-08-21T08:02-03:00",
+    "type": "conceito",
+    "angle": "Retração de Fibonacci: usar os níveis de Fibonacci para mapear até onde uma correção pode ir",
+    "headline": "Fibonacci: mapeando a correção",
+    "subject": "est:retracao-fibonacci"
+  },
+  {
+    "date": "2026-08-21T08:02-03:00",
+    "type": "numero",
+    "angle": "confiar no próprio plano em vez de improvisar",
+    "headline": "Improvisos novos que cabem dentro de um plano já validado"
   }
 ]
