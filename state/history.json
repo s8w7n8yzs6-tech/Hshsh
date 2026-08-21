@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-13T19:25-03:00",
-    "type": "mito_verdade",
-    "angle": "reduzir o tamanho da posição quando está em dúvida",
-    "headline": "Dúvida real pede posição menor, não coragem maior"
-  },
-  {
-    "date": "2026-08-14T09:29-03:00",
-    "type": "conceito",
-    "angle": "o que é o stop loss e por que ele protege a conta",
-    "headline": "Stop loss: o preço que você define antes de entrar"
-  },
-  {
     "date": "2026-08-14T09:29-03:00",
     "type": "citacao",
     "angle": "disciplina no gerenciamento de risco",
@@ -929,5 +917,18 @@
     "angle": "Ray Dalio: fundador da Bridgewater, maior fundo hedge do mundo; conhecido pelos princípios e pela diversificação",
     "headline": "Ele quebrou tudo antes de construir o maior fundo do mundo",
     "subject": "his:ray-dalio"
+  },
+  {
+    "date": "2026-08-21T14:15-03:00",
+    "type": "mito_verdade",
+    "angle": "não operar por impulso logo após uma notícia",
+    "headline": "A notícia já mexeu o mercado, sua pressa só mexe com seu risco"
+  },
+  {
+    "date": "2026-08-21T14:15-03:00",
+    "type": "dica",
+    "angle": "manter um diário de operações",
+    "headline": "Diário de trade: o espelho que você evita olhar",
+    "subject": "dic:manter-diario-operacoes"
   }
 ]
