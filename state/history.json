@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-08-14T12:28-03:00",
-    "type": "conceito",
-    "angle": "o que é tendência de alta, de baixa e lateral",
-    "headline": "Alta, baixa ou de lado: o preço decide"
-  },
-  {
-    "date": "2026-08-14T12:28-03:00",
     "type": "lista",
     "angle": "o peso psicológico de segurar uma posição aberta",
     "headline": "4 sinais de que a posição aberta tomou conta de você"
@@ -931,5 +925,12 @@
     "type": "foto",
     "angle": "respeitar o horário de encerrar o dia de operações",
     "headline": "Bateu a hora de parar e você ainda tá aí, por quê?"
+  },
+  {
+    "date": "2026-08-21T18:53-03:00",
+    "type": "conceito",
+    "angle": "VWAP: o preço médio ponderado pelo volume, referência muito usada no intraday",
+    "headline": "VWAP: o preço médio que pesa o volume",
+    "subject": "ind:vwap"
   }
 ]
