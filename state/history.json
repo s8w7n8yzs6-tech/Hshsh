@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-14T12:27-03:00",
-    "type": "padrao",
-    "angle": "Suporte e resistência: regiões em que o preço costuma parar de subir (resistência) ou de cair (suporte); base para entender onde o mercado 'respeita' níveis.",
-    "headline": "Suporte e resistência são faixas de preço onde o mercado historicamente hesitou, revertendo ou pausando o movimento anterior."
-  },
-  {
-    "date": "2026-08-14T12:27-03:00",
-    "type": "numero",
-    "angle": "a diferença entre sorte pontual e consistência",
-    "headline": "Uma entrada certa não é método. Método é o que se repete 100 vezes."
-  },
-  {
     "date": "2026-08-14T12:28-03:00",
     "type": "conceito",
     "angle": "o que é tendência de alta, de baixa e lateral",
@@ -930,5 +918,18 @@
     "type": "lista",
     "angle": "separar a vida pessoal do resultado do dia",
     "headline": "4 sinais de que o resultado invadiu sua casa"
+  },
+  {
+    "date": "2026-08-21T17:54-03:00",
+    "type": "conceito",
+    "angle": "Operar a favor da tendência: o conceito de trend following: alinhar as entradas com a direção dominante",
+    "headline": "Trend following: nadar a favor da correnteza",
+    "subject": "est:operar-favor-tendencia"
+  },
+  {
+    "date": "2026-08-21T17:54-03:00",
+    "type": "foto",
+    "angle": "respeitar o horário de encerrar o dia de operações",
+    "headline": "Bateu a hora de parar e você ainda tá aí, por quê?"
   }
 ]
