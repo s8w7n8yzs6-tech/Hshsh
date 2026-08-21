@@ -1,29 +1,5 @@
 [
   {
-    "date": "2026-08-13T16:43-03:00",
-    "type": "lista",
-    "angle": "confiar no próprio plano em vez de improvisar",
-    "headline": "4 sinais de que você abandonou o plano no meio"
-  },
-  {
-    "date": "2026-08-13T16:43-03:00",
-    "type": "dica",
-    "angle": "por que operar a favor da tendência costuma ser mais seguro",
-    "headline": "Nadar a favor da correnteza cansa menos"
-  },
-  {
-    "date": "2026-08-13T16:44-03:00",
-    "type": "foto",
-    "angle": "estudar e revisar operações no fim de semana",
-    "headline": "Domingo à noite e o gráfico que você fingiu não abrir"
-  },
-  {
-    "date": "2026-08-13T19:24-03:00",
-    "type": "mercado",
-    "angle": "comente, sem prever direção, se o dia teve mais força compradora ou vendedora",
-    "headline": "Nasdaq 100 sobe +2,42% no dia, com amplitude de mais de 700 pontos"
-  },
-  {
     "date": "2026-08-13T19:24-03:00",
     "type": "citacao",
     "angle": "lidar com dias de lateralização e tédio no gráfico",
@@ -926,5 +902,31 @@
     "type": "mercado",
     "angle": "fale sobre a volatilidade recente nos candles de 30 min",
     "headline": "Ouro dispara +5,36% com candles de 30 min amplos e nervosos"
+  },
+  {
+    "date": "2026-08-21T11:19-03:00",
+    "type": "lista",
+    "angle": "estudar e revisar operações no fim de semana",
+    "headline": "O que fazer no sábado quando o mercado não abre"
+  },
+  {
+    "date": "2026-08-21T11:19-03:00",
+    "type": "conceito",
+    "angle": "Volume: quantas negociações aconteceram — usado para confirmar a força de um movimento",
+    "headline": "Volume: a testemunha do movimento",
+    "subject": "ind:volume"
+  },
+  {
+    "date": "2026-08-21T11:20-03:00",
+    "type": "foto",
+    "angle": "lidar com dias de lateralização e tédio no gráfico",
+    "headline": "O tédio do lado direito da tela também é um teste"
+  },
+  {
+    "date": "2026-08-21T11:20-03:00",
+    "type": "conceito",
+    "angle": "o que é tendência de alta, de baixa e lateral",
+    "headline": "Alta, baixa ou lateral: como ler o gráfico",
+    "subject": "con:tendencia-alta-baixa-lateral"
   }
 ]
