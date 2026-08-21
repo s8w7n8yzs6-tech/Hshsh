@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-14T09:30-03:00",
-    "type": "mito_verdade",
-    "angle": "comemorar as pequenas evoluções, não só os grandes dias",
-    "headline": "o dia bom é aquele em que você seguiu o plano, mesmo que o resultado tenha sido pequeno"
-  },
-  {
     "date": "2026-08-14T12:27-03:00",
     "type": "padrao",
     "angle": "Suporte e resistência: regiões em que o preço costuma parar de subir (resistência) ou de cair (suporte); base para entender onde o mercado 'respeita' níveis.",
@@ -930,5 +924,11 @@
     "type": "mercado",
     "angle": "fale sobre a volatilidade recente nos candles de 30 min",
     "headline": "Nasdaq 100 cai 2,41% com candles de 30 min bem espremidos"
+  },
+  {
+    "date": "2026-08-21T16:55-03:00",
+    "type": "lista",
+    "angle": "separar a vida pessoal do resultado do dia",
+    "headline": "4 sinais de que o resultado invadiu sua casa"
   }
 ]
