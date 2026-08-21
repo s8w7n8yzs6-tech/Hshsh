@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-14T09:29-03:00",
-    "type": "citacao",
-    "angle": "disciplina no gerenciamento de risco",
-    "headline": "Risco definido antes é gestão. Risco definido depois é desespero disfarçado de estratégia."
-  },
-  {
-    "date": "2026-08-14T09:30-03:00",
-    "type": "mercado",
-    "angle": "fale sobre a volatilidade recente nos candles de 30 min",
-    "headline": "Ouro (XAU/USD) sobe +1,52% em candles de 30 min bem agitados"
-  },
-  {
     "date": "2026-08-14T09:30-03:00",
     "type": "mito_verdade",
     "angle": "comemorar as pequenas evoluções, não só os grandes dias",
@@ -930,5 +918,17 @@
     "angle": "manter um diário de operações",
     "headline": "Diário de trade: o espelho que você evita olhar",
     "subject": "dic:manter-diario-operacoes"
+  },
+  {
+    "date": "2026-08-21T16:08-03:00",
+    "type": "numero",
+    "angle": "bater a meta do dia e ter a disciplina de parar",
+    "headline": "meta batida, um clique a mais e ela vira desculpa"
+  },
+  {
+    "date": "2026-08-21T16:08-03:00",
+    "type": "mercado",
+    "angle": "fale sobre a volatilidade recente nos candles de 30 min",
+    "headline": "Nasdaq 100 cai 2,41% com candles de 30 min bem espremidos"
   }
 ]
