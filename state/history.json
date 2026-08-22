@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-15T11:43-03:00",
-    "type": "dica",
-    "angle": "por que operar a favor da tendência costuma ser mais seguro",
-    "headline": "Nadar a favor: menos esforço pra ficar de pé"
-  },
-  {
-    "date": "2026-08-15T12:43-03:00",
-    "type": "foto",
-    "angle": "confiar no próprio plano em vez de improvisar",
-    "headline": "O gráfico mudou. Seu plano também vai mudar?"
-  },
-  {
     "date": "2026-08-15T12:43-03:00",
     "type": "padrao",
     "angle": "Rompimento: o preço fica 'preso' abaixo de uma resistência e depois a ultrapassa com força; conceito de rompimento de nível.",
@@ -940,5 +928,18 @@
     "angle": "evitar os erros mais comuns do iniciante",
     "headline": "Os erros que todo iniciante repete sem perceber",
     "subject": "dic:evitar-erros-mais-comuns"
+  },
+  {
+    "date": "2026-08-22T19:51-03:00",
+    "type": "mito_verdade",
+    "angle": "a gratidão por evoluir aos poucos, um dia de cada vez",
+    "headline": "Comemorar o progresso de hoje é o que sustenta o progresso de amanhã"
+  },
+  {
+    "date": "2026-08-22T19:52-03:00",
+    "type": "conceito",
+    "angle": "Inside bar: uma barra 'dentro' da anterior indicando pausa e possível continuação do movimento",
+    "headline": "Inside bar: a barra que respira",
+    "subject": "est:inside-bar"
   }
 ]
