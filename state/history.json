@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-15T12:43-03:00",
-    "type": "padrao",
-    "angle": "Rompimento: o preço fica 'preso' abaixo de uma resistência e depois a ultrapassa com força; conceito de rompimento de nível.",
-    "headline": "Rompimento é quando o preço comprime abaixo de uma resistência e depois passa por ela com força, sinalizando possível continuidade do movimento."
-  },
-  {
     "date": "2026-08-15T13:54-03:00",
     "type": "citacao",
     "angle": "estudar e revisar operações no fim de semana",
@@ -941,5 +935,11 @@
     "angle": "Inside bar: uma barra 'dentro' da anterior indicando pausa e possível continuação do movimento",
     "headline": "Inside bar: a barra que respira",
     "subject": "est:inside-bar"
+  },
+  {
+    "date": "2026-08-22T20:42-03:00",
+    "type": "numero",
+    "angle": "a tentação de tentar recuperar rápido um prejuízo (revenge trade)",
+    "headline": "A perda que mais dói não é a primeira. É a segunda, tentando apagar a primeira."
   }
 ]
