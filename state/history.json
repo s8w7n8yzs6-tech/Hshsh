@@ -1,23 +1,5 @@
 [
   {
-    "date": "2026-08-14T17:17-03:00",
-    "type": "foto",
-    "angle": "não mover o stop no calor da emoção",
-    "headline": "O clique que muda o stop não é análise, é pânico"
-  },
-  {
-    "date": "2026-08-14T17:18-03:00",
-    "type": "padrao",
-    "angle": "Rompimento: o preço fica 'preso' abaixo de uma resistência e depois a ultrapassa com força; conceito de rompimento de nível.",
-    "headline": "Rompimento é quando o preço testa uma resistência várias vezes até romper com força, sinalizando possível continuidade do movimento."
-  },
-  {
-    "date": "2026-08-14T17:18-03:00",
-    "type": "citacao",
-    "angle": "acertar a análise mas errar na execução",
-    "headline": "A análise pode estar certa e a mão errar tudo na hora do clique"
-  },
-  {
     "date": "2026-08-14T18:12-03:00",
     "type": "mercado",
     "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
@@ -933,5 +915,24 @@
     "angle": "por que operar a favor da tendência costuma ser mais seguro",
     "headline": "A favor da tendência: menos atrito",
     "subject": "con:operar-favor-tendencia-costuma"
+  },
+  {
+    "date": "2026-08-22T08:44-03:00",
+    "type": "historia",
+    "angle": "George Soros: megaespeculador que ficou famoso por apostas macroeconômicas históricas",
+    "headline": "O homem que apostou contra um banco central e venceu",
+    "subject": "his:george-soros"
+  },
+  {
+    "date": "2026-08-22T08:44-03:00",
+    "type": "lista",
+    "angle": "não mover o stop no calor da emoção",
+    "headline": "4 sinais de que o stop virou refém da emoção"
+  },
+  {
+    "date": "2026-08-22T08:45-03:00",
+    "type": "mercado",
+    "angle": "comente a amplitude entre a máxima e a mínima do período",
+    "headline": "Ouro (XAU/USD): amplitude de mais de 120 pontos no dia"
   }
 ]
