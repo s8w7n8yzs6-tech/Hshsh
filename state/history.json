@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-15T07:50-03:00",
-    "type": "dica",
-    "angle": "a diferença entre suporte e resistência na prática",
-    "headline": "Suporte e resistência não são a mesma coisa que zona"
-  },
-  {
-    "date": "2026-08-15T07:51-03:00",
-    "type": "mito_verdade",
-    "angle": "a montanha-russa emocional de um dia de operações",
-    "headline": "trader bom sente a emoção inteira e ainda assim segue o plano"
-  },
-  {
     "date": "2026-08-15T08:41-03:00",
     "type": "mercado",
     "angle": "comente a amplitude entre a máxima e a mínima do período",
@@ -938,5 +926,17 @@
     "angle": "a importância dos diferentes tempos gráficos (timeframes)",
     "headline": "Timeframes: cada janela conta uma história",
     "subject": "con:importancia-dos-diferentes-tempos"
+  },
+  {
+    "date": "2026-08-22T16:02-03:00",
+    "type": "lista",
+    "angle": "resistir ao 'só mais uma operação'",
+    "headline": "5 sinais de que o 'só mais uma' vai te ferrar"
+  },
+  {
+    "date": "2026-08-22T16:03-03:00",
+    "type": "mercado",
+    "angle": "comente a amplitude entre a máxima e a mínima do período",
+    "headline": "Nasdaq 100 -2,45%: quase 530 pontos entre topo e fundo"
   }
 ]
