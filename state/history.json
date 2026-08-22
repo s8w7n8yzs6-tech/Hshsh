@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-14T18:13-03:00",
-    "type": "numero",
-    "angle": "a importância de dormir bem para operar melhor",
-    "headline": "Foi o tanto que você dormiu antes de abrir o gráfico hoje"
-  },
-  {
     "date": "2026-08-14T18:58-03:00",
     "type": "padrao",
     "angle": "Engolfo de alta: uma vela de alta que 'engole' totalmente a vela de baixa anterior; estudado como possível sinal de reversão para cima.",
@@ -935,5 +929,12 @@
     "type": "citacao",
     "angle": "a euforia perigosa depois de vários acertos seguidos",
     "headline": "Sequência de acertos não te tornou melhor, só te deixou mais confiante do que deveria"
+  },
+  {
+    "date": "2026-08-22T11:51-03:00",
+    "type": "conceito",
+    "angle": "Setup de reversão com confirmação: esperar um candle de confirmação antes de operar uma possível virada",
+    "headline": "Reversão sem confirmação é só chute",
+    "subject": "est:setup-reversao-confirmacao"
   }
 ]
