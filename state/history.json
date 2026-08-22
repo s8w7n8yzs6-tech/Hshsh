@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-14T20:51-03:00",
-    "type": "foto",
-    "angle": "resistir ao 'só mais uma operação'",
-    "headline": "O dia já fechou no verde. Por que a mão ainda quer clicar?"
-  },
-  {
     "date": "2026-08-15T07:50-03:00",
     "type": "dica",
     "angle": "a diferença entre suporte e resistência na prática",
@@ -937,5 +931,12 @@
     "type": "numero",
     "angle": "rever operações passadas com honestidade",
     "headline": "a mesma operação, três versões diferentes: a que você fez, a que lembra e a que conta pros outros"
+  },
+  {
+    "date": "2026-08-22T14:44-03:00",
+    "type": "conceito",
+    "angle": "a importância dos diferentes tempos gráficos (timeframes)",
+    "headline": "Timeframes: cada janela conta uma história",
+    "subject": "con:importancia-dos-diferentes-tempos"
   }
 ]
