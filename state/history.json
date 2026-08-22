@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-15T10:39-03:00",
-    "type": "lista",
-    "angle": "desligar as telas para descansar a mente",
-    "headline": "5 sinais de que sua mente pede tela desligada"
-  },
-  {
     "date": "2026-08-15T11:43-03:00",
     "type": "dica",
     "angle": "por que operar a favor da tendência costuma ser mais seguro",
@@ -939,5 +933,12 @@
     "type": "citacao",
     "angle": "a diferença entre ser trader e ser apostador",
     "headline": "Apostador busca emoção. Trader busca repetição."
+  },
+  {
+    "date": "2026-08-22T18:45-03:00",
+    "type": "dica",
+    "angle": "evitar os erros mais comuns do iniciante",
+    "headline": "Os erros que todo iniciante repete sem perceber",
+    "subject": "dic:evitar-erros-mais-comuns"
   }
 ]
