@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-14T19:55-03:00",
-    "type": "conceito",
-    "angle": "o conceito de pullback (respiro) dentro de uma tendência",
-    "headline": "Pullback: a tendência dando um respiro"
-  },
-  {
     "date": "2026-08-14T20:51-03:00",
     "type": "foto",
     "angle": "resistir ao 'só mais uma operação'",
@@ -937,5 +931,11 @@
     "angle": "ATR: o Average True Range, que mede a volatilidade média (útil para dimensionar o stop)",
     "headline": "ATR: a régua da volatilidade",
     "subject": "ind:atr"
+  },
+  {
+    "date": "2026-08-22T13:54-03:00",
+    "type": "numero",
+    "angle": "rever operações passadas com honestidade",
+    "headline": "a mesma operação, três versões diferentes: a que você fez, a que lembra e a que conta pros outros"
   }
 ]
