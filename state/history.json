@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-15T08:41-03:00",
-    "type": "mercado",
-    "angle": "comente a amplitude entre a máxima e a mínima do período",
-    "headline": "Ouro (XAU/USD) sobe +1,73%: amplitude do dia passa de 89 pontos"
-  },
-  {
     "date": "2026-08-15T10:39-03:00",
     "type": "numero",
     "angle": "parar de se comparar com outros traders",
@@ -938,5 +932,11 @@
     "type": "mercado",
     "angle": "comente a amplitude entre a máxima e a mínima do período",
     "headline": "Nasdaq 100 -2,45%: quase 530 pontos entre topo e fundo"
+  },
+  {
+    "date": "2026-08-22T16:53-03:00",
+    "type": "foto",
+    "angle": "a paciência de anos até virar um trader consistente",
+    "headline": "Quantos anos você tá disposto a perder pra ganhar de verdade?"
   }
 ]
