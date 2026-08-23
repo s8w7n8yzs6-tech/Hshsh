@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-15T18:42-03:00",
-    "type": "conceito",
-    "angle": "o conceito de pullback (respiro) dentro de uma tendência",
-    "headline": "Pullback: quando é respiro e quando é fim"
-  },
-  {
-    "date": "2026-08-15T19:51-03:00",
-    "type": "foto",
-    "angle": "bater a meta do dia e ter a disciplina de parar",
-    "headline": "Bateu a meta. E agora, quem manda: você ou a vontade?"
-  },
-  {
     "date": "2026-08-15T19:52-03:00",
     "type": "dica",
     "angle": "por que não mover o stop no meio da operação",
@@ -944,5 +932,18 @@
     "angle": "Paul Tudor Jones: trader macro famoso pela gestão de risco rígida",
     "headline": "O trader que prefere sair cedo a sair quebrado",
     "subject": "his:paul-tudor-jones"
+  },
+  {
+    "date": "2026-08-23T12:48-03:00",
+    "type": "numero",
+    "angle": "não operar por impulso logo após uma notícia",
+    "headline": "O tempo que a notícia leva pra virar impulso e o impulso virar erro"
+  },
+  {
+    "date": "2026-08-23T12:49-03:00",
+    "type": "dica",
+    "angle": "usar mais de um tempo gráfico na análise",
+    "headline": "Um gráfico só te mostra metade da história",
+    "subject": "dic:usar-mais-tempo-grafico"
   }
 ]
