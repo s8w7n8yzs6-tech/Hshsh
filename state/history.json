@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-15T19:52-03:00",
-    "type": "dica",
-    "angle": "por que não mover o stop no meio da operação",
-    "headline": "Mover o stop no meio da operação custa caro"
-  },
-  {
     "date": "2026-08-15T20:40-03:00",
     "type": "citacao",
     "angle": "separar a vida pessoal do resultado do dia",
@@ -945,5 +939,11 @@
     "angle": "usar mais de um tempo gráfico na análise",
     "headline": "Um gráfico só te mostra metade da história",
     "subject": "dic:usar-mais-tempo-grafico"
+  },
+  {
+    "date": "2026-08-23T13:56-03:00",
+    "type": "lista",
+    "angle": "bater a meta do dia e ter a disciplina de parar",
+    "headline": "Bateu a meta. E agora, o que você faz?"
   }
 ]
