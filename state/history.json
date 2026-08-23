@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-15T16:01-03:00",
-    "type": "mito_verdade",
-    "angle": "lidar com dias de lateralização e tédio no gráfico",
-    "headline": "Dia lateral testa paciência, não a mira. Ficar fora também é posição"
-  },
-  {
     "date": "2026-08-15T16:02-03:00",
     "type": "mercado",
     "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
@@ -942,5 +936,11 @@
     "type": "foto",
     "angle": "estudar e revisar operações no fim de semana",
     "headline": "Enquanto o mercado dorme, quem quer durar trabalha"
+  },
+  {
+    "date": "2026-08-23T08:44-03:00",
+    "type": "mercado",
+    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
+    "headline": "Ouro dispara +7,21% no dia e bate 4.690,40 na máxima"
   }
 ]
