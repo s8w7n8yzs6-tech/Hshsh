@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-16T10:44-03:00",
-    "type": "foto",
-    "angle": "o peso psicológico de segurar uma posição aberta",
-    "headline": "Posição aberta pesa mais no peito do que na conta"
-  },
-  {
     "date": "2026-08-16T11:53-03:00",
     "type": "padrao",
     "angle": "Rompimento: o preço fica 'preso' abaixo de uma resistência e depois a ultrapassa com força; conceito de rompimento de nível.",
@@ -947,5 +941,12 @@
     "type": "mito_verdade",
     "angle": "manter a rotina de estudo mesmo desmotivado",
     "headline": "Motivação some. Rotina não depende dela pra continuar existindo"
+  },
+  {
+    "date": "2026-08-23T18:44-03:00",
+    "type": "conceito",
+    "angle": "por que ter um plano de trade escrito antes de operar",
+    "headline": "Plano escrito: a diferença antes de clicar",
+    "subject": "con:ter-plano-trade-escrito"
   }
 ]
