@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-15T17:51-03:00",
-    "type": "lista",
-    "angle": "não operar por impulso logo após uma notícia",
-    "headline": "3 sinais de que a notícia tá operando por você"
-  },
-  {
     "date": "2026-08-15T18:42-03:00",
     "type": "conceito",
     "angle": "o conceito de pullback (respiro) dentro de uma tendência",
@@ -943,5 +937,12 @@
     "type": "mito_verdade",
     "angle": "reduzir o tamanho da posição quando está em dúvida",
     "headline": "Reduzir posição na dúvida é gestão de risco, não falta de confiança"
+  },
+  {
+    "date": "2026-08-23T11:55-03:00",
+    "type": "historia",
+    "angle": "Paul Tudor Jones: trader macro famoso pela gestão de risco rígida",
+    "headline": "O trader que prefere sair cedo a sair quebrado",
+    "subject": "his:paul-tudor-jones"
   }
 ]
