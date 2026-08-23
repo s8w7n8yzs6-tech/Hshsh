@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-16T08:42-03:00",
-    "type": "mercado",
-    "angle": "fale sobre a volatilidade recente nos candles de 30 min",
-    "headline": "Ouro (XAU/USD) +1,24%: candles de 30min sacodem o dia"
-  },
-  {
     "date": "2026-08-16T10:43-03:00",
     "type": "lista",
     "angle": "a diferença entre sorte pontual e consistência",
@@ -946,5 +940,11 @@
     "type": "mercado",
     "angle": "fale sobre a volatilidade recente nos candles de 30 min",
     "headline": "Nasdaq 100 -2,45%: candles de 30 min sem descanso hoje"
+  },
+  {
+    "date": "2026-08-23T16:52-03:00",
+    "type": "citacao",
+    "angle": "respeitar o horário de encerrar o dia de operações",
+    "headline": "Fechar a plataforma no horário certo também é uma operação vencedora"
   }
 ]
