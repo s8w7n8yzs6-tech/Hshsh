@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-15T13:54-03:00",
-    "type": "citacao",
-    "angle": "estudar e revisar operações no fim de semana",
-    "headline": "Segunda-feira ganha quem revisou o gráfico no domingo, não quem descansou dele"
-  },
-  {
-    "date": "2026-08-15T14:43-03:00",
-    "type": "conceito",
-    "angle": "o perigo da alavancagem alta para iniciantes",
-    "headline": "Alavancagem alta: o freio que some"
-  },
-  {
     "date": "2026-08-15T16:01-03:00",
     "type": "mito_verdade",
     "angle": "lidar com dias de lateralização e tédio no gráfico",
@@ -941,5 +929,18 @@
     "type": "numero",
     "angle": "a tentação de tentar recuperar rápido um prejuízo (revenge trade)",
     "headline": "A perda que mais dói não é a primeira. É a segunda, tentando apagar a primeira."
+  },
+  {
+    "date": "2026-08-23T07:54-03:00",
+    "type": "conceito",
+    "angle": "OBV: o On Balance Volume, que soma/subtrai volume para ler pressão de compra e venda",
+    "headline": "OBV: o volume contando quem manda",
+    "subject": "ind:obv"
+  },
+  {
+    "date": "2026-08-23T07:54-03:00",
+    "type": "foto",
+    "angle": "estudar e revisar operações no fim de semana",
+    "headline": "Enquanto o mercado dorme, quem quer durar trabalha"
   }
 ]
