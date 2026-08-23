@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-16T11:53-03:00",
-    "type": "padrao",
-    "angle": "Rompimento: o preço fica 'preso' abaixo de uma resistência e depois a ultrapassa com força; conceito de rompimento de nível.",
-    "headline": "Rompimento é quando o preço testa várias vezes uma resistência, comprime ali, e depois passa por ela com força e volume."
-  },
-  {
-    "date": "2026-08-16T12:45-03:00",
-    "type": "citacao",
-    "angle": "não mover o stop no calor da emoção",
-    "headline": "Mexer no stop no meio do susto não é ajuste, é fuga disfarçada"
-  },
-  {
     "date": "2026-08-16T12:45-03:00",
     "type": "conceito",
     "angle": "o perigo da alavancagem alta para iniciantes",
@@ -948,5 +936,18 @@
     "angle": "por que ter um plano de trade escrito antes de operar",
     "headline": "Plano escrito: a diferença antes de clicar",
     "subject": "con:ter-plano-trade-escrito"
+  },
+  {
+    "date": "2026-08-23T19:51-03:00",
+    "type": "numero",
+    "angle": "a ansiedade antes de abrir uma operação",
+    "headline": "O número de operações que existem antes do clique. A ansiedade chega antes do trade nascer."
+  },
+  {
+    "date": "2026-08-23T19:52-03:00",
+    "type": "historia",
+    "angle": "Stanley Druckenmiller: um dos maiores gestores macro, ex-braço direito de Soros",
+    "headline": "O homem que apostou tudo — e mediu o risco antes",
+    "subject": "his:stanley-druckenmiller"
   }
 ]
