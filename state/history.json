@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-16T10:43-03:00",
-    "type": "lista",
-    "angle": "a diferença entre sorte pontual e consistência",
-    "headline": "Sorte aparece uma vez. Consistência aparece no extrato"
-  },
-  {
-    "date": "2026-08-16T10:44-03:00",
-    "type": "dica",
-    "angle": "por que operar a favor da tendência costuma ser mais seguro",
-    "headline": "Contra a maré: por que isso custa mais caro"
-  },
-  {
     "date": "2026-08-16T10:44-03:00",
     "type": "foto",
     "angle": "o peso psicológico de segurar uma posição aberta",
@@ -946,5 +934,18 @@
     "type": "citacao",
     "angle": "respeitar o horário de encerrar o dia de operações",
     "headline": "Fechar a plataforma no horário certo também é uma operação vencedora"
+  },
+  {
+    "date": "2026-08-23T17:52-03:00",
+    "type": "conceito",
+    "angle": "ADX: um indicador que mede a FORÇA da tendência (sem dizer a direção)",
+    "headline": "ADX: a força não escolhe lado",
+    "subject": "ind:adx"
+  },
+  {
+    "date": "2026-08-23T17:52-03:00",
+    "type": "mito_verdade",
+    "angle": "manter a rotina de estudo mesmo desmotivado",
+    "headline": "Motivação some. Rotina não depende dela pra continuar existindo"
   }
 ]
