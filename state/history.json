@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-16T07:51-03:00",
-    "type": "padrao",
-    "angle": "Suporte e resistência: regiões em que o preço costuma parar de subir (resistência) ou de cair (suporte); base para entender onde o mercado 'respeita' níveis.",
-    "headline": "Suporte é a região onde o preço tende a parar de cair e resistência onde tende a parar de subir, revelando zonas de disputa entre compradores e vendedores."
-  },
-  {
-    "date": "2026-08-16T07:52-03:00",
-    "type": "numero",
-    "angle": "comemorar as pequenas evoluções, não só os grandes dias",
-    "headline": "Melhorar 1% na disciplina vale mais que acertar o dia inteiro"
-  },
-  {
     "date": "2026-08-16T08:42-03:00",
     "type": "mercado",
     "angle": "fale sobre a volatilidade recente nos candles de 30 min",
@@ -946,5 +934,17 @@
     "angle": "Teste de suporte (segundo toque): por que o segundo toque em um suporte costuma ser mais observado que o primeiro",
     "headline": "Segundo toque no suporte: por quê importa",
     "subject": "est:teste-suporte-segundo-toque"
+  },
+  {
+    "date": "2026-08-23T16:02-03:00",
+    "type": "foto",
+    "angle": "separar a vida pessoal do resultado do dia",
+    "headline": "Você chega em casa sendo o resultado do dia ou sendo você?"
+  },
+  {
+    "date": "2026-08-23T16:02-03:00",
+    "type": "mercado",
+    "angle": "fale sobre a volatilidade recente nos candles de 30 min",
+    "headline": "Nasdaq 100 -2,45%: candles de 30 min sem descanso hoje"
   }
 ]
