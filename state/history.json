@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-17T10:58-03:00",
-    "type": "citacao",
-    "angle": "confiar no próprio plano em vez de improvisar",
-    "headline": "Improvisar no meio do trade é trocar mapa por instinto no meio da tempestade"
-  },
-  {
     "date": "2026-08-17T14:00-03:00",
     "type": "conceito",
     "angle": "o perigo da alavancagem alta para iniciantes",
@@ -955,5 +949,12 @@
     "type": "numero",
     "angle": "a gratidão por evoluir aos poucos, um dia de cada vez",
     "headline": "Foi só isso que evoluiu hoje. E hoje foi suficiente."
+  },
+  {
+    "date": "2026-08-24T18:58-03:00",
+    "type": "conceito",
+    "angle": "Média móvel como suporte dinâmico: como uma média pode funcionar de 'piso' móvel dentro de uma tendência de alta",
+    "headline": "A média que vira piso móvel",
+    "subject": "est:media-movel-como-suporte"
   }
 ]
