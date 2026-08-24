@@ -1,18 +1,6 @@
 [
   {
     "date": "2026-08-17T10:58-03:00",
-    "type": "foto",
-    "angle": "desligar as telas para descansar a mente",
-    "headline": "Você desliga a tela ou a tela continua ligada dentro de você?"
-  },
-  {
-    "date": "2026-08-17T10:58-03:00",
-    "type": "padrao",
-    "angle": "Rompimento: o preço fica 'preso' abaixo de uma resistência e depois a ultrapassa com força; conceito de rompimento de nível.",
-    "headline": "Rompimento é quando o preço fica represado abaixo de uma resistência e, em algum momento, atravessa esse teto com mais força do que nos testes anteriores."
-  },
-  {
-    "date": "2026-08-17T10:58-03:00",
     "type": "citacao",
     "angle": "confiar no próprio plano em vez de improvisar",
     "headline": "Improvisar no meio do trade é trocar mapa por instinto no meio da tempestade"
@@ -954,5 +942,18 @@
     "type": "mito_verdade",
     "angle": "a diferença entre ser trader e ser apostador",
     "headline": "Apostador busca emoção. Trader busca repetição de um processo que ele controla"
+  },
+  {
+    "date": "2026-08-24T17:59-03:00",
+    "type": "dica",
+    "angle": "preparar o pré-mercado antes de operar",
+    "headline": "Antes do clique: sua checagem de pré-mercado",
+    "subject": "dic:preparar-pre-mercado-antes"
+  },
+  {
+    "date": "2026-08-24T17:59-03:00",
+    "type": "numero",
+    "angle": "a gratidão por evoluir aos poucos, um dia de cada vez",
+    "headline": "Foi só isso que evoluiu hoje. E hoje foi suficiente."
   }
 ]
