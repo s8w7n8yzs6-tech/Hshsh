@@ -1,18 +1,6 @@
 [
   {
     "date": "2026-08-17T14:00-03:00",
-    "type": "conceito",
-    "angle": "o perigo da alavancagem alta para iniciantes",
-    "headline": "Alavancagem alta: a conta que iniciante não faz"
-  },
-  {
-    "date": "2026-08-17T14:00-03:00",
-    "type": "mito_verdade",
-    "angle": "estudar e revisar operações no fim de semana",
-    "headline": "Fim de semana é o único momento em que dá pra revisar sem a pressão do próprio dinheiro em jogo"
-  },
-  {
-    "date": "2026-08-17T14:00-03:00",
     "type": "dica",
     "angle": "por que ter um plano de trade escrito antes de operar",
     "headline": "Papel escrito não deixa a mente reescrever a história"
@@ -956,5 +944,18 @@
     "angle": "Média móvel como suporte dinâmico: como uma média pode funcionar de 'piso' móvel dentro de uma tendência de alta",
     "headline": "A média que vira piso móvel",
     "subject": "est:media-movel-como-suporte"
+  },
+  {
+    "date": "2026-08-24T19:58-03:00",
+    "type": "lista",
+    "angle": "a tentação de tentar recuperar rápido um prejuízo (revenge trade)",
+    "headline": "5 sinais de que o prejuízo virou seu chefe"
+  },
+  {
+    "date": "2026-08-24T19:59-03:00",
+    "type": "conceito",
+    "angle": "Ichimoku (visão geral): um sistema japonês que mostra tendência, suporte e resistência de uma vez",
+    "headline": "Ichimoku: cinco linhas, uma leitura só",
+    "subject": "ind:ichimoku-visao-geral"
   }
 ]
