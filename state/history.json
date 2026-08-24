@@ -1,29 +1,5 @@
 [
   {
-    "date": "2026-08-16T15:00-03:00",
-    "type": "numero",
-    "angle": "a euforia perigosa depois de vários acertos seguidos",
-    "headline": "Quatro trades certos seguidos e a cabeça já quer dobrar a aposta no quinto"
-  },
-  {
-    "date": "2026-08-16T16:01-03:00",
-    "type": "mercado",
-    "angle": "comente a amplitude entre a máxima e a mínima do período",
-    "headline": "Nasdaq 100 +1,09%: mais de 700 pontos entre topo e fundo"
-  },
-  {
-    "date": "2026-08-16T16:50-03:00",
-    "type": "lista",
-    "angle": "a importância de dormir bem para operar melhor",
-    "headline": "Sono ruim, gráfico mentiroso: 4 sinais claros"
-  },
-  {
-    "date": "2026-08-16T17:50-03:00",
-    "type": "conceito",
-    "angle": "o conceito de pullback (respiro) dentro de uma tendência",
-    "headline": "Pullback: a respiração da tendência"
-  },
-  {
     "date": "2026-08-16T17:51-03:00",
     "type": "foto",
     "angle": "rever operações passadas com honestidade",
@@ -950,5 +926,30 @@
     "type": "citacao",
     "angle": "acertar a análise mas errar na execução",
     "headline": "A análise certa não salva quem clica errado"
+  },
+  {
+    "date": "2026-08-24T11:05-03:00",
+    "type": "mercado",
+    "angle": "comente a amplitude entre a máxima e a mínima do período",
+    "headline": "Ouro sobe +5,18% com amplitude de mais de 100 pontos no dia"
+  },
+  {
+    "date": "2026-08-24T11:05-03:00",
+    "type": "mito_verdade",
+    "angle": "a euforia perigosa depois de vários acertos seguidos",
+    "headline": "Sequência de acertos não muda a probabilidade da próxima operação, muda sua cabeça"
+  },
+  {
+    "date": "2026-08-24T11:05-03:00",
+    "type": "conceito",
+    "angle": "Rompimento de linha de tendência: o que significa o preço romper uma LTA ou LTB traçada no gráfico",
+    "headline": "Rompimento de LTA e LTB: o que isso indica",
+    "subject": "est:rompimento-linha-tendencia"
+  },
+  {
+    "date": "2026-08-24T11:05-03:00",
+    "type": "numero",
+    "angle": "a importância de dormir bem para operar melhor",
+    "headline": "Menos que isso e sua leitura de mercado já está distorcida antes de você ligar o computador"
   }
 ]
