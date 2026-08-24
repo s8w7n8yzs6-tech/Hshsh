@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-17T14:00-03:00",
-    "type": "dica",
-    "angle": "por que ter um plano de trade escrito antes de operar",
-    "headline": "Papel escrito não deixa a mente reescrever a história"
-  },
-  {
     "date": "2026-08-17T14:01-03:00",
     "type": "numero",
     "angle": "lidar com dias de lateralização e tédio no gráfico",
@@ -957,5 +951,11 @@
     "angle": "Ichimoku (visão geral): um sistema japonês que mostra tendência, suporte e resistência de uma vez",
     "headline": "Ichimoku: cinco linhas, uma leitura só",
     "subject": "ind:ichimoku-visao-geral"
+  },
+  {
+    "date": "2026-08-24T20:49-03:00",
+    "type": "foto",
+    "angle": "a paciência de esperar o setup certo aparecer",
+    "headline": "Ficar parado olhando o gráfico também é operar"
   }
 ]
