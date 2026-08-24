@@ -1,23 +1,5 @@
 [
   {
-    "date": "2026-08-16T17:51-03:00",
-    "type": "foto",
-    "angle": "rever operações passadas com honestidade",
-    "headline": "Você revê seus trades ou só reconta as vitórias?"
-  },
-  {
-    "date": "2026-08-16T18:40-03:00",
-    "type": "dica",
-    "angle": "por que não mover o stop no meio da operação",
-    "headline": "Stop no lugar errado nasce antes do trade"
-  },
-  {
-    "date": "2026-08-16T19:50-03:00",
-    "type": "citacao",
-    "angle": "resistir ao 'só mais uma operação'",
-    "headline": "O mercado fecha quando você decide. Não quando você acerta."
-  },
-  {
     "date": "2026-08-16T19:50-03:00",
     "type": "padrao",
     "angle": "Topo duplo: dois topos na mesma região seguidos de queda abaixo da 'linha de pescoço'; estudado como possível sinal de reversão de alta para baixa.",
@@ -951,5 +933,25 @@
     "type": "numero",
     "angle": "a importância de dormir bem para operar melhor",
     "headline": "Menos que isso e sua leitura de mercado já está distorcida antes de você ligar o computador"
+  },
+  {
+    "date": "2026-08-24T13:06-03:00",
+    "type": "conceito",
+    "angle": "Suporte e resistência por volume: identificar níveis onde passou muito volume negociado",
+    "headline": "Suporte e resistência por volume",
+    "subject": "ind:suporte-resistencia-volume"
+  },
+  {
+    "date": "2026-08-24T13:06-03:00",
+    "type": "lista",
+    "angle": "rever operações passadas com honestidade",
+    "headline": "4 perguntas pra revisar seus trades sem se enganar"
+  },
+  {
+    "date": "2026-08-24T13:07-03:00",
+    "type": "conceito",
+    "angle": "como o espalhamento (spread) e custos afetam o resultado",
+    "headline": "Spread e custos: o imposto invisível do trade",
+    "subject": "con:como-espalhamento-spread-custos"
   }
 ]
