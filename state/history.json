@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-17T14:01-03:00",
-    "type": "numero",
-    "angle": "lidar com dias de lateralização e tédio no gráfico",
-    "headline": "É a variação que mais testa sua paciência, não sua análise"
-  },
-  {
-    "date": "2026-08-17T15:02-03:00",
-    "type": "padrao",
-    "angle": "Engolfo de alta: uma vela de alta que 'engole' totalmente a vela de baixa anterior; estudado como possível sinal de reversão para cima.",
-    "headline": "Engolfo de alta é quando uma vela de alta cobre por completo o corpo da vela de baixa anterior. É estudado como possível sinal de reversão para cima."
-  },
-  {
     "date": "2026-08-17T15:02-03:00",
     "type": "lista",
     "angle": "reduzir o tamanho da posição quando está em dúvida",
@@ -957,5 +945,18 @@
     "type": "foto",
     "angle": "a paciência de esperar o setup certo aparecer",
     "headline": "Ficar parado olhando o gráfico também é operar"
+  },
+  {
+    "date": "2026-08-25T08:04-03:00",
+    "type": "conceito",
+    "angle": "o conceito de pullback (respiro) dentro de uma tendência",
+    "headline": "Pullback: o respiro dentro da tendência",
+    "subject": "con:conceito-pullback-respiro-dentro"
+  },
+  {
+    "date": "2026-08-25T08:04-03:00",
+    "type": "mito_verdade",
+    "angle": "lidar com dias de lateralização e tédio no gráfico",
+    "headline": "Dia parado é dia de treinar paciência, não é convite pra inventar operação"
   }
 ]
