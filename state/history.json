@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-18T11:06-03:00",
-    "type": "mito_verdade",
-    "angle": "não mover o stop no calor da emoção",
-    "headline": "Stop movido no calor do momento não é ajuste técnico, é medo disfarçado de estratégia"
-  },
-  {
     "date": "2026-08-18T12:53-03:00",
     "type": "dica",
     "angle": "montar um plano de trade antes de operar",
@@ -959,5 +953,12 @@
     "type": "lista",
     "angle": "a ansiedade antes de abrir uma operação",
     "headline": "4 sinais de que a ansiedade chegou antes do sinal"
+  },
+  {
+    "date": "2026-08-25T18:58-03:00",
+    "type": "conceito",
+    "angle": "gerenciamento de risco: arriscar só uma pequena parte da banca por operação",
+    "headline": "Por que arriscar pouco em cada operação",
+    "subject": "con:gerenciamento-risco-arriscar-so"
   }
 ]
