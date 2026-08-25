@@ -1,17 +1,5 @@
 [
   {
-    "date": "2026-08-18T08:00-03:00",
-    "type": "foto",
-    "angle": "a diferença entre sorte pontual e consistência",
-    "headline": "Um trade certo não prova nada. Cem, sim."
-  },
-  {
-    "date": "2026-08-18T08:57-03:00",
-    "type": "mercado",
-    "angle": "fale sobre a volatilidade recente nos candles de 30 min",
-    "headline": "Ouro (XAU/USD) +1,95%: candles de 30 min mostram oscilação forte"
-  },
-  {
     "date": "2026-08-18T11:05-03:00",
     "type": "citacao",
     "angle": "o peso psicológico de segurar uma posição aberta",
@@ -959,5 +947,17 @@
     "type": "mito_verdade",
     "angle": "respeitar o horário de encerrar o dia de operações",
     "headline": "O horário de encerrar é regra, não sugestão. Ele existe pra proteger quem opera."
+  },
+  {
+    "date": "2026-08-25T16:45-03:00",
+    "type": "mercado",
+    "angle": "comente a amplitude entre a máxima e a mínima do período",
+    "headline": "Nasdaq 100 cai 1,10% com mais de 500 pontos de amplitude"
+  },
+  {
+    "date": "2026-08-25T16:46-03:00",
+    "type": "numero",
+    "angle": "manter a rotina de estudo mesmo desmotivado",
+    "headline": "É o tempo de motivação que o estudo exige pra continuar sendo feito"
   }
 ]
