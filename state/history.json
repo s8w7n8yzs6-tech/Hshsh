@@ -1,18 +1,5 @@
 [
   {
-    "date": "2026-08-18T11:05-03:00",
-    "type": "citacao",
-    "angle": "o peso psicológico de segurar uma posição aberta",
-    "headline": "Posição aberta é peso que fica na sua cabeça, não só no seu gráfico"
-  },
-  {
-    "date": "2026-08-18T11:06-03:00",
-    "type": "conceito",
-    "angle": "gerenciamento de risco: arriscar só uma pequena parte da banca por operação",
-    "headline": "Risco por trade: a fatia pequena que protege tudo",
-    "subject": "con:gerenciamento-risco-arriscar-so"
-  },
-  {
     "date": "2026-08-18T11:06-03:00",
     "type": "mito_verdade",
     "angle": "não mover o stop no calor da emoção",
@@ -959,5 +946,18 @@
     "type": "numero",
     "angle": "manter a rotina de estudo mesmo desmotivado",
     "headline": "É o tempo de motivação que o estudo exige pra continuar sendo feito"
+  },
+  {
+    "date": "2026-08-25T18:00-03:00",
+    "type": "conceito",
+    "angle": "Médias móveis: a média do preço em X períodos, usada para suavizar o gráfico e ler a tendência",
+    "headline": "Média móvel: o gráfico sem ruído",
+    "subject": "ind:medias-moveis"
+  },
+  {
+    "date": "2026-08-25T18:00-03:00",
+    "type": "lista",
+    "angle": "a ansiedade antes de abrir uma operação",
+    "headline": "4 sinais de que a ansiedade chegou antes do sinal"
   }
 ]
