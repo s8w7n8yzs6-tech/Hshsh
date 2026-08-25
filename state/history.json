@@ -1,29 +1,5 @@
 [
   {
-    "date": "2026-08-17T15:02-03:00",
-    "type": "lista",
-    "angle": "reduzir o tamanho da posição quando está em dúvida",
-    "headline": "Duvidou? Diminui. Não some, nem dobra"
-  },
-  {
-    "date": "2026-08-17T16:45-03:00",
-    "type": "mercado",
-    "angle": "comente a amplitude entre a máxima e a mínima do período",
-    "headline": "Nasdaq 100 +1,31%: quase 480 pontos separam topo e fundo"
-  },
-  {
-    "date": "2026-08-17T16:46-03:00",
-    "type": "foto",
-    "angle": "não operar por impulso logo após uma notícia",
-    "headline": "Notícia quente, dedo coçando: essa é a hora que mais te derruba"
-  },
-  {
-    "date": "2026-08-17T17:59-03:00",
-    "type": "dica",
-    "angle": "por que não mover o stop no meio da operação",
-    "headline": "Mexer no stop no meio do trade tem preço"
-  },
-  {
     "date": "2026-08-17T17:59-03:00",
     "type": "citacao",
     "angle": "bater a meta do dia e ter a disciplina de parar",
@@ -958,5 +934,30 @@
     "type": "mito_verdade",
     "angle": "lidar com dias de lateralização e tédio no gráfico",
     "headline": "Dia parado é dia de treinar paciência, não é convite pra inventar operação"
+  },
+  {
+    "date": "2026-08-25T11:09-03:00",
+    "type": "mercado",
+    "angle": "fale sobre a volatilidade recente nos candles de 30 min",
+    "headline": "Ouro (XAU/USD) sobe +3,40% com candles de 30 min agitados"
+  },
+  {
+    "date": "2026-08-25T11:10-03:00",
+    "type": "numero",
+    "angle": "reduzir o tamanho da posição quando está em dúvida",
+    "headline": "Na dúvida, o tamanho da posição também pode ser reduzido pela metade"
+  },
+  {
+    "date": "2026-08-25T11:11-03:00",
+    "type": "historia",
+    "angle": "Jim Simons: matemático que fundou a Renaissance e o trading quantitativo moderno",
+    "headline": "O matemático que tratou o mercado como um enigma a decifrar",
+    "subject": "his:jim-simons"
+  },
+  {
+    "date": "2026-08-25T11:11-03:00",
+    "type": "lista",
+    "angle": "não operar por impulso logo após uma notícia",
+    "headline": "Notícia saiu, dedo coçou: 4 sinais do gatilho fácil"
   }
 ]
