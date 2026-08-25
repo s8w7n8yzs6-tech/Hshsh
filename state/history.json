@@ -1,25 +1,5 @@
 [
   {
-    "date": "2026-08-17T19:54-03:00",
-    "type": "padrao",
-    "angle": "Martelo: candle de corpo pequeno no topo e pavio inferior longo, que aparece após uma queda; é estudado como possível sinal de enfraquecimento da baixa.",
-    "headline": "O martelo é um candle com corpo pequeno no topo e um pavio inferior longo, que surge depois de uma queda. É estudado como possível indício de que os vendedores estão perdendo força.",
-    "subject": "pat:martelo"
-  },
-  {
-    "date": "2026-08-17T20:49-03:00",
-    "type": "numero",
-    "angle": "respeitar o horário de encerrar o dia de operações",
-    "headline": "Passou disso, a tela já ganhou de você"
-  },
-  {
-    "date": "2026-08-18T08:00-03:00",
-    "type": "conceito",
-    "angle": "Médias móveis: a média do preço em X períodos, usada para suavizar o gráfico e ler a tendência",
-    "headline": "Média móvel: a curva que filtra o ruído",
-    "subject": "ind:medias-moveis"
-  },
-  {
     "date": "2026-08-18T08:00-03:00",
     "type": "foto",
     "angle": "a diferença entre sorte pontual e consistência",
@@ -960,5 +940,24 @@
     "angle": "Pullback na média móvel: em uma tendência, esperar o preço recuar até uma média móvel antes de continuar o movimento",
     "headline": "Pullback na média móvel: como funciona",
     "subject": "est:pullback-media-movel"
+  },
+  {
+    "date": "2026-08-25T14:50-03:00",
+    "type": "citacao",
+    "angle": "separar a vida pessoal do resultado do dia",
+    "headline": "Seu jantar não sabe se o dia fechou verde ou vermelho. E não devia saber."
+  },
+  {
+    "date": "2026-08-25T14:51-03:00",
+    "type": "conceito",
+    "angle": "Divergência entre preço e indicador: quando o preço faz novo topo mas o indicador não acompanha (sinal de enfraquecimento)",
+    "headline": "Divergência: quando o preço mente sozinho",
+    "subject": "est:divergencia-entre-preco-indicador"
+  },
+  {
+    "date": "2026-08-25T14:51-03:00",
+    "type": "mito_verdade",
+    "angle": "respeitar o horário de encerrar o dia de operações",
+    "headline": "O horário de encerrar é regra, não sugestão. Ele existe pra proteger quem opera."
   }
 ]
