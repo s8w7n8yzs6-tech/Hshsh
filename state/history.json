@@ -1,31 +1,5 @@
 [
   {
-    "date": "2026-08-18T17:54-03:00",
-    "type": "mito_verdade",
-    "angle": "resistir ao 'só mais uma operação'",
-    "headline": "O dinheiro que você não perde também é dinheiro que você guarda"
-  },
-  {
-    "date": "2026-08-18T18:50-03:00",
-    "type": "conceito",
-    "angle": "a relação risco/retorno (por que buscar ganho maior que a perda arriscada)",
-    "headline": "Risco x retorno: por que a conta fecha",
-    "subject": "con:relacao-risco-retorno-buscar"
-  },
-  {
-    "date": "2026-08-18T19:55-03:00",
-    "type": "numero",
-    "angle": "a paciência de anos até virar um trader consistente",
-    "headline": "anos é o tempo que muita gente leva até parar de tratar o mercado como aposta"
-  },
-  {
-    "date": "2026-08-18T19:55-03:00",
-    "type": "dica",
-    "angle": "dimensionar o tamanho da posição pelo risco",
-    "headline": "Tamanho da posição não é achismo",
-    "subject": "dic:dimensionar-tamanho-posicao-pelo"
-  },
-  {
     "date": "2026-08-18T20:49-03:00",
     "type": "lista",
     "angle": "a diferença entre ser trader e ser apostador",
@@ -959,5 +933,31 @@
     "type": "foto",
     "angle": "rever operações passadas com honestidade",
     "headline": "Você relê seus trades ou só olha o saldo final?"
+  },
+  {
+    "date": "2026-08-26T13:59-03:00",
+    "type": "conceito",
+    "angle": "IFR (RSI): o Índice de Força Relativa, que mede se um ativo está muito comprado ou muito vendido",
+    "headline": "IFR: o termômetro de força do preço",
+    "subject": "ind:ifr-rsi"
+  },
+  {
+    "date": "2026-08-26T13:59-03:00",
+    "type": "citacao",
+    "angle": "resistir ao 'só mais uma operação'",
+    "headline": "Só mais uma operação já pagou mais almoço de corretora do que de trader"
+  },
+  {
+    "date": "2026-08-26T13:59-03:00",
+    "type": "conceito",
+    "angle": "a relação risco/retorno (por que buscar ganho maior que a perda arriscada)",
+    "headline": "Risco x retorno: a conta que precisa fechar",
+    "subject": "con:relacao-risco-retorno-buscar"
+  },
+  {
+    "date": "2026-08-26T14:00-03:00",
+    "type": "mito_verdade",
+    "angle": "a paciência de anos até virar um trader consistente",
+    "headline": "Consistência vem do tempo que você aguenta repetir o processo mesmo errando dentro dele"
   }
 ]
