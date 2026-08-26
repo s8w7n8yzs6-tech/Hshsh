@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-08-18T15:05-03:00",
-    "type": "foto",
-    "angle": "a importância de dormir bem para operar melhor",
-    "headline": "Sono ruim já é prejuízo antes mesmo de abrir o gráfico"
-  },
-  {
-    "date": "2026-08-18T16:42-03:00",
-    "type": "mercado",
-    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
-    "headline": "Nasdaq 100 quase estável: -0,11% no dia"
-  },
-  {
-    "date": "2026-08-18T16:42-03:00",
-    "type": "citacao",
-    "angle": "rever operações passadas com honestidade",
-    "headline": "Reler seu histórico sem se defender é o exercício mais desconfortável do trading"
-  },
-  {
-    "date": "2026-08-18T17:54-03:00",
-    "type": "conceito",
-    "angle": "IFR (RSI): o Índice de Força Relativa, que mede se um ativo está muito comprado ou muito vendido",
-    "headline": "IFR: o termômetro de força do preço",
-    "subject": "ind:ifr-rsi"
-  },
-  {
     "date": "2026-08-18T17:54-03:00",
     "type": "mito_verdade",
     "angle": "resistir ao 'só mais uma operação'",
@@ -959,5 +934,30 @@
     "type": "numero",
     "angle": "a euforia perigosa depois de vários acertos seguidos",
     "headline": "Depois do quarto acerto seguido, é aí que o risco fica invisível"
+  },
+  {
+    "date": "2026-08-26T11:08-03:00",
+    "type": "mercado",
+    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
+    "headline": "Ouro (XAU/USD) avança +1,29% no dia, ainda longe da máxima"
+  },
+  {
+    "date": "2026-08-26T11:08-03:00",
+    "type": "lista",
+    "angle": "a importância de dormir bem para operar melhor",
+    "headline": "4 sinais de que a noite mal dormida entrou na sua tela"
+  },
+  {
+    "date": "2026-08-26T11:09-03:00",
+    "type": "conceito",
+    "angle": "Rompimento de resistência: quando o preço ultrapassa com força uma região que antes o segurava (breakout)",
+    "headline": "Rompimento de resistência: o que é breakout",
+    "subject": "est:rompimento-resistencia"
+  },
+  {
+    "date": "2026-08-26T11:09-03:00",
+    "type": "foto",
+    "angle": "rever operações passadas com honestidade",
+    "headline": "Você relê seus trades ou só olha o saldo final?"
   }
 ]
