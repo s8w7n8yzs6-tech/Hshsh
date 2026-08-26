@@ -1,18 +1,5 @@
 [
   {
-    "date": "2026-08-18T14:02-03:00",
-    "type": "lista",
-    "angle": "a euforia perigosa depois de vários acertos seguidos",
-    "headline": "A sequência de acertos que engana antes de cobrar a conta"
-  },
-  {
-    "date": "2026-08-18T15:05-03:00",
-    "type": "conceito",
-    "angle": "Rompimento de resistência: quando o preço ultrapassa com força uma região que antes o segurava (breakout)",
-    "headline": "Rompimento de resistência: o breakout",
-    "subject": "est:rompimento-resistencia"
-  },
-  {
     "date": "2026-08-18T15:05-03:00",
     "type": "foto",
     "angle": "a importância de dormir bem para operar melhor",
@@ -959,5 +946,18 @@
     "type": "citacao",
     "angle": "o medo de ficar de fora (FOMO)",
     "headline": "O trem que você perdeu não decide o resto do seu dia"
+  },
+  {
+    "date": "2026-08-26T08:15-03:00",
+    "type": "conceito",
+    "angle": "Média simples x exponencial: a diferença entre a SMA e a EMA e por que a EMA reage mais rápido",
+    "headline": "SMA x EMA: por que uma reage mais rápido",
+    "subject": "ind:media-simples-x-exponencial"
+  },
+  {
+    "date": "2026-08-26T08:16-03:00",
+    "type": "numero",
+    "angle": "a euforia perigosa depois de vários acertos seguidos",
+    "headline": "Depois do quarto acerto seguido, é aí que o risco fica invisível"
   }
 ]
