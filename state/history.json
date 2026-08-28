@@ -1,31 +1,5 @@
 [
   {
-    "date": "2026-08-19T12:52-03:00",
-    "type": "lista",
-    "angle": "lidar com dias de lateralização e tédio no gráfico",
-    "headline": "Dia parado no gráfico: 4 formas de não se sabotar"
-  },
-  {
-    "date": "2026-08-19T12:53-03:00",
-    "type": "conceito",
-    "angle": "o que é o stop loss e por que ele protege a conta",
-    "headline": "Stop loss: o preço de continuar no jogo",
-    "subject": "con:stop-loss-ele-protege"
-  },
-  {
-    "date": "2026-08-19T14:00-03:00",
-    "type": "foto",
-    "angle": "reduzir o tamanho da posição quando está em dúvida",
-    "headline": "Dúvida na entrada? O tamanho da posição já é a resposta"
-  },
-  {
-    "date": "2026-08-19T14:23-03:00",
-    "type": "historia",
-    "angle": "Warren Buffett: o maior nome do investimento em valor, à frente da Berkshire Hathaway; conhecido pela paciência e pelo foco no longo prazo",
-    "headline": "Ele decidiu ser paciente antes de decidir ser rico",
-    "subject": "his:warren-buffett"
-  },
-  {
     "date": "2026-08-19T14:44-03:00",
     "type": "historia",
     "angle": "Charlie Munger: sócio de Warren Buffett na Berkshire; conhecido pelos modelos mentais e pela racionalidade",
@@ -958,5 +932,31 @@
     "type": "citacao",
     "angle": "rever operações passadas com honestidade",
     "headline": "Revisar trade sem se enganar dói mais que perder ele"
+  },
+  {
+    "date": "2026-08-28T19:44-03:00",
+    "type": "historia",
+    "angle": "Michael Burry: investidor que enxergou a crise de 2008 antes da maioria",
+    "headline": "Ele viu o colapso antes de todo mundo rir dele",
+    "subject": "his:michael-burry"
+  },
+  {
+    "date": "2026-08-28T19:45-03:00",
+    "type": "mito_verdade",
+    "angle": "resistir ao 'só mais uma operação'",
+    "headline": "Encerrar no lucro e continuar operando é apostar o que você já tinha conquistado"
+  },
+  {
+    "date": "2026-08-28T19:46-03:00",
+    "type": "historia",
+    "angle": "Nassim Taleb: autor de A Lógica do Cisne Negro; especialista em risco e incerteza",
+    "headline": "O cara que lucrou com o improvável e mudou o jogo",
+    "subject": "his:nassim-taleb"
+  },
+  {
+    "date": "2026-08-28T19:46-03:00",
+    "type": "numero",
+    "angle": "a paciência de anos até virar um trader consistente",
+    "headline": "dias até o gráfico parar de te assustar"
   }
 ]
