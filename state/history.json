@@ -1,31 +1,5 @@
 [
   {
-    "date": "2026-08-19T11:06-03:00",
-    "type": "mito_verdade",
-    "angle": "confiar no próprio plano em vez de improvisar",
-    "headline": "O instinto sob pressão repete padrões antigos, o plano escrito é o que te tira do automático"
-  },
-  {
-    "date": "2026-08-19T11:06-03:00",
-    "type": "conceito",
-    "angle": "Rompimento de range: operar a saída de uma consolidação lateral (o preço 'preso' entre dois níveis)",
-    "headline": "Rompimento de range: saindo da lateralidade",
-    "subject": "est:rompimento-range"
-  },
-  {
-    "date": "2026-08-19T11:07-03:00",
-    "type": "numero",
-    "angle": "estudar e revisar operações no fim de semana",
-    "headline": "O tempo que separa quem repete erro de quem entende o próprio padrão"
-  },
-  {
-    "date": "2026-08-19T12:52-03:00",
-    "type": "conceito",
-    "angle": "MACD: a convergência/divergência de médias, usada para ler força e mudança de tendência",
-    "headline": "MACD: leitura de força e virada de tendência",
-    "subject": "ind:macd"
-  },
-  {
     "date": "2026-08-19T12:52-03:00",
     "type": "lista",
     "angle": "lidar com dias de lateralização e tédio no gráfico",
@@ -959,5 +933,30 @@
     "type": "foto",
     "angle": "não operar por impulso logo após uma notícia",
     "headline": "A notícia saiu. Sua mão já foi pro botão?"
+  },
+  {
+    "date": "2026-08-28T18:57-03:00",
+    "type": "conceito",
+    "angle": "por que não mover o stop no meio da operação",
+    "headline": "Mover o stop no meio da operação",
+    "subject": "con:nao-mover-stop-meio"
+  },
+  {
+    "date": "2026-08-28T18:58-03:00",
+    "type": "foto",
+    "angle": "a importância de dormir bem para operar melhor",
+    "headline": "Sua noite de sono já decidiu seu trade de hoje"
+  },
+  {
+    "date": "2026-08-28T18:58-03:00",
+    "type": "mercado",
+    "angle": "comente, sem prever direção, se o dia teve mais força compradora ou vendedora",
+    "headline": "Ouro (XAU/USD) recua -2,95% no dia, testando a mínima"
+  },
+  {
+    "date": "2026-08-28T18:58-03:00",
+    "type": "citacao",
+    "angle": "rever operações passadas com honestidade",
+    "headline": "Revisar trade sem se enganar dói mais que perder ele"
   }
 ]
