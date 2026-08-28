@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-08-18T20:49-03:00",
-    "type": "lista",
-    "angle": "a diferença entre ser trader e ser apostador",
-    "headline": "5 diferenças entre trader e apostador"
-  },
-  {
-    "date": "2026-08-19T07:59-03:00",
-    "type": "padrao",
-    "angle": "Engolfo de alta: uma vela de alta que 'engole' totalmente a vela de baixa anterior; estudado como possível sinal de reversão para cima.",
-    "headline": "O engolfo de alta acontece quando uma vela de alta cobre totalmente o corpo da vela de baixa anterior. É estudado como possível sinal de reversão após uma queda.",
-    "subject": "pat:engolfo_alta"
-  },
-  {
-    "date": "2026-08-19T07:59-03:00",
-    "type": "citacao",
-    "angle": "desligar as telas para descansar a mente",
-    "headline": "A tela apagada também é parte da estratégia"
-  },
-  {
-    "date": "2026-08-19T08:56-03:00",
-    "type": "mercado",
-    "angle": "fale sobre a volatilidade recente nos candles de 30 min",
-    "headline": "Ouro (XAU/USD) +0,89%: candles de 30 min entre 4.378 e 4.463"
-  },
-  {
     "date": "2026-08-19T11:06-03:00",
     "type": "mito_verdade",
     "angle": "confiar no próprio plano em vez de improvisar",
@@ -959,5 +934,30 @@
     "type": "mito_verdade",
     "angle": "a paciência de anos até virar um trader consistente",
     "headline": "Consistência vem do tempo que você aguenta repetir o processo mesmo errando dentro dele"
+  },
+  {
+    "date": "2026-08-27T22:31-03:00",
+    "type": "dica",
+    "angle": "dimensionar o tamanho da posição pelo risco",
+    "headline": "Tamanho da posição não é sobre coragem, é sobre conta",
+    "subject": "dic:dimensionar-tamanho-posicao-pelo"
+  },
+  {
+    "date": "2026-08-27T22:31-03:00",
+    "type": "lista",
+    "angle": "reduzir o tamanho da posição quando está em dúvida",
+    "headline": "Na dúvida, o lote fica menor. Sempre."
+  },
+  {
+    "date": "2026-08-27T22:32-03:00",
+    "type": "mercado",
+    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
+    "headline": "Ouro (XAU/USD) quase estável, +0,19% no dia"
+  },
+  {
+    "date": "2026-08-27T22:32-03:00",
+    "type": "foto",
+    "angle": "não operar por impulso logo após uma notícia",
+    "headline": "A notícia saiu. Sua mão já foi pro botão?"
   }
 ]
