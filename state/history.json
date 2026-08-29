@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-20T12:52-03:00",
-    "type": "numero",
-    "angle": "não mover o stop no calor da emoção",
-    "headline": "É quantas vezes o stop deveria mudar depois de aberto: zero"
-  },
-  {
     "date": "2026-08-20T12:53-03:00",
     "type": "historia",
     "angle": "Benjamin Graham: o 'pai do value investing', autor de O Investidor Inteligente e mentor de Buffett",
@@ -957,5 +951,12 @@
     "type": "mito_verdade",
     "angle": "bater a meta do dia e ter a disciplina de parar",
     "headline": "Bateu a meta, fechou o terminal. O resto do dia é seu, não do mercado"
+  },
+  {
+    "date": "2026-08-29T10:04-03:00",
+    "type": "conceito",
+    "angle": "o que é o stop loss e por que ele protege a conta",
+    "headline": "Stop loss: o limite que você define antes",
+    "subject": "con:stop-loss-ele-protege"
   }
 ]
