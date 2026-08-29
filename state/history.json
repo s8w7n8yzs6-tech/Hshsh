@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-08-20T20:01-03:00",
-    "type": "dica",
-    "angle": "organizar a rotina de estudo do trader",
-    "headline": "Sua rotina de estudo cabe numa agenda de verdade?",
-    "subject": "dic:organizar-rotina-estudo-trader"
-  },
-  {
     "date": "2026-08-20T20:55-03:00",
     "type": "citacao",
     "angle": "a gratidão por evoluir aos poucos, um dia de cada vez",
@@ -958,5 +951,11 @@
     "angle": "Cruzamento de médias móveis: usar o cruzamento de uma média rápida com uma lenta para ler a mudança de tendência",
     "headline": "Cruzamento de médias móveis",
     "subject": "est:cruzamento-medias-moveis"
+  },
+  {
+    "date": "2026-08-29T20:44-03:00",
+    "type": "foto",
+    "angle": "controlar a ganância depois de um bom lucro",
+    "headline": "O dia que você mais lucrou é o dia mais perigoso pra operar"
   }
 ]
