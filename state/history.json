@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-20T16:19-03:00",
-    "type": "mercado",
-    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
-    "headline": "Nasdaq 100 recua 2,98% e se aproxima da mínima do dia"
-  },
-  {
     "date": "2026-08-20T16:20-03:00",
     "type": "numero",
     "angle": "resistir ao 'só mais uma operação'",
@@ -957,5 +951,11 @@
     "type": "mercado",
     "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
     "headline": "Nasdaq 100 oscila entre mínima e máxima e fecha perto da estabilidade"
+  },
+  {
+    "date": "2026-08-29T16:24-03:00",
+    "type": "mito_verdade",
+    "angle": "respeitar o stop mesmo quando dói",
+    "headline": "Mover o stop na dor é reescrever a regra depois de já saber o resultado"
   }
 ]
