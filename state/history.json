@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-20T14:15-03:00",
-    "type": "citacao",
-    "angle": "a importância de dormir bem para operar melhor",
-    "headline": "O trader cansado não erra a leitura do mercado, erra a leitura de si mesmo"
-  },
-  {
     "date": "2026-08-20T16:18-03:00",
     "type": "conceito",
     "angle": "Estocástico: um oscilador que compara o fechamento com a faixa de preço do período",
@@ -957,5 +951,12 @@
     "type": "foto",
     "angle": "manter a rotina de estudo mesmo desmotivado",
     "headline": "Sem vontade de estudar hoje? O mercado não pergunta isso"
+  },
+  {
+    "date": "2026-08-29T14:24-03:00",
+    "type": "conceito",
+    "angle": "Bandas de Bollinger: bandas que se abrem e fecham conforme a volatilidade do preço",
+    "headline": "Bandas de Bollinger: o preço tem espaço",
+    "subject": "ind:bandas-bollinger"
   }
 ]
