@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-08-20T14:14-03:00",
-    "type": "dica",
-    "angle": "escolher poucos ativos para acompanhar",
-    "headline": "Menos ativos, mais leitura de verdade",
-    "subject": "dic:escolher-poucos-ativos-acompanhar"
-  },
-  {
     "date": "2026-08-20T14:15-03:00",
     "type": "foto",
     "angle": "a euforia perigosa depois de vários acertos seguidos",
@@ -958,5 +951,11 @@
     "angle": "definir e respeitar o stop",
     "headline": "Stop não é detalhe: é o contrato com você mesmo",
     "subject": "dic:definir-respeitar-stop"
+  },
+  {
+    "date": "2026-08-29T12:03-03:00",
+    "type": "lista",
+    "angle": "respeitar o horário de encerrar o dia de operações",
+    "headline": "4 sinais de que já passou da hora de parar"
   }
 ]
