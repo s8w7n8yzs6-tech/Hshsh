@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-20T17:52-03:00",
-    "type": "lista",
-    "angle": "a paciência de anos até virar um trader consistente",
-    "headline": "Anos calados até o mercado te ouvir"
-  },
-  {
     "date": "2026-08-20T18:58-03:00",
     "type": "historia",
     "angle": "Peter Lynch: gestor do fundo Magellan na Fidelity; defensor de investir no que você entende",
@@ -957,5 +951,12 @@
     "type": "numero",
     "angle": "o medo de ficar de fora (FOMO)",
     "headline": "É a chance de você ter perdido algo só por não ter entrado"
+  },
+  {
+    "date": "2026-08-29T18:24-03:00",
+    "type": "dica",
+    "angle": "escolher poucos ativos para acompanhar",
+    "headline": "Menos ativos na tela, mais clareza na cabeça",
+    "subject": "dic:escolher-poucos-ativos-acompanhar"
   }
 ]
