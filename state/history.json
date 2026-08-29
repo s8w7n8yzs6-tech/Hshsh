@@ -1,13 +1,6 @@
 [
   {
     "date": "2026-08-20T12:53-03:00",
-    "type": "historia",
-    "angle": "Benjamin Graham: o 'pai do value investing', autor de O Investidor Inteligente e mentor de Buffett",
-    "headline": "O professor que via preço e enxergava valor",
-    "subject": "his:benjamin-graham"
-  },
-  {
-    "date": "2026-08-20T12:53-03:00",
     "type": "lista",
     "angle": "acertar a análise mas errar na execução",
     "headline": "Análise certa, execução errada: 4 pontos cegos"
@@ -958,5 +951,11 @@
     "angle": "o que é o stop loss e por que ele protege a conta",
     "headline": "Stop loss: o limite que você define antes",
     "subject": "con:stop-loss-ele-protege"
+  },
+  {
+    "date": "2026-08-29T10:44-03:00",
+    "type": "numero",
+    "angle": "separar a vida pessoal do resultado do dia",
+    "headline": "É o número de trades que decidem quem você é fora da tela"
   }
 ]
