@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-08-20T16:19-03:00",
-    "type": "mito_verdade",
-    "angle": "rever operações passadas com honestidade",
-    "headline": "Quem não revisa com honestidade repete o mesmo erro com roupagem nova"
-  },
-  {
-    "date": "2026-08-20T16:19-03:00",
     "type": "mercado",
     "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
     "headline": "Nasdaq 100 recua 2,98% e se aproxima da mínima do dia"
@@ -957,5 +951,11 @@
     "type": "citacao",
     "angle": "a ansiedade antes de abrir uma operação",
     "headline": "A ansiedade antes de entrar já é a resposta que você precisa ouvir"
+  },
+  {
+    "date": "2026-08-29T15:43-03:00",
+    "type": "mercado",
+    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
+    "headline": "Nasdaq 100 oscila entre mínima e máxima e fecha perto da estabilidade"
   }
 ]
