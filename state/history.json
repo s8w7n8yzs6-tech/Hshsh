@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-08-20T14:15-03:00",
-    "type": "foto",
-    "angle": "a euforia perigosa depois de vários acertos seguidos",
-    "headline": "Depois de ganhar cinco vezes seguidas, você ainda pensa ou só repete?"
-  },
-  {
-    "date": "2026-08-20T14:15-03:00",
     "type": "conceito",
     "angle": "Cruzamento de médias móveis: usar o cruzamento de uma média rápida com uma lenta para ler a mudança de tendência",
     "headline": "Cruzamento de médias: rápida x lenta",
@@ -957,5 +951,12 @@
     "type": "lista",
     "angle": "respeitar o horário de encerrar o dia de operações",
     "headline": "4 sinais de que já passou da hora de parar"
+  },
+  {
+    "date": "2026-08-29T12:44-03:00",
+    "type": "conceito",
+    "angle": "Price action em suporte/resistência: ler o comportamento das velas ao chegar em níveis importantes, sem indicadores",
+    "headline": "Price action em suporte e resistência",
+    "subject": "est:price-action-em-suporte"
   }
 ]
