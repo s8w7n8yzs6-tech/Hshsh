@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-08-20T18:58-03:00",
-    "type": "historia",
-    "angle": "Peter Lynch: gestor do fundo Magellan na Fidelity; defensor de investir no que você entende",
-    "headline": "Ele geria bilhões olhando prateleira de supermercado",
-    "subject": "his:peter-lynch"
-  },
-  {
     "date": "2026-08-20T20:00-03:00",
     "type": "foto",
     "angle": "a diferença entre ser trader e ser apostador",
@@ -958,5 +951,11 @@
     "angle": "escolher poucos ativos para acompanhar",
     "headline": "Menos ativos na tela, mais clareza na cabeça",
     "subject": "dic:escolher-poucos-ativos-acompanhar"
+  },
+  {
+    "date": "2026-08-29T19:24-03:00",
+    "type": "lista",
+    "angle": "a solidão de quem opera sozinho em casa",
+    "headline": "5 verdades sobre operar sozinho em casa"
   }
 ]
