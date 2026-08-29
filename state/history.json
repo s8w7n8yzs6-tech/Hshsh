@@ -1,13 +1,6 @@
 [
   {
     "date": "2026-08-20T17:52-03:00",
-    "type": "conceito",
-    "angle": "o papel do volume para confirmar um movimento",
-    "headline": "Volume: o motor por trás do preço",
-    "subject": "con:papel-volume-confirmar-movimento"
-  },
-  {
-    "date": "2026-08-20T17:52-03:00",
     "type": "lista",
     "angle": "a paciência de anos até virar um trader consistente",
     "headline": "Anos calados até o mercado te ouvir"
@@ -958,5 +951,11 @@
     "angle": "a diferença entre suporte e resistência na prática",
     "headline": "Suporte e resistência não são linhas",
     "subject": "con:diferenca-entre-suporte-resistencia"
+  },
+  {
+    "date": "2026-08-29T17:43-03:00",
+    "type": "numero",
+    "angle": "o medo de ficar de fora (FOMO)",
+    "headline": "É a chance de você ter perdido algo só por não ter entrado"
   }
 ]
