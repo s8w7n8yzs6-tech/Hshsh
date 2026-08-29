@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-08-20T16:18-03:00",
-    "type": "conceito",
-    "angle": "Estocástico: um oscilador que compara o fechamento com a faixa de preço do período",
-    "headline": "Estocástico: onde o fechamento aterrissou",
-    "subject": "ind:estocastico"
-  },
-  {
     "date": "2026-08-20T16:19-03:00",
     "type": "mito_verdade",
     "angle": "rever operações passadas com honestidade",
@@ -958,5 +951,11 @@
     "angle": "Bandas de Bollinger: bandas que se abrem e fecham conforme a volatilidade do preço",
     "headline": "Bandas de Bollinger: o preço tem espaço",
     "subject": "ind:bandas-bollinger"
+  },
+  {
+    "date": "2026-08-29T15:24-03:00",
+    "type": "citacao",
+    "angle": "a ansiedade antes de abrir uma operação",
+    "headline": "A ansiedade antes de entrar já é a resposta que você precisa ouvir"
   }
 ]
