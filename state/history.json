@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-08-20T08:02-03:00",
-    "type": "conceito",
-    "angle": "a diferença entre suporte e resistência na prática",
-    "headline": "Suporte e resistência: papéis que trocam",
-    "subject": "con:diferenca-entre-suporte-resistencia"
-  },
-  {
     "date": "2026-08-20T08:03-03:00",
     "type": "mito_verdade",
     "angle": "o peso psicológico de segurar uma posição aberta",
@@ -958,5 +951,11 @@
     "angle": "MACD: a convergência/divergência de médias, usada para ler força e mudança de tendência",
     "headline": "MACD: força e virada de tendência",
     "subject": "ind:macd"
+  },
+  {
+    "date": "2026-08-29T07:44-03:00",
+    "type": "citacao",
+    "angle": "não operar por impulso logo após uma notícia",
+    "headline": "A notícia pede pressa. O plano pede espera. Escolha quem manda em você."
   }
 ]
