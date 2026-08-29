@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-19T20:49-03:00",
-    "type": "foto",
-    "angle": "manter a rotina de estudo mesmo desmotivado",
-    "headline": "Estudar sem vontade é a parte que ninguém mostra"
-  },
-  {
     "date": "2026-08-20T08:02-03:00",
     "type": "conceito",
     "angle": "a diferença entre suporte e resistência na prática",
@@ -957,5 +951,12 @@
     "type": "mito_verdade",
     "angle": "a paciência de esperar o setup certo aparecer",
     "headline": "Quem espera o setup certo passa a maior parte do tempo sem operar, e isso é o trabalho"
+  },
+  {
+    "date": "2026-08-29T07:04-03:00",
+    "type": "conceito",
+    "angle": "MACD: a convergência/divergência de médias, usada para ler força e mudança de tendência",
+    "headline": "MACD: força e virada de tendência",
+    "subject": "ind:macd"
   }
 ]
