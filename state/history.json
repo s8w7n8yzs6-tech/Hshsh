@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-20T16:20-03:00",
-    "type": "numero",
-    "angle": "resistir ao 'só mais uma operação'",
-    "headline": "a operação que você não fez também entra na sua estatística de disciplina"
-  },
-  {
     "date": "2026-08-20T17:52-03:00",
     "type": "conceito",
     "angle": "o papel do volume para confirmar um movimento",
@@ -957,5 +951,12 @@
     "type": "mito_verdade",
     "angle": "respeitar o stop mesmo quando dói",
     "headline": "Mover o stop na dor é reescrever a regra depois de já saber o resultado"
+  },
+  {
+    "date": "2026-08-29T17:04-03:00",
+    "type": "conceito",
+    "angle": "a diferença entre suporte e resistência na prática",
+    "headline": "Suporte e resistência não são linhas",
+    "subject": "con:diferenca-entre-suporte-resistencia"
   }
 ]
