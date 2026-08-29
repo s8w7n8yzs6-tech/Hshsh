@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-20T20:00-03:00",
-    "type": "foto",
-    "angle": "a diferença entre ser trader e ser apostador",
-    "headline": "Apostador quer sentir. Trader quer entender."
-  },
-  {
     "date": "2026-08-20T20:01-03:00",
     "type": "dica",
     "angle": "organizar a rotina de estudo do trader",
@@ -957,5 +951,12 @@
     "type": "lista",
     "angle": "a solidão de quem opera sozinho em casa",
     "headline": "5 verdades sobre operar sozinho em casa"
+  },
+  {
+    "date": "2026-08-29T20:04-03:00",
+    "type": "conceito",
+    "angle": "Cruzamento de médias móveis: usar o cruzamento de uma média rápida com uma lenta para ler a mudança de tendência",
+    "headline": "Cruzamento de médias móveis",
+    "subject": "est:cruzamento-medias-moveis"
   }
 ]
