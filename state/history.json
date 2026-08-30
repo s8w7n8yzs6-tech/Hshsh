@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-08-21T19:55-03:00",
-    "type": "citacao",
-    "angle": "manter a rotina de estudo mesmo desmotivado",
-    "headline": "Motivação some. Quem estuda por hábito continua mesmo assim."
-  },
-  {
-    "date": "2026-08-21T19:55-03:00",
     "type": "conceito",
     "angle": "por que operar a favor da tendência costuma ser mais seguro",
     "headline": "A favor da tendência: menos atrito",
@@ -957,5 +951,12 @@
     "type": "foto",
     "angle": "acordar cedo para acompanhar a abertura do mercado",
     "headline": "O despertador toca antes do mercado abrir. E a sua cabeça?"
+  },
+  {
+    "date": "2026-08-30T20:03-03:00",
+    "type": "conceito",
+    "angle": "Operar a favor da tendência: o conceito de trend following: alinhar as entradas com a direção dominante",
+    "headline": "Trend following: remar com a correnteza",
+    "subject": "est:operar-favor-tendencia"
   }
 ]
