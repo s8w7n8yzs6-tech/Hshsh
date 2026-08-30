@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-08-21T19:55-03:00",
-    "type": "conceito",
-    "angle": "por que operar a favor da tendência costuma ser mais seguro",
-    "headline": "A favor da tendência: menos atrito",
-    "subject": "con:operar-favor-tendencia-costuma"
-  },
-  {
     "date": "2026-08-22T08:44-03:00",
     "type": "historia",
     "angle": "George Soros: megaespeculador que ficou famoso por apostas macroeconômicas históricas",
@@ -958,5 +951,11 @@
     "angle": "Operar a favor da tendência: o conceito de trend following: alinhar as entradas com a direção dominante",
     "headline": "Trend following: remar com a correnteza",
     "subject": "est:operar-favor-tendencia"
+  },
+  {
+    "date": "2026-08-30T20:43-03:00",
+    "type": "citacao",
+    "angle": "a importância de manter um diário de operações",
+    "headline": "Quem não escreve o próprio erro é condenado a repeti-lo em silêncio"
   }
 ]
