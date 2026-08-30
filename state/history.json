@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-21T16:55-03:00",
-    "type": "lista",
-    "angle": "separar a vida pessoal do resultado do dia",
-    "headline": "4 sinais de que o resultado invadiu sua casa"
-  },
-  {
     "date": "2026-08-21T17:54-03:00",
     "type": "conceito",
     "angle": "Operar a favor da tendência: o conceito de trend following: alinhar as entradas com a direção dominante",
@@ -957,5 +951,12 @@
     "type": "numero",
     "angle": "a paciência de esperar o setup certo aparecer",
     "headline": "É a quantidade de setups perfeitos que aparecem por pressa"
+  },
+  {
+    "date": "2026-08-30T17:04-03:00",
+    "type": "conceito",
+    "angle": "o que é tendência de alta, de baixa e lateral",
+    "headline": "Alta, baixa ou lateral: o mapa do preço",
+    "subject": "con:tendencia-alta-baixa-lateral"
   }
 ]
