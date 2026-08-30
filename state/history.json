@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-21T08:02-03:00",
-    "type": "numero",
-    "angle": "confiar no próprio plano em vez de improvisar",
-    "headline": "Improvisos novos que cabem dentro de um plano já validado"
-  },
-  {
     "date": "2026-08-21T09:04-03:00",
     "type": "mercado",
     "angle": "fale sobre a volatilidade recente nos candles de 30 min",
@@ -957,5 +951,11 @@
     "type": "mito_verdade",
     "angle": "rever operações passadas com honestidade",
     "headline": "O trade fechado é o único professor que não cobra mensalidade"
+  },
+  {
+    "date": "2026-08-30T08:43-03:00",
+    "type": "mercado",
+    "angle": "comente, sem prever direção, se o dia teve mais força compradora ou vendedora",
+    "headline": "Ouro (XAU/USD) recua -2,33% após tocar 4.688"
   }
 ]
