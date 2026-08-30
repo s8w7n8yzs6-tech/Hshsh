@@ -1,13 +1,6 @@
 [
   {
     "date": "2026-08-21T17:54-03:00",
-    "type": "conceito",
-    "angle": "Operar a favor da tendência: o conceito de trend following: alinhar as entradas com a direção dominante",
-    "headline": "Trend following: nadar a favor da correnteza",
-    "subject": "est:operar-favor-tendencia"
-  },
-  {
-    "date": "2026-08-21T17:54-03:00",
     "type": "foto",
     "angle": "respeitar o horário de encerrar o dia de operações",
     "headline": "Bateu a hora de parar e você ainda tá aí, por quê?"
@@ -958,5 +951,11 @@
     "angle": "o que é tendência de alta, de baixa e lateral",
     "headline": "Alta, baixa ou lateral: o mapa do preço",
     "subject": "con:tendencia-alta-baixa-lateral"
+  },
+  {
+    "date": "2026-08-30T17:43-03:00",
+    "type": "lista",
+    "angle": "operar demais (overtrading) e o cansaço mental",
+    "headline": "4 sinais de que sua mente já cansou e o mercado não"
   }
 ]
