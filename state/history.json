@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-21T12:58-03:00",
-    "type": "citacao",
-    "angle": "reduzir o tamanho da posição quando está em dúvida",
-    "headline": "Dúvida não pede coragem, pede posição menor"
-  },
-  {
     "date": "2026-08-21T13:00-03:00",
     "type": "historia",
     "angle": "Ray Dalio: fundador da Bridgewater, maior fundo hedge do mundo; conhecido pelos princípios e pela diversificação",
@@ -957,5 +951,12 @@
     "type": "foto",
     "angle": "a diferença entre ser trader e ser apostador",
     "headline": "Você opera com plano ou só espera dar sorte?"
+  },
+  {
+    "date": "2026-08-30T12:43-03:00",
+    "type": "conceito",
+    "angle": "Retração de Fibonacci: usar os níveis de Fibonacci para mapear até onde uma correção pode ir",
+    "headline": "Retração de Fibonacci: até onde a correção vai",
+    "subject": "est:retracao-fibonacci"
   }
 ]
