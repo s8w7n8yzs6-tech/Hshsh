@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-21T17:54-03:00",
-    "type": "foto",
-    "angle": "respeitar o horário de encerrar o dia de operações",
-    "headline": "Bateu a hora de parar e você ainda tá aí, por quê?"
-  },
-  {
     "date": "2026-08-21T18:53-03:00",
     "type": "conceito",
     "angle": "VWAP: o preço médio ponderado pelo volume, referência muito usada no intraday",
@@ -957,5 +951,12 @@
     "type": "lista",
     "angle": "operar demais (overtrading) e o cansaço mental",
     "headline": "4 sinais de que sua mente já cansou e o mercado não"
+  },
+  {
+    "date": "2026-08-30T18:24-03:00",
+    "type": "dica",
+    "angle": "manter um diário de operações",
+    "headline": "Diário de operações: seu espelho sem filtro",
+    "subject": "dic:manter-diario-operacoes"
   }
 ]
