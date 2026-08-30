@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-08-21T11:19-03:00",
-    "type": "lista",
-    "angle": "estudar e revisar operações no fim de semana",
-    "headline": "O que fazer no sábado quando o mercado não abre"
-  },
-  {
-    "date": "2026-08-21T11:19-03:00",
     "type": "conceito",
     "angle": "Volume: quantas negociações aconteceram — usado para confirmar a força de um movimento",
     "headline": "Volume: a testemunha do movimento",
@@ -957,5 +951,12 @@
     "type": "numero",
     "angle": "resistir ao 'só mais uma operação'",
     "headline": "É o número de vezes que a frase 'só mais uma' já mentiu pra você"
+  },
+  {
+    "date": "2026-08-30T10:04-03:00",
+    "type": "conceito",
+    "angle": "o papel do volume para confirmar um movimento",
+    "headline": "Volume: o peso por trás do preço",
+    "subject": "con:papel-volume-confirmar-movimento"
   }
 ]
