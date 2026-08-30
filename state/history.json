@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-08-21T11:19-03:00",
-    "type": "conceito",
-    "angle": "Volume: quantas negociações aconteceram — usado para confirmar a força de um movimento",
-    "headline": "Volume: a testemunha do movimento",
-    "subject": "ind:volume"
-  },
-  {
     "date": "2026-08-21T11:20-03:00",
     "type": "foto",
     "angle": "lidar com dias de lateralização e tédio no gráfico",
@@ -958,5 +951,11 @@
     "angle": "o papel do volume para confirmar um movimento",
     "headline": "Volume: o peso por trás do preço",
     "subject": "con:papel-volume-confirmar-movimento"
+  },
+  {
+    "date": "2026-08-30T10:43-03:00",
+    "type": "lista",
+    "angle": "a paciência de anos até virar um trader consistente",
+    "headline": "5 marcos que só quem persiste enxerga"
   }
 ]
