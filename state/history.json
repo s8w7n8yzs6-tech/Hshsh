@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-08-21T11:20-03:00",
-    "type": "conceito",
-    "angle": "o que é tendência de alta, de baixa e lateral",
-    "headline": "Alta, baixa ou lateral: como ler o gráfico",
-    "subject": "con:tendencia-alta-baixa-lateral"
-  },
-  {
     "date": "2026-08-21T12:58-03:00",
     "type": "citacao",
     "angle": "reduzir o tamanho da posição quando está em dúvida",
@@ -958,5 +951,11 @@
     "angle": "organizar a rotina de estudo do trader",
     "headline": "Sua rotina de estudo precisa de estrutura, não de sorte",
     "subject": "dic:organizar-rotina-estudo-trader"
+  },
+  {
+    "date": "2026-08-30T12:04-03:00",
+    "type": "foto",
+    "angle": "a diferença entre ser trader e ser apostador",
+    "headline": "Você opera com plano ou só espera dar sorte?"
   }
 ]
