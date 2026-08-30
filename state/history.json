@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-08-21T14:15-03:00",
-    "type": "dica",
-    "angle": "manter um diário de operações",
-    "headline": "Diário de trade: o espelho que você evita olhar",
-    "subject": "dic:manter-diario-operacoes"
-  },
-  {
     "date": "2026-08-21T16:08-03:00",
     "type": "numero",
     "angle": "bater a meta do dia e ter a disciplina de parar",
@@ -958,5 +951,11 @@
     "angle": "Volume: quantas negociações aconteceram — usado para confirmar a força de um movimento",
     "headline": "Volume: a quantidade que denuncia a mentira",
     "subject": "ind:volume"
+  },
+  {
+    "date": "2026-08-30T15:04-03:00",
+    "type": "mito_verdade",
+    "angle": "a tentação de tentar recuperar rápido um prejuízo (revenge trade)",
+    "headline": "Prejuízo se aceita primeiro, se recupera depois, com cabeça fria"
   }
 ]
