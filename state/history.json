@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-08-21T13:00-03:00",
-    "type": "historia",
-    "angle": "Ray Dalio: fundador da Bridgewater, maior fundo hedge do mundo; conhecido pelos princípios e pela diversificação",
-    "headline": "Ele quebrou tudo antes de construir o maior fundo do mundo",
-    "subject": "his:ray-dalio"
-  },
-  {
     "date": "2026-08-21T14:15-03:00",
     "type": "mito_verdade",
     "angle": "não operar por impulso logo após uma notícia",
@@ -958,5 +951,11 @@
     "angle": "Retração de Fibonacci: usar os níveis de Fibonacci para mapear até onde uma correção pode ir",
     "headline": "Retração de Fibonacci: até onde a correção vai",
     "subject": "est:retracao-fibonacci"
+  },
+  {
+    "date": "2026-08-30T13:43-03:00",
+    "type": "citacao",
+    "angle": "a gratidão por evoluir aos poucos, um dia de cada vez",
+    "headline": "Gratidão de trader é comemorar o centímetro, não exigir o quilômetro"
   }
 ]
