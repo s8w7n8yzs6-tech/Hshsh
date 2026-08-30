@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-08-21T16:08-03:00",
-    "type": "numero",
-    "angle": "bater a meta do dia e ter a disciplina de parar",
-    "headline": "meta batida, um clique a mais e ela vira desculpa"
-  },
-  {
-    "date": "2026-08-21T16:08-03:00",
     "type": "mercado",
     "angle": "fale sobre a volatilidade recente nos candles de 30 min",
     "headline": "Nasdaq 100 cai 2,41% com candles de 30 min bem espremidos"
@@ -957,5 +951,11 @@
     "type": "mito_verdade",
     "angle": "a tentação de tentar recuperar rápido um prejuízo (revenge trade)",
     "headline": "Prejuízo se aceita primeiro, se recupera depois, com cabeça fria"
+  },
+  {
+    "date": "2026-08-30T15:43-03:00",
+    "type": "mercado",
+    "angle": "comente a amplitude entre a máxima e a mínima do período",
+    "headline": "Nasdaq 100 sobe +0.43%, mas amplitude do dia chama atenção"
   }
 ]
