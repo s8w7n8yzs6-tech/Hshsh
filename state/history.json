@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-21T16:08-03:00",
-    "type": "mercado",
-    "angle": "fale sobre a volatilidade recente nos candles de 30 min",
-    "headline": "Nasdaq 100 cai 2,41% com candles de 30 min bem espremidos"
-  },
-  {
     "date": "2026-08-21T16:55-03:00",
     "type": "lista",
     "angle": "separar a vida pessoal do resultado do dia",
@@ -957,5 +951,11 @@
     "type": "mercado",
     "angle": "comente a amplitude entre a máxima e a mínima do período",
     "headline": "Nasdaq 100 sobe +0.43%, mas amplitude do dia chama atenção"
+  },
+  {
+    "date": "2026-08-30T16:24-03:00",
+    "type": "numero",
+    "angle": "a paciência de esperar o setup certo aparecer",
+    "headline": "É a quantidade de setups perfeitos que aparecem por pressa"
   }
 ]
