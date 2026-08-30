@@ -1,13 +1,6 @@
 [
   {
     "date": "2026-08-21T08:02-03:00",
-    "type": "conceito",
-    "angle": "Retração de Fibonacci: usar os níveis de Fibonacci para mapear até onde uma correção pode ir",
-    "headline": "Fibonacci: mapeando a correção",
-    "subject": "est:retracao-fibonacci"
-  },
-  {
-    "date": "2026-08-21T08:02-03:00",
     "type": "numero",
     "angle": "confiar no próprio plano em vez de improvisar",
     "headline": "Improvisos novos que cabem dentro de um plano já validado"
@@ -958,5 +951,11 @@
     "angle": "Estocástico: um oscilador que compara o fechamento com a faixa de preço do período",
     "headline": "Estocástico: onde o fechamento pousa",
     "subject": "ind:estocastico"
+  },
+  {
+    "date": "2026-08-30T07:44-03:00",
+    "type": "mito_verdade",
+    "angle": "rever operações passadas com honestidade",
+    "headline": "O trade fechado é o único professor que não cobra mensalidade"
   }
 ]
