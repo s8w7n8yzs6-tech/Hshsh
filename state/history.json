@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-20T20:55-03:00",
-    "type": "citacao",
-    "angle": "a gratidão por evoluir aos poucos, um dia de cada vez",
-    "headline": "Não agradeço pelo trade de hoje. Agradeço por ser um trader diferente do de ontem."
-  },
-  {
     "date": "2026-08-21T08:02-03:00",
     "type": "conceito",
     "angle": "Retração de Fibonacci: usar os níveis de Fibonacci para mapear até onde uma correção pode ir",
@@ -957,5 +951,12 @@
     "type": "foto",
     "angle": "controlar a ganância depois de um bom lucro",
     "headline": "O dia que você mais lucrou é o dia mais perigoso pra operar"
+  },
+  {
+    "date": "2026-08-30T07:04-03:00",
+    "type": "conceito",
+    "angle": "Estocástico: um oscilador que compara o fechamento com a faixa de preço do período",
+    "headline": "Estocástico: onde o fechamento pousa",
+    "subject": "ind:estocastico"
   }
 ]
