@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-22T19:51-03:00",
-    "type": "mito_verdade",
-    "angle": "a gratidão por evoluir aos poucos, um dia de cada vez",
-    "headline": "Comemorar o progresso de hoje é o que sustenta o progresso de amanhã"
-  },
-  {
     "date": "2026-08-22T19:52-03:00",
     "type": "conceito",
     "angle": "Inside bar: uma barra 'dentro' da anterior indicando pausa e possível continuação do movimento",
@@ -957,5 +951,11 @@
     "angle": "criar uma checklist antes de cada entrada",
     "headline": "Checklist antes de entrar: seu filtro contra o impulso",
     "subject": "dic:criar-checklist-antes-cada"
+  },
+  {
+    "date": "2026-08-31T19:24-03:00",
+    "type": "citacao",
+    "angle": "controlar a ganância depois de um bom lucro",
+    "headline": "O lucro de hoje já está tentando roubar o seu limite de amanhã"
   }
 ]
