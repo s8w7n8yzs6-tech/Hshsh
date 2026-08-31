@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-22T20:42-03:00",
-    "type": "numero",
-    "angle": "a tentação de tentar recuperar rápido um prejuízo (revenge trade)",
-    "headline": "A perda que mais dói não é a primeira. É a segunda, tentando apagar a primeira."
-  },
-  {
     "date": "2026-08-23T07:54-03:00",
     "type": "conceito",
     "angle": "OBV: o On Balance Volume, que soma/subtrai volume para ler pressão de compra e venda",
@@ -957,5 +951,11 @@
     "angle": "evitar os erros mais comuns do iniciante",
     "headline": "Os tropeços que todo iniciante insiste em repetir",
     "subject": "dic:evitar-erros-mais-comuns"
+  },
+  {
+    "date": "2026-08-31T20:44-03:00",
+    "type": "mito_verdade",
+    "angle": "aceitar que ter perdas faz parte do jogo",
+    "headline": "Trader bom é aquele que perde pequeno e sobrevive pra próxima"
   }
 ]
