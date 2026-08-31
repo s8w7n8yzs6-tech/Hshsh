@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-08-22T14:44-03:00",
-    "type": "conceito",
-    "angle": "a importância dos diferentes tempos gráficos (timeframes)",
-    "headline": "Timeframes: cada janela conta uma história",
-    "subject": "con:importancia-dos-diferentes-tempos"
-  },
-  {
     "date": "2026-08-22T16:02-03:00",
     "type": "lista",
     "angle": "resistir ao 'só mais uma operação'",
@@ -957,5 +950,12 @@
     "type": "mito_verdade",
     "angle": "a ansiedade antes de abrir uma operação",
     "headline": "Ansiedade antes de entrar é sinal de que o corpo já apostou antes da cabeça decidir"
+  },
+  {
+    "date": "2026-08-31T14:24-03:00",
+    "type": "conceito",
+    "angle": "ATR: o Average True Range, que mede a volatilidade média (útil para dimensionar o stop)",
+    "headline": "ATR: a régua da volatilidade",
+    "subject": "ind:atr"
   }
 ]
