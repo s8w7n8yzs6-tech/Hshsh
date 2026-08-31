@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-08-22T12:45-03:00",
-    "type": "conceito",
-    "angle": "ATR: o Average True Range, que mede a volatilidade média (útil para dimensionar o stop)",
-    "headline": "ATR: a régua da volatilidade",
-    "subject": "ind:atr"
-  },
-  {
     "date": "2026-08-22T13:54-03:00",
     "type": "numero",
     "angle": "rever operações passadas com honestidade",
@@ -957,5 +950,12 @@
     "type": "citacao",
     "angle": "manter a rotina de estudo mesmo desmotivado",
     "headline": "Estudar sem vontade é o que separa quem constrói de quem só torce."
+  },
+  {
+    "date": "2026-08-31T12:44-03:00",
+    "type": "conceito",
+    "angle": "Setup de reversão com confirmação: esperar um candle de confirmação antes de operar uma possível virada",
+    "headline": "Reversão só depois da confirmação",
+    "subject": "est:setup-reversao-confirmacao"
   }
 ]
