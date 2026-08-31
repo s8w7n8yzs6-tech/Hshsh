@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-22T10:43-03:00",
-    "type": "foto",
-    "angle": "acertar a análise mas errar na execução",
-    "headline": "A análise tava certa. A mão é que atraiçoou."
-  },
-  {
     "date": "2026-08-22T10:44-03:00",
     "type": "dica",
     "angle": "revisar as operações no fim de semana",
@@ -957,5 +951,11 @@
     "type": "mercado",
     "angle": "comente, sem prever direção, se o dia teve mais força compradora ou vendedora",
     "headline": "Ouro (XAU/USD) cede -1,89% no dia, ainda distante da mínima"
+  },
+  {
+    "date": "2026-08-31T09:24-03:00",
+    "type": "lista",
+    "angle": "separar a vida pessoal do resultado do dia",
+    "headline": "4 provas de que o dia no mercado não é você"
   }
 ]
