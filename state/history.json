@@ -1,13 +1,6 @@
 [
   {
     "date": "2026-08-22T10:44-03:00",
-    "type": "dica",
-    "angle": "revisar as operações no fim de semana",
-    "headline": "Revisão de fim de semana: o raio-x que falta",
-    "subject": "dic:revisar-operacoes-fim-semana"
-  },
-  {
-    "date": "2026-08-22T10:44-03:00",
     "type": "citacao",
     "angle": "a euforia perigosa depois de vários acertos seguidos",
     "headline": "Sequência de acertos não te tornou melhor, só te deixou mais confiante do que deveria"
@@ -957,5 +950,12 @@
     "type": "lista",
     "angle": "separar a vida pessoal do resultado do dia",
     "headline": "4 provas de que o dia no mercado não é você"
+  },
+  {
+    "date": "2026-08-31T10:04-03:00",
+    "type": "conceito",
+    "angle": "por que operar a favor da tendência costuma ser mais seguro",
+    "headline": "Nadar com a correnteza do mercado",
+    "subject": "con:operar-favor-tendencia-costuma"
   }
 ]
