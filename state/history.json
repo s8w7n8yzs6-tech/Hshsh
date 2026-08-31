@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-22T10:44-03:00",
-    "type": "citacao",
-    "angle": "a euforia perigosa depois de vários acertos seguidos",
-    "headline": "Sequência de acertos não te tornou melhor, só te deixou mais confiante do que deveria"
-  },
-  {
     "date": "2026-08-22T11:51-03:00",
     "type": "conceito",
     "angle": "Setup de reversão com confirmação: esperar um candle de confirmação antes de operar uma possível virada",
@@ -957,5 +951,11 @@
     "angle": "por que operar a favor da tendência costuma ser mais seguro",
     "headline": "Nadar com a correnteza do mercado",
     "subject": "con:operar-favor-tendencia-costuma"
+  },
+  {
+    "date": "2026-08-31T10:44-03:00",
+    "type": "foto",
+    "angle": "respeitar o horário de encerrar o dia de operações",
+    "headline": "Você fecha o dia ou o dia fecha você?"
   }
 ]
