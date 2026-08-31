@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-22T16:03-03:00",
-    "type": "mercado",
-    "angle": "comente a amplitude entre a máxima e a mínima do período",
-    "headline": "Nasdaq 100 -2,45%: quase 530 pontos entre topo e fundo"
-  },
-  {
     "date": "2026-08-22T16:53-03:00",
     "type": "foto",
     "angle": "a paciência de anos até virar um trader consistente",
@@ -957,5 +951,11 @@
     "type": "numero",
     "angle": "respeitar o stop mesmo quando dói",
     "headline": "É tudo que separa respeitar o stop de reescrever a própria disciplina"
+  },
+  {
+    "date": "2026-08-31T15:44-03:00",
+    "type": "mercado",
+    "angle": "comente, sem prever direção, se o dia teve mais força compradora ou vendedora",
+    "headline": "Nasdaq 100 fecha em alta de +1.07% no dia"
   }
 ]
