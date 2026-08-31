@@ -1,13 +1,6 @@
 [
   {
     "date": "2026-08-22T08:44-03:00",
-    "type": "historia",
-    "angle": "George Soros: megaespeculador que ficou famoso por apostas macroeconômicas históricas",
-    "headline": "O homem que apostou contra um banco central e venceu",
-    "subject": "his:george-soros"
-  },
-  {
-    "date": "2026-08-22T08:44-03:00",
     "type": "lista",
     "angle": "não mover o stop no calor da emoção",
     "headline": "4 sinais de que o stop virou refém da emoção"
@@ -957,5 +950,12 @@
     "type": "citacao",
     "angle": "a importância de manter um diário de operações",
     "headline": "Quem não escreve o próprio erro é condenado a repeti-lo em silêncio"
+  },
+  {
+    "date": "2026-08-31T07:04-03:00",
+    "type": "conceito",
+    "angle": "VWAP: o preço médio ponderado pelo volume, referência muito usada no intraday",
+    "headline": "VWAP: o preço médio que pesa volume",
+    "subject": "ind:vwap"
   }
 ]
