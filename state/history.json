@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-22T16:53-03:00",
-    "type": "foto",
-    "angle": "a paciência de anos até virar um trader consistente",
-    "headline": "Quantos anos você tá disposto a perder pra ganhar de verdade?"
-  },
-  {
     "date": "2026-08-22T17:54-03:00",
     "type": "historia",
     "angle": "Jesse Livermore: lendário especulador do início do século XX, história de grandes altos e baixos",
@@ -957,5 +951,11 @@
     "type": "mercado",
     "angle": "comente, sem prever direção, se o dia teve mais força compradora ou vendedora",
     "headline": "Nasdaq 100 fecha em alta de +1.07% no dia"
+  },
+  {
+    "date": "2026-08-31T16:24-03:00",
+    "type": "lista",
+    "angle": "o medo de ficar de fora (FOMO)",
+    "headline": "5 sinais de que o FOMO tá pilotando você"
   }
 ]
