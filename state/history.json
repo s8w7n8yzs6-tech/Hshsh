@@ -1,13 +1,6 @@
 [
   {
     "date": "2026-08-22T17:54-03:00",
-    "type": "historia",
-    "angle": "Jesse Livermore: lendário especulador do início do século XX, história de grandes altos e baixos",
-    "headline": "O especulador que quebrou e refez a fortuna 4 vezes",
-    "subject": "his:jesse-livermore"
-  },
-  {
-    "date": "2026-08-22T17:54-03:00",
     "type": "citacao",
     "angle": "a diferença entre ser trader e ser apostador",
     "headline": "Apostador busca emoção. Trader busca repetição."
@@ -957,5 +950,12 @@
     "type": "lista",
     "angle": "o medo de ficar de fora (FOMO)",
     "headline": "5 sinais de que o FOMO tá pilotando você"
+  },
+  {
+    "date": "2026-08-31T17:04-03:00",
+    "type": "conceito",
+    "angle": "a importância dos diferentes tempos gráficos (timeframes)",
+    "headline": "Timeframes: cada gráfico conta uma história",
+    "subject": "con:importancia-dos-diferentes-tempos"
   }
 ]
