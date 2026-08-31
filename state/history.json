@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-08-22T19:52-03:00",
-    "type": "conceito",
-    "angle": "Inside bar: uma barra 'dentro' da anterior indicando pausa e possível continuação do movimento",
-    "headline": "Inside bar: a barra que respira",
-    "subject": "est:inside-bar"
-  },
-  {
     "date": "2026-08-22T20:42-03:00",
     "type": "numero",
     "angle": "a tentação de tentar recuperar rápido um prejuízo (revenge trade)",
@@ -957,5 +950,12 @@
     "type": "citacao",
     "angle": "controlar a ganância depois de um bom lucro",
     "headline": "O lucro de hoje já está tentando roubar o seu limite de amanhã"
+  },
+  {
+    "date": "2026-08-31T20:04-03:00",
+    "type": "dica",
+    "angle": "evitar os erros mais comuns do iniciante",
+    "headline": "Os tropeços que todo iniciante insiste em repetir",
+    "subject": "dic:evitar-erros-mais-comuns"
   }
 ]
