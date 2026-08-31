@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-08-22T11:51-03:00",
-    "type": "conceito",
-    "angle": "Setup de reversão com confirmação: esperar um candle de confirmação antes de operar uma possível virada",
-    "headline": "Reversão sem confirmação é só chute",
-    "subject": "est:setup-reversao-confirmacao"
-  },
-  {
     "date": "2026-08-22T12:44-03:00",
     "type": "mito_verdade",
     "angle": "a importância de dormir bem para operar melhor",
@@ -957,5 +950,12 @@
     "type": "foto",
     "angle": "respeitar o horário de encerrar o dia de operações",
     "headline": "Você fecha o dia ou o dia fecha você?"
+  },
+  {
+    "date": "2026-08-31T11:24-03:00",
+    "type": "dica",
+    "angle": "revisar as operações no fim de semana",
+    "headline": "Domingo é dia de auditar sua própria semana",
+    "subject": "dic:revisar-operacoes-fim-semana"
   }
 ]
