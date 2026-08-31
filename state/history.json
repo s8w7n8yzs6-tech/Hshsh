@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-22T17:54-03:00",
-    "type": "citacao",
-    "angle": "a diferença entre ser trader e ser apostador",
-    "headline": "Apostador busca emoção. Trader busca repetição."
-  },
-  {
     "date": "2026-08-22T18:45-03:00",
     "type": "dica",
     "angle": "evitar os erros mais comuns do iniciante",
@@ -957,5 +951,11 @@
     "angle": "a importância dos diferentes tempos gráficos (timeframes)",
     "headline": "Timeframes: cada gráfico conta uma história",
     "subject": "con:importancia-dos-diferentes-tempos"
+  },
+  {
+    "date": "2026-08-31T17:44-03:00",
+    "type": "foto",
+    "angle": "a solidão de quem opera sozinho em casa",
+    "headline": "Ninguém bate palma quando você respeita o stop sozinho"
   }
 ]
