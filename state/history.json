@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-22T08:44-03:00",
-    "type": "lista",
-    "angle": "não mover o stop no calor da emoção",
-    "headline": "4 sinais de que o stop virou refém da emoção"
-  },
-  {
     "date": "2026-08-22T08:45-03:00",
     "type": "mercado",
     "angle": "comente a amplitude entre a máxima e a mínima do período",
@@ -957,5 +951,11 @@
     "angle": "VWAP: o preço médio ponderado pelo volume, referência muito usada no intraday",
     "headline": "VWAP: o preço médio que pesa volume",
     "subject": "ind:vwap"
+  },
+  {
+    "date": "2026-08-31T07:44-03:00",
+    "type": "numero",
+    "angle": "bater a meta do dia e ter a disciplina de parar",
+    "headline": "É o número de trades que você precisa fazer depois de bater a meta"
   }
 ]
