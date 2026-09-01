@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-08-23T10:45-03:00",
-    "type": "citacao",
-    "angle": "lidar com dias de lateralização e tédio no gráfico",
-    "headline": "Gráfico parado também é teste. Ele mede se você opera o mercado ou opera o próprio tédio"
-  },
-  {
-    "date": "2026-08-23T10:45-03:00",
     "type": "conceito",
     "angle": "o perigo da alavancagem alta para iniciantes",
     "headline": "Alavancagem alta: o atalho que custa caro",
@@ -957,5 +951,11 @@
     "type": "mercado",
     "angle": "comente a amplitude entre a máxima e a mínima do período",
     "headline": "Ouro cai -4,03% e mostra amplitude de mais de R$100 no dia"
+  },
+  {
+    "date": "2026-09-01T09:09-03:00",
+    "type": "foto",
+    "angle": "a paciência de anos até virar um trader consistente",
+    "headline": "Ninguém te contou quantos anos isso ia levar"
   }
 ]
