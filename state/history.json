@@ -1,31 +1,5 @@
 [
   {
-    "date": "2026-08-23T10:46-03:00",
-    "type": "mito_verdade",
-    "angle": "reduzir o tamanho da posição quando está em dúvida",
-    "headline": "Reduzir posição na dúvida é gestão de risco, não falta de confiança"
-  },
-  {
-    "date": "2026-08-23T11:55-03:00",
-    "type": "historia",
-    "angle": "Paul Tudor Jones: trader macro famoso pela gestão de risco rígida",
-    "headline": "O trader que prefere sair cedo a sair quebrado",
-    "subject": "his:paul-tudor-jones"
-  },
-  {
-    "date": "2026-08-23T12:48-03:00",
-    "type": "numero",
-    "angle": "não operar por impulso logo após uma notícia",
-    "headline": "O tempo que a notícia leva pra virar impulso e o impulso virar erro"
-  },
-  {
-    "date": "2026-08-23T12:49-03:00",
-    "type": "dica",
-    "angle": "usar mais de um tempo gráfico na análise",
-    "headline": "Um gráfico só te mostra metade da história",
-    "subject": "dic:usar-mais-tempo-grafico"
-  },
-  {
     "date": "2026-08-23T13:56-03:00",
     "type": "lista",
     "angle": "bater a meta do dia e ter a disciplina de parar",
@@ -957,5 +931,31 @@
     "angle": "OBV: o On Balance Volume, que soma/subtrai volume para ler pressão de compra e venda",
     "headline": "OBV: o volume que conta a história",
     "subject": "ind:obv"
+  },
+  {
+    "date": "2026-09-01T14:26-03:00",
+    "type": "citacao",
+    "angle": "a diferença entre ser trader e ser apostador",
+    "headline": "Apostador busca a emoção da entrada. Trader busca o controle da saída."
+  },
+  {
+    "date": "2026-09-01T14:26-03:00",
+    "type": "conceito",
+    "angle": "o perigo da alavancagem alta para iniciantes",
+    "headline": "Alavancagem alta: a armadilha do iniciante",
+    "subject": "con:perigo-alavancagem-alta-iniciantes"
+  },
+  {
+    "date": "2026-09-01T14:26-03:00",
+    "type": "mito_verdade",
+    "angle": "a gratidão por evoluir aos poucos, um dia de cada vez",
+    "headline": "Evoluir 1% por dia é o que separa quem dura de quem desiste"
+  },
+  {
+    "date": "2026-09-01T14:27-03:00",
+    "type": "conceito",
+    "angle": "Bandeira de continuação: um respiro curto depois de um movimento forte, antes de a tendência retomar",
+    "headline": "Bandeira: a pausa antes do fôlego novo",
+    "subject": "est:bandeira-continuacao"
   }
 ]
