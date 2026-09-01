@@ -1,13 +1,6 @@
 [
   {
     "date": "2026-08-23T07:54-03:00",
-    "type": "conceito",
-    "angle": "OBV: o On Balance Volume, que soma/subtrai volume para ler pressão de compra e venda",
-    "headline": "OBV: o volume contando quem manda",
-    "subject": "ind:obv"
-  },
-  {
-    "date": "2026-08-23T07:54-03:00",
     "type": "foto",
     "angle": "estudar e revisar operações no fim de semana",
     "headline": "Enquanto o mercado dorme, quem quer durar trabalha"
@@ -957,5 +950,12 @@
     "type": "mito_verdade",
     "angle": "aceitar que ter perdas faz parte do jogo",
     "headline": "Trader bom é aquele que perde pequeno e sobrevive pra próxima"
+  },
+  {
+    "date": "2026-09-01T07:07-03:00",
+    "type": "conceito",
+    "angle": "Inside bar: uma barra 'dentro' da anterior indicando pausa e possível continuação do movimento",
+    "headline": "Inside bar: a barra que faz uma pausa",
+    "subject": "est:inside-bar"
   }
 ]
