@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-08-23T10:45-03:00",
-    "type": "conceito",
-    "angle": "o perigo da alavancagem alta para iniciantes",
-    "headline": "Alavancagem alta: o atalho que custa caro",
-    "subject": "con:perigo-alavancagem-alta-iniciantes"
-  },
-  {
     "date": "2026-08-23T10:46-03:00",
     "type": "mito_verdade",
     "angle": "reduzir o tamanho da posição quando está em dúvida",
@@ -957,5 +950,12 @@
     "type": "foto",
     "angle": "a paciência de anos até virar um trader consistente",
     "headline": "Ninguém te contou quantos anos isso ia levar"
+  },
+  {
+    "date": "2026-09-01T10:07-03:00",
+    "type": "conceito",
+    "angle": "OBV: o On Balance Volume, que soma/subtrai volume para ler pressão de compra e venda",
+    "headline": "OBV: o volume que conta a história",
+    "subject": "ind:obv"
   }
 ]
