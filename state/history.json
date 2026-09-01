@@ -1,31 +1,5 @@
 [
   {
-    "date": "2026-08-23T16:52-03:00",
-    "type": "citacao",
-    "angle": "respeitar o horário de encerrar o dia de operações",
-    "headline": "Fechar a plataforma no horário certo também é uma operação vencedora"
-  },
-  {
-    "date": "2026-08-23T17:52-03:00",
-    "type": "conceito",
-    "angle": "ADX: um indicador que mede a FORÇA da tendência (sem dizer a direção)",
-    "headline": "ADX: a força não escolhe lado",
-    "subject": "ind:adx"
-  },
-  {
-    "date": "2026-08-23T17:52-03:00",
-    "type": "mito_verdade",
-    "angle": "manter a rotina de estudo mesmo desmotivado",
-    "headline": "Motivação some. Rotina não depende dela pra continuar existindo"
-  },
-  {
-    "date": "2026-08-23T18:44-03:00",
-    "type": "conceito",
-    "angle": "por que ter um plano de trade escrito antes de operar",
-    "headline": "Plano escrito: a diferença antes de clicar",
-    "subject": "con:ter-plano-trade-escrito"
-  },
-  {
     "date": "2026-08-23T19:51-03:00",
     "type": "numero",
     "angle": "a ansiedade antes de abrir uma operação",
@@ -957,5 +931,31 @@
     "type": "mercado",
     "angle": "comente a amplitude entre a máxima e a mínima do período",
     "headline": "Nasdaq 100 cai -0.45%, mas amplitude do dia passa de 800 pontos"
+  },
+  {
+    "date": "2026-09-01T19:38-03:00",
+    "type": "foto",
+    "angle": "operar demais (overtrading) e o cansaço mental",
+    "headline": "Sua conta não cansa. Sua cabeça, sim."
+  },
+  {
+    "date": "2026-09-01T19:38-03:00",
+    "type": "conceito",
+    "angle": "Teste de suporte (segundo toque): por que o segundo toque em um suporte costuma ser mais observado que o primeiro",
+    "headline": "Segundo toque no suporte: por que importa",
+    "subject": "est:teste-suporte-segundo-toque"
+  },
+  {
+    "date": "2026-09-01T19:38-03:00",
+    "type": "citacao",
+    "angle": "acordar cedo para acompanhar a abertura do mercado",
+    "headline": "Acordar antes do mercado é o único horário que ninguém vai cobrar de você"
+  },
+  {
+    "date": "2026-09-01T19:39-03:00",
+    "type": "conceito",
+    "angle": "ADX: um indicador que mede a FORÇA da tendência (sem dizer a direção)",
+    "headline": "ADX: a força por trás da tendência",
+    "subject": "ind:adx"
   }
 ]
