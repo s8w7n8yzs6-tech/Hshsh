@@ -282,15 +282,22 @@ def _build_media(result: dict, asset: dict | None, seed: int, dry_run: bool) -> 
     if fmt == "historia":
         import shutil
 
-        from . import decks
+        from . import decks, topicphoto
 
         subj = result.get("_subject") or {}
+        query = result.get("image_query") or subj.get("nome", "")
+        photo, credit = (None, "")
+        try:
+            photo, credit = topicphoto.fetch_topic_photo(query)
+            print(f"Foto do assunto ('{query}'): {'encontrada' if photo is not None else 'não encontrada'}.")
+        except Exception as exc:  # noqa: BLE001
+            print(f"Aviso: falha ao buscar foto do assunto: {exc}", file=sys.stderr)
         out_dir = "preview_carousel" if dry_run else os.path.join(tmp, "carousel")
         shutil.rmtree(out_dir, ignore_errors=True)
-        # Alterna o ESTILO de design a cada post (editorial/terminal/brutal/gradient).
+        # Alterna o LAYOUT a cada post (poster / band / frame), com a foto do assunto.
         return decks.build(
             result.get("cover", ""), result.get("slides", []),
-            subj.get("hint", ""), config.POST_HANDLE, out_dir, seed,
+            subj.get("hint", ""), config.POST_HANDLE, out_dir, seed, photo=photo, credit=credit,
         )
     out_path = "preview.png" if dry_run else os.path.join(tmp, "post_card.png")
     return [_build_card(result, asset, out_path, seed)]

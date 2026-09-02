@@ -140,6 +140,7 @@ _FMT = {
     "historia": {
         "schema": {
             "cover": {"type": "string"},
+            "image_query": {"type": "string"},
             "slides": {
                 "type": "array",
                 "items": {
@@ -151,7 +152,7 @@ _FMT = {
             },
             "caption": {"type": "string"},
         },
-        "required": ["cover", "slides", "caption"],
+        "required": ["cover", "image_query", "slides", "caption"],
         "main": "cover",
         "prompt": (
             "Formato ASSUNTO DA SEMANA (um CARROSSEL do Instagram) sobre a MANCHETE de "
@@ -163,6 +164,10 @@ _FMT = {
             "compra/venda. Produza:\n"
             "- cover: um gancho curto e forte para a CAPA (máx ~72 caracteres), "
             "reescrevendo a manchete de forma chamativa e clara.\n"
+            "- image_query: uma busca CURTA em INGLÊS (2 a 4 palavras) de uma FOTO "
+            "concreta e genérica que represente visualmente o tema (ex.: 'new york "
+            "stock exchange', 'oil refinery', 'semiconductor chips', 'brazilian real "
+            "banknotes', 'central bank building'). Sem texto/logos/pessoas específicas.\n"
             "- slides: de 4 a 5 capítulos, cada um {titulo (máx ~28 caracteres), texto "
             "(máx ~230 caracteres)} — sugestão: 'O que aconteceu', 'Por que importa', "
             "'No seu bolso', 'De olho na frente'.\n"
