@@ -28,6 +28,10 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
 IMAGE_MODEL = (os.getenv("IMAGE_MODEL") or "gpt-image-1").strip()
 IMAGE_QUALITY = (os.getenv("IMAGE_QUALITY") or "medium").strip()  # low | medium | high
 
+# Fotos do assunto nos carrosséis de notícia: Pexels (alta qualidade) se houver
+# chave; senão cai para o Openverse (sem chave). Chave grátis em pexels.com/api.
+PEXELS_API_KEY = os.getenv("PEXELS_API_KEY", "").strip()
+
 DRY_RUN = os.getenv("DRY_RUN", "false").lower() in ("1", "true", "yes")
 
 # Tipos de conteúdo. "mercado" = card com candlestick (só 2/dia: ouro e Nasdaq).

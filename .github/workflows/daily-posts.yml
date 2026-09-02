@@ -55,6 +55,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           IMAGE_MODEL: ${{ vars.IMAGE_MODEL }}
           IMAGE_QUALITY: ${{ vars.IMAGE_QUALITY }}
           ANTHROPIC_MODEL: ${{ vars.ANTHROPIC_MODEL }}
