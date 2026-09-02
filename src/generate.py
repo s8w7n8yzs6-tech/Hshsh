@@ -154,14 +154,18 @@ _FMT = {
         "required": ["cover", "slides", "caption"],
         "main": "cover",
         "prompt": (
-            "Formato HISTÓRIA (um CARROSSEL do Instagram) sobre a PESSOA REAL indicada "
-            "abaixo. Conte, de forma FACTUAL, respeitosa e inspiradora, a trajetória e "
-            "as lições dela para quem investe/opera. REGRAS: não invente fatos, datas "
-            "exatas, números específicos nem citações entre aspas; se não tiver certeza, "
-            "fale de forma geral. Nada de recomendação de compra/venda. Produza:\n"
-            "- cover: uma frase-gancho curta e forte para a CAPA (máx ~75 caracteres).\n"
-            "- slides: de 4 a 6 capítulos, cada um {titulo (máx ~34 caracteres), texto "
-            "(máx ~230 caracteres)}, contando origem, virada, filosofia e a lição final.\n"
+            "Formato ASSUNTO DA SEMANA (um CARROSSEL do Instagram) sobre a MANCHETE de "
+            "mercado/economia/negócios do Brasil indicada abaixo. Explique o TEMA de "
+            "forma clara e didática para o investidor comum: o que está em jogo, por que "
+            "importa e o que observar. REGRAS: baseie-se na manchete; NÃO invente números "
+            "específicos, percentuais, datas exatas nem falas entre aspas — se não tiver "
+            "certeza de um dado, explique o tema de forma geral. Nada de recomendação de "
+            "compra/venda. Produza:\n"
+            "- cover: um gancho curto e forte para a CAPA (máx ~72 caracteres), "
+            "reescrevendo a manchete de forma chamativa e clara.\n"
+            "- slides: de 4 a 5 capítulos, cada um {titulo (máx ~28 caracteres), texto "
+            "(máx ~230 caracteres)} — sugestão: 'O que aconteceu', 'Por que importa', "
+            "'No seu bolso', 'De olho na frente'.\n"
             "- caption: legenda do post (máx ~500 caracteres), 1-2 emojis, terminando "
             "com 3-5 hashtags."
         ),
