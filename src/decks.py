@@ -145,10 +145,10 @@ def _poster(cover, slides, source, handle, credit, accent, photo, save):
     _kicker(d, accent, "Mercado no Brasil · Esta semana")
     hw, hf, hsp = _fit(d, cover, _SANS_B, _W - 2 * _M, 520, 108, 56)
     hb = d.multiline_textbbox((0, 0), hw, font=hf, spacing=hsp)
-    hy = _H - 292 - (hb[3] - hb[1])
+    hy = _H - 308 - (hb[3] - hb[1])
     d.rectangle([_M, hy - 26, _M + 90, hy - 14], fill=accent)
     _shadow_text(d, (_M, hy), hw, hf, hsp)
-    d.text((_M, _H - 262), f"O que movimentou o mercado · {source or 'esta semana'}",
+    d.text((_M, _H - 264), f"O que movimentou o mercado · {source or 'esta semana'}",
            font=_f(_SANS_R, 30), fill=(224, 228, 234))
     _arraste(d, accent)
     _credit(d, credit)
@@ -277,13 +277,92 @@ def _cta(cover, handle, accent, photo, total, save):
     save(img, total - 1)
 
 
-_LAYOUTS = [_poster, _band, _frame]
-LAYOUT_NAMES = ["poster", "band", "frame"]
+# ---------------------------------------------------------------- SPLIT
+def _split(cover, slides, source, handle, credit, accent, photo, save):
+    """Bloco de cor + foto em paisagem — forte e ideal para fotos landscape."""
+    total = 2 + len(slides)
+    top_h = int(_H * 0.46)
+
+    img = Image.new("RGBA", (_W, _H), _DARK + (255,))
+    d = ImageDraw.Draw(img)
+    d.rectangle([0, 0, _W, top_h], fill=accent)
+    if photo is not None:
+        img.alpha_composite(_cover_crop(photo, _W, _H - top_h, 0.4), (0, top_h))
+    d = ImageDraw.Draw(img)
+    _progress(d, _DARK, 1 / total)
+    d.rectangle([_M, _M + 10, _M + 22, _M + 32], fill=_DARK)
+    _tracked(d, (_M + 40, _M + 6), "MERCADO NO BRASIL · ESTA SEMANA", _f(_SANS_B, 26), _DARK, 6)
+    hy = _M + 86
+    hw, hf, hsp = _fit(d, cover, _SANS_B, _W - 2 * _M, top_h - hy - 90, 92, 48)
+    d.multiline_text((_M, hy), hw, font=hf, fill=_DARK, spacing=hsp)
+    b = _bottom(d, (_M, hy), hw, hf, hsp)
+    d.text((_M, min(b + 22, top_h - 54)), f"Fonte · {source or 'manchetes da semana'}",
+           font=_f(_SANS_B, 26), fill=(40, 40, 44))
+    af = _f(_SANS_B, 28)
+    tb = d.textbbox((0, 0), "ARRASTE  →", font=af)
+    d.rounded_rectangle([_M, _H - 130, _M + (tb[2] - tb[0]) + 54, _H - 130 + (tb[3] - tb[1]) + 30],
+                        radius=30, fill=accent)
+    d.text((_M + 27, _H - 130 + 15 - tb[1]), "ARRASTE  →", font=af, fill=_DARK)
+    _credit(d, credit)
+    save(img, 0)
+
+    strip_h = 300
+    for i, s in enumerate(slides):
+        img = Image.new("RGBA", (_W, _H), _DARK + (255,))
+        d = ImageDraw.Draw(img)
+        d.rectangle([0, 0, _W, 250], fill=accent)
+        if photo is not None:
+            img.alpha_composite(_cover_crop(photo, _W, strip_h, 0.45), (0, _H - strip_h))
+            d = ImageDraw.Draw(img)
+            fade = Image.new("RGBA", (_W, _H), (0, 0, 0, 0))
+            fd = ImageDraw.Draw(fade)
+            for y in range(_H - strip_h, _H - strip_h + 120):
+                a = int(255 * (1 - (y - (_H - strip_h)) / 120))
+                fd.line([(0, y), (_W, y)], fill=_DARK + (a,))
+            img.alpha_composite(fade)
+            d = ImageDraw.Draw(img)
+        _progress(d, _DARK, (i + 2) / total)
+        d.text((_M, 58), f"{i + 1:02d}", font=_f(_SERIF_B, 110), fill=_DARK)
+        ty = 300
+        tw, tf, tsp = _fit(d, s.get("titulo", ""), _SANS_B, _W - 2 * _M, 190, 70, 42)
+        d.multiline_text((_M, ty), tw, font=tf, fill=_W_, spacing=tsp)
+        b = _bottom(d, (_M, ty), tw, tf, tsp)
+        d.rectangle([_M, b + 26, _M + 96, b + 34], fill=accent)
+        bw, bf, bsp = _fit(d, s.get("texto", ""), _SANS_R, _W - 2 * _M,
+                           _H - strip_h - 60 - b, 44, 28, 0.24)
+        d.multiline_text((_M, b + 70), bw, font=bf, fill=(206, 212, 222), spacing=bsp)
+        d.text((_M, _H - 56), handle, font=_f(_SANS_B, 28), fill=_W_)
+        pg = f"{i + 2:02d} / {total:02d}"
+        tb2 = d.textbbox((0, 0), pg, font=_f(_MONO_B, 28))
+        d.text((_W - _M - (tb2[2] - tb2[0]), _H - 56), pg, font=_f(_MONO_B, 28), fill=_W_)
+        save(img, i + 1)
+
+    img = Image.new("RGBA", (_W, _H), accent + (255,))
+    d = ImageDraw.Draw(img)
+    _progress(d, _DARK, 1.0)
+    d.rectangle([_M, _M + 10, _M + 22, _M + 32], fill=_DARK)
+    _tracked(d, (_M + 40, _M + 6), "TODA SEMANA POR AQUI", _f(_SANS_B, 26), _DARK, 6)
+    cw, cf, csp = _fit(d, "Salve. Compartilhe.", _SANS_B, _W - 2 * _M, 400, 104, 60, 0.12)
+    d.multiline_text((_M, int(_H * 0.32)), cw, font=cf, fill=_DARK, spacing=csp)
+    b = _bottom(d, (_M, int(_H * 0.32)), cw, cf, csp)
+    d.rectangle([_M, b + 54, _M + 120, b + 66], fill=_DARK)
+    d.text((_M, b + 100), handle, font=_f(_SANS_B, 58), fill=_DARK)
+    save(img, total - 1)
+
+
+_LAYOUTS = [_poster, _band, _frame, _split]
+LAYOUT_NAMES = ["poster", "band", "frame", "split"]
+# Layouts cuja área de foto é PAISAGEM (funcionam bem com fotos landscape).
+_LANDSCAPE_OK = [_band, _frame, _split]
 
 
 def build(cover: str, slides: list, source: str, handle: str, out_dir: str,
           seed: int = 0, photo=None, credit: str = "") -> list:
-    """Renderiza o carrossel image-driven em um dos 3 layouts (alterna por semente)."""
+    """Renderiza o carrossel image-driven, escolhendo o layout que melhor cabe na foto.
+
+    Foto retrato → qualquer layout (inclui o poster em tela cheia). Foto paisagem
+    → só layouts com área de foto em paisagem, para não borrar/cortar demais.
+    """
     slides = [s for s in (slides or []) if s.get("titulo") or s.get("texto")][:5]
     os.makedirs(out_dir, exist_ok=True)
     paths: list[str] = []
@@ -294,6 +373,8 @@ def build(cover: str, slides: list, source: str, handle: str, out_dir: str,
         paths.append(p)
 
     accent = _ACCENTS[seed % len(_ACCENTS)]
-    layout = _LAYOUTS[seed % len(_LAYOUTS)]
+    tall = photo is not None and (photo.height / max(1, photo.width)) >= 1.15
+    options = _LAYOUTS if tall else _LANDSCAPE_OK
+    layout = options[seed % len(options)]
     layout(cover, slides, source, handle, credit, accent, photo, save)
     return paths
