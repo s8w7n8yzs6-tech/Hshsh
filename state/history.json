@@ -1,31 +1,5 @@
 [
   {
-    "date": "2026-08-24T13:07-03:00",
-    "type": "conceito",
-    "angle": "como o espalhamento (spread) e custos afetam o resultado",
-    "headline": "Spread e custos: o imposto invisível do trade",
-    "subject": "con:como-espalhamento-spread-custos"
-  },
-  {
-    "date": "2026-08-24T14:53-03:00",
-    "type": "foto",
-    "angle": "resistir ao 'só mais uma operação'",
-    "headline": "Aquela vontade de entrar de novo já é um sinal"
-  },
-  {
-    "date": "2026-08-24T14:54-03:00",
-    "type": "historia",
-    "angle": "John Bogle: criador do fundo de índice (Vanguard) e do investimento passivo de baixo custo",
-    "headline": "O gestor que declarou guerra às próprias taxas",
-    "subject": "his:john-bogle"
-  },
-  {
-    "date": "2026-08-24T14:55-03:00",
-    "type": "citacao",
-    "angle": "a paciência de anos até virar um trader consistente",
-    "headline": "Ninguém vira trader consistente no ano em que decide levar a sério"
-  },
-  {
     "date": "2026-08-24T16:19-03:00",
     "type": "mercado",
     "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
@@ -959,5 +933,31 @@
     "type": "citacao",
     "angle": "respeitar o horário de encerrar o dia de operações",
     "headline": "Quem não sabe a hora de sair, o mercado escolhe por ele"
+  },
+  {
+    "date": "2026-09-02T14:55-03:00",
+    "type": "conceito",
+    "angle": "Rompimento de linha de tendência: o que significa o preço romper uma LTA ou LTB traçada no gráfico",
+    "headline": "Rompimento de LTA ou LTB: o que é",
+    "subject": "est:rompimento-linha-tendencia"
+  },
+  {
+    "date": "2026-09-02T14:56-03:00",
+    "type": "mito_verdade",
+    "angle": "manter a rotina de estudo mesmo desmotivado",
+    "headline": "Motivação é o que menos aparece nos dias que constroem a consistência"
+  },
+  {
+    "date": "2026-09-02T14:56-03:00",
+    "type": "conceito",
+    "angle": "Suporte e resistência por volume: identificar níveis onde passou muito volume negociado",
+    "headline": "Volume por preço: onde o dinheiro parou",
+    "subject": "ind:suporte-resistencia-volume"
+  },
+  {
+    "date": "2026-09-02T14:56-03:00",
+    "type": "numero",
+    "angle": "a ansiedade antes de abrir uma operação",
+    "headline": "É o tempo que sua ansiedade tem antes do clique pra virar decisão ou virar impulso"
   }
 ]
