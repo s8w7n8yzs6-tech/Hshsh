@@ -282,14 +282,15 @@ def _build_media(result: dict, asset: dict | None, seed: int, dry_run: bool) -> 
     if fmt == "historia":
         import shutil
 
-        from . import deck
+        from . import decks
 
         subj = result.get("_subject") or {}
         out_dir = "preview_carousel" if dry_run else os.path.join(tmp, "carousel")
         shutil.rmtree(out_dir, ignore_errors=True)
-        return deck.build_topic_deck(
-            "Mercado no Brasil · Esta semana", result.get("cover", ""),
-            result.get("slides", []), subj.get("hint", ""), config.POST_HANDLE, out_dir, seed,
+        # Alterna o ESTILO de design a cada post (editorial/terminal/brutal/gradient).
+        return decks.build(
+            result.get("cover", ""), result.get("slides", []),
+            subj.get("hint", ""), config.POST_HANDLE, out_dir, seed,
         )
     out_path = "preview.png" if dry_run else os.path.join(tmp, "post_card.png")
     return [_build_card(result, asset, out_path, seed)]
