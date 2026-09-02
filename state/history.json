@@ -1,13 +1,6 @@
 [
   {
     "date": "2026-08-24T08:14-03:00",
-    "type": "dica",
-    "angle": "controlar o número de operações por dia",
-    "headline": "Limite de trades: o número que te protege de você",
-    "subject": "dic:controlar-numero-operacoes-dia"
-  },
-  {
-    "date": "2026-08-24T08:14-03:00",
     "type": "citacao",
     "angle": "acertar a análise mas errar na execução",
     "headline": "A análise certa não salva quem clica errado"
@@ -957,5 +950,12 @@
     "type": "numero",
     "angle": "disciplina no gerenciamento de risco",
     "headline": "É o tamanho da conta que você aceita arriscar antes de saber o que vai acontecer"
+  },
+  {
+    "date": "2026-09-01T22:52-03:00",
+    "type": "historia",
+    "angle": "PIB do Brasil fica em 5º lugar em ranking de crescimento com 50 países: CNN Brasil",
+    "headline": "Brasil em 5º entre 50 países no PIB. E agora?",
+    "subject": "man:pib-do-brasil-fica-em-5o"
   }
 ]
