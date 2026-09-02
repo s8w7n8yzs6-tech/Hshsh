@@ -1,31 +1,5 @@
 [
   {
-    "date": "2026-08-24T18:58-03:00",
-    "type": "conceito",
-    "angle": "Média móvel como suporte dinâmico: como uma média pode funcionar de 'piso' móvel dentro de uma tendência de alta",
-    "headline": "A média que vira piso móvel",
-    "subject": "est:media-movel-como-suporte"
-  },
-  {
-    "date": "2026-08-24T19:58-03:00",
-    "type": "lista",
-    "angle": "a tentação de tentar recuperar rápido um prejuízo (revenge trade)",
-    "headline": "5 sinais de que o prejuízo virou seu chefe"
-  },
-  {
-    "date": "2026-08-24T19:59-03:00",
-    "type": "conceito",
-    "angle": "Ichimoku (visão geral): um sistema japonês que mostra tendência, suporte e resistência de uma vez",
-    "headline": "Ichimoku: cinco linhas, uma leitura só",
-    "subject": "ind:ichimoku-visao-geral"
-  },
-  {
-    "date": "2026-08-24T20:49-03:00",
-    "type": "foto",
-    "angle": "a paciência de esperar o setup certo aparecer",
-    "headline": "Ficar parado olhando o gráfico também é operar"
-  },
-  {
     "date": "2026-08-25T08:04-03:00",
     "type": "conceito",
     "angle": "o conceito de pullback (respiro) dentro de uma tendência",
@@ -960,5 +934,30 @@
     "type": "foto",
     "angle": "o medo de ficar de fora (FOMO)",
     "headline": "Aquele candle que sobe sem você e o desespero de entrar"
+  },
+  {
+    "date": "2026-09-02T19:49-03:00",
+    "type": "mercado",
+    "angle": "comente, sem prever direção, se o dia teve mais força compradora ou vendedora",
+    "headline": "Nasdaq 100 recua -0,28% após visitar 29.533 e 28.953"
+  },
+  {
+    "date": "2026-09-02T19:49-03:00",
+    "type": "citacao",
+    "angle": "a solidão de quem opera sozinho em casa",
+    "headline": "Ninguém aplaude seu stop bem colocado. A sala vazia é o preço de operar sozinho."
+  },
+  {
+    "date": "2026-09-02T19:50-03:00",
+    "type": "dica",
+    "angle": "preparar o pré-mercado antes de operar",
+    "headline": "Ritual de pré-mercado: o que checar antes do sinal aberto",
+    "subject": "dic:preparar-pre-mercado-antes"
+  },
+  {
+    "date": "2026-09-02T19:50-03:00",
+    "type": "mito_verdade",
+    "angle": "controlar a ganância depois de um bom lucro",
+    "headline": "O lucro do dia não muda o tamanho de risco que sua estratégia permite"
   }
 ]
