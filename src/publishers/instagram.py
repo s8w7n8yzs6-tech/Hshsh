@@ -39,6 +39,28 @@ def _wait_ready(creation_id: str, timeout: int, attempts: int = 12, delay: int =
     raise RuntimeError("contêiner de mídia não ficou pronto a tempo (timeout)")
 
 
+def _publish_ready(creation_id: str, timeout: int, attempts: int = 6, delay: int = 5) -> str:
+    """Publica o contêiner, tolerando o erro transitório 'media not ready'."""
+    last = None
+    for i in range(attempts):
+        try:
+            r = _post(
+                f"{_BASE}/{config.INSTAGRAM_USER_ID}/media_publish",
+                {"creation_id": creation_id, "access_token": config.INSTAGRAM_ACCESS_TOKEN},
+                timeout,
+            )
+            return r["id"]
+        except RuntimeError as exc:  # noqa: PERF203
+            last = exc
+            msg = str(exc).lower()
+            transient = ("2207027" in msg or "not ready" in msg or "not available" in msg
+                         or "is_transient\":true" in msg)
+            if not transient or i == attempts - 1:
+                raise
+            time.sleep(delay * (i + 1))
+    raise last  # pragma: no cover
+
+
 def publish_image(image_url: str, caption: str, timeout: int = 30) -> str:
     """Publica uma imagem com legenda no Instagram e retorna o ID da mídia."""
     if not (config.INSTAGRAM_USER_ID and config.INSTAGRAM_ACCESS_TOKEN):
@@ -59,12 +81,7 @@ def publish_image(image_url: str, caption: str, timeout: int = 30) -> str:
 
     _wait_ready(creation_id, timeout)
 
-    published = _post(
-        f"{_BASE}/{config.INSTAGRAM_USER_ID}/media_publish",
-        {"creation_id": creation_id, "access_token": config.INSTAGRAM_ACCESS_TOKEN},
-        timeout,
-    )
-    return published["id"]
+    return _publish_ready(creation_id, timeout)
 
 
 def publish_carousel(image_urls: list[str], caption: str, timeout: int = 30) -> str:
@@ -103,9 +120,4 @@ def publish_carousel(image_urls: list[str], caption: str, timeout: int = 30) -> 
     )
     _wait_ready(carousel["id"], timeout)
 
-    published = _post(
-        f"{_BASE}/{config.INSTAGRAM_USER_ID}/media_publish",
-        {"creation_id": carousel["id"], "access_token": config.INSTAGRAM_ACCESS_TOKEN},
-        timeout,
-    )
-    return published["id"]
+    return _publish_ready(carousel["id"], timeout)
