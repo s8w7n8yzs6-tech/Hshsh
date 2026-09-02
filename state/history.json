@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-08-24T08:14-03:00",
-    "type": "citacao",
-    "angle": "acertar a análise mas errar na execução",
-    "headline": "A análise certa não salva quem clica errado"
-  },
-  {
     "date": "2026-08-24T11:05-03:00",
     "type": "mercado",
     "angle": "comente a amplitude entre a máxima e a mínima do período",
@@ -957,5 +951,12 @@
     "angle": "PIB do Brasil fica em 5º lugar em ranking de crescimento com 50 países: CNN Brasil",
     "headline": "Brasil em 5º entre 50 países no PIB. E agora?",
     "subject": "man:pib-do-brasil-fica-em-5o"
+  },
+  {
+    "date": "2026-09-01T23:01-03:00",
+    "type": "historia",
+    "angle": "Economia global entra em zona de tensão com disparada dos rendimentos dos títulos e petróleo acima de US$ 92: ADVFN",
+    "headline": "Juros nas alturas e petróleo acima de US$ 92: mundo tenso",
+    "subject": "man:economia-global-entra-em-zona-de"
   }
 ]
