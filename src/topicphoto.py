@@ -46,11 +46,27 @@ def _download(url: str):
     return img
 
 
-def _pick(results, want_tall: bool):
+_STOP = {"the", "and", "with", "from", "into", "over", "photo", "image"}
+
+
+def _tokens(query: str) -> list[str]:
+    return [w for w in re.findall(r"[a-z]{4,}", query.lower()) if w not in _STOP]
+
+
+def _relevant(title: str, toks: list[str]) -> bool:
+    """Título precisa citar alguma palavra da busca (evita foto sem relação)."""
+    t = (title or "").lower()
+    return any(w in t for w in toks) if toks else True
+
+
+def _pick(results, want_tall: bool, toks: list[str] | None = None):
     """Baixa e devolve a melhor foto da lista (prefere alta resolução e retrato)."""
     best, best_score = None, -1
-    for res in results[:10]:
-        if _BAD.search(res.get("title") or ""):
+    for res in results[:12]:
+        title = res.get("title") or ""
+        if _BAD.search(title):
+            continue
+        if toks and not _relevant(title, toks):
             continue
         img = _download(res.get("url") or "")
         if img is None:
@@ -123,20 +139,22 @@ def fetch_topic_photo(query: str):
     if img is not None:
         return img, credit
 
-    # 1) Stock CC0 (sem exigência de crédito): retrato primeiro, depois qualquer.
-    for qq in (q, short):
-        for tall in (True, False):
-            res = _openverse(qq, "rawpixel,stocksnap", "cc0,pdm", tall)
-            if res:
-                got = _pick(res, want_tall=tall)
-                if got:
-                    return got[0], ""
+    # 1) Stock CC0 (sem crédito): StockSnap (moderno) antes do Rawpixel (mais arquivo).
+    toks = _tokens(q)
+    for src in ("stocksnap", "rawpixel,stocksnap"):
+        for qq in (q, short):
+            for tall in (True, False):
+                res = _openverse(qq, src, "cc0,pdm", tall)
+                if res:
+                    got = _pick(res, want_tall=tall, toks=toks)
+                    if got:
+                        return got[0], ""
 
     # 2) Openverse geral (uso comercial + edição) — com crédito.
     for qq in (q, short):
         res = _openverse(qq, None, "cc0,pdm,by,by-sa", False)
         if res:
-            got = _pick(res, want_tall=True)
+            got = _pick(res, want_tall=True, toks=toks)
             if got:
                 prov = (got[1].get("source") or "Openverse").title()
                 lic = (got[1].get("license") or "").lower()

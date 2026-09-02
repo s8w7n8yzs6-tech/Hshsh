@@ -92,6 +92,12 @@ def _angle(fmt: str, slot: int) -> str | None:
     return config.TRADER_ANGLES[(slot + _day_of_year()) % len(config.TRADER_ANGLES)]
 
 
+# Buscas de foto (grátis, CC0) para os formatos com imagem de fundo.
+FOTO_QUERIES = [
+    "stock market chart", "trading screen finance", "business office laptop",
+    "financial graph screen", "businessman office window", "stock exchange building",
+]
+
 HISTORIA_EVERY = 5  # 1 a cada 5 posts educativos é uma HISTÓRIA (carrossel)
 
 
@@ -349,8 +355,20 @@ def _build_card(result: dict, asset: dict | None, out_path: str, seed: int = 0) 
         except Exception as exc:  # noqa: BLE001
             print(f"Aviso: não foi possível gerar o gráfico: {exc}", file=sys.stderr)
 
-    background = imagegen.generate_background("mercado" if fmt == "mercado" else "trader", seed)
-    print("Fundo: imagem de IA." if background is not None else "Fundo: cena desenhada (sem IA).")
+    # Fundo: foto real (grátis/CC0) primeiro; IA só se houver crédito; senão cena desenhada.
+    from . import topicphoto
+
+    q = "stock market charts screen" if fmt == "mercado" else FOTO_QUERIES[seed % len(FOTO_QUERIES)]
+    background = None
+    try:
+        background, _ = topicphoto.fetch_topic_photo(q)
+    except Exception as exc:  # noqa: BLE001
+        print(f"Aviso: falha ao buscar foto de fundo: {exc}", file=sys.stderr)
+    if background is None:
+        background = imagegen.generate_background("mercado" if fmt == "mercado" else "trader", seed)
+        print("Fundo: imagem de IA." if background is not None else "Fundo: cena desenhada.")
+    else:
+        print(f"Fundo: foto real ('{q}').")
     badge = "mercado" if fmt == "mercado" else "trader"
     return image.build_card(
         result["headline"], badge, handle, out_path, chart_img, seed, background=background

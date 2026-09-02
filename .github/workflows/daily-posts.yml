@@ -73,7 +73,7 @@ jobs:
 
       # Grava a memória de posts (só em publicação real e se houve mudança).
       - name: Salvar memória de posts
-        if: ${{ inputs.dry_run != 'true' }}
+        if: ${{ always() && inputs.dry_run != 'true' }}
         run: |
           if [ -n "$(git status --porcelain state/history.json)" ]; then
             git config user.name "github-actions[bot]"
