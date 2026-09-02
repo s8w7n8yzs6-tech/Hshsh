@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-08-24T11:05-03:00",
-    "type": "mito_verdade",
-    "angle": "a euforia perigosa depois de vários acertos seguidos",
-    "headline": "Sequência de acertos não muda a probabilidade da próxima operação, muda sua cabeça"
-  },
-  {
-    "date": "2026-08-24T11:05-03:00",
     "type": "conceito",
     "angle": "Rompimento de linha de tendência: o que significa o preço romper uma LTA ou LTB traçada no gráfico",
     "headline": "Rompimento de LTA e LTB: o que isso indica",
@@ -959,5 +953,12 @@
     "angle": "Juros do Tesouro Direto aceleram com disparada dos títulos americanos; entenda: InfoMoney",
     "headline": "Juros dos EUA sobem e mexem no seu Tesouro Direto",
     "subject": "man:juros-do-tesouro-direto-aceleram-com"
+  },
+  {
+    "date": "2026-09-01T23:30-03:00",
+    "type": "historia",
+    "angle": "Dólar sobe e fecha a R$ 5,16, de olho na taxa de desemprego e na alta do petróleo; Ibovespa avança: G1",
+    "headline": "Dólar aos R$ 5,16: o que está por trás disso",
+    "subject": "man:dolar-sobe-e-fecha-a-r"
   }
 ]
