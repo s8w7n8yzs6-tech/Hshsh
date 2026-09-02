@@ -1,12 +1,6 @@
 [
   {
     "date": "2026-08-24T11:05-03:00",
-    "type": "mercado",
-    "angle": "comente a amplitude entre a máxima e a mínima do período",
-    "headline": "Ouro sobe +5,18% com amplitude de mais de 100 pontos no dia"
-  },
-  {
-    "date": "2026-08-24T11:05-03:00",
     "type": "mito_verdade",
     "angle": "a euforia perigosa depois de vários acertos seguidos",
     "headline": "Sequência de acertos não muda a probabilidade da próxima operação, muda sua cabeça"
@@ -958,5 +952,12 @@
     "angle": "Economia global entra em zona de tensão com disparada dos rendimentos dos títulos e petróleo acima de US$ 92: ADVFN",
     "headline": "Juros nas alturas e petróleo acima de US$ 92: mundo tenso",
     "subject": "man:economia-global-entra-em-zona-de"
+  },
+  {
+    "date": "2026-09-01T23:10-03:00",
+    "type": "historia",
+    "angle": "Juros do Tesouro Direto aceleram com disparada dos títulos americanos; entenda: InfoMoney",
+    "headline": "Juros dos EUA sobem e mexem no seu Tesouro Direto",
+    "subject": "man:juros-do-tesouro-direto-aceleram-com"
   }
 ]
