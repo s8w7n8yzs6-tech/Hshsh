@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-08-24T16:19-03:00",
-    "type": "mercado",
-    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
-    "headline": "Nasdaq 100 recua 3,06% e testa região dos 28.800"
-  },
-  {
-    "date": "2026-08-24T16:20-03:00",
-    "type": "mito_verdade",
-    "angle": "a diferença entre ser trader e ser apostador",
-    "headline": "Apostador busca emoção. Trader busca repetição de um processo que ele controla"
-  },
-  {
-    "date": "2026-08-24T17:59-03:00",
-    "type": "dica",
-    "angle": "preparar o pré-mercado antes de operar",
-    "headline": "Antes do clique: sua checagem de pré-mercado",
-    "subject": "dic:preparar-pre-mercado-antes"
-  },
-  {
-    "date": "2026-08-24T17:59-03:00",
-    "type": "numero",
-    "angle": "a gratidão por evoluir aos poucos, um dia de cada vez",
-    "headline": "Foi só isso que evoluiu hoje. E hoje foi suficiente."
-  },
-  {
     "date": "2026-08-24T18:58-03:00",
     "type": "conceito",
     "angle": "Média móvel como suporte dinâmico: como uma média pode funcionar de 'piso' móvel dentro de uma tendência de alta",
@@ -959,5 +934,31 @@
     "type": "numero",
     "angle": "a ansiedade antes de abrir uma operação",
     "headline": "É o tempo que sua ansiedade tem antes do clique pra virar decisão ou virar impulso"
+  },
+  {
+    "date": "2026-09-02T17:26-03:00",
+    "type": "conceito",
+    "angle": "como o espalhamento (spread) e custos afetam o resultado",
+    "headline": "Spread e custos: o imposto silencioso",
+    "subject": "con:como-espalhamento-spread-custos"
+  },
+  {
+    "date": "2026-09-02T17:26-03:00",
+    "type": "lista",
+    "angle": "respeitar o stop mesmo quando dói",
+    "headline": "4 verdades sobre honrar o stop mesmo doendo"
+  },
+  {
+    "date": "2026-09-02T17:26-03:00",
+    "type": "conceito",
+    "angle": "CCI (Commodity Channel Index): um oscilador que mede o quão longe o preço está da sua média",
+    "headline": "CCI: a distância entre preço e média",
+    "subject": "ind:cci-commodity-channel-index"
+  },
+  {
+    "date": "2026-09-02T17:27-03:00",
+    "type": "foto",
+    "angle": "o medo de ficar de fora (FOMO)",
+    "headline": "Aquele candle que sobe sem você e o desespero de entrar"
   }
 ]
