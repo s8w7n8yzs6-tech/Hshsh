@@ -1,24 +1,5 @@
 [
   {
-    "date": "2026-08-23T19:51-03:00",
-    "type": "numero",
-    "angle": "a ansiedade antes de abrir uma operação",
-    "headline": "O número de operações que existem antes do clique. A ansiedade chega antes do trade nascer."
-  },
-  {
-    "date": "2026-08-23T19:52-03:00",
-    "type": "historia",
-    "angle": "Stanley Druckenmiller: um dos maiores gestores macro, ex-braço direito de Soros",
-    "headline": "O homem que apostou tudo — e mediu o risco antes",
-    "subject": "his:stanley-druckenmiller"
-  },
-  {
-    "date": "2026-08-23T20:42-03:00",
-    "type": "lista",
-    "angle": "respeitar o stop mesmo quando dói",
-    "headline": "Respeitar o stop mesmo quando dói"
-  },
-  {
     "date": "2026-08-24T08:14-03:00",
     "type": "dica",
     "angle": "controlar o número de operações por dia",
@@ -957,5 +938,24 @@
     "angle": "ADX: um indicador que mede a FORÇA da tendência (sem dizer a direção)",
     "headline": "ADX: a força por trás da tendência",
     "subject": "ind:adx"
+  },
+  {
+    "date": "2026-09-01T21:31-03:00",
+    "type": "mito_verdade",
+    "angle": "a importância de manter um diário de operações",
+    "headline": "Diário de trader é registrar o que você pensou antes de clicar"
+  },
+  {
+    "date": "2026-09-01T21:31-03:00",
+    "type": "conceito",
+    "angle": "por que ter um plano de trade escrito antes de operar",
+    "headline": "Plano de trade: sua bússola antes do clique",
+    "subject": "con:ter-plano-trade-escrito"
+  },
+  {
+    "date": "2026-09-01T21:31-03:00",
+    "type": "numero",
+    "angle": "disciplina no gerenciamento de risco",
+    "headline": "É o tamanho da conta que você aceita arriscar antes de saber o que vai acontecer"
   }
 ]
