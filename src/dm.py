@@ -3,10 +3,14 @@
 Usa o mecanismo oficial de "private reply" do Instagram (1 mensagem por
 comentário, até 7 dias depois dele). É um bot SEPARADO do de postagem.
 
-Travas anti-spam:
-- nunca envia DM duas vezes para a mesma pessoa;
+Responde TODO comentário novo — inclusive vários da mesma pessoa.
+
+Travas mantidas:
+- nunca responde duas vezes o MESMO comentário (o Instagram permite 1 private
+  reply por comentário; sem isso o bot entraria em loop);
 - ignora comentários da própria conta;
-- limite de envios por rodada (DM_MAX_PER_RUN).
+- limite de envios por rodada (DM_MAX_PER_RUN), só para respeitar o rate limit
+  da API — o que passar do limite é enviado na rodada seguinte.
 
 Uso:
     python -m src.dm [--dry-run]
@@ -25,7 +29,7 @@ from . import config
 
 _BASE = "https://graph.instagram.com/v21.0"
 STATE_PATH = os.path.join("state", "dm.json")
-MAX_PER_RUN = int(os.getenv("DM_MAX_PER_RUN") or "15")
+MAX_PER_RUN = int(os.getenv("DM_MAX_PER_RUN") or "25")
 MEDIA_LIMIT = int(os.getenv("DM_MEDIA_LIMIT") or "8")
 
 _FALLBACK = (
@@ -163,9 +167,6 @@ def run(dry_run: bool = False) -> None:
         if not cid or cid in done_comments:
             continue
         if not user or user.lower() == me:      # não responder a si mesmo
-            done_comments.add(cid)
-            continue
-        if user.lower() in done_users:          # já falamos com essa pessoa
             done_comments.add(cid)
             continue
         if sent >= MAX_PER_RUN:
