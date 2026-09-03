@@ -1,31 +1,5 @@
 [
   {
-    "date": "2026-08-25T18:58-03:00",
-    "type": "conceito",
-    "angle": "gerenciamento de risco: arriscar só uma pequena parte da banca por operação",
-    "headline": "Por que arriscar pouco em cada operação",
-    "subject": "con:gerenciamento-risco-arriscar-so"
-  },
-  {
-    "date": "2026-08-25T20:00-03:00",
-    "type": "foto",
-    "angle": "respeitar o stop mesmo quando dói",
-    "headline": "Você aperta o botão do stop ou espera ele virar milagre?"
-  },
-  {
-    "date": "2026-08-25T20:01-03:00",
-    "type": "dica",
-    "angle": "montar um plano de trade antes de operar",
-    "headline": "Plano de trade: o que escrever antes de clicar",
-    "subject": "dic:montar-plano-trade-antes"
-  },
-  {
-    "date": "2026-08-25T20:59-03:00",
-    "type": "citacao",
-    "angle": "o medo de ficar de fora (FOMO)",
-    "headline": "O trem que você perdeu não decide o resto do seu dia"
-  },
-  {
     "date": "2026-08-26T08:15-03:00",
     "type": "conceito",
     "angle": "Média simples x exponencial: a diferença entre a SMA e a EMA e por que a EMA reage mais rápido",
@@ -960,5 +934,30 @@
     "type": "citacao",
     "angle": "operar demais (overtrading) e o cansaço mental",
     "headline": "Cada entrada depois da décima não é análise, é cansaço disfarçado de oportunidade"
+  },
+  {
+    "date": "2026-09-03T19:48-03:00",
+    "type": "mercado",
+    "angle": "comente a amplitude entre a máxima e a mínima do período",
+    "headline": "Nasdaq 100 cai -0,54%: quase 585 pontos entre topo e fundo"
+  },
+  {
+    "date": "2026-09-03T19:48-03:00",
+    "type": "mito_verdade",
+    "angle": "acordar cedo para acompanhar a abertura do mercado",
+    "headline": "Acordar cedo sem plano só antecipa o cansaço e a pressa de entrar em qualquer coisa"
+  },
+  {
+    "date": "2026-09-03T19:48-03:00",
+    "type": "conceito",
+    "angle": "Médias móveis: a média do preço em X períodos, usada para suavizar o gráfico e ler a tendência",
+    "headline": "Médias móveis: o barulho vira sinal",
+    "subject": "ind:medias-moveis"
+  },
+  {
+    "date": "2026-09-03T19:49-03:00",
+    "type": "numero",
+    "angle": "a importância de manter um diário de operações",
+    "headline": "linha no diário vale mais que dez horas de gráfico decorado"
   }
 ]
