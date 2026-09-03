@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-08-25T16:45-03:00",
-    "type": "mercado",
-    "angle": "comente a amplitude entre a máxima e a mínima do período",
-    "headline": "Nasdaq 100 cai 1,10% com mais de 500 pontos de amplitude"
-  },
-  {
-    "date": "2026-08-25T16:46-03:00",
-    "type": "numero",
-    "angle": "manter a rotina de estudo mesmo desmotivado",
-    "headline": "É o tempo de motivação que o estudo exige pra continuar sendo feito"
-  },
-  {
-    "date": "2026-08-25T18:00-03:00",
-    "type": "conceito",
-    "angle": "Médias móveis: a média do preço em X períodos, usada para suavizar o gráfico e ler a tendência",
-    "headline": "Média móvel: o gráfico sem ruído",
-    "subject": "ind:medias-moveis"
-  },
-  {
-    "date": "2026-08-25T18:00-03:00",
-    "type": "lista",
-    "angle": "a ansiedade antes de abrir uma operação",
-    "headline": "4 sinais de que a ansiedade chegou antes do sinal"
-  },
-  {
     "date": "2026-08-25T18:58-03:00",
     "type": "conceito",
     "angle": "gerenciamento de risco: arriscar só uma pequena parte da banca por operação",
@@ -959,5 +934,31 @@
     "type": "lista",
     "angle": "a tentação de tentar recuperar rápido um prejuízo (revenge trade)",
     "headline": "5 sinais de que a entrada seguinte é vingança"
+  },
+  {
+    "date": "2026-09-03T17:24-03:00",
+    "type": "conceito",
+    "angle": "Divergência entre preço e indicador: quando o preço faz novo topo mas o indicador não acompanha (sinal de enfraquecimento)",
+    "headline": "Divergência: quando o preço mente sozinho",
+    "subject": "est:divergencia-entre-preco-indicador"
+  },
+  {
+    "date": "2026-09-03T17:24-03:00",
+    "type": "foto",
+    "angle": "a paciência de esperar o setup certo aparecer",
+    "headline": "Ficar parado olhando o gráfico também é operar"
+  },
+  {
+    "date": "2026-09-03T17:24-03:00",
+    "type": "conceito",
+    "angle": "o que é liquidez e por que operar ativos líquidos",
+    "headline": "Liquidez: por que ela protege sua entrada e saída",
+    "subject": "con:liquidez-operar-ativos-liquidos"
+  },
+  {
+    "date": "2026-09-03T17:24-03:00",
+    "type": "citacao",
+    "angle": "operar demais (overtrading) e o cansaço mental",
+    "headline": "Cada entrada depois da décima não é análise, é cansaço disfarçado de oportunidade"
   }
 ]
