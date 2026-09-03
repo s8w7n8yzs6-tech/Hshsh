@@ -1,31 +1,5 @@
 [
   {
-    "date": "2026-08-25T11:11-03:00",
-    "type": "historia",
-    "angle": "Jim Simons: matemático que fundou a Renaissance e o trading quantitativo moderno",
-    "headline": "O matemático que tratou o mercado como um enigma a decifrar",
-    "subject": "his:jim-simons"
-  },
-  {
-    "date": "2026-08-25T11:11-03:00",
-    "type": "lista",
-    "angle": "não operar por impulso logo após uma notícia",
-    "headline": "Notícia saiu, dedo coçou: 4 sinais do gatilho fácil"
-  },
-  {
-    "date": "2026-08-25T13:18-03:00",
-    "type": "dica",
-    "angle": "proteger os lucros de um bom dia",
-    "headline": "Dia bom não termina no gráfico, termina na conta",
-    "subject": "dic:proteger-lucros-bom-dia"
-  },
-  {
-    "date": "2026-08-25T13:19-03:00",
-    "type": "foto",
-    "angle": "bater a meta do dia e ter a disciplina de parar",
-    "headline": "Bateu a meta e o dedo já quer clicar de novo?"
-  },
-  {
     "date": "2026-08-25T13:19-03:00",
     "type": "conceito",
     "angle": "Pullback na média móvel: em uma tendência, esperar o preço recuar até uma média móvel antes de continuar o movimento",
@@ -960,5 +934,30 @@
     "type": "lista",
     "angle": "a montanha-russa emocional de um dia de operações",
     "headline": "4 fases da montanha-russa emocional do pregão"
+  },
+  {
+    "date": "2026-09-03T11:03-03:00",
+    "type": "conceito",
+    "angle": "o conceito de pullback (respiro) dentro de uma tendência",
+    "headline": "Pullback: o respiro dentro da tendência",
+    "subject": "con:conceito-pullback-respiro-dentro"
+  },
+  {
+    "date": "2026-09-03T11:04-03:00",
+    "type": "citacao",
+    "angle": "a paciência de anos até virar um trader consistente",
+    "headline": "Consistência não chega no mês bom, chega no ano que você não desistiu"
+  },
+  {
+    "date": "2026-09-03T11:08-03:00",
+    "type": "mercado",
+    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
+    "headline": "Ouro (XAU/USD) sobe +1,72% no dia, cotado a 4.507,40"
+  },
+  {
+    "date": "2026-09-03T11:08-03:00",
+    "type": "mito_verdade",
+    "angle": "a diferença entre ser trader e ser apostador",
+    "headline": "Trader trabalha com probabilidade calculada. Apostador só espera dar certo."
   }
 ]
