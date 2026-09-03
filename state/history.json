@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-08-25T08:04-03:00",
-    "type": "conceito",
-    "angle": "o conceito de pullback (respiro) dentro de uma tendência",
-    "headline": "Pullback: o respiro dentro da tendência",
-    "subject": "con:conceito-pullback-respiro-dentro"
-  },
-  {
-    "date": "2026-08-25T08:04-03:00",
-    "type": "mito_verdade",
-    "angle": "lidar com dias de lateralização e tédio no gráfico",
-    "headline": "Dia parado é dia de treinar paciência, não é convite pra inventar operação"
-  },
-  {
-    "date": "2026-08-25T11:09-03:00",
-    "type": "mercado",
-    "angle": "fale sobre a volatilidade recente nos candles de 30 min",
-    "headline": "Ouro (XAU/USD) sobe +3,40% com candles de 30 min agitados"
-  },
-  {
-    "date": "2026-08-25T11:10-03:00",
-    "type": "numero",
-    "angle": "reduzir o tamanho da posição quando está em dúvida",
-    "headline": "Na dúvida, o tamanho da posição também pode ser reduzido pela metade"
-  },
-  {
     "date": "2026-08-25T11:11-03:00",
     "type": "historia",
     "angle": "Jim Simons: matemático que fundou a Renaissance e o trading quantitativo moderno",
@@ -959,5 +934,31 @@
     "type": "mito_verdade",
     "angle": "controlar a ganância depois de um bom lucro",
     "headline": "O lucro do dia não muda o tamanho de risco que sua estratégia permite"
+  },
+  {
+    "date": "2026-09-02T21:54-03:00",
+    "type": "conceito",
+    "angle": "Média móvel como suporte dinâmico: como uma média pode funcionar de 'piso' móvel dentro de uma tendência de alta",
+    "headline": "Média móvel como piso dinâmico",
+    "subject": "est:media-movel-como-suporte"
+  },
+  {
+    "date": "2026-09-02T21:55-03:00",
+    "type": "numero",
+    "angle": "aceitar que ter perdas faz parte do jogo",
+    "headline": "Nem a melhor estratégia do mundo passa disso. A perda não é erro, é parte da conta."
+  },
+  {
+    "date": "2026-09-02T21:55-03:00",
+    "type": "conceito",
+    "angle": "Ichimoku (visão geral): um sistema japonês que mostra tendência, suporte e resistência de uma vez",
+    "headline": "Ichimoku: o mapa completo do gráfico",
+    "subject": "ind:ichimoku-visao-geral"
+  },
+  {
+    "date": "2026-09-02T21:55-03:00",
+    "type": "lista",
+    "angle": "a montanha-russa emocional de um dia de operações",
+    "headline": "4 fases da montanha-russa emocional do pregão"
   }
 ]
