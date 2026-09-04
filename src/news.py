@@ -1,40 +1,86 @@
-"""Manchetes de mercado/negócios do Brasil (Google News RSS), ranqueadas por RELEVÂNCIA.
+"""Manchetes de mercado/economia/negócios (Google Notícias RSS), ranqueadas por RELEVÂNCIA.
 
-Grátis e sempre atual. Prioriza notícias que chamam a atenção de traders,
-empresários e de um público analítico: macro, grandes negócios, movimentos
-fortes e temas que fazem pensar — não o factual genérico do dia.
+Grátis e sempre atual. São 10 fontes temáticas (macro, empresas, bolsa, energia,
+varejo, tecnologia, cripto/renda fixa, Wall Street...) para garantir volume e
+VARIEDADE suficientes para 20 carrosséis por dia sem repetir assunto.
+
+Cada manchete vem com o `topic` (a editoria de onde saiu), usado como tarja do
+carrossel, e com `keys` — as palavras fortes do título, que permitem descartar
+manchetes que contam a MESMA história com outras palavras.
 """
 from __future__ import annotations
 
 import re
+import unicodedata
 import xml.etree.ElementTree as ET
 
 import requests
 
 _UA = {"User-Agent": "Mozilla/5.0 (HshshBot; conteudo educativo de mercado)"}
-_FEEDS = [
-    "https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "https://news.google.com/rss/search?q=(Selic%20OR%20Copom%20OR%20juros%20OR%20Fed%20OR%20infla%C3%A7%C3%A3o%20OR%20PIB%20OR%20d%C3%B3lar)%20brasil%20when:7d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "https://news.google.com/rss/search?q=(IPO%20OR%20aquisi%C3%A7%C3%A3o%20OR%20fus%C3%A3o%20OR%20bilh%C3%B5es%20OR%20lucro%20OR%20preju%C3%ADzo%20OR%20demiss%C3%B5es)%20empresa%20brasil%20when:7d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "https://news.google.com/rss/search?q=(Ibovespa%20OR%20bolsa%20OR%20a%C3%A7%C3%B5es%20OR%20investidor%20OR%20mercado%20financeiro)%20when:7d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
-    "https://news.google.com/rss/search?q=(intelig%C3%AAncia%20artificial%20OR%20big%20tech%20OR%20petr%C3%B3leo%20OR%20China%20OR%20economia%20global)%20mercado%20when:7d&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+_MAX_POOL = 120  # teto de manchetes distintas guardadas por execução
+
+
+def _feed(query: str) -> str:
+    from urllib.parse import quote
+
+    return ("https://news.google.com/rss/search?q=" + quote(query)
+            + "&hl=pt-BR&gl=BR&ceid=BR:pt-419")
+
+
+# (editoria, url). A editoria vira a tarja do carrossel — dá cara de jornal.
+_FEEDS: list[tuple[str, str]] = [
+    ("Economia",
+     "https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=pt-BR&gl=BR&ceid=BR:pt-419"),
+    ("Macro & Juros",
+     _feed("(Selic OR Copom OR juros OR Fed OR inflação OR IPCA OR PIB OR dólar OR câmbio) brasil when:7d")),
+    ("Empresas",
+     _feed("(IPO OR aquisição OR fusão OR bilhões OR lucro OR prejuízo OR demissões OR balanço) empresa brasil when:7d")),
+    ("Bolsa & Investimentos",
+     _feed("(Ibovespa OR bolsa OR ações OR investidor OR mercado financeiro OR B3) when:7d")),
+    ("Global & Tecnologia",
+     _feed("(inteligência artificial OR big tech OR Nvidia OR OpenAI OR economia global OR China) mercado when:7d")),
+    ("Energia & Commodities",
+     _feed("(Petrobras OR petróleo OR Vale OR minério OR energia OR agro OR safra OR commodities) preço when:7d")),
+    ("Varejo & Consumo",
+     _feed("(varejo OR consumo OR e-commerce OR emprego OR salário OR crédito OR endividamento) brasileiro when:7d")),
+    ("Bancos & Fintech",
+     _feed("(banco OR fintech OR Nubank OR Pix OR crédito OR seguros OR open finance) brasil when:7d")),
+    ("Cripto & Renda Fixa",
+     _feed("(bitcoin OR criptomoeda OR ETF OR tesouro direto OR renda fixa OR CDI OR fundos) investimento when:7d")),
+    ("Wall Street",
+     _feed("(Wall Street OR Nasdaq OR S&P 500 OR Fed OR treasuries OR recessão) mercado when:7d")),
 ]
+
 _NOISE = re.compile(
     r"mega-?sena|loteria|quina|lotof|hor[óo]scopo|bbb|novela|futebol|libertadores|"
     r"campeonato|s[ée]rie [a-z]|filme|game|celebridade|resultado sorteado|concurso \d|"
-    r"hoje\b.*cota[çc]|veja cota[çc]|confira a cota[çc]",
+    r"hoje\b.*cota[çc]|veja cota[çc]|confira a cota[çc]|ao vivo|minuto a minuto|"
+    r"veja as? fotos|patroc[íi]nio|publieditorial",
     re.I,
 )
 # Sinais de manchete forte (peso positivo).
 _HOT = {
-    r"bilh(ão|ões)|trilh|milh(ão|ões)|R\$|US\$": 3,
+    r"bilh(ão|ões)|trilh|milh(ão|ões)|R\$|US\$|%": 3,
     r"dispara|despenca|salta|desaba|derrete|afunda|recorde|explode|dispar|bater|máxima|mínima": 3,
     r"selic|copom|juros|fed|infla[çc]|pib|d[óo]lar|c[âa]mbio|fiscal|reforma|imposto|tarifa": 2,
     r"ipo|aquisi[çc]|fus[ãa]o|lucro|preju[íi]zo|demiss|falência|recupera[çc]ão judicial|balan[çc]o": 2,
     r"intelig[êe]ncia artificial|\bia\b|big tech|nvidia|tesla|petr[óo]leo|ouro|bitcoin|china|eua|trump|guerra": 2,
-    r"por que|entenda|o que muda|analistas|alerta|risco|an[áa]lise|estrat[ée]gia": 1,
+    r"por que|entenda|o que muda|analistas|alerta|risco|an[áa]lise|estrat[ée]gia|efeito|impacto": 1,
 }
-_COLD = re.compile(r"abre (em|no)|fecha (em|no)|opera em|no radar\b|ao vivo|minuto a minuto", re.I)
+_COLD = re.compile(r"abre (em|no)|fecha (em|no)|opera em|no radar\b|agenda do dia|resumo do dia", re.I)
+
+# Palavras sem peso para comparar duas manchetes (não identificam a história).
+_WEAK = {
+    "para", "como", "mais", "menos", "sobre", "apos", "após", "pelo", "pela", "com",
+    "sem", "dos", "das", "nos", "nas", "que", "uma", "seu", "sua", "ser", "vai",
+    "diz", "tem", "ate", "até", "por", "entenda", "veja", "saiba", "brasil",
+    "brasileiro", "brasileira", "mercado", "novo", "nova", "ano", "anos", "hoje",
+    "semana", "governo", "milhoes", "bilhoes", "empresa", "empresas",
+}
+
+
+def _ascii(text: str) -> str:
+    return unicodedata.normalize("NFKD", (text or "").lower()).encode("ascii", "ignore").decode()
 
 
 def _clean(title: str) -> str:
@@ -42,10 +88,20 @@ def _clean(title: str) -> str:
 
 
 def _slug(title: str) -> str:
-    import unicodedata
+    return "-".join(re.findall(r"[a-z0-9]+", _ascii(title))[:6]) or "x"
 
-    t = unicodedata.normalize("NFKD", title.lower()).encode("ascii", "ignore").decode()
-    return "-".join(re.findall(r"[a-z0-9]+", t)[:6]) or "x"
+
+def keywords(text: str) -> set:
+    """Palavras fortes de um título/slug — a 'impressão digital' da história."""
+    return {w for w in re.findall(r"[a-z0-9]{4,}", _ascii(text)) if w not in _WEAK}
+
+
+def same_story(a: str, b: str, min_overlap: int = 2) -> bool:
+    """Duas manchetes falam do MESMO fato? (compara as palavras fortes)."""
+    ka, kb = keywords(a), keywords(b)
+    if not ka or not kb:
+        return False
+    return len(ka & kb) >= min_overlap
 
 
 def _score(title: str) -> int:
@@ -60,11 +116,22 @@ def _score(title: str) -> int:
     return s
 
 
-def fetch_headlines(limit: int = 20) -> list[dict]:
-    """Manchetes recentes ranqueadas: [{title, source, slug, score}] (mais forte primeiro)."""
-    seen: set = set()
+_CACHE: list[dict] = []  # as manchetes são buscadas UMA vez por execução
+
+
+def fetch_headlines(limit: int = 60) -> list[dict]:
+    """Manchetes recentes ranqueadas: [{title, source, topic, slug, keys, score}].
+
+    Já vem sem repetição de HISTÓRIA: quando dois veículos publicam o mesmo fato,
+    fica só a versão de manchete mais forte. O resultado fica em cache durante a
+    execução (um disparo pode publicar vários posts sem rebuscar os 10 feeds).
+    """
+    if _CACHE:
+        return _CACHE[:limit]
+
+    seen_slug: set = set()
     items: list[dict] = []
-    for url in _FEEDS:
+    for topic, url in _FEEDS:
         try:
             r = requests.get(url, headers=_UA, timeout=25)
             if r.status_code != 200:
@@ -77,15 +144,29 @@ def fetch_headlines(limit: int = 20) -> list[dict]:
             if not title or len(title) < 26 or _NOISE.search(title):
                 continue
             slug = _slug(title)
-            if slug in seen:
+            if slug in seen_slug:
                 continue
-            seen.add(slug)
+            seen_slug.add(slug)
             src = it.find("source")
             items.append({
                 "title": title,
                 "source": (src.text if src is not None else "").strip(),
+                "topic": topic,
                 "slug": slug,
+                "keys": sorted(keywords(title)),
                 "score": _score(title),
             })
+
     items.sort(key=lambda x: x["score"], reverse=True)
-    return items[:limit]
+
+    # Colapsa manchetes diferentes sobre o MESMO fato (fica a mais forte).
+    unique: list[dict] = []
+    for it in items:
+        ks = set(it["keys"])
+        if any(len(ks & set(u["keys"])) >= 2 for u in unique):
+            continue
+        unique.append(it)
+        if len(unique) >= _MAX_POOL:
+            break
+    _CACHE[:] = unique
+    return unique[:limit]

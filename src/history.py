@@ -21,13 +21,19 @@ def _load(path: str) -> list[dict]:
         return []
 
 
-def recent_headlines(n: int = 20, path: str = HISTORY_PATH) -> list[str]:
+def recent_headlines(n: int = 20, path: str | None = None) -> list[str]:
     """Últimas N headlines publicadas (para o modelo evitar repetir)."""
-    return [e.get("headline", "") for e in _load(path)[-n:] if e.get("headline")]
+    return [e.get("headline", "") for e in _load(path or HISTORY_PATH)[-n:] if e.get("headline")]
 
 
-def append(entry: dict, max_items: int = 150, path: str = HISTORY_PATH) -> None:
+# 20 posts/dia × ~100 dias. Precisa ser grande: é essa lista que impede uma
+# manchete (ou um assunto do acervo) de voltar a virar post meses depois.
+MAX_ITEMS = 2000
+
+
+def append(entry: dict, max_items: int = MAX_ITEMS, path: str | None = None) -> None:
     """Adiciona um post ao histórico, mantendo no máximo `max_items` registros."""
+    path = path or HISTORY_PATH
     data = _load(path)
     data.append(entry)
     data = data[-max_items:]

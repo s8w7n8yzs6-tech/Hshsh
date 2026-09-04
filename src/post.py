@@ -36,19 +36,13 @@ def _day_of_year() -> int:
 def _slot_plan(slot: int) -> tuple[str, str | None]:
     """Formato/ativo de um slot.
 
-    Slots PARES = desenvolvimento (educativo): 2 são mercado (ouro/Nasdaq) e os
-    demais revezam padrão/conceito/dica. Slots ÍMPARES = mentalidade. Resultado:
-    10 educativos + 10 de mentalidade por dia, intercalados no feed.
+    TODOS os 20 posts do dia são CARROSSÉIS DE NOTÍCIA: cada um pega uma manchete
+    forte e ainda não usada do mercado/economia/negócios e a explica em 4-5
+    capítulos, com foto do assunto e design alternando a cada post. Se nenhuma
+    manchete nova estiver disponível (falha de rede, feed vazio), o post cai para
+    o acervo educativo — assim o horário nunca fica em branco.
     """
-    day = _day_of_year()
-    if slot == config.GOLD_SLOT_INDEX:
-        return "mercado", "ouro"
-    if slot == config.NASDAQ_SLOT_INDEX:
-        return "mercado", "nasdaq"
-    if slot % 2 == 0:  # educativo — o acervo (pool) decide o assunto, sem repetir
-        return "edu", None
-    ment = config.MENTALITY_FORMATS  # mentalidade
-    return ment[((slot - 1) // 2 + day) % len(ment)], None
+    return "historia", None
 
 
 def plan_post(content_type: str | None) -> tuple[str, str | None]:
@@ -98,53 +92,73 @@ FOTO_QUERIES = [
     "financial graph screen", "businessman office window", "stock exchange building",
 ]
 
-HISTORIA_EVERY = 5  # 1 a cada 5 posts educativos é uma HISTÓRIA (carrossel)
+NEWS_POOL = 80  # quantas manchetes ranqueadas considerar a cada post
 
 
 def _used_subjects() -> set:
     return {e.get("subject") for e in history._load(history.HISTORY_PATH) if e.get("subject")}
 
 
-def _next_historia_subject(used: set) -> dict | None:
-    """Próxima MANCHETE em alta do mercado/negócios do Brasil ainda não usada.
+NEWS_DEDUP_WINDOW = 160  # ~8 dias de posts: janela para barrar a MESMA história
 
-    Puxa as manchetes da semana (Google Notícias RSS) e devolve a primeira que
-    ainda não virou post. Como as manchetes mudam sempre, o acervo se renova
-    sozinho e nunca repete. Retorna None se não houver manchete disponível.
+
+def _recent_stories(n: int = NEWS_DEDUP_WINDOW) -> list[str]:
+    """Slugs das manchetes dos últimos N posts (para não recontar o mesmo fato).
+
+    A comparação por palavras só olha o passado recente: uma notícia velha nunca
+    volta (a chave exata fica guardada para sempre), mas assuntos recorrentes —
+    petróleo, Selic, dólar — continuam podendo virar post quando o fato é NOVO.
+    """
+    keys = [e.get("subject", "") for e in history._load(history.HISTORY_PATH)[-n:]]
+    return [k[4:] for k in keys if str(k).startswith("man:")]
+
+
+def _next_historia_subject(used: set) -> dict | None:
+    """Próxima MANCHETE forte ainda não usada (nem como assunto, nem parecida).
+
+    Puxa as manchetes da semana das 10 editorias (Google Notícias RSS, ranqueadas
+    por impacto) e devolve a mais forte que ainda não virou post — descartando
+    também as que contam a MESMA história de um post anterior com outras palavras.
+    Como as manchetes se renovam todo dia, o acervo nunca acaba e nada se repete.
+    Retorna None se não houver manchete disponível.
     """
     from . import news
 
     try:
-        heads = news.fetch_headlines(25)
-    except Exception:  # noqa: BLE001
+        heads = news.fetch_headlines(NEWS_POOL)
+    except Exception as exc:  # noqa: BLE001
+        print(f"Aviso: falha ao buscar manchetes: {exc}", file=sys.stderr)
         heads = []
+    recentes = _recent_stories()
     for h in heads:
         key = f"man:{h['slug']}"
-        if key not in used:
-            return {"key": key, "fmt": "historia", "badge": "MERCADO NO BRASIL",
-                    "nome": h["title"], "hint": h.get("source", "")}
+        if key in used:
+            continue
+        if any(news.same_story(h["slug"], u) for u in recentes):
+            continue  # mesma história de um post anterior, só que com outro título
+        return {"key": key, "fmt": "historia", "badge": h.get("topic", "MERCADO"),
+                "nome": h["title"], "hint": h.get("source", "")}
     return None
 
 
 def _next_edu_subject(fmt: str | None = None) -> dict:
-    """Próximo assunto educativo que AINDA NÃO foi usado (nunca repete).
+    """Próximo assunto que AINDA NÃO foi usado (nunca repete).
 
-    HISTÓRIAS (carrosséis de pessoas) aparecem 1 a cada HISTORIA_EVERY posts
-    educativos e têm renovação automática do acervo de pessoas. Os demais formatos
-    vêm do acervo de "aprender" (estratégias/indicadores/conceitos/dicas).
+    Por padrão vem uma MANCHETE nova (carrossel de notícia). Só quando não há
+    manchete disponível é que cai para o acervo de "aprender" (estratégias,
+    indicadores, conceitos e dicas), para o horário não ficar vazio.
     """
     from . import patterns
 
     used = _used_subjects()
-    want_historia = fmt == "historia" or (
-        fmt is None
-        and sum(1 for e in history._load(history.HISTORY_PATH) if e.get("subject")) % HISTORIA_EVERY == 0
-    )
-    if want_historia:
+    if fmt in (None, "historia"):
         subj = _next_historia_subject(used)
         if subj is not None:
             return subj
         # sem manchete disponível → cai para o acervo de "aprender"
+        print("Sem manchete nova disponível — usando o acervo educativo neste slot.",
+              file=sys.stderr)
+        fmt = None
 
     pool = patterns.build_pool()
     for item in pool:
@@ -304,6 +318,7 @@ def _build_media(result: dict, asset: dict | None, seed: int, dry_run: bool) -> 
         return decks.build(
             result.get("cover", ""), result.get("slides", []),
             subj.get("hint", ""), config.POST_HANDLE, out_dir, seed, photo=photo, credit=credit,
+            kicker=subj.get("badge", ""),
         )
     out_path = "preview.png" if dry_run else os.path.join(tmp, "post_card.png")
     return [_build_card(result, asset, out_path, seed)]

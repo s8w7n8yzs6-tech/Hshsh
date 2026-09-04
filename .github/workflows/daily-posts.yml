@@ -1,8 +1,9 @@
 name: Posts diários sobre trade
 
 # 20 posts/dia distribuídos das 07:00 às 20:30 (horário de Brasília, UTC-3).
-# Os horários abaixo estão em UTC (BRT + 3h). 2 posts do dia são de mercado
-# (08:25 = Ouro, 16:14 = Nasdaq); os demais focam no trader.
+# Os horários abaixo estão em UTC (BRT + 3h). TODOS os posts são carrosséis de
+# NOTÍCIA: cada um pega uma manchete forte e ainda não usada do mercado/economia/
+# negócios e a explica em 4-5 capítulos, com foto do assunto.
 # O agendador do GitHub é "best-effort" (atrasa/junta/pula horários). Por isso
 # disparamos com FREQUÊNCIA (a cada 20 min na janela 07:00–20:30 BRT = 10:00–23:40
 # UTC) e a lógica em src/post.py decide o que publicar: no máximo 1 post por

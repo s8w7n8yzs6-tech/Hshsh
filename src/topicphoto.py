@@ -23,11 +23,25 @@ _BAD = re.compile(
     r"pattern|drawing|logo|template|transparent|"
     # material antigo/arquivo (o acervo CC0 tem muita foto histórica)
     r"vintage|antique|retro|archive|museum|painting|engraving|postcard|lithograph|"
-    r"original image from|public domain|18\d\d|19[0-7]\d",
+    r"original image from|public domain|18\d\d|19[0-7]\d|"
+    # negativos/escaneados de acervo (chegam como foto, mas parecem filme velho)
+    r"negative|film strip|safety film|agfa|kodak|glass plate|daguerre|"
+    r"scanned|photographic print|black.and.white|black & white|monochrome|b&w",
     re.I,
 )
 _MIN_LONG = 800   # lado maior mínimo
 _MIN_SHORT = 560  # lado menor mínimo
+_MIN_SAT = 10     # saturação média mínima: abaixo disso é P&B/negativo de acervo
+
+
+def _saturation(img) -> float:
+    """Saturação média (0-255). Fotos modernas têm cor; escaneados antigos, não."""
+    try:
+        small = img.convert("HSV").resize((64, 64))
+        px = small.split()[1].getdata()
+        return sum(px) / len(px)
+    except Exception:  # noqa: BLE001
+        return 255.0
 
 
 def _download(url: str):
@@ -43,6 +57,8 @@ def _download(url: str):
     w, h = img.size
     if max(w, h) < _MIN_LONG or min(w, h) < _MIN_SHORT:
         return None
+    if _saturation(img) < _MIN_SAT:
+        return None  # imagem sem cor (P&B/negativo antigo) — não serve de capa
     return img
 
 
@@ -73,6 +89,7 @@ def _pick(results, want_tall: bool, toks: list[str] | None = None):
             continue
         w, h = img.size
         score = (w * h) / 1_000_000.0
+        score += min(2.0, _saturation(img) / 60.0)  # foto com cor chama mais atenção
         if want_tall:
             score += 2.5 * (h / w)
         if score > best_score:

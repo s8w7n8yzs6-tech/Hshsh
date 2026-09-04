@@ -38,12 +38,11 @@ DRY_RUN = os.getenv("DRY_RUN", "false").lower() in ("1", "true", "yes")
 # "trader" = conteúdo focado no trader (identificação) — os demais posts do dia.
 CONTENT_TYPES = ("trader", "mercado")
 
-# Formatos que se revezam nos posts de trader (dão variedade ao feed). O formato
-# de cada slot é escolhido por (slot + dia), então posts vizinhos são diferentes
-# e a ordem muda a cada dia. "foto" usa imagem de IA; os demais são desenhados.
-# Metade do dia é DESENVOLVIMENTO (educativo: padrões/gráficos/conceitos/dicas) e
-# metade é MENTALIDADE (o lado psicológico). Slots pares = educativo, ímpares =
-# mentalidade → 10 e 10, intercalados no feed.
+# TODOS os 20 posts do dia são CARROSSÉIS DE NOTÍCIA (ver src/news.py e
+# src/decks.py): manchete forte da semana explicada em 4-5 capítulos, com foto do
+# assunto e o layout alternando a cada post. Os formatos abaixo continuam
+# existindo como RESERVA: entram quando não há manchete nova disponível (falha de
+# rede/feed vazio) e no disparo manual com --type.
 MENTALITY_FORMATS = ("foto", "citacao", "mito_verdade", "numero", "lista")
 EDU_FORMATS = ("padrao", "conceito", "dica")  # nos slots pares que não são mercado
 TRADER_FORMATS_ROTATION = MENTALITY_FORMATS  # compat: usado no disparo manual "trader"
@@ -57,16 +56,15 @@ ALL_FORMATS = ("foto", "citacao", "lista", "mito_verdade", "numero",
                "historia", "conceito", "dica", "mercado")
 
 # Horários dos 20 posts, em horário de Brasília (UTC-3), das 07:00 às 20:30.
-# O tipo de cada post é decidido pelo slot mais próximo do horário atual.
 SCHEDULE_BRT = [
     (7, 0), (7, 43), (8, 25), (9, 8), (9, 51),
     (10, 33), (11, 16), (11, 58), (12, 41), (13, 24),
     (14, 6), (14, 49), (15, 32), (16, 14), (16, 57),
     (17, 39), (18, 22), (19, 5), (19, 47), (20, 30),
 ]
-# Índices (na lista acima) dos 2 posts de mercado do dia:
-GOLD_SLOT_INDEX = 2      # 08:25 — Ouro (slot par = educativo)
-NASDAQ_SLOT_INDEX = 12   # 15:32 — Nasdaq (pregão dos EUA aberto; slot par)
+# Reserva: índices dos posts de mercado (só no disparo manual --type mercado).
+GOLD_SLOT_INDEX = 2      # 08:25 — Ouro
+NASDAQ_SLOT_INDEX = 12   # 15:32 — Nasdaq (pregão dos EUA aberto)
 BRT_OFFSET_HOURS = -3
 
 # Tipo fixo, se definido no ambiente (senão, decidido pelo horário do slot).
