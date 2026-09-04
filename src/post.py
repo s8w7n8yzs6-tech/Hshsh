@@ -183,12 +183,19 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
 
     # Automático: recupera vários horários atrasados de uma vez (até CATCHUP_MAX),
     # para chegar perto dos 20/dia mesmo que o GitHub dispare poucas vezes.
+    # Entre um post e outro há um intervalo (POST_GAP_S): sem ele, uma rodada de
+    # recuperação despeja 4 posts no mesmo minuto e o perfil vira spam no feed.
+    import time as _t
+
     published = 0
     errors: list[str] = []
-    for _ in range(1 if dry_run else config.CATCHUP_MAX):
+    for i in range(1 if dry_run else config.CATCHUP_MAX):
         slot = _due_slot()
         if slot is None:
             break
+        if i and not dry_run and config.POST_GAP_S:
+            print(f"Aguardando {config.POST_GAP_S}s antes do próximo post (espaçamento).")
+            _t.sleep(config.POST_GAP_S)
         fmt, asset_key = _slot_plan(slot)
         try:
             _post_one(slot, fmt, asset_key, dry_run)
