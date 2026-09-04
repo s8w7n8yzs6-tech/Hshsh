@@ -1,31 +1,5 @@
 [
   {
-    "date": "2026-08-26T13:59-03:00",
-    "type": "conceito",
-    "angle": "a relação risco/retorno (por que buscar ganho maior que a perda arriscada)",
-    "headline": "Risco x retorno: a conta que precisa fechar",
-    "subject": "con:relacao-risco-retorno-buscar"
-  },
-  {
-    "date": "2026-08-26T14:00-03:00",
-    "type": "mito_verdade",
-    "angle": "a paciência de anos até virar um trader consistente",
-    "headline": "Consistência vem do tempo que você aguenta repetir o processo mesmo errando dentro dele"
-  },
-  {
-    "date": "2026-08-27T22:31-03:00",
-    "type": "dica",
-    "angle": "dimensionar o tamanho da posição pelo risco",
-    "headline": "Tamanho da posição não é sobre coragem, é sobre conta",
-    "subject": "dic:dimensionar-tamanho-posicao-pelo"
-  },
-  {
-    "date": "2026-08-27T22:31-03:00",
-    "type": "lista",
-    "angle": "reduzir o tamanho da posição quando está em dúvida",
-    "headline": "Na dúvida, o lote fica menor. Sempre."
-  },
-  {
     "date": "2026-08-27T22:32-03:00",
     "type": "mercado",
     "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
@@ -959,5 +933,31 @@
     "type": "numero",
     "angle": "manter a rotina de estudo mesmo desmotivado",
     "headline": "Vontade de estudar hoje: zero. Estudou assim mesmo: um."
+  },
+  {
+    "date": "2026-09-04T14:21-03:00",
+    "type": "conceito",
+    "angle": "Rompimento de resistência: quando o preço ultrapassa com força uma região que antes o segurava (breakout)",
+    "headline": "Rompimento de resistência: o que é",
+    "subject": "est:rompimento-resistencia"
+  },
+  {
+    "date": "2026-09-04T14:22-03:00",
+    "type": "lista",
+    "angle": "a ansiedade antes de abrir uma operação",
+    "headline": "4 sinais de que a ansiedade tomou o controle antes da entrada"
+  },
+  {
+    "date": "2026-09-04T14:22-03:00",
+    "type": "conceito",
+    "angle": "IFR (RSI): o Índice de Força Relativa, que mede se um ativo está muito comprado ou muito vendido",
+    "headline": "IFR: quando o ativo pede uma pausa",
+    "subject": "ind:ifr-rsi"
+  },
+  {
+    "date": "2026-09-04T14:22-03:00",
+    "type": "foto",
+    "angle": "respeitar o stop mesmo quando dói",
+    "headline": "Sair no stop dói mais que o prejuízo em si"
   }
 ]
