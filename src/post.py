@@ -141,24 +141,19 @@ def _next_historia_subject(used: set) -> dict | None:
     return None
 
 
-def _next_edu_subject(fmt: str | None = None) -> dict:
+def _next_edu_subject(fmt: str | None = None) -> dict | None:
     """Próximo assunto que AINDA NÃO foi usado (nunca repete).
 
-    Por padrão vem uma MANCHETE nova (carrossel de notícia). Só quando não há
-    manchete disponível é que cai para o acervo de "aprender" (estratégias,
-    indicadores, conceitos e dicas), para o horário não ficar vazio.
+    O formato do feed é UM só: carrossel de notícia. Sem manchete nova disponível
+    (feeds fora do ar), o slot é PULADO — nada de publicar no formato antigo; ele
+    é recuperado no próximo disparo. Os formatos do acervo de "aprender" só saem
+    em disparo manual pedindo explicitamente aquele formato.
     """
     from . import patterns
 
     used = _used_subjects()
     if fmt in (None, "historia"):
-        subj = _next_historia_subject(used)
-        if subj is not None:
-            return subj
-        # sem manchete disponível → cai para o acervo de "aprender"
-        print("Sem manchete nova disponível — usando o acervo educativo neste slot.",
-              file=sys.stderr)
-        fmt = None
+        return _next_historia_subject(used)
 
     pool = patterns.build_pool()
     for item in pool:
@@ -198,7 +193,8 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
             _t.sleep(config.POST_GAP_S)
         fmt, asset_key = _slot_plan(slot)
         try:
-            _post_one(slot, fmt, asset_key, dry_run)
+            if not _post_one(slot, fmt, asset_key, dry_run):
+                break  # sem manchete nova: não insiste no mesmo slot
             published += 1
         except SystemExit as exc:  # falha de publicação de um post — segue tentando os demais
             errors.append(str(exc))
@@ -213,8 +209,11 @@ def run(content_type: str | None = None, dry_run: bool | None = None) -> None:
         raise SystemExit("Falhas de publicação:\n" + "\n".join(errors))
 
 
-def _post_one(slot: int, fmt: str, asset_key: str | None, dry_run: bool) -> None:
-    """Gera e publica UM post do slot informado. Levanta SystemExit se a publicação falhar."""
+def _post_one(slot: int, fmt: str, asset_key: str | None, dry_run: bool) -> bool:
+    """Gera e publica UM post do slot. False = nada a publicar (sem manchete nova).
+
+    Levanta SystemExit se a publicação falhar.
+    """
     asset = None
     snapshot = None
     if fmt == "mercado":
@@ -229,6 +228,11 @@ def _post_one(slot: int, fmt: str, asset_key: str | None, dry_run: bool) -> None
     subject = None
     if fmt in ("edu", "historia", "conceito", "dica"):
         subject = _next_edu_subject(None if fmt == "edu" else fmt)
+        if subject is None:
+            print("Sem manchete nova disponível agora — slot pulado (nada é publicado "
+                  "fora do formato de notícia). Ele volta no próximo disparo.",
+                  file=sys.stderr)
+            return False
         fmt = subject["fmt"]
 
     if subject is not None:
@@ -253,11 +257,11 @@ def _post_one(slot: int, fmt: str, asset_key: str | None, dry_run: bool) -> None
 
     if dry_run:
         print(f"DRY_RUN ativo — {len(image_paths)} imagem(ns) gerada(s); nada publicado.")
-        return
+        return True
 
     if not config.PLATFORMS:
         print("Nenhuma plataforma configurada (PLATFORMS). Nada publicado.")
-        return
+        return False
 
     image_urls = _host_images(image_paths)
     if not image_urls:
@@ -300,6 +304,7 @@ def _post_one(slot: int, fmt: str, asset_key: str | None, dry_run: bool) -> None
     if result.get("_subject"):
         entry["subject"] = result["_subject"]["key"]  # marca o assunto como usado (nunca repetir)
     history.append(entry)
+    return True
 
 
 def _build_media(result: dict, asset: dict | None, seed: int, dry_run: bool) -> list[str]:
