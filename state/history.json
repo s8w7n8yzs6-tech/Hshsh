@@ -959,5 +959,33 @@
     "type": "foto",
     "angle": "respeitar o stop mesmo quando dói",
     "headline": "Sair no stop dói mais que o prejuízo em si"
+  },
+  {
+    "date": "2026-09-04T16:02-03:00",
+    "type": "historia",
+    "angle": "Petróleo dispara mais de 6% com retomada dos ataques entre EUA e Irã: Folha de S.Paulo",
+    "headline": "Petróleo salta mais de 6% com EUA e Irã em conflito",
+    "subject": "man:petroleo-dispara-mais-de-6-com"
+  },
+  {
+    "date": "2026-09-04T16:03-03:00",
+    "type": "historia",
+    "angle": "IA pode adicionar R$ 1 trilhão ao PIB do Brasil até 2030 — mas a conta real pode ser bem maior: epocanegocios.globo.com",
+    "headline": "R$ 1 tri de IA no PIB: e se a conta for maior?",
+    "subject": "man:ia-pode-adicionar-r-1-trilhao"
+  },
+  {
+    "date": "2026-09-04T16:04-03:00",
+    "type": "historia",
+    "angle": "Ouro sobe quase 3% após fala de diretor do Fed derrubar dólar e juros: cnnbrasil.com.br",
+    "headline": "Fala do Fed derruba dólar e ouro dispara quase 3%",
+    "subject": "man:ouro-sobe-quase-3-apos-fala"
+  },
+  {
+    "date": "2026-09-04T16:05-03:00",
+    "type": "historia",
+    "angle": "BNDES amplia crédito para empresas afetadas por tarifaço e guerras; pacote chega a R$ 22,6 bilhões: G1",
+    "headline": "BNDES libera R$ 22,6 bi pra quem levou tarifaço",
+    "subject": "man:bndes-amplia-credito-para-empresas-afetadas"
   }
 ]
