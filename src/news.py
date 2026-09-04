@@ -96,12 +96,44 @@ def keywords(text: str) -> set:
     return {w for w in re.findall(r"[a-z0-9]{4,}", _ascii(text)) if w not in _WEAK}
 
 
+# Tipos de FATO. Duas manchetes que citam o mesmo protagonista E são do mesmo
+# tipo de fato contam a mesma história, ainda que com títulos bem diferentes
+# ("Nvidia faz aquisição bilionária" e "a startup que a Nvidia vai comprar").
+_EVENTOS = (
+    r"aquisi|compr[ao]|adquir|fus[ãa]o|merger|incorpora",
+    r"\bipo\b|abertura de capital|estreia na bolsa",
+    r"lucro|preju[íi]zo|balan[çc]o|resultado|receita",
+    r"demiss|corte de vagas|layoff|fecha unidade",
+    r"fal[êe]ncia|recupera[çc][ãa]o judicial|calote",
+    r"juros|selic|copom|taxa b[áa]sica",
+)
+
+
+def _evento(text: str) -> str:
+    import re as _re
+
+    t = _ascii(text)
+    for i, pat in enumerate(_EVENTOS):
+        if _re.search(_ascii(pat), t):
+            return str(i)
+    return ""
+
+
 def same_story(a: str, b: str, min_overlap: int = 2) -> bool:
     """Duas manchetes falam do MESMO fato? (compara as palavras fortes)."""
     ka, kb = keywords(a), keywords(b)
     if not ka or not kb:
         return False
-    return len(ka & kb) >= min_overlap
+    comum = ka & kb
+    if len(comum) >= min_overlap:
+        return True
+    # Mesmo PROTAGONISTA + mesmo tipo de fato (ex.: Nvidia + aquisição). A palavra
+    # em comum precisa ser o protagonista, não o próprio evento: senão duas
+    # decisões de juros diferentes (Fed e BC do Canadá) virariam a mesma notícia.
+    ev = _evento(a)
+    if not ev or ev != _evento(b):
+        return False
+    return bool({w for w in comum if not _evento(w)})
 
 
 def _score(title: str) -> int:
@@ -162,8 +194,7 @@ def fetch_headlines(limit: int = 60) -> list[dict]:
     # Colapsa manchetes diferentes sobre o MESMO fato (fica a mais forte).
     unique: list[dict] = []
     for it in items:
-        ks = set(it["keys"])
-        if any(len(ks & set(u["keys"])) >= 2 for u in unique):
+        if any(same_story(it["title"], u["title"]) for u in unique):
             continue
         unique.append(it)
         if len(unique) >= _MAX_POOL:
