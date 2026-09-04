@@ -1,30 +1,5 @@
 [
   {
-    "date": "2026-08-26T08:15-03:00",
-    "type": "conceito",
-    "angle": "Média simples x exponencial: a diferença entre a SMA e a EMA e por que a EMA reage mais rápido",
-    "headline": "SMA x EMA: por que uma reage mais rápido",
-    "subject": "ind:media-simples-x-exponencial"
-  },
-  {
-    "date": "2026-08-26T08:16-03:00",
-    "type": "numero",
-    "angle": "a euforia perigosa depois de vários acertos seguidos",
-    "headline": "Depois do quarto acerto seguido, é aí que o risco fica invisível"
-  },
-  {
-    "date": "2026-08-26T11:08-03:00",
-    "type": "mercado",
-    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
-    "headline": "Ouro (XAU/USD) avança +1,29% no dia, ainda longe da máxima"
-  },
-  {
-    "date": "2026-08-26T11:08-03:00",
-    "type": "lista",
-    "angle": "a importância de dormir bem para operar melhor",
-    "headline": "4 sinais de que a noite mal dormida entrou na sua tela"
-  },
-  {
     "date": "2026-08-26T11:09-03:00",
     "type": "conceito",
     "angle": "Rompimento de resistência: quando o preço ultrapassa com força uma região que antes o segurava (breakout)",
@@ -959,5 +934,31 @@
     "type": "numero",
     "angle": "a importância de manter um diário de operações",
     "headline": "linha no diário vale mais que dez horas de gráfico decorado"
+  },
+  {
+    "date": "2026-09-03T21:38-03:00",
+    "type": "conceito",
+    "angle": "gerenciamento de risco: arriscar só uma pequena parte da banca por operação",
+    "headline": "O tamanho da entrada define o resto",
+    "subject": "con:gerenciamento-risco-arriscar-so"
+  },
+  {
+    "date": "2026-09-03T21:39-03:00",
+    "type": "lista",
+    "angle": "disciplina no gerenciamento de risco",
+    "headline": "5 marcas de quem leva risco a sério"
+  },
+  {
+    "date": "2026-09-03T21:39-03:00",
+    "type": "dica",
+    "angle": "montar um plano de trade antes de operar",
+    "headline": "Sem plano escrito, você já perdeu antes de entrar",
+    "subject": "dic:montar-plano-trade-antes"
+  },
+  {
+    "date": "2026-09-03T21:39-03:00",
+    "type": "foto",
+    "angle": "comemorar as pequenas evoluções, não só os grandes dias",
+    "headline": "Você só comemora quando o dia fecha verde?"
   }
 ]
