@@ -47,10 +47,14 @@ MENTALITY_FORMATS = ("foto", "citacao", "mito_verdade", "numero", "lista")
 EDU_FORMATS = ("padrao", "conceito", "dica")  # nos slots pares que não são mercado
 TRADER_FORMATS_ROTATION = MENTALITY_FORMATS  # compat: usado no disparo manual "trader"
 
-# Máximo de posts que UM disparo pode recuperar de uma vez (catch-up). Se o GitHub
-# disparar poucas vezes no dia, cada disparo corre atrás de vários horários
-# atrasados, para chegar perto dos 20/dia. Em dias normais fica ~1 por disparo.
-CATCHUP_MAX = int(os.getenv("CATCHUP_MAX") or "4")
+# Máximo de posts que UM disparo pode recuperar de uma vez (catch-up). O cron do
+# GitHub é "best-effort" e na prática dispara poucas vezes por dia (já houve dia
+# com só 2 disparos), então cada disparo precisa correr atrás de vários horários
+# atrasados para chegar perto dos 20/dia.
+CATCHUP_MAX = int(os.getenv("CATCHUP_MAX") or "8")
+# Intervalo entre posts de uma mesma rodada de recuperação, em segundos. Sem ele
+# os posts atrasados saem todos no mesmo minuto (fica com cara de spam no feed).
+POST_GAP_S = int(os.getenv("POST_GAP_S") or "150")
 # Todos os formatos válidos (para --type manual e validação).
 ALL_FORMATS = ("foto", "citacao", "lista", "mito_verdade", "numero",
                "historia", "conceito", "dica", "mercado")
