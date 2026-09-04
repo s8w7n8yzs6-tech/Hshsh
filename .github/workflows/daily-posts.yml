@@ -86,11 +86,14 @@ jobs:
             done
           fi
 
-      # Em modo dry_run é gerado um preview.png; deixamos disponível para download.
-      - name: Salvar prévia do card (dry_run)
+      # Em modo dry_run a prévia é gerada localmente: card único (preview.png) ou
+      # os slides do carrossel (preview_carousel/). Fica disponível para download.
+      - name: Salvar prévia do post (dry_run)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: previa-do-card
-          path: preview.png
+          name: previa-do-post
+          path: |
+            preview.png
+            preview_carousel/**
           if-no-files-found: ignore
