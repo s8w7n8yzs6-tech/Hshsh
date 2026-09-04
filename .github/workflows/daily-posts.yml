@@ -21,10 +21,10 @@ on:
   workflow_dispatch:
     inputs:
       type:
-        description: "Formato do post (opcional)"
+        description: "Formato do post (o feed é só carrossel de notícia)"
         required: false
         type: choice
-        options: ["", "trader", "mercado", "foto", "citacao", "lista", "mito_verdade", "numero", "historia", "conceito", "dica"]
+        options: ["", "historia"]
       dry_run:
         description: "Somente gerar, sem publicar"
         required: false
