@@ -115,12 +115,12 @@ def _credit(d, credit):
         d.text((_W - _M - (cb[2] - cb[0]), _H - 62), credit, font=cf, fill=(210, 214, 222))
 
 
-def _arraste(d, accent):
+def _arraste(d, accent, y=_H - 172):
     af = _f(_SANS_B, 28)
     tb = d.textbbox((0, 0), "ARRASTE  →", font=af)
-    d.rounded_rectangle([_M, _H - 172, _M + (tb[2] - tb[0]) + 54, _H - 172 + (tb[3] - tb[1]) + 30],
+    d.rounded_rectangle([_M, y, _M + (tb[2] - tb[0]) + 54, y + (tb[3] - tb[1]) + 30],
                         radius=30, fill=accent)
-    d.text((_M + 27, _H - 172 + 15 - tb[1]), "ARRASTE  →", font=af, fill=_DARK)
+    d.text((_M + 27, y + 15 - tb[1]), "ARRASTE  →", font=af, fill=_DARK)
 
 
 def _photo_bg(photo, heavy=False):
@@ -137,12 +137,12 @@ def _photo_bg(photo, heavy=False):
 
 
 # ---------------------------------------------------------------- POSTER
-def _poster(cover, slides, source, handle, credit, accent, photo, save):
+def _poster(cover, slides, source, handle, credit, accent, photo, save, kicker):
     total = 2 + len(slides)
     img = _photo_bg(photo, heavy=False)
     d = ImageDraw.Draw(img)
     _progress(d, accent, 1 / total)
-    _kicker(d, accent, "Mercado no Brasil · Esta semana")
+    _kicker(d, accent, kicker)
     hw, hf, hsp = _fit(d, cover, _SANS_B, _W - 2 * _M, 520, 108, 56)
     hb = d.multiline_textbbox((0, 0), hw, font=hf, spacing=hsp)
     hy = _H - 308 - (hb[3] - hb[1])
@@ -173,7 +173,7 @@ def _poster(cover, slides, source, handle, credit, accent, photo, save):
 
 
 # ---------------------------------------------------------------- BAND
-def _band(cover, slides, source, handle, credit, accent, photo, save):
+def _band(cover, slides, source, handle, credit, accent, photo, save, kicker):
     total = 2 + len(slides)
 
     def band_top(frac_h):
@@ -193,13 +193,13 @@ def _band(cover, slides, source, handle, credit, accent, photo, save):
     img, h = band_top(0.60)
     d = ImageDraw.Draw(img)
     _progress(d, accent, 1 / total)
-    _kicker(d, accent, "Mercado no Brasil · Esta semana", y=h - 60)
+    _kicker(d, accent, kicker, y=h - 60)
     hy = h + 10
-    hw, hf, hsp = _fit(d, cover, _SERIF_B, _W - 2 * _M, _H - 210 - hy, 92, 52, 0.14)
+    hw, hf, hsp = _fit(d, cover, _SERIF_B, _W - 2 * _M, _H - 330 - hy, 92, 52, 0.14)
     d.multiline_text((_M, hy), hw, font=hf, fill=_W_, spacing=hsp)
     b = _bottom(d, (_M, hy), hw, hf, hsp)
     d.text((_M, b + 30), f"Fonte · {source or 'manchetes da semana'}", font=_f(_SANS_R, 28), fill=(170, 178, 190))
-    _arraste(d, accent)
+    _arraste(d, accent, y=min(b + 92, _H - 130))
     _credit(d, credit)
     save(img, 0)
 
@@ -221,13 +221,13 @@ def _band(cover, slides, source, handle, credit, accent, photo, save):
 
 
 # ---------------------------------------------------------------- FRAME
-def _frame(cover, slides, source, handle, credit, accent, photo, save):
+def _frame(cover, slides, source, handle, credit, accent, photo, save, kicker):
     total = 2 + len(slides)
 
     img = Image.new("RGBA", (_W, _H), _DARK + (255,))
     d = ImageDraw.Draw(img)
     _progress(d, accent, 1 / total)
-    _kicker(d, accent, "Mercado no Brasil · Esta semana")
+    _kicker(d, accent, kicker)
     # foto emoldurada
     fx0, fy0, fx1, fy1 = _M, _M + 90, _W - _M, int(_H * 0.56)
     if photo is not None:
@@ -278,7 +278,7 @@ def _cta(cover, handle, accent, photo, total, save):
 
 
 # ---------------------------------------------------------------- SPLIT
-def _split(cover, slides, source, handle, credit, accent, photo, save):
+def _split(cover, slides, source, handle, credit, accent, photo, save, kicker):
     """Bloco de cor + foto em paisagem — forte e ideal para fotos landscape."""
     total = 2 + len(slides)
     top_h = int(_H * 0.46)
@@ -291,7 +291,7 @@ def _split(cover, slides, source, handle, credit, accent, photo, save):
     d = ImageDraw.Draw(img)
     _progress(d, _DARK, 1 / total)
     d.rectangle([_M, _M + 10, _M + 22, _M + 32], fill=_DARK)
-    _tracked(d, (_M + 40, _M + 6), "MERCADO NO BRASIL · ESTA SEMANA", _f(_SANS_B, 26), _DARK, 6)
+    _tracked(d, (_M + 40, _M + 6), kicker.upper(), _f(_SANS_B, 26), _DARK, 6)
     hy = _M + 86
     hw, hf, hsp = _fit(d, cover, _SANS_B, _W - 2 * _M, top_h - hy - 90, 92, 48)
     d.multiline_text((_M, hy), hw, font=hf, fill=_DARK, spacing=hsp)
@@ -357,7 +357,7 @@ _LANDSCAPE_OK = [_band, _frame, _split]
 
 
 def build(cover: str, slides: list, source: str, handle: str, out_dir: str,
-          seed: int = 0, photo=None, credit: str = "") -> list:
+          seed: int = 0, photo=None, credit: str = "", kicker: str = "") -> list:
     """Renderiza o carrossel image-driven, escolhendo o layout que melhor cabe na foto.
 
     Foto retrato → qualquer layout (inclui o poster em tela cheia). Foto paisagem
@@ -372,9 +372,10 @@ def build(cover: str, slides: list, source: str, handle: str, out_dir: str,
         img.convert("RGB").save(p, "PNG")
         paths.append(p)
 
+    kicker = (kicker or "Mercado · Esta semana").strip()
     accent = _ACCENTS[seed % len(_ACCENTS)]
     tall = photo is not None and (photo.height / max(1, photo.width)) >= 1.15
     options = _LAYOUTS if tall else _LANDSCAPE_OK
     layout = options[seed % len(options)]
-    layout(cover, slides, source, handle, credit, accent, photo, save)
+    layout(cover, slides, source, handle, credit, accent, photo, save, kicker)
     return paths

@@ -8,6 +8,7 @@ crédito) e, por último, a Wikipédia. Pexels é usado só se houver PEXELS_API
 from __future__ import annotations
 
 import io
+import os
 import re
 
 import requests
@@ -23,11 +24,25 @@ _BAD = re.compile(
     r"pattern|drawing|logo|template|transparent|"
     # material antigo/arquivo (o acervo CC0 tem muita foto histórica)
     r"vintage|antique|retro|archive|museum|painting|engraving|postcard|lithograph|"
-    r"original image from|public domain|18\d\d|19[0-7]\d",
+    r"original image from|public domain|18\d\d|19[0-7]\d|"
+    # negativos/escaneados de acervo (chegam como foto, mas parecem filme velho)
+    r"negative|film strip|safety film|agfa|kodak|glass plate|daguerre|"
+    r"scanned|photographic print|black.and.white|black & white|monochrome|b&w",
     re.I,
 )
 _MIN_LONG = 800   # lado maior mínimo
 _MIN_SHORT = 560  # lado menor mínimo
+_MIN_SAT = 10     # saturação média mínima: abaixo disso é P&B/negativo de acervo
+
+
+def _saturation(img) -> float:
+    """Saturação média (0-255). Fotos modernas têm cor; escaneados antigos, não."""
+    try:
+        small = img.convert("HSV").resize((64, 64))
+        px = small.split()[1].getdata()
+        return sum(px) / len(px)
+    except Exception:  # noqa: BLE001
+        return 255.0
 
 
 def _download(url: str):
@@ -43,6 +58,8 @@ def _download(url: str):
     w, h = img.size
     if max(w, h) < _MIN_LONG or min(w, h) < _MIN_SHORT:
         return None
+    if _saturation(img) < _MIN_SAT:
+        return None  # imagem sem cor (P&B/negativo antigo) — não serve de capa
     return img
 
 
@@ -73,6 +90,7 @@ def _pick(results, want_tall: bool, toks: list[str] | None = None):
             continue
         w, h = img.size
         score = (w * h) / 1_000_000.0
+        score += min(2.0, _saturation(img) / 60.0)  # foto com cor chama mais atenção
         if want_tall:
             score += 2.5 * (h / w)
         if score > best_score:
@@ -130,10 +148,24 @@ def _wikipedia(query: str):
         return None, ""
 
 
+# Teto de tempo da busca de foto. Sem isso, um post pode ficar minutos tentando
+# fonte após fonte (são 20 posts/dia, cada um com sua foto).
+BUDGET_S = float(os.getenv("PHOTO_BUDGET_S") or "75")
+# Usadas só quando não se acha foto do assunto (para nunca sair sem imagem).
+_GENERIC = ["stock market trading", "business meeting office", "money finance",
+            "city business skyline"]
+
+
 def fetch_topic_photo(query: str):
     """Retorna (PIL.Image RGB, crédito) da foto do assunto, ou (None, "")."""
+    import time
+
     q = (query or "").strip() or "stock market finance"
     short = " ".join(q.split()[:2])
+    deadline = time.monotonic() + BUDGET_S
+
+    def esgotou() -> bool:
+        return time.monotonic() >= deadline
 
     img, credit = _pexels(q)
     if img is not None:
@@ -144,6 +176,8 @@ def fetch_topic_photo(query: str):
     for src in ("stocksnap", "rawpixel,stocksnap"):
         for qq in (q, short):
             for tall in (True, False):
+                if esgotou():
+                    return None, ""
                 res = _openverse(qq, src, "cc0,pdm", tall)
                 if res:
                     got = _pick(res, want_tall=tall, toks=toks)
@@ -152,6 +186,8 @@ def fetch_topic_photo(query: str):
 
     # 2) Openverse geral (uso comercial + edição) — com crédito.
     for qq in (q, short):
+        if esgotou():
+            return None, ""
         res = _openverse(qq, None, "cc0,pdm,by,by-sa", False)
         if res:
             got = _pick(res, want_tall=True, toks=toks)
@@ -160,5 +196,21 @@ def fetch_topic_photo(query: str):
                 lic = (got[1].get("license") or "").lower()
                 return got[0], "" if lic in ("cc0", "pdm") else f"foto: {prov} (CC)"
 
-    # 3) Último recurso: Wikipédia/Commons.
-    return _wikipedia(q)
+    # 3) Wikipédia/Commons.
+    if not esgotou():
+        img, credit = _wikipedia(q)
+        if img is not None:
+            return img, credit
+
+    # 4) Rede de segurança: nenhuma foto do assunto encontrada. Em vez de cair num
+    # fundo chapado, usa uma foto genérica de mercado/negócios — o carrossel nunca
+    # sai sem imagem.
+    for qq in _GENERIC:
+        if esgotou():
+            break
+        res = _openverse(qq, "stocksnap", "cc0,pdm", False)
+        if res:
+            got = _pick(res, want_tall=True)
+            if got:
+                return got[0], ""
+    return None, ""
