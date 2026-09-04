@@ -1,31 +1,5 @@
 [
   {
-    "date": "2026-08-26T11:09-03:00",
-    "type": "conceito",
-    "angle": "Rompimento de resistência: quando o preço ultrapassa com força uma região que antes o segurava (breakout)",
-    "headline": "Rompimento de resistência: o que é breakout",
-    "subject": "est:rompimento-resistencia"
-  },
-  {
-    "date": "2026-08-26T11:09-03:00",
-    "type": "foto",
-    "angle": "rever operações passadas com honestidade",
-    "headline": "Você relê seus trades ou só olha o saldo final?"
-  },
-  {
-    "date": "2026-08-26T13:59-03:00",
-    "type": "conceito",
-    "angle": "IFR (RSI): o Índice de Força Relativa, que mede se um ativo está muito comprado ou muito vendido",
-    "headline": "IFR: o termômetro de força do preço",
-    "subject": "ind:ifr-rsi"
-  },
-  {
-    "date": "2026-08-26T13:59-03:00",
-    "type": "citacao",
-    "angle": "resistir ao 'só mais uma operação'",
-    "headline": "Só mais uma operação já pagou mais almoço de corretora do que de trader"
-  },
-  {
     "date": "2026-08-26T13:59-03:00",
     "type": "conceito",
     "angle": "a relação risco/retorno (por que buscar ganho maior que a perda arriscada)",
@@ -960,5 +934,30 @@
     "type": "foto",
     "angle": "comemorar as pequenas evoluções, não só os grandes dias",
     "headline": "Você só comemora quando o dia fecha verde?"
+  },
+  {
+    "date": "2026-09-04T10:56-03:00",
+    "type": "conceito",
+    "angle": "Média simples x exponencial: a diferença entre a SMA e a EMA e por que a EMA reage mais rápido",
+    "headline": "SMA x EMA: cada média tem sua memória",
+    "subject": "ind:media-simples-x-exponencial"
+  },
+  {
+    "date": "2026-09-04T10:57-03:00",
+    "type": "mito_verdade",
+    "angle": "respeitar o horário de encerrar o dia de operações",
+    "headline": "Horário de parar é decisão tomada antes, não negociada na hora"
+  },
+  {
+    "date": "2026-09-04T10:57-03:00",
+    "type": "mercado",
+    "angle": "destaque a variação do dia e o que ela indica, de forma neutra",
+    "headline": "Ouro fecha o dia com alta de +0,98%, em 4.474,60"
+  },
+  {
+    "date": "2026-09-04T10:57-03:00",
+    "type": "numero",
+    "angle": "manter a rotina de estudo mesmo desmotivado",
+    "headline": "Vontade de estudar hoje: zero. Estudou assim mesmo: um."
   }
 ]
