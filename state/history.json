@@ -1050,5 +1050,33 @@
     "angle": "Brasil vende mais para EUA apesar de tarifas e tem superávit comercial de US$7,394 bi: InfoMoney",
     "headline": "Tarifa nos EUA e Brasil ainda fecha no azul",
     "subject": "man:brasil-vende-mais-para-eua-apesar"
+  },
+  {
+    "date": "2026-09-05T13:08-03:00",
+    "type": "historia",
+    "angle": "Ouro cai mais de 1% após payroll forte dar fôlego ao dólar: CNN Brasil",
+    "headline": "Payroll forte derruba o ouro: entenda o mecanismo",
+    "subject": "man:ouro-cai-mais-de-1-apos"
+  },
+  {
+    "date": "2026-09-05T13:11-03:00",
+    "type": "historia",
+    "angle": "Efeito China: preços de carros usados caem até 20% com enxurrada de novos modelos chineses: G1",
+    "headline": "Carros usados caem até 20%: efeito China chegou",
+    "subject": "man:efeito-china-precos-de-carros-usados"
+  },
+  {
+    "date": "2026-09-05T13:15-03:00",
+    "type": "historia",
+    "angle": "Ibovespa dispara 3% e dólar cai a R$ 5,10 com pesquisa Quaest no radar: G1",
+    "headline": "Bolsa sobe 3%, dólar cai a R$5,10. E a pesquisa?",
+    "subject": "man:ibovespa-dispara-3-e-dolar-cai"
+  },
+  {
+    "date": "2026-09-05T13:19-03:00",
+    "type": "historia",
+    "angle": "MiniMax sobe 6%, Baidu avança 5%: por que Astra da OpenAI impulsiona o surto de IA na China: Invezz",
+    "headline": "OpenAI lança modelo aberto e China dispara na bolsa",
+    "subject": "man:minimax-sobe-6-baidu-avanca-5"
   }
 ]
