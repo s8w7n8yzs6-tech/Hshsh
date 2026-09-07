@@ -1274,5 +1274,47 @@
     "angle": "Bolsa dispara 3% e atinge o maior nível desde maio: Agência Brasil",
     "headline": "Bolsa dispara 3% e vira a mais alta desde maio",
     "subject": "man:bolsa-dispara-3-e-atinge-o"
+  },
+  {
+    "date": "2026-09-07T12:28-03:00",
+    "type": "historia",
+    "angle": "Dívida dos EUA supera US$ 40 trilhões e pressiona promessa fiscal de Trump: Diário do Centro do Mundo",
+    "headline": "Dívida dos EUA passa de US$ 40 tri: e agora?",
+    "subject": "man:divida-dos-eua-supera-us-40"
+  },
+  {
+    "date": "2026-09-07T12:33-03:00",
+    "type": "historia",
+    "angle": "Ex-OMC: Tarifas sobre Brasil fazem empresas dos EUA cogitarem demissões: CNN Brasil",
+    "headline": "Tarifa dos EUA sobre o Brasil pode custar empregos... nos EUA",
+    "subject": "man:ex-omc-tarifas-sobre-brasil-fazem"
+  },
+  {
+    "date": "2026-09-07T12:38-03:00",
+    "type": "historia",
+    "angle": "Petróleo fecha em alta e salta 9% na semana com retomada de hostilidades no Oriente Médio: Agência eixos",
+    "headline": "Petróleo salta 9% na semana: guerra no radar",
+    "subject": "man:petroleo-fecha-em-alta-e-salta"
+  },
+  {
+    "date": "2026-09-07T12:43-03:00",
+    "type": "historia",
+    "angle": "IPCA+ 8% ou Selic a 14% ao ano? A diferença de taxas não conta toda a história; entenda neste episódio da Trilha do Investidor: Empiricus",
+    "headline": "IPCA+8% ou Selic 14%: qual rende mais de verdade?",
+    "subject": "man:ipca-8-ou-selic-a-14"
+  },
+  {
+    "date": "2026-09-07T12:47-03:00",
+    "type": "historia",
+    "angle": "China injetará US$54 bilhões em bancos estatais e seguradoras para reforçar capital: InfoMoney",
+    "headline": "China injeta US$54 bi em bancos estatais. Por quê?",
+    "subject": "man:china-injetara-us-54-bilhoes-em"
+  },
+  {
+    "date": "2026-09-07T12:53-03:00",
+    "type": "historia",
+    "angle": "Juros globais disparam e abalam mercado: o que está acontecendo e como fica o Brasil?: InfoMoney",
+    "headline": "Juros globais disparam: o Brasil vai sentir",
+    "subject": "man:juros-globais-disparam-e-abalam-mercado"
   }
 ]
