@@ -1540,5 +1540,40 @@
     "angle": "Grupo 3corações conclui aquisição das operações da General Mills no Brasil por R$ 800 milhões: SuperVarejo",
     "headline": "3corações compra a General Mills no Brasil por R$800 mi",
     "subject": "man:grupo-3coracoes-conclui-aquisicao-das-operacoes"
+  },
+  {
+    "date": "2026-09-09T19:38-03:00",
+    "type": "historia",
+    "angle": "Por que o Ibovespa recuou quase 1% nesta 4ª após atingir máximas desde maio?: InfoMoney",
+    "headline": "Ibovespa bate máxima e devolve quase tudo no mesmo dia",
+    "subject": "man:por-que-o-ibovespa-recuou-quase"
+  },
+  {
+    "date": "2026-09-09T19:42-03:00",
+    "type": "historia",
+    "angle": "60% dos executivos brasileiros sofrem com a pressão de trabalhar nos EUA: Valor Econômico",
+    "headline": "60% dos executivos brasileiros mal dormem nos EUA",
+    "subject": "man:60-dos-executivos-brasileiros-sofrem-com"
+  },
+  {
+    "date": "2026-09-09T19:45-03:00",
+    "type": "historia",
+    "angle": "Silver Lake vai unir duas empresas de software em aposta de R$ 59 bilhões em IA: Times Brasil | CNBC",
+    "headline": "Silver Lake junta duas softwares por R$ 59 bi em IA",
+    "subject": "man:silver-lake-vai-unir-duas-empresas"
+  },
+  {
+    "date": "2026-09-09T19:49-03:00",
+    "type": "historia",
+    "angle": "Universidades americanas podem ganhar bilhões com IPO da SpaceX e reforçam aposta em private equity: Times Brasil | CNBC",
+    "headline": "Faculdade dos EUA pode lucrar bilhões com SpaceX",
+    "subject": "man:universidades-americanas-podem-ganhar-bilhoes-com"
+  },
+  {
+    "date": "2026-09-09T19:53-03:00",
+    "type": "historia",
+    "angle": "Justiça dos EUA cobra dados de empresa cripto que recebeu quase R$ 3 bilhões do Banco Master: Portal do Bitcoin",
+    "headline": "Cripto, Banco Master e R$3 bi na mira dos EUA",
+    "subject": "man:justica-dos-eua-cobra-dados-de"
   }
 ]
