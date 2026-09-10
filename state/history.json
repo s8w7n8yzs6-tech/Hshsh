@@ -1589,5 +1589,47 @@
     "angle": "Aposta em ETF de Brasil em NY dispara 86% em duas semanas: por que isso importa para você?: valorinveste.globo.com",
     "headline": "ETF de Brasil em NY sobe 86% em 2 semanas. Por quê?",
     "subject": "man:aposta-em-etf-de-brasil-em"
+  },
+  {
+    "date": "2026-09-10T14:44-03:00",
+    "type": "historia",
+    "angle": "Petróleo a US$ 100 acende sinal de alerta do governo e pode frear queda de juros: PlatôBR",
+    "headline": "Petróleo a US$100 pode travar a queda de juros",
+    "subject": "man:petroleo-a-us-100-acende-sinal"
+  },
+  {
+    "date": "2026-09-10T14:48-03:00",
+    "type": "historia",
+    "angle": "Plano do Tesouro dos EUA de recompra de títulos falha e juro bate recorde de 3 anos: InfoMoney",
+    "headline": "Recompra do Tesouro dos EUA falha e juro dispara",
+    "subject": "man:plano-do-tesouro-dos-eua-de"
+  },
+  {
+    "date": "2026-09-10T14:52-03:00",
+    "type": "historia",
+    "angle": "Holding de Vorcaro que deve US$ 1 bi está vazia em paraíso fiscal e ex-diretores driblam liquidante: Estadão",
+    "headline": "Holding de Vorcaro deve US$1 bi e está vazia",
+    "subject": "man:holding-de-vorcaro-que-deve-us"
+  },
+  {
+    "date": "2026-09-10T14:56-03:00",
+    "type": "historia",
+    "angle": "Empresas em recuperação judicial somam R$ 20 bilhões em dívidas no varejo - E-Commerce Brasil: E-Commerce Brasil",
+    "headline": "R$ 20 bi em recuperação judicial no varejo",
+    "subject": "man:empresas-em-recuperacao-judicial-somam-r"
+  },
+  {
+    "date": "2026-09-10T14:59-03:00",
+    "type": "historia",
+    "angle": "Para confiar na IA, empresas gastarão US$ 6,7 bilhões em 2029: Mobile Time",
+    "headline": "Confiar em IA vai custar US$ 6,7 bi até 2029",
+    "subject": "man:para-confiar-na-ia-empresas-gastarao"
+  },
+  {
+    "date": "2026-09-10T15:03-03:00",
+    "type": "historia",
+    "angle": "Uber anuncia corte de 10% dos funcionários em nova rodada de demissões: Francês News",
+    "headline": "Uber corta 10% do quadro: o que muda",
+    "subject": "man:uber-anuncia-corte-de-10-dos"
   }
 ]
