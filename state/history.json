@@ -1631,5 +1631,26 @@
     "angle": "Uber anuncia corte de 10% dos funcionários em nova rodada de demissões: Francês News",
     "headline": "Uber corta 10% do quadro: o que muda",
     "subject": "man:uber-anuncia-corte-de-10-dos"
+  },
+  {
+    "date": "2026-09-10T17:21-03:00",
+    "type": "historia",
+    "angle": "Recompra de US$ 6 bi do Tesouro dos EUA decepciona mercado: 'É como se tivessem criado um monstro': Valor Econômico",
+    "headline": "Tesouro dos EUA recompra US$6 bi e mercado não gosta",
+    "subject": "man:recompra-de-us-6-bi-do"
+  },
+  {
+    "date": "2026-09-10T17:25-03:00",
+    "type": "historia",
+    "angle": "Impacto da Geopolítica e perspectivas dos juros nos EUA e Brasil: trademap.com.br",
+    "headline": "Geopolítica trava juros: EUA e Brasil na corda-bamba",
+    "subject": "man:impacto-da-geopolitica-e-perspectivas-dos"
+  },
+  {
+    "date": "2026-09-10T17:28-03:00",
+    "type": "historia",
+    "angle": "EXCLUSIVO CNBC: CEOs da Nvidia e Hugging Face fecham acordo de US$ 12,93 bilhões em meio à corrida por IA aberta: Times Brasil | CNBC",
+    "headline": "Nvidia paga US$ 12,9 bi pela IA de código aberto",
+    "subject": "man:exclusivo-cnbc-ceos-da-nvidia-e"
   }
 ]
