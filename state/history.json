@@ -1771,5 +1771,40 @@
     "angle": "Ibovespa cai 0,93% com petróleo acima de US$ 100 e interrompe fôlego do ‘trade eleitoral’: suno.com.br",
     "headline": "Petróleo acima de US$ 100 trava o trade eleitoral",
     "subject": "man:ibovespa-cai-0-93-com-petroleo"
+  },
+  {
+    "date": "2026-09-12T10:20-03:00",
+    "type": "historia",
+    "angle": "Empresa quer gastar R$ 56 bilhões por ano para combater o aquecimento do planeta: TNH1",
+    "headline": "R$56 bi/ano contra o clima: onde entra o lucro?",
+    "subject": "man:empresa-quer-gastar-r-56-bilhoes"
+  },
+  {
+    "date": "2026-09-12T10:25-03:00",
+    "type": "historia",
+    "angle": "Opções de Copom da B3 indicam 95% de chance de corte de 0,25 p.p. na Selic em setembro: Bora Investir",
+    "headline": "Mercado já precifica corte de juro em setembro",
+    "subject": "man:opcoes-de-copom-da-b3-indicam"
+  },
+  {
+    "date": "2026-09-12T10:31-03:00",
+    "type": "historia",
+    "angle": "Boom de inteligência artificial impulsiona preço do cobre a níveis recordes: cnnbrasil.com.br",
+    "headline": "Cobre bate recorde: a IA precisa de fios, não só de chips",
+    "subject": "man:boom-de-inteligencia-artificial-impulsiona-preco"
+  },
+  {
+    "date": "2026-09-12T10:36-03:00",
+    "type": "historia",
+    "angle": "Egito pretende construir centro de dados de IA de US$ 1 bilhão com a Nvidia: correiodopovo.com.br",
+    "headline": "Egito aposta US$ 1 bi em data center de IA",
+    "subject": "man:egito-pretende-construir-centro-de-dados"
+  },
+  {
+    "date": "2026-09-12T10:41-03:00",
+    "type": "historia",
+    "angle": "Exportações da China crescem 25% em agosto e passam de US$ 400 bilhões: vermelho.org.br",
+    "headline": "China exporta US$ 400 bi em 1 mês. E agora?",
+    "subject": "man:exportacoes-da-china-crescem-25-em"
   }
 ]
