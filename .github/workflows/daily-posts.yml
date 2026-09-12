@@ -9,15 +9,20 @@ name: Posts diários sobre trade
 # UTC) e a lógica em src/post.py decide o que publicar: no máximo 1 post por
 # disparo — o próximo slot "devendo" — só depois do horário previsto, até 20/dia.
 # Assim, mesmo com o GitHub disparando torto, os posts saem espaçados e na janela.
+#
+# >>> PUBLICAÇÃO AUTOMÁTICA DESLIGADA (a pedido) <<<
+# O agendamento foi removido: o workflow NÃO roda mais sozinho, nem por horário
+# nem por "poke" em ops/poke. Só publica se alguém apertar "Run workflow"
+# manualmente aqui no GitHub. Para religar, basta devolver os dois gatilhos
+# comentados abaixo:
+#
+#   schedule:
+#     - cron: "*/20 10-23 * * *"
+#   push:
+#     branches: [main]
+#     paths: ["ops/poke"]
+#
 on:
-  schedule:
-    - cron: "*/20 10-23 * * *"
-  # Gatilho confiável externo ao cron do GitHub (que é instável): um "poke" em
-  # ops/poke feito por um agendador confiável dispara o workflow. A lógica em
-  # src/post.py decide o que publicar (próximos slots devidos, na janela).
-  push:
-    branches: [main]
-    paths: ["ops/poke"]
   workflow_dispatch:
     inputs:
       type:
